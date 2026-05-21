@@ -1,7 +1,7 @@
 # GDPR — EU General Data Protection Regulation (2016/679)
 
 **Registry version:** 2026.05
-**Last updated:** 2026-05-20
+**Last updated:** 2026-05-21
 **Scope:** Articles governing technical and organizational compliance obligations (Articles 5–6, 13–14, 17, 20, 25, 30, 32–40, Chapter V)
 **Authority:** EU / EEA national supervisory authorities (lead authority for cross-border processing determined by main establishment)
 **Enforcing context:** Any organization processing personal data of EU/EEA data subjects, regardless of organization location; extra-territorial scope per Article 3
@@ -15,12 +15,12 @@
 |---|---|
 | Articles (full regulation) | 99 |
 | Articles with technically testable obligations | ~20 (focused scope) |
-| Articles parsed (individual files) | 1 (core-articles.md — Art. 12, 13/14, 28, 30, 32, 33/34, 35, 37, Chapter V) |
+| Articles parsed (individual files) | 3 (core-articles.md — Art. 12, 13/14, 28, 30, 32, 33/34, 35, 37, Chapter V; principles-lawful-basis.md — Art. 5, 6, 9; data-subject-rights-design.md — Art. 17, 20, 21, 25) |
 | Fully automated (DETERMINISTIC) | Low — GDPR heavily favors "appropriate," "reasonable," "proportionate" language |
-| Partial automation (PARAMETERIZED) | Moderate (breach notification timelines, DPIA triggers, retention schedules) |
+| Partial automation (PARAMETERIZED) | Moderate (breach notification timelines, DPIA triggers, retention schedules, erasure, portability) |
 | Human-determination required (CONTESTED) | Dominant — "appropriate measures" is the central obligation of Art. 32 |
 | Unresolvable | Low |
-| Open assumptions | 10 (ASSUME-GDPR-001–010) |
+| Open assumptions | 17 (ASSUME-GDPR-001–010; ASSUME-GDPR-PRIN-001, CONSENT-001, SPEC-001; ERASURE-001, PORT-001, OBJ-001, PBD-001) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -136,6 +136,13 @@ Completeness is PARAMETERIZED (each record must have all fields). ROPA existence
 | ASSUME-GDPR-008 | Art. 37 | DPO designation: "large scale" = significant portion of EU population / continuous-systematic; "core activities" = primary purpose, not ancillary HR; DPO has expert knowledge; internal or external; no conflict of interest roles | 2026-05-20 |
 | ASSUME-GDPR-009 | Art. 32 | Art. 32 technical measures for standard personal data: encryption at rest (AES-128+); TLS 1.2+; access controls; MFA for large-scale processing; backup with restore capability; quarterly vulnerability scanning; pseudonymization where feasible | 2026-05-20 |
 | ASSUME-GDPR-010 | Chapter V | International transfers: all transfers in ROPA; adequacy decision or 2021 SCCs with correct module (M1/M2/M3/M4); TIA for high-risk jurisdictions (bulk surveillance risk); DPF: U.S. recipient certification verified | 2026-05-20 |
+| ASSUME-GDPR-PRIN-001 | Art. 5 | Accuracy maintenance: accuracy review cadence is org-defined based on data category — minimum annual for high-stakes decisions; near-real-time for transactional data; accuracy metric documented in ROPA per processing activity | 2026-11-01 |
+| ASSUME-GDPR-CONSENT-001 | Art. 6 | Consent records required fields: subject_identifier, timestamp, mechanism, notice_version_shown, purposes_consented_to; consent withdrawal processed within 30 days (Art. 12(3)); re-collection required if consent records cannot be verified | 2026-11-01 |
+| ASSUME-GDPR-SPEC-001 | Art. 9 | Special category processing: Art. 9(2) condition documented per activity in ROPA alongside Art. 6 lawful basis; biometric data only Art. 9 when used for identification; explicit consent (Art. 9(2)(a)) requires unambiguous affirmative act — no inferred or pre-ticked consent | 2026-11-01 |
+| ASSUME-GDPR-ERASURE-001 | Art. 17 | Technical erasure scope covers primary databases, application caches, search indexes, backup media (marked for purge at next backup cycle); third-party notification sent within 30-day response window for publicly disclosed data; audit logs pseudonymized rather than erased | 2026-11-01 |
+| ASSUME-GDPR-PORT-001 | Art. 20 | Portable format: JSON/CSV/XML/Parquet accepted; direct controller-to-controller transfer feasible if receiving controller provides documented API or standard import capability; feasibility documented per request with DPO review on disputes | 2026-11-01 |
+| ASSUME-GDPR-OBJ-001 | Art. 21 | Direct marketing objection is absolute — no compelling grounds override; LIA objection: compelling grounds assessment documented, DPO/Legal reviewed, communicated within 30 days; research/statistics override requires IRB review + DPO sign-off | 2026-11-01 |
+| ASSUME-GDPR-PBD-001 | Art. 25 | Privacy by design: systems default to minimum fields, minimum retention, restricted access; Privacy Design Review (PDR) required before deployment of new or materially changed systems; annual DPO attestation of programme adequacy against 'state of the art' standard | 2026-11-01 |
 
 ---
 
@@ -182,18 +189,9 @@ Standard three-tier gate (see NERC CIP registry). GDPR-specific constraints:
 | File | Contents | Assumptions | Confidence | Status |
 |---|---|---|---|---|
 | `core-articles.md` | Art. 12 (DSR timelines), 13/14 (privacy notices), 28 (DPA), 30 (ROPA), 32 (security), 33/34 (breach notification), 35 (DPIA), 37 (DPO), Chapter V (international transfers) | ASSUME-GDPR-001–010 | HIGH (Art. 12, 33) / MEDIUM (Art. 28, 30, 37) / LOW (Art. 32, Chapter V) | ✅ Parsed |
-| *(Art. 5, 6, 9)* | Principles (storage limitation, accuracy, minimization), lawful basis, special category data | TBD | CONTESTED | 🔲 Pending |
-| *(Art. 17, 20, 21)* | Right to erasure, portability, objection | TBD | PARAMETERIZED | 🔲 Pending |
-| *(Art. 25)* | Data protection by design and default | TBD | CONTESTED | 🔲 Pending |
+| `principles-lawful-basis.md` | Art. 5 (principles — storage limitation, accuracy, purpose limitation, accountability), Art. 6 (lawful basis — consent records/withdrawal, LIA), Art. 9 (special category data — identification, Art. 9(2) conditions, explicit consent, enhanced security) | ASSUME-GDPR-PRIN-001, CONSENT-001, SPEC-001 | HIGH (Art. 6 consent/withdrawal) / MEDIUM (Art. 9) / LOW (Art. 5 — CONTESTED) | ✅ Parsed |
+| `data-subject-rights-design.md` | Art. 17 (right to erasure — response deadline, outcome documentation, third-party propagation, technical procedure), Art. 20 (portability — deadline, machine-readable format, direct transfer feasibility), Art. 21 (right to object — direct marketing absolute cessation, LIA objection assessment, research override), Art. 25 (privacy by design/default — by-default configuration, SDLC PDR, annual DPO attestation, accessibility default) | ASSUME-GDPR-ERASURE-001, PORT-001, OBJ-001, PBD-001 | HIGH (Art. 21 direct marketing, Art. 17 deadline) / MEDIUM (Art. 20, Art. 17 erasure scope) / LOW (Art. 25 — CONTESTED) | ✅ Parsed |
 
 ---
 
-## Remaining parse priority
-
-| Priority | Article | Notes |
-|---|---|---|
-| 1 | Art. 9 | Special category data — enhanced requirements; pattern for high-risk DPIA triggers |
-| 2 | Art. 17 | Right to erasure — technical deletion coverage is semi-DETERMINISTIC |
-| 3 | Art. 5 | Principles — storage limitation and data minimization; PARAMETERIZED retention |
-| 4 | Art. 6 | Lawful basis — LIA is CONTESTED; consent is DETERMINISTIC for withdrawal/records |
-| 5 | Art. 20, 21, 25 | Portability, objection, PbD — all CONTESTED; parse last |
+## Parse status: Complete — all focused-scope articles parsed across 3 spec files (Art. 5, 6, 9, 12, 13/14, 17, 20, 21, 25, 28, 30, 32, 33/34, 35, 37, Chapter V); 17 assumptions recorded
