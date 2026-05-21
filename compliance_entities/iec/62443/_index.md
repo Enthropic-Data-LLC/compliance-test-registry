@@ -19,11 +19,11 @@
 | Foundational requirements (FR) | 7 |
 | System requirements (SR) | ~110 |
 | Component requirements (CR) | ~90 |
-| Requirements parsed (individual files) | 0 (index only; individual part files pending) |
-| Fully automated (DETERMINISTIC) | Moderate — account management, patch cadence, security level assignment once target SL defined |
-| Partial automation (PARAMETERIZED) | Dominant — "appropriate," "commensurate with the security level" |
-| Human-determination required (CONTESTED) | Moderate — risk assessment methodology, zone/conduit boundary determination |
-| Open assumptions | 0 |
+| Requirements parsed (individual files) | 2 (fr1-fr3-iam-use-integrity.md + fr4-fr7-confidentiality-availability.md) — all 7 FRs covered |
+| Fully automated (DETERMINISTIC) | High once SL-T established — 16 DETERMINISTIC thresholds across all 7 FRs |
+| Partial automation (PARAMETERIZED) | Moderate — RBAC adequacy, monitoring design, crypto selection |
+| Human-determination required (CONTESTED) | Low — zone/conduit boundary determination is PARAMETERIZED (not CONTESTED) |
+| Open assumptions | 8 |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 

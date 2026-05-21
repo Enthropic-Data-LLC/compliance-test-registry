@@ -16,11 +16,11 @@
 | Clauses | 9 (Clauses 4–9) |
 | Software safety classes | 3 (A, B, C) |
 | Processes | 8 (development, maintenance, risk management, configuration management, problem resolution, change management, documentation, QA) |
-| Clauses parsed (individual files) | 0 (index only) |
-| Fully automated (DETERMINISTIC) | Moderate — safety class determines required activities; traceability matrices; document existence |
-| Partial automation (PARAMETERIZED) | Moderate |
-| Human-determination required (CONTESTED) | Moderate — safety class assignment; software unit testing adequacy |
-| Open assumptions | 0 |
+| Clauses parsed (individual files) | 2 (software-development-controls.md + maintenance-risk-problem-resolution.md) |
+| Fully automated (DETERMINISTIC) | High — safety class gates make most requirements binary; SDP 9 elements, SOUP, traceability, problem reports all DETERMINISTIC |
+| Partial automation (PARAMETERIZED) | Low — 1 traceability assumption |
+| Human-determination required (CONTESTED) | Low — safety class assignment is PARAMETERIZED from ISO 14971 (not CONTESTED) |
+| Open assumptions | 1 |
 
 ---
 
