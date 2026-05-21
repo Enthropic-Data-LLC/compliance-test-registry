@@ -496,3 +496,156 @@ entries:
           FedRAMP requires ≥25-mile geographic separation and both primary and alternate
           sites within CONUS. Base 800-53 CP-6 geographic separation is ODP-bounded.
           Satisfying FedRAMP CP-6 satisfies base 800-53 CP-6.
+
+  # ── SWIFT CSP cross-framework mappings ───────────────────────────────────
+  # SWIFT CSP controls are not derived from 800-53 but overlap significantly.
+  # Relationship type is "overlap" where 800-53 is canonical and SWIFT CSP is the
+  # alias — satisfying 800-53 partially satisfies SWIFT CSP but SWIFT has its own
+  # specific thresholds (e.g., 3-month critical patch SLA vs. 800-53 KEV 14-day).
+
+  - canonical_id: IA-2
+    canonical_title: Identification and Authentication (Organizational Users)
+    aliases:
+      - framework: swift-csp-v2025
+        control_id: "3.2"
+        relationship: overlap
+        baselines: [moderate, high]
+        notes: >
+          SWIFT CSP 3.2 requires MFA for all SWIFT operators. 800-53 IA-2 requires MFA
+          for privileged users at Moderate and all users at High. Overlap: satisfying
+          800-53 IA-2 at High baseline covers the SWIFT 3.2 MFA requirement, but SWIFT
+          3.2 is SWIFT-infrastructure-scoped while 800-53 IA-2 is system-wide. Neither
+          fully subsumes the other due to scope difference.
+
+  - canonical_id: SI-2
+    canonical_title: Flaw Remediation
+    aliases:
+      - framework: swift-csp-v2025
+        control_id: "1.2"
+        relationship: overlap
+        baselines: [low, moderate, high]
+        notes: >
+          SWIFT CSP 1.2 specifies critical patches within 90 days and other patches
+          within 180 days. 800-53 SI-2 specifies KEV=14 days and Critical=30 days —
+          stricter than SWIFT for high-severity. Satisfying 800-53 SI-2 SLAs satisfies
+          SWIFT CSP 1.2 for SWIFT-zone systems. SWIFT 1.2 applies to SWIFT zone only;
+          800-53 SI-2 applies to the full system boundary.
+
+  - canonical_id: RA-5
+    canonical_title: Vulnerability Monitoring and Scanning
+    aliases:
+      - framework: swift-csp-v2025
+        control_id: "2.7A"
+        relationship: subset
+        baselines: [low, moderate, high]
+        notes: >
+          SWIFT CSP 2.7A requires quarterly internal scanning (≤90 days). 800-53 RA-5
+          at FedRAMP overlay is monthly (≤30 days) — stricter. Satisfying 800-53 RA-5
+          with a ≤30-day cadence satisfies SWIFT CSP 2.7A (quarterly requirement met).
+
+  - canonical_id: AU-11
+    canonical_title: Audit Record Retention
+    aliases:
+      - framework: swift-csp-v2025
+        control_id: "6.4"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          SWIFT CSP 6.4 requires 12-month log retention (365 days). 800-53 AU-11 requires
+          90-day online / 3-year archive — stricter than SWIFT's 12 months. Satisfying
+          800-53 AU-11 at Moderate (3yr archive) satisfies SWIFT CSP 6.4.
+
+  - canonical_id: IR-8
+    canonical_title: Incident Response Plan
+    aliases:
+      - framework: swift-csp-v2025
+        control_id: "7.1"
+        relationship: subset
+        baselines: [low, moderate, high]
+        notes: >
+          SWIFT CSP 7.1 requires an IRP specifically addressing SWIFT fraud, credential
+          compromise, and unauthorized transaction scenarios. 800-53 IR-8 requires a
+          general IRP. Satisfying 800-53 IR-8 partially satisfies SWIFT 7.1 — a SWIFT-
+          specific annex covering SWIFT scenarios and SWIFT ISAC contact procedures
+          is additionally required.
+
+  - canonical_id: CA-8
+    canonical_title: Penetration Testing
+    aliases:
+      - framework: swift-csp-v2025
+        control_id: "7.3A"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          SWIFT CSP 7.3A requires annual pentest of SWIFT infrastructure. 800-53 CA-8
+          (and FedRAMP CA-8 annually) have the same annual cadence. Satisfying FedRAMP
+          CA-8 (annual pentest) satisfies SWIFT 7.3A if pentest scope includes SWIFT zone.
+
+  # ── TISAX cross-framework mappings ───────────────────────────────────────
+  # TISAX VDA ISA controls heavily overlap ISO 27001 Annex A.
+  # Using 800-53 as canonical since it covers all areas; ISO 27001 would be a
+  # better canonical for TISAX but is not yet the thesaurus root.
+
+  - canonical_id: AC-2
+    canonical_title: Account Management
+    aliases:
+      - framework: tisax-vda-isa-6
+        control_id: "4.1-access-control"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          TISAX Domain 4 requires least-privilege access with annual review on automotive
+          project data systems. 800-53 AC-2 covers the same obligations (account lifecycle,
+          annual review, inactive account disable). Satisfying AC-2 satisfies TISAX Domain
+          4 access control requirements.
+
+  - canonical_id: SC-13
+    canonical_title: Cryptographic Protection
+    aliases:
+      - framework: tisax-vda-isa-6
+        control_id: "4.1-cryptography"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          TISAX Domain 4 requires AES-128+ at rest and TLS 1.2+ in transit for automotive
+          project data. 800-53 SC-13 requires FIPS 140-2/3 validated crypto (AES-128+).
+          Satisfying 800-53 SC-13 with FIPS-validated modules satisfies TISAX crypto
+          requirements for government-scope implementations.
+
+  - canonical_id: RA-5
+    canonical_title: Vulnerability Monitoring and Scanning
+    aliases:
+      - framework: tisax-vda-isa-6
+        control_id: "4.1-vulnerability-management"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          TISAX Domain 4 requires vulnerability scanning and patching for project data
+          systems; does not specify cadence explicitly. 800-53 RA-5 specifies monthly
+          authenticated scans. Satisfying RA-5 with a documented cadence satisfies
+          TISAX Domain 4 vulnerability management.
+
+  - canonical_id: IR-8
+    canonical_title: Incident Response Plan
+    aliases:
+      - framework: tisax-vda-isa-6
+        control_id: "4.1-incident-management"
+        relationship: subset
+        baselines: [low, moderate, high]
+        notes: >
+          TISAX Domain 4 requires a written incident management process with response records.
+          800-53 IR-8 requires a full IRP. Satisfying IR-8 satisfies TISAX incident management
+          domain 4 requirement.
+
+  - canonical_id: SA-9
+    canonical_title: External System Services
+    aliases:
+      - framework: tisax-vda-isa-6
+        control_id: "5.1-supplier-requirements"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          TISAX Domain 5 requires IS requirements in supplier contracts and sub-supplier
+          assessment. 800-53 SA-9 requires external service inventory and security requirements
+          in contracts. Satisfying SA-9 with TISAX-specific flow-down clauses and sub-supplier
+          assessment satisfies TISAX Domain 5.
