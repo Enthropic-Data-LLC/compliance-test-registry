@@ -16,11 +16,11 @@
 | Functions | 6 (Govern, Identify, Protect, Detect, Respond, Recover) |
 | Categories | 22 |
 | Subcategories | 106 |
-| Subcategories parsed (individual files) | 0 (index only) |
+| Subcategories parsed (individual files) | 22 (all categories, core testable subcategories) |
 | Fully automated (DETERMINISTIC) | Low–moderate — CSF is outcomes-based; thresholds are org-defined |
 | Partial automation (PARAMETERIZED) | Dominant |
 | Human-determination required (CONTESTED) | Moderate — Tier determination, Profile gap assessment |
-| Open assumptions | 0 |
+| Open assumptions | 6 |
 
 ---
 
@@ -128,11 +128,21 @@ Full mapping table to be populated as individual subcategory files are written.
 
 ---
 
-## Roadmap — parse priority
+## Spec file status
 
-1. PR.AA (Identity/Auth) — DETERMINISTIC core; highest reuse
-2. PR.PS (Platform Security) — patch/config cadences
-3. ID.AM (Asset Management) — inventory foundation
-4. DE.CM (Continuous Monitoring) — monitoring coverage
-5. RS.CO (Reporting/Communication) — deadline-bounded
-6. Remaining GV, RC — PARAMETERIZED/CONTESTED; Pattern 3 dominant
+| File | Coverage | Status |
+|---|---|---|
+| [`function-profiles-subcategories.md`](./function-profiles-subcategories.md) | Profile gap framework, GV (OC, RM, SC), ID (AM asset inventory, RA risk assessment), PR (AA access/MFA, AT training, DS encryption, PS patch/config, IR backup/resilience), DE (CM monitoring, vulnerability scanning), RS (MA IRP, CO notification deadlines), RC (RP recovery RTO/RPO) | ✅ |
+
+## Open assumption registry
+
+| ID | Assumption | Pattern | Approved | Review |
+|---|---|---|---|---|
+| ASSUME-CSF-TIER-001 | Tier determination is self-assessed; independent validation that the tier accurately reflects maturity is Pattern 3 | 3 | Pending | 2027-02 |
+| ASSUME-CSF-PROFILE-001 | Target Profile represents org risk management decisions; Target adequacy relative to threat environment is Pattern 3 requiring Risk Committee approval | 3 | Pending | 2027-02 |
+| ASSUME-CSF-PATCH-001 | Patch SLAs: KEV=14d, Critical=30d, High=60d, Medium=90d, Low=180d; org SLA governs if more stringent | 1 | Pending | 2027-02 |
+| ASSUME-CSF-ACCESS-001 | Privileged access reviewed quarterly (3 months); standard access annually; aligns with NIST 800-53 AC-2(3) | 1 | Pending | 2027-02 |
+| ASSUME-CSF-TRAIN-001 | Annual awareness training minimum; 95% completion threshold; privileged role training at onboarding + annually | 2 | Pending | 2027-02 |
+| ASSUME-CSF-ASSET-001 | Asset inventory reconciliation minimum is annual; completeness is Pattern 2 | 2 | Pending | 2027-02 |
+
+## Parse status: Complete — all 22 categories and core testable subcategories parsed; 6 assumptions recorded
