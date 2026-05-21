@@ -17,11 +17,11 @@
 | MDR articles | 123 + 17 Annexes |
 | IVDR articles | 113 + 14 Annexes |
 | Technically testable article clusters | ~30 |
-| Articles parsed (individual files) | 0 (index only; individual article files pending) |
+| Articles parsed (individual files) | 2 (gspr-technical-documentation.md + pms-vigilance-conformity.md — GSPR, tech doc, DoC, UDI, PMS/PSUR, vigilance deadlines, conformity assessment) |
 | Fully automated (DETERMINISTIC) | Low-moderate — classification rules, labeling elements, UDI database registration |
 | Partial automation (PARAMETERIZED) | Dominant — "appropriate," "sufficient," "state of the art" throughout |
 | Human-determination required (CONTESTED) | Significant — clinical evaluation adequacy, risk/benefit determination |
-| Open assumptions | 0 |
+| Open assumptions | 2 |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 

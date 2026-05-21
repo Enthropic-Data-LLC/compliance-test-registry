@@ -189,19 +189,19 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
 | NERC CIP (CIP-002–CIP-015) | `nerc/cip/` | NERC / FERC | Electric grid BES cybersecurity | **FULL** | 14 standard files |
-| NIST SP 800-53 r5 | `nist/sp800-53/` | NIST | Federal IS security controls (~1,007 controls) | INDEX | — |
-| NIST SP 800-171 r3 | `nist/sp800-171/` | NIST | CUI protection — 17 families, 110 requirements | INDEX | — |
-| NIST CSF 2.0 | `nist/csf2/` | NIST | Voluntary cybersecurity framework — 6 functions, 106 subcategories | INDEX | — |
+| NIST SP 800-53 r5 | `nist/sp800-53/` | NIST | Federal IS security controls (~1,007 controls) | FULL | core-technical-controls.md, contingency-incident-assessment.md, maintenance-media-physical-personnel.md, planning-program-training-privacy.md, risk-acquisition-supply-chain.md |
+| NIST SP 800-171 r3 | `nist/sp800-171/` | NIST | CUI protection — 17 families, 110 requirements | FULL | ac-access-control.md, ia-identification-authentication.md, au-cm-si-core-technical.md, sc-ir-pe-remaining.md, at-ra-sr-pl-pm-remaining.md |
+| NIST CSF 2.0 | `nist/csf2/` | NIST | Voluntary cybersecurity framework — 6 functions, 106 subcategories | FULL | function-profiles-subcategories.md |
 | NIST SP 800-82 r3 | `nist/sp800-82/` | NIST | OT/ICS security guide — SP 800-53 tailoring for OT | INDEX | — |
 | NIST AI RMF 1.0 | `nist/ai-rmf/` | NIST | AI risk management — GOVERN/MAP/MEASURE/MANAGE | FULL | govern-map.md, measure-manage.md |
-| CMMC 2.0 | `cmmc/` | DoD / OUSD(A&S) | Defense contractor cybersecurity — 3 levels | INDEX | — |
-| ISO/IEC 27001:2022 | `iso/27001/` | ISO/IEC | ISMS — 93 Annex A controls, 4 themes | INDEX+SECTIONS | 4 section files |
-| FedRAMP | `fedramp/` | OMB / GSA | Cloud service authorization — 800-53 + overlays | INDEX | — |
-| SOC 2 | `soc2/` | AICPA | Service org trust criteria — CC1–CC9 + 4 additional | INDEX | — |
+| CMMC 2.0 | `cmmc/` | DoD / OUSD(A&S) | Defense contractor cybersecurity — 3 levels | FULL | level1-level2-practices.md, level3-800-172-delta.md |
+| ISO/IEC 27001:2022 | `iso/27001/` | ISO/IEC | ISMS — 93 Annex A controls, 4 themes | FULL | clauses-4-10-isms-mandatory.md, annex-a5-organizational.md, annex-a6-people.md, annex-a7-physical.md, annex-a8-technological.md |
+| FedRAMP | `fedramp/` | OMB / GSA | Cloud service authorization — 800-53 + overlays | FULL | account-contingency-media.md, technical-overlays-high-enhancements.md, conmon-and-overlays.md |
+| SOC 2 | `soc2/` | AICPA | Service org trust criteria — CC1–CC9 + 4 additional | FULL | cc1-cc2-cc3-cc4-governance-risk.md, cc6-logical-physical-access.md, cc7-system-operations.md, cc8-cc5-change-control-activities.md, cc9-c1-pi1-additional-criteria.md, a1-availability.md, p-series-privacy.md |
 | IEC 62443 | `iec/62443/` | IEC | OT/ICS security — 7 FRs, 4 Security Levels, zone/conduit | FULL | fr1-fr3-iam-use-integrity.md, fr4-fr7-confidentiality-availability.md |
-| TISAX / VDA ISA 6.0 | `tisax/` | ENX / VDA | Automotive supply chain information security | INDEX | — |
-| SEC Cybersecurity Rules 2023 | `sec/cybersecurity/` | SEC | 8-K 4-business-day disclosure + annual risk governance | INDEX | — |
-| SWIFT CSP / CSCF v2025 | `swift/csp/` | SWIFT | Financial institution SWIFT infrastructure — 25 mandatory controls | INDEX | — |
+| TISAX / VDA ISA 6.0 | `tisax/` | ENX / VDA | Automotive supply chain information security | FULL | isms-hr-physical-controls.md, it-supplier-controls.md |
+| SEC Cybersecurity Rules 2023 | `sec/cybersecurity/` | SEC | 8-K 4-business-day disclosure + annual risk governance | FULL | incident-disclosure-annual-report.md |
+| SWIFT CSP / CSCF v2025 | `swift/csp/` | SWIFT | Financial institution SWIFT infrastructure — 25 mandatory controls | FULL | secure-environment-controls.md, access-credential-controls.md, detect-respond-controls.md |
 | TSA Pipeline Directives SD-02D | `tsa/pipeline/` | TSA / DHS | Critical pipeline OT/IT cybersecurity | INDEX | — |
 | NRC 10 CFR 73.54 | `nrc/10cfr73/` | NRC | Nuclear power reactor cybersecurity | INDEX | — |
 
@@ -211,14 +211,14 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| GDPR | `gdpr/` | EU / DPAs | EU personal data protection — 99 articles | INDEX | — |
-| UK GDPR + DPA 2018 | `uk-gdpr/` | ICO (UK) | Post-Brexit UK data protection — UK GDPR delta table | INDEX | — |
-| CCPA / CPRA | `ccpa-cpra/` | CalAG / CPPA | California consumer privacy — 3 thresholds, GPC signal | INDEX | — |
-| HIPAA Security Rule | `hipaa/` | HHS / OCR | ePHI technical/admin/physical safeguards | INDEX+SECTIONS | 5 section files |
-| HIPAA Privacy Rule | `hipaa/privacy/` | HHS / OCR | PHI in all forms — 9-element auth checklist, Safe Harbor 18 identifiers | INDEX | — |
+| GDPR | `gdpr/` | EU / DPAs | EU personal data protection — 99 articles | FULL | principles-lawful-basis.md, core-articles.md, data-subject-rights-design.md |
+| UK GDPR + DPA 2018 | `uk-gdpr/` | ICO (UK) | Post-Brexit UK data protection — UK GDPR delta table | FULL | uk-specific-deltas.md |
+| CCPA / CPRA | `ccpa-cpra/` | CalAG / CPPA | California consumer privacy — 3 thresholds, GPC signal | FULL | consumer-rights-obligations.md |
+| HIPAA Security Rule | `hipaa/` | HHS / OCR | ePHI technical/admin/physical safeguards | FULL | 164.308-administrative-safeguards.md, 164.310-physical-safeguards.md, 164.312-technical-safeguards.md, 164.314-organizational-requirements.md, 164.316-policies-documentation.md |
+| HIPAA Privacy Rule | `hipaa/privacy/` | HHS / OCR | PHI in all forms — 9-element auth checklist, Safe Harbor 18 identifiers | FULL | uses-disclosures-authorization.md, individual-rights-breach.md |
 | COPPA | `coppa/` | FTC | Children's online privacy — under 13, verifiable parental consent | INDEX | — |
 | PIPEDA / Law 25 | `pipeda/` | OPC (Canada) | Canadian private-sector privacy — 10 Fair Information Principles | INDEX | — |
-| LGPD | `lgpd/` | ANPD (Brazil) | Brazilian personal data protection — 10 legal bases, 15-day DSR | INDEX | — |
+| LGPD | `lgpd/` | ANPD (Brazil) | Brazilian personal data protection — 10 legal bases, 15-day DSR | FULL | lgpd-obligations.md |
 | APPI (2022 amendment) | `appi/` | PPC (Japan) | Japanese personal data protection — 2-week DSR, 3-5 day breach report | INDEX | — |
 
 ---
@@ -227,11 +227,11 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| PCI DSS v4.0 | `pci-dss/` | PCI SSC | Payment card data security — 12 requirements | INDEX+SECTIONS | 12 requirement files |
-| SOX ITGC | `sox/` | SEC / PCAOB | Public company financial controls — 4 ITGC domains | INDEX | — |
-| GLBA Safeguards Rule | `glba/` | FTC / OCC | Financial institution customer data — 9 safeguard elements | INDEX | — |
-| NYDFS Part 500 | `nydfs/500/` | NYDFS | NY-licensed financial entity cybersecurity — 6yr log retention | INDEX | — |
-| DORA | `dora/` | EU / ESAs | EU financial entity digital operational resilience — 5 pillars | INDEX | — |
+| PCI DSS v4.0 | `pci-dss/` | PCI SSC | Payment card data security — 12 requirements | FULL | req-01 through req-12 (12 files) |
+| SOX ITGC | `sox/` | SEC / PCAOB | Public company financial controls — 4 ITGC domains | FULL | itgc-access-change-operations.md |
+| GLBA Safeguards Rule | `glba/` | FTC / OCC | Financial institution customer data — 9 safeguard elements | FULL | safeguards-rule.md |
+| NYDFS Part 500 | `nydfs/500/` | NYDFS | NY-licensed financial entity cybersecurity — 6yr log retention | FULL | cybersecurity-program.md |
+| DORA | `dora/` | EU / ESAs | EU financial entity digital operational resilience — 5 pillars | FULL | incident-reporting-contracts-resilience.md |
 | FFIEC | `ffiec/` | FFIEC | US bank examination benchmarks — 12 handbooks | INDEX | — |
 | Basel III / BCBS 239 | `basel/` | BCBS | Capital adequacy ratios + risk data aggregation | INDEX | — |
 | PSD2 / SCA | `psd2/` | EBA (EU) | Payment services strong customer authentication | INDEX | — |
@@ -243,12 +243,12 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| FDA 21 CFR Part 11 | `fda/21cfr11/` | FDA | Electronic records and signatures | INDEX | — |
-| FDA 21 CFR 210/211 cGMP | `fda/21cfr210-211/` | FDA | Pharmaceutical manufacturing good practices | INDEX | — |
+| FDA 21 CFR Part 11 | `fda/21cfr11/` | FDA | Electronic records and signatures | FULL | electronic-records-esig.md, system-validation.md |
+| FDA 21 CFR 210/211 cGMP | `fda/21cfr210-211/` | FDA | Pharmaceutical manufacturing good practices | FULL | pharmaceutical-manufacturing-controls.md |
 | FDA QMSR | `fda/qmsr/` | FDA | Medical device quality management — ISO 13485 + 15 FDA deltas | FULL | fda-qmsr-deltas.md |
 | FDA FSMA | `fda/fsma/` | FDA | Food safety modernization — HARPC, FSVP, FTL traceability | INDEX | — |
 | ISO 13485:2016 | `iso/13485/` | ISO | Medical device QMS — ~80 sub-clauses | FULL | records-and-design-controls.md, management-and-product-controls.md |
-| EU MDR 2017/745 / IVDR | `eu-mdr/` | EC / notified bodies | EU medical device regulation — 4 device classes | INDEX | — |
+| EU MDR 2017/745 / IVDR | `eu-mdr/` | EC / notified bodies | EU medical device regulation — 4 device classes | FULL | gspr-technical-documentation.md, pms-vigilance-conformity.md |
 | ISO 14971:2019 | `iso/14971/` | ISO | Medical device risk management — 6-step process | FULL | risk-management-process.md |
 | IEC 62304:2006+AMD1 | `iec/62304/` | IEC | Medical device software lifecycle — 3 safety classes | FULL | software-development-controls.md, maintenance-risk-problem-resolution.md |
 
@@ -260,7 +260,7 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 |---|---|---|---|---|---|
 | ISO 9001:2015 | `iso/9001/` | ISO | General-purpose QMS — foundation for all sector-specific standards | FULL | records-and-operational-controls.md, management-process-controls.md |
 | IATF 16949:2016 | `iatf/16949/` | IATF | Automotive QMS — APQP/PPAP/FMEA/MSA/SPC | FULL | ppap-and-product-controls.md, supplier-and-problem-solving.md |
-| AS9100 Rev D | `as9100/` | SAE / IAQG | Aerospace QMS — FAI, FOD, counterfeit part controls | INDEX | — |
+| AS9100 Rev D | `as9100/` | SAE / IAQG | Aerospace QMS — FAI, FOD, counterfeit part controls | FULL | aerospace-qms-controls.md |
 | NADCAP | `nadcap/` | PRI | Aerospace special process accreditation — ~20 commodities | INDEX | — |
 | API Q1/Q2 (9th/1st Ed) | `api/q1/` | API | Oil and gas equipment/service QMS + API Monogram | INDEX | — |
 | IPC-A-610 / J-STD-001 Rev H | `ipc/` | IPC | Electronics assembly acceptability — 3 product classes | INDEX | — |
@@ -284,7 +284,7 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| ITAR / EAR | `itar-ear/` | State Dept / Commerce | U.S. export controls — USML / CCL | INDEX | — |
+| ITAR / EAR | `itar-ear/` | State Dept / Commerce | U.S. export controls — USML / CCL | FULL | deterministic-controls.md, parameterized-controls.md |
 
 ---
 

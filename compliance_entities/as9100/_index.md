@@ -18,11 +18,11 @@
 | Additional requirements beyond ISO 9001 | ~100 supplemental requirements |
 | Aerospace-specific domains | Key characteristics, FOD prevention, first article inspection, counterfeit part control, human factors |
 | Customer-specific requirements | Per OEM/prime — Boeing D6-82479, Airbus AP2026, Lockheed Martin, etc. |
-| Requirements parsed (individual files) | 0 (index only; individual clause files pending) |
+| Requirements parsed (individual files) | 1 (aerospace-qms-controls.md — configuration mgmt, product safety, counterfeit prevention, key characteristics, FOD program, FAI 3-form completeness, NC safety assessment) |
 | Fully automated (DETERMINISTIC) | Moderate — FAI completeness, counterfeit part controls, FOD inspection records |
 | Partial automation (PARAMETERIZED) | Dominant — risk management adequacy, key characteristic identification |
 | Human-determination required (CONTESTED) | Moderate — key characteristic scope, airworthiness impact assessment |
-| Open assumptions | 0 |
+| Open assumptions | 1 |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
