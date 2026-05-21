@@ -15,11 +15,11 @@
 |---|---|
 | Non-CIP standard categories | 14 (BAL, COM, EOP, FAC, INT, IRO, MOD, NUC, PER, PRC, TOP, TPL, VAR, plus legacy) |
 | Enforceable standards (active) | ~90+ individual standards across all categories |
-| Standards parsed (individual files) | 5 (prc-protection-control.md; fac-eop-operations.md; com-top-operations.md; per-bal-personnel.md; mod-tpl-eop-planning.md) |
+| Standards parsed (individual files) | 6 (prc-protection-control.md; fac-eop-operations.md; com-top-operations.md; per-bal-personnel.md; mod-tpl-eop-planning.md; int-iro-var-coordination.md) |
 | Fully automated (DETERMINISTIC) | Moderate — maintenance intervals (PRC-005), vegetation patrol (FAC-003), event reporting (EOP-004), three-part communication (COM-002), operator credentials (PER-003), frequency response obligation (BAL-003), blackstart test cycle (EOP-005) |
 | Partial automation (PARAMETERIZED) | Dominant — planning event adequacy (TPL-001), model validation (MOD-025), relay coordination (PRC-023), corrective action timeframes (TOP-001) |
 | Human-determination required (CONTESTED) | Significant — ratings methodology adequacy (FAC-008), P3–P7 extreme event acceptability (TPL-001), restoration procedure sufficiency (EOP-005) |
-| Open assumptions | 17 (ASSUME-NERC-PRC-001–004, FAC-001–002, EOP-001–002, COM-001, TOP-001, PER-001–002, BAL-001, MOD-001, TPL-001, EOP-001–002 planning) |
+| Open assumptions | 23 (ASSUME-NERC-PRC-001–004, FAC-001–002, EOP-001–004, COM-001, TOP-001, PER-001–002, BAL-001, MOD-001, TPL-001, INT-001–002, IRO-001–002, VAR-001–002) |
 | Stale reviews | 0 |
 
 ---
@@ -176,6 +176,14 @@
 | Backup control center exercise | At least once every 60 calendar months | EOP-008-2 R2 |
 | IROL no-exceed | TOP must not knowingly violate an IROL; IROL violation = immediate corrective action | TOP-001-4 R13 |
 | SOL exceedance notification | Notify RC as soon as practicable (≤1 operating hour) | TOP-001-4 |
+| E-tag deviation tolerance (GOP) | ±10 MW or ±1.5% of e-tagged MW per clock-hour (whichever greater) | INT-009-2 R2 |
+| Unauthorized interchange | Curtail immediately upon discovery | INT-009-2 R3 |
+| RC directive compliance | TOPs/BAs must comply or IMMEDIATELY notify RC of non-compliance reason | IRO-001-5 R2/R3 |
+| Next-day OPA frequency | At least once per operating day | IRO-014-3 R1 |
+| OPA problem notification | Before start of affected operating period | IRO-014-3 R3 |
+| AVR operating mode | Automatic mode (default); manual only for equipment failure, TOP directive, or testing | VAR-002-4.1 R1 |
+| AVR out-of-service TOP notification | Within 2 calendar days | VAR-002-4.1 R2 |
+| Generator voltage in manual AVR mode | Within ±5% of scheduled voltage | VAR-002-4.1 R3 |
 
 ---
 
@@ -200,6 +208,12 @@
 | ASSUME-NERC-TPL-001 | TPL-001-5 | Annual planning assessment: calendar year deadline, near-term base case, P0 unacceptable, stability simulation required, 3-year retention | 2026-05-21 |
 | ASSUME-NERC-EOP-003 | EOP-005-3 | Blackstart test: 36-month from last successful test (detailed, supersedes EOP-002), partial acceptable, failed triggers retest, 42-month records retention | 2026-05-21 |
 | ASSUME-NERC-EOP-004 | EOP-008-2 | Backup control center: actual operational demonstration required (not tabletop), 60-month exercise, third-party agreement reviewed annually | 2026-05-21 |
+| ASSUME-NERC-INT-001 | INT-006-4 | Curtailment priority per Attachment 1: IROL (1) → SOL (2) → other reliability (3) → economic (4); reason code documented per curtailment | 2026-05-21 |
+| ASSUME-NERC-INT-002 | INT-009-2 | E-tag deviation: ±10 MW or ±1.5% per clock-hour (whichever greater); unauthorized interchange curtailed immediately | 2026-05-21 |
+| ASSUME-NERC-IRO-001 | IRO-001-5 | RC directive authority: comply or IMMEDIATELY notify RC; safety exception narrow; non-compliance without notification = violation | 2026-05-21 |
+| ASSUME-NERC-IRO-002 | IRO-014-3 | Next-day OPA: once per operating day; SOL/IROL evaluation required; problem notification before affected operating period | 2026-05-21 |
+| ASSUME-NERC-VAR-001 | VAR-001-5 | RC voltage schedules; TOP maintains within schedule; deviation for reliability with RC coordination; uncorrectable deviations reported to RC | 2026-05-21 |
+| ASSUME-NERC-VAR-002 | VAR-002-4.1 | AVR automatic default; manual only for failure/TOP directive/testing; 2 calendar days notification; ±5% voltage in manual mode | 2026-05-21 |
 
 ---
 
