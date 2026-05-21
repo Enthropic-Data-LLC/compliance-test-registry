@@ -16,11 +16,11 @@
 | Applicable sections (IT-relevant) | §302, §404, §409 |
 | ITGC domains | 4 (Access, Change Management, Computer Operations, Data Center) |
 | Individual ITGCs | Varies by organization; typically 60–120 in a Moderate scope |
-| Controls parsed (individual files) | 0 (index only; individual control files pending) |
+| Controls parsed (individual files) | 1 (`itgc-access-change-operations.md` — Logical Access, Change Management, Computer Operations, Deficiency Tracking) |
 | Fully automated (DETERMINISTIC) | Moderate — access provisioning/deprovisioning cadence, change ticket existence, backup completion |
 | Partial automation (PARAMETERIZED) | Significant — "appropriate" segregation of duties, review frequency |
 | Human-determination required (CONTESTED) | Moderate — key control identification, materiality, scope |
-| Open assumptions | 0 |
+| Open assumptions | 9 (ASSUME-SOX-ACCESS-001–004, ASSUME-SOX-CHANGE-001–002, ASSUME-SOX-OPS-001–002, ASSUME-SOX-DEF-001) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -124,9 +124,37 @@ Each quarterly/annual filing, CEO and CFO must certify:
 
 ---
 
+## Key DETERMINISTIC thresholds
+
+| Obligation | Threshold | Domain |
+|---|---|---|
+| Privileged account deprovisioning | ≤1 business day from termination | Logical Access |
+| Standard account deprovisioning | ≤5 business days from termination | Logical Access |
+| Role-change excess access removal | ≤10 business days from role change | Logical Access |
+| Privileged access review cadence | Every 3 calendar months | Logical Access |
+| Standard access review cadence | Every 12 calendar months | Logical Access |
+| Access review exception remediation | Within 30 days of review completion | Logical Access |
+| SoD matrix review | At least once per 12 calendar months | Logical Access |
+| Emergency change retrospective approval | Within 5 business days | Change Management |
+| Backup failure investigation | Within 1 business day | Computer Operations |
+| Backup restoration test | At least once per 12 calendar months | Computer Operations |
+| Audit log retention | 7 years (§802 / PCAOB AS 2301) | Computer Operations |
+
+---
+
 ## Open assumption registry
 
-*(No assumptions recorded — individual control files not yet written)*
+| ID | Domain | Description | Review date |
+|---|---|---|---|
+| ASSUME-SOX-ACCESS-001 | Provisioning | Approval before access grant; approver ≠ requestor; approved roles must match provisioned roles | 2026-05-21 |
+| ASSUME-SOX-ACCESS-002 | Deprovisioning | Privileged: ≤1 business day from termination; standard: ≤5 business days; role change excess: ≤10 business days | 2026-05-21 |
+| ASSUME-SOX-ACCESS-003 | Access review | Quarterly for privileged; annual for standard; exceptions remediated within 30 days | 2026-05-21 |
+| ASSUME-SOX-ACCESS-004 | SoD | Matrix reviewed annually; active conflicts require approved compensating control or management exception | 2026-05-21 |
+| ASSUME-SOX-CHANGE-001 | Change authorization | Approval before deployment; developer ≠ deployer ≠ approver; test evidence required; emergency retro within 5 days | 2026-05-21 |
+| ASSUME-SOX-CHANGE-002 | Environment separation | Three environments required; developers lack production write access | 2026-05-21 |
+| ASSUME-SOX-OPS-001 | Backup monitoring | Failures investigated within 1 business day; annual restoration test; completion logs required | 2026-05-21 |
+| ASSUME-SOX-OPS-002 | Audit log retention | 7-year retention (§802 / PCAOB); tamper-evident or write-once storage | 2026-05-21 |
+| ASSUME-SOX-DEF-001 | Deficiency tracking | All deficiencies have remediation plan with target date; MW classification requires management + auditor agreement | 2026-05-21 |
 
 ---
 
@@ -163,13 +191,13 @@ Standard three-tier gate (see NERC CIP registry). SOX-specific constraints:
 
 | Priority | Domain | Control | Notes |
 |---|---|---|---|
-| 1 | Logical Access | User provisioning/deprovisioning | Highest audit frequency; DETERMINISTIC timeline |
-| 2 | Logical Access | Privileged access management | Admin account enumeration is DETERMINISTIC |
-| 3 | Logical Access | Periodic access review | PARAMETERIZED cadence; completion is DETERMINISTIC |
-| 4 | Change Management | Authorization (approval before production) | DETERMINISTIC — ticket/approval evidence |
-| 5 | Change Management | Dev/test/production separation | DETERMINISTIC — binary environment check |
-| 6 | Computer Operations | Backup monitoring | DETERMINISTIC — job completion log |
-| 7 | Computer Operations | Backup restoration testing | PARAMETERIZED cadence |
-| 8 | Logical Access | Segregation of duties | PARAMETERIZED — matrix-based |
-| 9 | Change Management | Emergency change | PARAMETERIZED completeness |
-| 10 | Physical | Data center access | MEDIUM confidence |
+| 1 | Logical Access | User provisioning/deprovisioning | ✅ Parsed — `itgc-access-change-operations.md` §1.1–1.2 |
+| 2 | Logical Access | Privileged access management | ✅ Parsed — `itgc-access-change-operations.md` §1.2 |
+| 3 | Logical Access | Periodic access review | ✅ Parsed — `itgc-access-change-operations.md` §1.3 |
+| 4 | Change Management | Authorization (approval before production) | ✅ Parsed — `itgc-access-change-operations.md` §2.1 |
+| 5 | Change Management | Dev/test/production separation | ✅ Parsed — `itgc-access-change-operations.md` §2.2 |
+| 6 | Computer Operations | Backup monitoring | ✅ Parsed — `itgc-access-change-operations.md` §3.1 |
+| 7 | Computer Operations | Backup restoration testing | ✅ Parsed — `itgc-access-change-operations.md` §3.1 |
+| 8 | Logical Access | Segregation of duties | ✅ Parsed — `itgc-access-change-operations.md` §1.4 |
+| 9 | Change Management | Emergency change | ✅ Parsed — `itgc-access-change-operations.md` §2.1 |
+| 10 | Physical | Data center access | MEDIUM confidence — pending |
