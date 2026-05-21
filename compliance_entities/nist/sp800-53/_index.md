@@ -17,12 +17,12 @@
 | Low baseline | ~156 controls |
 | Moderate baseline | ~323 controls |
 | High baseline | ~421 controls |
-| Controls parsed (individual files) | 0 (index only; individual control files pending) |
-| Fully automated (DETERMINISTIC) | — |
-| Partial automation (PARAMETERIZED) | — |
-| Human-determination required (CONTESTED) | — |
-| Unresolvable | — |
-| Open assumptions | 0 |
+| Controls parsed (individual files) | 1 (AU, AC, IA, CM, SC, SI — 6 families, ~65 of ~156 Low baseline controls covered) |
+| Fully automated (DETERMINISTIC) | HIGH — AU-3 (record fields), SC-8/13/28 (crypto protocols), SI-3 (AV), IA-2 (MFA presence), AC-17/18 (remote/wireless protocols) |
+| Partial automation (PARAMETERIZED) | Moderate — AU-11 (retention ODP), AC-7/11 (lockout/session ODPs), IA-5(1) (password ODPs), SI-2 (patch SLA ODPs), CM-6 (deviation tracking) |
+| Human-determination required (CONTESTED) | ODP manifest completeness; CM-6 deviation adequacy; IA-2 MFA method exception justification |
+| Unresolvable | Minimal |
+| Open assumptions | 7 (ASSUME-800053-AU-001–002, AC-001–002, IA-001, CM-001, SI-001) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -67,9 +67,26 @@ The impact baseline determines which controls are required. Before any test can 
 
 ---
 
+## Specification file status
+
+| File | Contents | Assumptions | Confidence | Status |
+|---|---|---|---|---|
+| `core-technical-controls.md` | AU (record content, retention, review), AC (account management, lockout, session lock, remote/wireless), IA (MFA, password policy, hash storage), CM (baseline, hardening, least functionality, change control), SC (TLS, FIPS, at-rest encryption, key management), SI (patch SLAs, AV, monitoring, integrity verification) | ASSUME-800053-AU-001–002, AC-001–002, IA-001, CM-001, SI-001 | HIGH–MEDIUM | ✅ Parsed |
+| *(CP, IR, CA, MA, MP, PE, PS, RA, SA, SR, PL, PM, AT, PT)* | Remaining 14 families | TBD | MEDIUM–CONTESTED | 🔲 Pending |
+
+---
+
 ## Open assumption registry
 
-*(No assumptions recorded — individual control files not yet written. ODPs will populate this registry as controls are parsed.)*
+| ID | Family/Control | Summary | Review date |
+|---|---|---|---|
+| ASSUME-800053-AU-001 | AU-11 | Online retention 90d; archive 3yr (Moderate/High) per 800-53B; ODP must be documented in SSP | 2026-05-21 |
+| ASSUME-800053-AU-002 | AU-6 | Review frequency ODP: ≤7 days (weekly) for Moderate per 800-53B default | 2026-05-21 |
+| ASSUME-800053-AC-001 | AC-7 | Lockout threshold ≤3 attempts; lockout duration ≥30 min; 800-53B Moderate defaults | 2026-05-21 |
+| ASSUME-800053-AC-002 | AC-11 | Session lock ≤15-min inactivity; pattern-hiding required; 800-53B Moderate default | 2026-05-21 |
+| ASSUME-800053-IA-001 | IA-5(1) | Password length ≥8 (complexity) or ≥15 (no complexity); history 24; max 60d lifetime; no expiry if breach-monitoring active | 2026-05-21 |
+| ASSUME-800053-CM-001 | CM-6 | DISA STIGs or CIS Benchmarks satisfy configuration settings requirement; deviations require ISSO-approved exception | 2026-05-21 |
+| ASSUME-800053-SI-001 | SI-2 | Patch SLAs: KEV=14d, Critical=30d, High=90d, Medium=180d, Low=365d per 800-53B and CISA BOD 22-01 | 2026-05-21 |
 
 ---
 
@@ -108,12 +125,12 @@ Recommended parse order based on DETERMINISTIC density and cross-framework reuse
 
 | Priority | Family | Rationale |
 |---|---|---|
-| 1 | AU | Highest DETERMINISTIC density; log content/retention tests feed into FedRAMP and FISMA |
-| 2 | AC | Broad moderate baseline coverage; AC-2 (account management) is DETERMINISTIC |
-| 3 | IA | MFA and authenticator requirements are DETERMINISTIC with clear thresholds |
-| 4 | CM | Baseline and change control — HIGH confidence; feeds CMMC CM domain |
-| 5 | SC | CUI-in-transit and at-rest encryption — DETERMINISTIC thresholds |
-| 6 | SI | Flaw remediation and malware — DETERMINISTIC with ODP-bounded timelines |
+| ~~1~~ | ~~AU~~ | ✅ Complete — `core-technical-controls.md` |
+| ~~2~~ | ~~AC~~ | ✅ Complete — `core-technical-controls.md` |
+| ~~3~~ | ~~IA~~ | ✅ Complete — `core-technical-controls.md` |
+| ~~4~~ | ~~CM~~ | ✅ Complete — `core-technical-controls.md` |
+| ~~5~~ | ~~SC~~ | ✅ Complete — `core-technical-controls.md` |
+| ~~6~~ | ~~SI~~ | ✅ Complete — `core-technical-controls.md` |
 | 7 | CP | Contingency and backup — MEDIUM confidence; DETERMINISTIC for recovery time objectives if ODP-set |
 | 8 | IR | Incident response — aligns with CMMC and FedRAMP IR requirements |
 | 9 | CA | Continuous monitoring — FedRAMP overlap justifies early parse |
