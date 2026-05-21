@@ -18,8 +18,8 @@
 | Moderate baseline controls | ~325 |
 | High baseline controls | ~421 |
 | FedRAMP-specific additional requirements | ~40+ (overlays on top of 800-53 r5) |
-| Controls parsed (individual files) | 2 (conmon-and-overlays.md + account-contingency-media.md — RA-5, CA-5/7, CM-3, IR-6, SC-13, IA-2(12), PE/CONUS, CA-2, CA-8, SR, AC-2/6/12/17, CP-2/3/4/6/9/10, MP-6/7, PS-3/4/5/6) |
-| Open assumptions | 19 (ASSUME-FEDRAMP-001–010 + AC-001–002, CP-001–004, MP-001, PS-001–002) |
+| Controls parsed (individual files) | 3 (conmon-and-overlays.md + account-contingency-media.md + technical-overlays-high-enhancements.md — RA-5, CA-5/7, CM-3, IR-6, SC-13, IA-2(12)/IA-3, PE/CONUS, CA-2, CA-8, SR, AC-2/6/12/17, CP-2/3/4/6/9/10, MP-6/7, PS-3/4/5/6/8, AU overlay, IA overlay, SC overlay, SI overlay, SA overlay, High-only enhancements) |
+| Open assumptions | 28 (ASSUME-FEDRAMP-001–010 + AC-001–002, CP-001–004, MP-001, PS-001–002, AU-001, IA-001–002, SC-001, SI-001, SA-001, H-001–003) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -141,6 +141,15 @@ For agency procurement, checking FedRAMP Marketplace status before contract awar
 | ASSUME-FEDRAMP-MP-001 | MP-6 overlay | NIST 800-88 required; FIPS-validated tools at Moderate/High; disposal records ≥3 years; physical destruction for High when purge infeasible | 2026-05-21 |
 | ASSUME-FEDRAMP-PS-001 | PS-3 overlay | Investigation levels: Low=NACI; Moderate=MBI/NACI; High=BI; reinvestigation every 5 years; complete before CUI access | 2026-05-21 |
 | ASSUME-FEDRAMP-PS-002 | PS-5 overlay | Access re-evaluated within 5 business days of transfer; excess prior-role access revoked | 2026-05-21 |
+| ASSUME-FEDRAMP-AU-001 | AU overlay | FedRAMP log fields: date_time_utc, event_type, source_ip, user_id, resource_accessed, action_taken, outcome, session_id (8 required); monthly submission ≤30 days to agency/JAB; High requires SIEM aggregating all logs | 2026-05-21 |
+| ASSUME-FEDRAMP-IA-001 | IA-2 overlay | PIV revocation: OCSP or CRL checked at each authentication; OCSP stapling acceptable; revocation check failure = denial; fallback to password prohibited when PIV is required control | 2026-05-21 |
+| ASSUME-FEDRAMP-IA-002 | IA-5 overlay | FIPS-validated hardware authenticators required at High; software authenticators allowed at Moderate if FIPS 140-2/3 module is validated; external IdP must be FedRAMP Authorized | 2026-05-21 |
+| ASSUME-FEDRAMP-SC-001 | SC overlay | Prohibited ciphers: RC4, DES, 3DES (bulk), export-grade, null, MD5-MAC; approved suites include TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_CHACHA20_POLY1305_SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-GCM-SHA256; DNSSEC required for all authoritative DNS zones at M/H; AES-256 (not just AES-128) required at High | 2026-05-21 |
+| ASSUME-FEDRAMP-SI-001 | SI overlay | Monthly patch report included in ConMon package: total open vulnerabilities, critical/high breakdown, KEV list with remediation status, patch SLA compliance rate, open exceptions/deviations | 2026-05-21 |
+| ASSUME-FEDRAMP-SA-001 | SA overlay | External sub-services (including SaaS and IaaS dependencies) must be FedRAMP Authorized or covered by boundary; unlisted sub-services require agency AO approval; High: SAST + DAST required for all custom code releases; OWASP Top 10 training required for developers | 2026-05-21 |
+| ASSUME-FEDRAMP-H-001 | PS-8 (High) | Insider threat program required at High: user activity monitoring (UAM) for privileged accounts, anomaly detection for data exfiltration, DLP controls on CUI, insider threat awareness in annual training, IR playbook covers insider threat scenarios | 2026-05-21 |
+| ASSUME-FEDRAMP-H-002 | IA-3 (High) | Cryptographic device authentication required for all devices at High baseline; certificates must be issued by a FIPS-validated PKI; no shared device credentials | 2026-05-21 |
+| ASSUME-FEDRAMP-H-003 | PE-9/11/12 (High) | Physical infrastructure at High: redundant power (PE-9), emergency generator (PE-11), UPS protecting all critical systems (PE-12); second-tier supplier identification required for ICT supply chain per NIST 800-161 | 2026-05-21 |
 
 ---
 
@@ -186,8 +195,7 @@ Standard three-tier gate (see NERC CIP registry). FedRAMP-specific constraints:
 |---|---|---|---|---|
 | `conmon-and-overlays.md` | RA-5 (ConMon scans), CA-7 (ConMon plan), CA-5 (POA&M), CM-3 (sig. change), IR-6 (US-CERT 1h), SC-13 (FIPS), IA-2(12) (PIV), PE/CONUS, CA-2+CA-8 (3PAO+pentest), SR (SCRM) | ASSUME-FEDRAMP-001–010 | HIGH (ConMon, IR-6, FIPS, PIV, CONUS, 3PAO/pentest) / MEDIUM (ConMon plan) / CONTESTED (SCRM) | ✅ Parsed |
 | `account-contingency-media.md` | AC (account review cadences, FIPS remote access, privileged account separation, session termination), CP (contingency plan 7 elements, training, testing, alternate storage 25mi separation, daily backups, RTO/RPO), MP (NIST 800-88 sanitization, FIPS tools, 3yr disposal records), PS (investigation levels per baseline, 4h account disable, 5-day transfer review, annual access agreements) | ASSUME-FEDRAMP-AC-001–002, CP-001–004, MP-001, PS-001–002 | HIGH (PS-4, CP-4 test, MP-6 method) / MEDIUM (CP training, PS investigation level) | ✅ Parsed |
-| *(Remaining Moderate overlay families)* | AU, CM, IA, MA, PL, SA — FedRAMP parameter deltas from 800-53 r5 | TBD | MEDIUM | 🔲 Pending |
-| *(High-only enhancements)* | IA-3, PE enhancements, PS insider threat, SR 800-161 enhanced SCRM | TBD | MEDIUM | 🔲 Pending |
+| `technical-overlays-high-enhancements.md` | AU (8 FedRAMP log fields, monthly log submission ≤30d, SIEM at High), IA (PIV+OCSP/CRL revocation, FIPS-validated authenticators, external IdP FedRAMP authorization), SC (prohibited ciphers RC4/DES/3DES, approved TLS suites, DNSSEC M/H, AES-256 at High), SI (monthly patch report 5-element ConMon package), SA (sub-services FedRAMP authorized, SAST+DAST at High, OWASP training), High-only: PS-8 insider threat program (UAM/DLP/IR), IA-3 device auth, PE-9/11/12 redundant power, SR NIST 800-161 enhanced SCRM + second-tier suppliers | ASSUME-FEDRAMP-AU-001, IA-001–002, SC-001, SI-001, SA-001, H-001–003 | HIGH (AU fields, AES-256 at High, DNSSEC, SAST/DAST, PIV revocation) / MEDIUM (SIEM, OWASP training, insider threat program) / CONTESTED (second-tier supplier scope) | ✅ Parsed |
 
 ---
 
@@ -199,6 +207,6 @@ Standard three-tier gate (see NERC CIP registry). FedRAMP-specific constraints:
 | ~~2~~ | ~~CP family~~ | ✅ Complete — `account-contingency-media.md` |
 | ~~3~~ | ~~MP-6 (FIPS sanitization)~~ | ✅ Complete — `account-contingency-media.md` |
 | ~~4~~ | ~~PS~~ | ✅ Complete — `account-contingency-media.md` |
-| 5 | AU/CM/IA/SC/SI FedRAMP parameter deltas | Monthly log submission, FIPS-validated tool overlay, PIV details |
-| 6 | SA (Moderate) | Developer security testing; supply chain overlay |
-| 7 | High-only enhancements | Insider threat program; enhanced SCRM (SR); additional IA controls |
+| ~~5~~ | ~~AU/CM/IA/SC/SI FedRAMP parameter deltas~~ | ✅ Complete — `technical-overlays-high-enhancements.md` |
+| ~~6~~ | ~~SA (Moderate)~~ | ✅ Complete — `technical-overlays-high-enhancements.md` |
+| ~~7~~ | ~~High-only enhancements~~ | ✅ Complete — `technical-overlays-high-enhancements.md` |
