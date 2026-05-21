@@ -1,0 +1,62 @@
+# ── Internal working documents ─────────────────────────────────────────────────
+# These files contain methodology notes, design decisions, and internal process
+# documentation that are not part of the public-facing registry.
+guiding_docs/
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+.eggs/
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+.env
+
+# ── Test output and coverage ──────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.coveragerc
+junit*.xml
+test-results/
+
+# ── IDE and editor files ──────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ── Local config overrides ────────────────────────────────────────────────────
+# conftest.py files with real data-source wiring should not be committed
+# unless they contain no credentials or environment-specific paths.
+# Uncomment the line below if your conftest.py connects to a real DB:
+# conftest.py
+
+# ── Secrets and credentials ───────────────────────────────────────────────────
+*.env
+.env.*
+secrets.yaml
+secrets.yml
+credentials.json
+*.pem
+*.key
+
+# ── Generated / compiled assumption hashes ───────────────────────────────────
+# CI pipeline populates cryptographic_hash fields; do not commit intermediate
+# hash staging files.
+*.hash.tmp
+assumption_hashes_staging.yaml
