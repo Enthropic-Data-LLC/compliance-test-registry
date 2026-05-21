@@ -5,4 +5,10 @@
 
 See [`_index.md`](./_index.md) for the full registry index, confidence map, and open assumptions.
 
-**Parse status:** Index only — specification files pending
+**Parse status:** FULL
+
+## Specification files
+
+| File | Clauses covered | Confidence |
+|---|---|---|
+| [`special-process-accreditation.md`](./special-process-accreditation.md) | Common elements (all commodities) + Heat Treatment (AC7102) + NDT (AC7004) + Welding (AC7110) + Chemical Processing (AC7108/7115) | DETERMINISTIC-dominant |

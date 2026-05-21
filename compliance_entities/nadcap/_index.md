@@ -18,7 +18,7 @@
 | Audit checklist series | AC7000 series (AC7004 = NDT, AC7102 = heat treat, AC7108 = welding, AC7115 = chem processing, etc.) |
 | Accreditation body | Performance Review Institute (PRI) |
 | Validity period | 12 or 18 months (based on merit system score) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (special-process-accreditation.md — common elements + 4 commodities) |
 | Fully automated (DETERMINISTIC) | High — process specification compliance; record completeness; equipment calibration |
 | Partial automation (PARAMETERIZED) | Moderate — process qualification methodology |
 | Human-determination required (CONTESTED) | Low — NADCAP checklists are prescriptive |

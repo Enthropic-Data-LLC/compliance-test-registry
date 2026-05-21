@@ -16,11 +16,11 @@
 | Core supplements to ISO 9001 | ~15 (Q1) / ~12 (Q2) |
 | Certification body | API-licensed third-party auditors |
 | API Monogram (Q1) | Product license — use of API monogram on manufactured products |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (oilgas-qms-controls.md — Q1 design records, contingency, risk, supplier; Q2 CSTs, service execution) |
 | Fully automated (DETERMINISTIC) | Moderate — documentation requirements; design validation records |
 | Partial automation (PARAMETERIZED) | Dominant — product design, supplier qualification |
 | Human-determination required (CONTESTED) | Moderate — technical adequacy determinations |
-| Open assumptions | 0 |
+| Open assumptions | 1 |
 
 ---
 
@@ -98,6 +98,14 @@ The API Monogram allows manufacturers to mark products with the API monogram:
 | CST certification/calibration | DETERMINISTIC | Current calibration records before wellsite deployment |
 | Wellsite execution documentation | DETERMINISTIC | Job record; deviations; safety incidents |
 | Nonconformity at wellsite | DETERMINISTIC | Immediate notification + corrective action record |
+
+---
+
+## Open assumption registry
+
+| ID | Clause | Summary | Review date |
+|---|---|---|---|
+| ASSUME-APIQ1-RISK-001 | Q1 §6.2 | Risk assessment methodology: PARAMETERIZED (adequacy); existence of risk assessment record: DETERMINISTIC | 2027-05-21 |
 
 ---
 

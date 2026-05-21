@@ -5,4 +5,10 @@
 
 See [`_index.md`](./_index.md) for the full registry index, confidence map, and open assumptions.
 
-**Parse status:** Index only — specification files pending
+**Parse status:** FULL
+
+## Specification files
+
+| File | Clauses covered | Confidence |
+|---|---|---|
+| [`electronics-assembly-acceptability.md`](./electronics-assembly-acceptability.md) | IPC-A-610 §8 (TH + SMT solder), §9 (component placement), inspector certification; J-STD-001 §4–6 (process controls, ESD); IPC-7711/7721 (rework/repair) | DETERMINISTIC throughout |

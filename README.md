@@ -261,9 +261,9 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 | ISO 9001:2015 | `iso/9001/` | ISO | General-purpose QMS — foundation for all sector-specific standards | FULL | records-and-operational-controls.md, management-process-controls.md |
 | IATF 16949:2016 | `iatf/16949/` | IATF | Automotive QMS — APQP/PPAP/FMEA/MSA/SPC | FULL | ppap-and-product-controls.md, supplier-and-problem-solving.md |
 | AS9100 Rev D | `as9100/` | SAE / IAQG | Aerospace QMS — FAI, FOD, counterfeit part controls | FULL | aerospace-qms-controls.md |
-| NADCAP | `nadcap/` | PRI | Aerospace special process accreditation — ~20 commodities | INDEX | — |
-| API Q1/Q2 (9th/1st Ed) | `api/q1/` | API | Oil and gas equipment/service QMS + API Monogram | INDEX | — |
-| IPC-A-610 / J-STD-001 Rev H | `ipc/` | IPC | Electronics assembly acceptability — 3 product classes | INDEX | — |
+| NADCAP | `nadcap/` | PRI | Aerospace special process accreditation — ~20 commodities | FULL | 1 file / 0 assumptions |
+| API Q1/Q2 (9th/1st Ed) | `api/q1/` | API | Oil and gas equipment/service QMS + API Monogram | FULL | 1 file / 1 assumption |
+| IPC-A-610 / J-STD-001 Rev H | `ipc/` | IPC | Electronics assembly acceptability — 3 product classes | FULL | 1 file / 0 assumptions |
 
 ---
 

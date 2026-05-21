@@ -16,7 +16,7 @@
 |---|---|
 | Product classes | 3 (Class 1 / Class 2 / Class 3) |
 | Major defect categories (IPC-A-610) | ~20 inspection categories |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (electronics-assembly-acceptability.md — TH solder, SMT, placement, certifications, process controls, rework) |
 | Fully automated (DETERMINISTIC) | High — class-based acceptability criteria are binary pass/fail |
 | Partial automation (PARAMETERIZED) | Low-Moderate — process parameters |
 | Human-determination required (CONTESTED) | Low — standard provides photographic acceptance criteria |
