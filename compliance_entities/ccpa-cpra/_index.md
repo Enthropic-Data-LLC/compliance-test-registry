@@ -16,11 +16,11 @@
 | Rights granted to consumers | 11 |
 | Business obligation categories | 7 |
 | Technically testable obligations | ~25 |
-| Obligations parsed (individual files) | 0 (index only; individual section files pending) |
+| Obligations parsed (individual files) | 1 |
 | Fully automated (DETERMINISTIC) | Moderate — response deadlines, opt-out links, data retention schedules |
 | Partial automation (PARAMETERIZED) | Dominant — notice adequacy, security "appropriate to risk" |
 | Human-determination required (CONTESTED) | Significant — proportionality, "sensitive personal information" scope |
-| Open assumptions | 0 |
+| Open assumptions | 6 |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -138,9 +138,24 @@ CPRA created a new category. SPI includes: SSN, DL, financial account credential
 
 ---
 
+## Spec file status
+
+| File | Coverage | Status |
+|---|---|---|
+| [`consumer-rights-obligations.md`](./consumer-rights-obligations.md) | §§1798.100–1798.199: privacy policy (§1798.100/130), DSR infrastructure (§1798.130), right to delete (§1798.105), right to correct (§1798.106), right to opt-out (§1798.120/135), sensitive PI (§1798.121), non-discrimination (§1798.125), service provider contracts (§1798.140), security (§1798.150) | ✅ |
+
+---
+
 ## Open assumption registry
 
-*(No assumptions recorded — individual section files not yet written)*
+| ID | Assumption | Pattern | Approved | Review |
+|---|---|---|---|---|
+| ASSUME-CCPA-NOTICE-001 | Privacy policy "required elements" — we treat the 10 statutory elements (§1798.130(a)(5)(A)–(J)) as an exhaustive, individually checkable list; failure to include any element is a Pattern 1 violation | 1 | Pending | 2027-05 |
+| ASSUME-CCPA-DSR-001 | "Verifiable consumer request" verification standard — the statute requires reasonable verification without being unnecessarily burdensome; we treat verification process design as Pattern 2 (Privacy Officer must approve the verification methodology) | 2 | Pending | 2027-05 |
+| ASSUME-CCPA-OPTOUT-001 | 15-business-day opt-out deadline counts Mon–Fri only, excluding US federal holidays; clock starts on the date the business receives the opt-out signal (including GPC); this interpretation aligns with CPPA guidance | 1 | Pending | 2027-05 |
+| ASSUME-CCPA-SPI-001 | SPI categories — we treat the §1798.140(ae) statutory list as the authoritative and exhaustive enumeration; CPPA regulations may expand this list and this assumption must be reviewed if regulations are updated | 1 | Pending | 2027-05 |
+| ASSUME-CCPA-SP-001 | Service provider contract 7 required terms (§1798.140(e)(1)–(7)) — all 7 must be present for a DETERMINISTIC pass; absence of any one term is a Pattern 1 failure; sufficiency of specific clause language is Pattern 2 | 1 | Pending | 2027-05 |
+| ASSUME-CCPA-SEC-001 | "Reasonable security" under §1798.150 — no bright-line standard is specified in the statute; the CA AG has pointed to CIS Controls as a reference but this is not binding; this obligation is Pattern 3 (CONTESTED) requiring Compliance Officer attestation against the chosen framework | 3 | Pending | 2027-05 |
 
 ---
 
