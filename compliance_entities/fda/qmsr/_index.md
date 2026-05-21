@@ -17,9 +17,9 @@
 | Primary incorporated standard | ISO 13485:2016 (fully incorporated by reference) |
 | FDA-specific additions to ISO 13485 | ~15 supplemental requirements |
 | Sections in 21 CFR Part 820 | ~20 (reduced from legacy QSR) |
-| Sections parsed (individual files) | 0 (index only; individual section files pending) |
+| Sections parsed (individual files) | 1 (fda-qmsr-deltas.md — all FDA-specific additions covered: DHR/DMR/DHF, CAPA 7-step, MDR 30-day deadline, complaint fields, software validation, OOC impact assessment, record retention) |
 | Note on scope | ISO 13485 registry (see iso/13485/) covers the base requirements; this registry documents FDA-specific QMSR deltas only |
-| Open assumptions | 0 |
+| Open assumptions | 0 (all FDA QMSR delta requirements are DETERMINISTIC — no assumptions required) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 

@@ -193,12 +193,12 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 | NIST SP 800-171 r3 | `nist/sp800-171/` | NIST | CUI protection — 17 families, 110 requirements | INDEX | — |
 | NIST CSF 2.0 | `nist/csf2/` | NIST | Voluntary cybersecurity framework — 6 functions, 106 subcategories | INDEX | — |
 | NIST SP 800-82 r3 | `nist/sp800-82/` | NIST | OT/ICS security guide — SP 800-53 tailoring for OT | INDEX | — |
-| NIST AI RMF 1.0 | `nist/ai-rmf/` | NIST | AI risk management — GOVERN/MAP/MEASURE/MANAGE | INDEX | — |
+| NIST AI RMF 1.0 | `nist/ai-rmf/` | NIST | AI risk management — GOVERN/MAP/MEASURE/MANAGE | FULL | govern-map.md, measure-manage.md |
 | CMMC 2.0 | `cmmc/` | DoD / OUSD(A&S) | Defense contractor cybersecurity — 3 levels | INDEX | — |
 | ISO/IEC 27001:2022 | `iso/27001/` | ISO/IEC | ISMS — 93 Annex A controls, 4 themes | INDEX+SECTIONS | 4 section files |
 | FedRAMP | `fedramp/` | OMB / GSA | Cloud service authorization — 800-53 + overlays | INDEX | — |
 | SOC 2 | `soc2/` | AICPA | Service org trust criteria — CC1–CC9 + 4 additional | INDEX | — |
-| IEC 62443 | `iec/62443/` | IEC | OT/ICS security — 7 FRs, 4 Security Levels, zone/conduit | INDEX | — |
+| IEC 62443 | `iec/62443/` | IEC | OT/ICS security — 7 FRs, 4 Security Levels, zone/conduit | FULL | fr1-fr3-iam-use-integrity.md, fr4-fr7-confidentiality-availability.md |
 | TISAX / VDA ISA 6.0 | `tisax/` | ENX / VDA | Automotive supply chain information security | INDEX | — |
 | SEC Cybersecurity Rules 2023 | `sec/cybersecurity/` | SEC | 8-K 4-business-day disclosure + annual risk governance | INDEX | — |
 | SWIFT CSP / CSCF v2025 | `swift/csp/` | SWIFT | Financial institution SWIFT infrastructure — 25 mandatory controls | INDEX | — |
@@ -245,12 +245,12 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 |---|---|---|---|---|---|
 | FDA 21 CFR Part 11 | `fda/21cfr11/` | FDA | Electronic records and signatures | INDEX | — |
 | FDA 21 CFR 210/211 cGMP | `fda/21cfr210-211/` | FDA | Pharmaceutical manufacturing good practices | INDEX | — |
-| FDA QMSR | `fda/qmsr/` | FDA | Medical device quality management — ISO 13485 + 15 FDA deltas | INDEX | — |
+| FDA QMSR | `fda/qmsr/` | FDA | Medical device quality management — ISO 13485 + 15 FDA deltas | FULL | fda-qmsr-deltas.md |
 | FDA FSMA | `fda/fsma/` | FDA | Food safety modernization — HARPC, FSVP, FTL traceability | INDEX | — |
-| ISO 13485:2016 | `iso/13485/` | ISO | Medical device QMS — ~80 sub-clauses | INDEX | — |
+| ISO 13485:2016 | `iso/13485/` | ISO | Medical device QMS — ~80 sub-clauses | FULL | records-and-design-controls.md, management-and-product-controls.md |
 | EU MDR 2017/745 / IVDR | `eu-mdr/` | EC / notified bodies | EU medical device regulation — 4 device classes | INDEX | — |
-| ISO 14971:2019 | `iso/14971/` | ISO | Medical device risk management — 6-step process | INDEX | — |
-| IEC 62304:2006+AMD1 | `iec/62304/` | IEC | Medical device software lifecycle — 3 safety classes | INDEX | — |
+| ISO 14971:2019 | `iso/14971/` | ISO | Medical device risk management — 6-step process | FULL | risk-management-process.md |
+| IEC 62304:2006+AMD1 | `iec/62304/` | IEC | Medical device software lifecycle — 3 safety classes | FULL | software-development-controls.md, maintenance-risk-problem-resolution.md |
 
 ---
 
@@ -258,8 +258,8 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| ISO 9001:2015 | `iso/9001/` | ISO | General-purpose QMS — foundation for all sector-specific standards | INDEX | — |
-| IATF 16949:2016 | `iatf/16949/` | IATF | Automotive QMS — APQP/PPAP/FMEA/MSA/SPC | INDEX | — |
+| ISO 9001:2015 | `iso/9001/` | ISO | General-purpose QMS — foundation for all sector-specific standards | FULL | records-and-operational-controls.md, management-process-controls.md |
+| IATF 16949:2016 | `iatf/16949/` | IATF | Automotive QMS — APQP/PPAP/FMEA/MSA/SPC | FULL | ppap-and-product-controls.md, supplier-and-problem-solving.md |
 | AS9100 Rev D | `as9100/` | SAE / IAQG | Aerospace QMS — FAI, FOD, counterfeit part controls | INDEX | — |
 | NADCAP | `nadcap/` | PRI | Aerospace special process accreditation — ~20 commodities | INDEX | — |
 | API Q1/Q2 (9th/1st Ed) | `api/q1/` | API | Oil and gas equipment/service QMS + API Monogram | INDEX | — |

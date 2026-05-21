@@ -16,11 +16,11 @@
 |---|---|
 | Clauses | 9 (Clauses 3–9 + Annexes) |
 | Process steps | 6 (Context → Risk Analysis → Risk Evaluation → Risk Control → Residual Risk Evaluation → Risk Management Report) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (risk-management-process.md — all 9 process steps covered) |
 | Fully automated (DETERMINISTIC) | Low — risk management is inherently a human judgment process |
 | Partial automation (PARAMETERIZED) | Moderate — completeness of risk file; FMEA documentation |
 | Human-determination required (CONTESTED) | High — risk acceptability, benefit-risk determination |
-| Open assumptions | 0 |
+| Open assumptions | 7 |
 
 ---
 

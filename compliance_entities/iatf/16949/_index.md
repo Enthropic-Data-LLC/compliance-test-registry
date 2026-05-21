@@ -17,11 +17,11 @@
 | Additional clauses beyond ISO 9001 | ~100 supplemental requirements embedded in or added to ISO 9001 clause structure |
 | Customer-specific requirements (CSRs) | Per OEM — BMW, Ford, GM, Stellantis, VW, etc. publish separate CSRs that layer on top of IATF 16949 |
 | AIAG Core Tools | 5 (APQP, PPAP, FMEA, MSA, SPC) — referenced throughout IATF 16949 |
-| Requirements parsed (individual files) | 0 (index only; individual clause files pending) |
+| Requirements parsed (individual files) | 2 (ppap-and-product-controls.md + supplier-and-problem-solving.md — all major DETERMINISTIC clauses covered) |
 | Fully automated (DETERMINISTIC) | Moderate — PPAP document completeness, control plan elements, gage R&R acceptance thresholds |
 | Partial automation (PARAMETERIZED) | Dominant — core tool methodology adequacy |
 | Human-determination required (CONTESTED) | Moderate — risk-based analysis in FMEA, customer-specific requirement interpretation |
-| Open assumptions | 0 |
+| Open assumptions | 3 |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -189,7 +189,11 @@ PPAP level (1–5) determines which elements must be submitted to the customer v
 
 ## Open assumption registry
 
-*(No assumptions recorded — individual clause files not yet written)*
+| ID | File | Clause | Summary | Review date |
+|---|---|---|---|---|
+| ASSUME-IATF-MSA-001 | ppap-and-product-controls.md | 7.1.5.1 | MSA acceptance: %R&R ≤10% acceptable, ≤30% marginal; ndc ≥5; kappa ≥0.75 attribute | 2027-05-21 |
+| ASSUME-IATF-SUPP-001 | supplier-and-problem-solving.md | 8.4.2.5 | Supplier development: targets defined; at-risk suppliers escalated; thresholds in SQM | 2027-05-21 |
+| ASSUME-IATF-MGMT-001 | supplier-and-problem-solving.md | 9.3.2.1 | Management review: all IATF inputs incl. customer portal, warranty, field returns, NPI lessons | 2027-05-21 |
 
 ---
 
