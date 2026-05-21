@@ -17,11 +17,11 @@
 | Core functions | 4 (GOVERN / MAP / MEASURE / MANAGE) |
 | Subcategories | ~70 |
 | AI trustworthiness characteristics | 7 |
-| Sections parsed (individual files) | 0 (index only) |
-| Fully automated (DETERMINISTIC) | Low — framework is voluntary and outcomes-based |
+| Sections parsed (individual files) | 2 (govern-map.md + measure-manage.md) |
+| Fully automated (DETERMINISTIC) | Low — 1 DETERMINISTIC gate: pre-deployment testing; 1 DETERMINISTIC record: regulatory register |
 | Partial automation (PARAMETERIZED) | Dominant |
-| Human-determination required (CONTESTED) | High — risk tolerance, impact assessment |
-| Open assumptions | 0 |
+| Human-determination required (CONTESTED) | Moderate — team diversity adequacy, explainability sufficiency |
+| Open assumptions | 22 |
 
 ---
 

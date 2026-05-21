@@ -16,11 +16,11 @@
 |---|---|
 | Clauses | 8 (Clauses 1–8) |
 | Sub-clauses with discrete requirements | ~80 |
-| Sub-clauses parsed (individual files) | 0 (index only; individual sub-clause files pending) |
-| Fully automated (DETERMINISTIC) | Moderate — complaint records, CAPA records, DHF/DMR completeness, calibration |
+| Sub-clauses parsed (individual files) | 2 (records-and-design-controls.md + management-and-product-controls.md) |
+| Fully automated (DETERMINISTIC) | Moderate — DHF/device file, complaint records, CAPA records, calibration, record retention gate |
 | Partial automation (PARAMETERIZED) | Dominant |
-| Human-determination required (CONTESTED) | Moderate — risk management method, clinical evaluation adequacy |
-| Open assumptions | 0 |
+| Human-determination required (CONTESTED) | Low — risk management method adequacy requires human review (not tested directly) |
+| Open assumptions | 9 |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -152,7 +152,7 @@ This is the most complex clause and the primary source of DETERMINISTIC requirem
 
 ## Open assumption registry
 
-*(No assumptions recorded — individual sub-clause files not yet written)*
+See [`management-and-product-controls.md`](./management-and-product-controls.md) for 9 PARAMETERIZED assumptions (ASSUME-ISO13485-5_1-001 through 8_4-001).
 
 ---
 

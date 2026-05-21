@@ -16,12 +16,12 @@
 |---|---|
 | Mandatory clauses | 7 (Clauses 4–10) |
 | Sub-clauses with discrete requirements | ~50 |
-| Sub-clauses parsed (individual files) | 0 (index only; individual sub-clause files pending) |
-| Fully automated (DETERMINISTIC) | Low — ISO 9001 is a process/management standard; most obligations are PARAMETERIZED |
+| Sub-clauses parsed (individual files) | 2 (records-and-operational-controls.md + management-process-controls.md) |
+| Fully automated (DETERMINISTIC) | Moderate — 11 required record types + calibration + audit + review frequency gates |
 | Partial automation (PARAMETERIZED) | Dominant |
-| Human-determination required (CONTESTED) | Moderate (risk-based thinking scope, customer satisfaction measurement method) |
+| Human-determination required (CONTESTED) | Low — 2 gates: 6.1 risk-based thinking, 9.1 customer satisfaction method |
 | Unresolvable | Minimal |
-| Open assumptions | 0 |
+| Open assumptions | 12 |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -147,7 +147,7 @@ ISO 9001:2015 eliminated the requirement for a formal risk register but introduc
 
 ## Open assumption registry
 
-*(No assumptions recorded — individual sub-clause files not yet written)*
+See [`management-process-controls.md`](./management-process-controls.md) for 12 PARAMETERIZED/CONTESTED assumptions (ASSUME-ISO9001-4_1-001 through 10_3-001).
 
 ---
 
