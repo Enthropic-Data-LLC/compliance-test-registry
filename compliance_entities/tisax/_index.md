@@ -17,11 +17,11 @@
 | VDA ISA control domains | 6 |
 | Assessment levels (AL) | 3 (AL1 self-assessment / AL2 remote audit / AL3 on-site audit) |
 | TISAX label types | Multiple (InfoSec / Prototype protection / Confidential data handling) |
-| Sections parsed (individual files) | 0 (index only) |
-| Fully automated (DETERMINISTIC) | Moderate — maturity level scoring; specific control existence |
-| Partial automation (PARAMETERIZED) | Dominant — control implementation appropriateness |
-| Human-determination required (CONTESTED) | Low — maturity levels 1-5 require auditor judgment |
-| Open assumptions | 0 |
+| Sections parsed (individual files) | 2 (isms-hr-physical-controls.md + it-supplier-controls.md) |
+| Fully automated (DETERMINISTIC) | MEDIUM — secure area access logging, visitor escort, access review, label validity gate |
+| Partial automation (PARAMETERIZED) | Dominant — ISMS scope adequacy, risk treatment, crypto config, vuln mgmt, supplier assessment |
+| Human-determination required (CONTESTED) | Low — supplier assessment adequacy requires human review |
+| Open assumptions | 9 (ASSUME-TISAX-1_1-001/002, 2_1-001/002, 4_1-001/002/003, 5_1-001/002) |
 
 ---
 
