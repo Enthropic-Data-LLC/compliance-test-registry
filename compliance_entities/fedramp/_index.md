@@ -18,8 +18,8 @@
 | Moderate baseline controls | ~325 |
 | High baseline controls | ~421 |
 | FedRAMP-specific additional requirements | ~40+ (overlays on top of 800-53 r5) |
-| Controls parsed (individual files) | 1 (conmon-and-overlays.md — RA-5, CA-5/7, CM-3, IR-6, SC-13, IA-2(12), PE/CONUS, CA-2, CA-8, SR SCRM) |
-| Open assumptions | 10 (ASSUME-FEDRAMP-001–010) |
+| Controls parsed (individual files) | 2 (conmon-and-overlays.md + account-contingency-media.md — RA-5, CA-5/7, CM-3, IR-6, SC-13, IA-2(12), PE/CONUS, CA-2, CA-8, SR, AC-2/6/12/17, CP-2/3/4/6/9/10, MP-6/7, PS-3/4/5/6) |
+| Open assumptions | 19 (ASSUME-FEDRAMP-001–010 + AC-001–002, CP-001–004, MP-001, PS-001–002) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -132,6 +132,15 @@ For agency procurement, checking FedRAMP Marketplace status before contract awar
 | ASSUME-FEDRAMP-008 | PE CONUS overlay | CONUS: Moderate/High all storage and backup regions within CONUS; CDN must geo-restrict; exceptions require agency written approval | 2026-05-20 |
 | ASSUME-FEDRAMP-009 | CA-2 + CA-8 | 3PAO: FedRAMP-recognized; SAR ≤365 days; pentest ≤365 days; scope: network + application + OS; prior findings re-tested | 2026-05-20 |
 | ASSUME-FEDRAMP-010 | SR SCRM overlay | SCRM: critical suppliers identified; screening criteria documented; records current; reviewed annually; High: NIST 800-161 enhanced screening | 2026-05-20 |
+| ASSUME-FEDRAMP-AC-001 | AC-2 overlay | Privileged account review: semi-annual at Moderate/High; departed-user access audit within 30 days | 2026-05-21 |
+| ASSUME-FEDRAMP-AC-002 | AC-12 overlay | Session termination (not just lock) ≤30 min for network sessions at Moderate/High | 2026-05-21 |
+| ASSUME-FEDRAMP-CP-001 | CP-3 | Training frequency: annual at Moderate; semi-annual (6 months) at High; role-based for continuity personnel | 2026-05-21 |
+| ASSUME-FEDRAMP-CP-002 | CP-4 | Testing frequency: annual; High requires functional test (not tabletop-only); must demonstrate RTO | 2026-05-21 |
+| ASSUME-FEDRAMP-CP-003 | CP-6 | Alternate storage geographic separation ≥25 miles; both primary and alternate must be CONUS | 2026-05-21 |
+| ASSUME-FEDRAMP-CP-004 | CP-9 | Daily user data backups; weekly system-level; offsite; encrypted with FIPS-validated crypto; annual restoration test | 2026-05-21 |
+| ASSUME-FEDRAMP-MP-001 | MP-6 overlay | NIST 800-88 required; FIPS-validated tools at Moderate/High; disposal records ≥3 years; physical destruction for High when purge infeasible | 2026-05-21 |
+| ASSUME-FEDRAMP-PS-001 | PS-3 overlay | Investigation levels: Low=NACI; Moderate=MBI/NACI; High=BI; reinvestigation every 5 years; complete before CUI access | 2026-05-21 |
+| ASSUME-FEDRAMP-PS-002 | PS-5 overlay | Access re-evaluated within 5 business days of transfer; excess prior-role access revoked | 2026-05-21 |
 
 ---
 
@@ -176,8 +185,9 @@ Standard three-tier gate (see NERC CIP registry). FedRAMP-specific constraints:
 | File | Contents | Assumptions | Confidence | Status |
 |---|---|---|---|---|
 | `conmon-and-overlays.md` | RA-5 (ConMon scans), CA-7 (ConMon plan), CA-5 (POA&M), CM-3 (sig. change), IR-6 (US-CERT 1h), SC-13 (FIPS), IA-2(12) (PIV), PE/CONUS, CA-2+CA-8 (3PAO+pentest), SR (SCRM) | ASSUME-FEDRAMP-001–010 | HIGH (ConMon, IR-6, FIPS, PIV, CONUS, 3PAO/pentest) / MEDIUM (ConMon plan) / CONTESTED (SCRM) | ✅ Parsed |
-| *(Remaining Moderate baseline families)* | AC, AU, CM, CP, IA, MA, MP, PS, PL, SA — FedRAMP parameter deltas from 800-53 r5 | TBD | MEDIUM | 🔲 Pending |
-| *(High-only enhancements)* | IA-3, PE enhancements, PS insider threat, SR 800-161 | TBD | MEDIUM | 🔲 Pending |
+| `account-contingency-media.md` | AC (account review cadences, FIPS remote access, privileged account separation, session termination), CP (contingency plan 7 elements, training, testing, alternate storage 25mi separation, daily backups, RTO/RPO), MP (NIST 800-88 sanitization, FIPS tools, 3yr disposal records), PS (investigation levels per baseline, 4h account disable, 5-day transfer review, annual access agreements) | ASSUME-FEDRAMP-AC-001–002, CP-001–004, MP-001, PS-001–002 | HIGH (PS-4, CP-4 test, MP-6 method) / MEDIUM (CP training, PS investigation level) | ✅ Parsed |
+| *(Remaining Moderate overlay families)* | AU, CM, IA, MA, PL, SA — FedRAMP parameter deltas from 800-53 r5 | TBD | MEDIUM | 🔲 Pending |
+| *(High-only enhancements)* | IA-3, PE enhancements, PS insider threat, SR 800-161 enhanced SCRM | TBD | MEDIUM | 🔲 Pending |
 
 ---
 
@@ -185,8 +195,10 @@ Standard three-tier gate (see NERC CIP registry). FedRAMP-specific constraints:
 
 | Priority | Area | Notes |
 |---|---|---|
-| 1 | AC family (FedRAMP parameter deltas) | AC-2 30-day departure audit; AC-17 remote access FIPS requirement |
-| 2 | CP family | RTO/RPO documented; annual DR test — DETERMINISTIC cadence |
-| 3 | MP-6 (FIPS sanitization) | DETERMINISTIC for disposal using NIST 800-88 / FIPS-validated tools |
-| 4 | PS + SA (Moderate) | Background investigation commensurate with impact level |
-| 5 | High-only enhancements | Insider threat program; enhanced SCRM (SR); additional IA controls |
+| ~~1~~ | ~~AC family~~ | ✅ Complete — `account-contingency-media.md` |
+| ~~2~~ | ~~CP family~~ | ✅ Complete — `account-contingency-media.md` |
+| ~~3~~ | ~~MP-6 (FIPS sanitization)~~ | ✅ Complete — `account-contingency-media.md` |
+| ~~4~~ | ~~PS~~ | ✅ Complete — `account-contingency-media.md` |
+| 5 | AU/CM/IA/SC/SI FedRAMP parameter deltas | Monthly log submission, FIPS-validated tool overlay, PIV details |
+| 6 | SA (Moderate) | Developer security testing; supply chain overlay |
+| 7 | High-only enhancements | Insider threat program; enhanced SCRM (SR); additional IA controls |
