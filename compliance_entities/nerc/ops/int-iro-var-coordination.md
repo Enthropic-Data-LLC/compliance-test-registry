@@ -3,6 +3,10 @@
 **Spec file:** `int-iro-var-coordination.md`
 **Registry version:** 2026.05
 **Last updated:** 2026-05-21
+**Applies to:** Bulk Electric System registered entities whose functional registration makes them subject to specific operational reliability standards — Transmission Operators, Balancing Authorities, Generator Operators, Reliability Coordinators, and others per NERC functional model
+**Trigger:** NERC registration as one or more functional entities per the NERC Functional Model; specific standards apply based on functional registration (e.g., COM-001 applies to Transmission Operators and Balancing Authorities but not Generator Owners)
+**Jurisdiction:** Same as NERC CIP — North America BES; enforced by NERC Regional Entities and FERC
+**Not applicable to:** Same as NERC CIP — distribution-only utilities, behind-the-meter generation, unregistered entities; specific standards have applicability sections listing which functional entities are subject
 **Parent index:** [`_index.md`](./_index.md)
 **Standards covered:**
 - INT-006-4 — Evaluation of Interchange Transactions

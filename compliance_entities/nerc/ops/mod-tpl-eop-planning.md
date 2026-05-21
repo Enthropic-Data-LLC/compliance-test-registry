@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/NERC-OPS/MOD-TPL-EOP/`
 **Standards:** MOD-025-2 (generator real/reactive capability verification), TPL-001-5 (transmission planning performance), EOP-005-3 (system restoration from blackstart resources), EOP-008-2 (loss of control center functionality)
 **Last parsed:** 2026-05-21
+**Applies to:** Bulk Electric System registered entities whose functional registration makes them subject to specific operational reliability standards — Transmission Operators, Balancing Authorities, Generator Operators, Reliability Coordinators, and others per NERC functional model
+**Trigger:** NERC registration as one or more functional entities per the NERC Functional Model; specific standards apply based on functional registration (e.g., COM-001 applies to Transmission Operators and Balancing Authorities but not Generator Owners)
+**Jurisdiction:** Same as NERC CIP — North America BES; enforced by NERC Regional Entities and FERC
+**Not applicable to:** Same as NERC CIP — distribution-only utilities, behind-the-meter generation, unregistered entities; specific standards have applicability sections listing which functional entities are subject
 **Overall confidence:** MEDIUM — MOD-025 reverification cadence (5-year) and EOP-005 blackstart test cycle (3-year) are DETERMINISTIC; TPL-001 P-event category definitions are enumerable but adequacy is CONTESTED; EOP-008 backup control center capability is PARAMETERIZED
 **Applicable entities:** MOD-025: Generator Owners (GO); TPL-001: Transmission Planners (TP), Planning Coordinators (PC); EOP-005: RC (procedures), GO/GOP (blackstart resources); EOP-008: RC, TOP, BA
 

@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/FDA/21CFR11/ElectronicRecords-ESig/`
 **Regulation:** 21 CFR Part 11 (FDA, 1997 final rule; 2003 Guidance reduces enforcement scope)
 **Last parsed:** 2026-05-20
+**Applies to:** Any FDA-regulated organization (pharmaceutical, biotechnology, medical device, food, cosmetics, tobacco) that uses electronic records and/or electronic signatures in operations where FDA predicate rules require records or signatures
+**Trigger:** Use of electronic records in lieu of paper records required by FDA predicate regulations (21 CFR 211 for pharma, 21 CFR 820/QMSR for devices, 21 CFR 123 for seafood HACCP, etc.); use of electronic signatures on records subject to FDA requirements
+**Jurisdiction:** United States; extraterritorial — applies to foreign manufacturers producing products for US distribution where electronic systems support FDA-regulated records
+**Not applicable to:** Electronic systems used purely internally with no FDA-required record function; non-FDA-regulated industries; paper-based systems (Part 11 does not apply); purely research data not submitted to FDA and not required by predicate rule
 **Overall confidence:** HIGH for DETERMINISTIC requirements (audit trail, signature components, two-component enforcement, FDA certification); MEDIUM for PARAMETERIZED (system validation, training)
 **Covers:** §11.10(b)–(k) [closed system controls], §11.50 [signature manifestations], §11.70 [signature/record linking], §11.100 [esig uniqueness + FDA cert], §11.200 [two-component signatures], §11.300 [password/token controls]
 

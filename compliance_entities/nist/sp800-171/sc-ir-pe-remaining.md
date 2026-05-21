@@ -4,6 +4,11 @@
 **Source:** NIST SP 800-171 Rev 3 (May 2024); NIST SP 800-171A Rev 3 assessment procedures
 **Scope:** CUI systems in nonfederal organizations; all requirements apply only within the CUI system boundary
 
+**Applies to:** Non-federal organizations (contractors, universities, research institutions) that process, store, or transmit Controlled Unclassified Information (CUI) in nonfederal information systems under US federal contracts or grants
+**Trigger:** Federal contract or grant containing DFARS clause 252.204-7012 (DoD) or equivalent FAR clause; any contract where the government provides or the contractor generates CUI; CMMC Level 2 requires third-party assessment against NIST 800-171
+**Jurisdiction:** United States; extraterritorial — applies to foreign companies holding US federal contracts involving CUI; enforced through contract terms and DoD CMMC assessments
+**Not applicable to:** Federal agencies (use NIST 800-53 instead); organizations with no federal contracts or grants; commercial transactions not involving CUI; EAR99 technology transfers (separate ITAR/EAR framework)
+
 ---
 
 ## Constants

@@ -4,6 +4,10 @@
 **Clauses:** Art. 17–18 (purpose specification), Art. 20 (sensitive PI consent), Art. 23–26 (security management, employee/subcontractor supervision), Art. 27–29 (third-party provision + opt-out registration + records), Art. 26 (breach notification), Arts. 33–39 (data subject rights)
 **Confidence:** DETERMINISTIC-dominant (breach notification deadlines, sensitive PI consent, third-party provision records, DSR response deadlines, opt-out registration); PARAMETERIZED (security management measures scale/content)
 **Last parsed:** 2026-05-21
+**Applies to:** Business operators handling personal information in Japan; foreign businesses that provide goods or services to persons in Japan or use personal information of persons in Japan — regardless of where the business is located
+**Trigger:** Handling personal information of persons in Japan in the course of business; providing goods or services targeting Japan; 2022 amendment removed the 5,000-person threshold — now applies to all business operators handling any personal information
+**Jurisdiction:** Japan; extraterritorial reach for foreign businesses targeting Japanese persons; enforced by Personal Information Protection Commission (PPC); sector-specific guidelines from FSA (financial), MHLW (healthcare), METI (general industry)
+**Not applicable to:** Government agencies (separate Act on Protection of Personal Information Held by Administrative Organs); purely personal or family use with no commercial purpose; anonymous information that is irreversibly de-identified (outside APPI definition of personal information); academic research with appropriate safeguards (limited exemption)
 
 ---
 

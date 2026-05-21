@@ -4,6 +4,10 @@
 **Clauses:** IS Handbook Work Programs 1–5 (governance, risk assessment, controls, monitoring, TSP management); BCM Handbook (BIA, RTO/RPO, annual testing, offsite backup); Rule 3310 (AML) cross-reference
 **Confidence:** DETERMINISTIC-dominant (MFA, patch ≤30d, vuln scan ≥quarterly, pentest annual, log retention, BCP annual test, offsite backup, written policies, TSP inventory); PARAMETERIZED (control adequacy, risk assessment methodology, monitoring coverage)
 **Last parsed:** 2026-05-21
+**Applies to:** Federally regulated US financial institutions — national banks (OCC), federal savings associations (OCC), state member banks (Federal Reserve), bank holding companies (Federal Reserve), state nonmember banks (FDIC), federal credit unions (NCUA); and their technology service providers (TSPs) examined through their institutional clients
+**Trigger:** Federal charter or federal deposit insurance triggering examination by an FFIEC member agency (OCC, FDIC, Federal Reserve, NCUA, CFPB); examination benchmarks apply during IT Safety-and-Soundness examinations; findings result in MRAs/MRIAs that carry practical enforcement force
+**Jurisdiction:** United States; FFIEC handbooks are the examination framework for federally regulated institutions; state-chartered non-member banks are examined by state authorities but commonly use FFIEC guidance as the reference standard
+**Not applicable to:** State-chartered non-member banks not subject to federal examination (though FFIEC guidance is widely referenced); non-bank financial institutions not regulated by FFIEC member agencies; insurance companies (state regulated); fintech companies not holding a federal banking charter or deposit insurance
 
 ---
 

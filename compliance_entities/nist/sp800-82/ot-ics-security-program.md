@@ -5,6 +5,10 @@
 **Note:** SP 800-82 is guidance, not a regulation. Tests apply when SP 800-82 is adopted by policy, mandated by contract, or referenced by a binding directive (TSA SD-02D, NRC RG 5.71, CISA). All requirements are PARAMETERIZED unless a binding mandate makes them DETERMINISTIC.
 **Confidence:** PARAMETERIZED-dominant (program elements, tailoring adequacy); DETERMINISTIC subset (asset inventory existence, architecture documentation, remote access MFA, IRP existence)
 **Last parsed:** 2026-05-21
+**Applies to:** Any organization operating Operational Technology (OT), Industrial Control Systems (ICS), SCADA, DCS, PLC, or RTU systems that: (1) adopts SP 800-82 by organizational policy; (2) is subject to a binding directive referencing SP 800-82 (TSA SD-02D, NRC RG 5.71, CISA advisories); or (3) requires it by contract
+**Trigger:** Policy adoption for OT security program; TSA Security Directive SD-02D (pipeline operators) references SP 800-82 practices; NRC RG 5.71 references NIST 800-53 (which SP 800-82 tailors for OT); federal/DoD contracts requiring NIST OT security standards; CISA critical infrastructure advisories
+**Jurisdiction:** US origin; internationally referenced — ENISA, NCSC (UK), and national CERTs worldwide align OT guidance to SP 800-82 and IEC 62443
+**Not applicable to:** As a standalone mandatory requirement — SP 800-82 is NIST guidance, not a regulation; it becomes effectively mandatory only when incorporated by reference into a binding regulatory directive or contract; does not replace NERC CIP (electric), TSA SD-02D (pipeline), or NRC 10 CFR 73.54 (nuclear)
 
 ---
 

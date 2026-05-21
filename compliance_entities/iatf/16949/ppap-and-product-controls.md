@@ -5,6 +5,10 @@
 **Parent:** ISO 9001:2015 (see iso/9001 registry); all ISO 9001 requirements apply simultaneously
 **Confidence:** DETERMINISTIC-dominant (PPAP 18 elements, control plan, SPC, error-proofing, customer notification)
 **Last parsed:** 2026-05-21
+**Applies to:** Automotive parts manufacturers and their direct and sub-tier suppliers providing production parts, accessories, or service parts to automotive original equipment manufacturers (OEMs)
+**Trigger:** Customer requirement from automotive OEMs (Ford, GM, Stellantis, BMW, VW Group, Toyota, Honda, etc.) mandating IATF 16949 certification for supply chain qualification; required for PPAP (Production Part Approval Process) submission to most OEMs
+**Jurisdiction:** Global — IATF (International Automotive Task Force) standard; recognized by all major automotive OEMs worldwide through their customer-specific requirements (CSRs)
+**Not applicable to:** Non-automotive manufacturing; automotive distributors or dealers without manufacturing; service-only companies; aftermarket software and electronics not in direct OEM supply chain; companies supplying raw materials only (e.g., steel mills) rather than processed parts
 
 ---
 

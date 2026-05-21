@@ -4,6 +4,10 @@
 **Clauses:** §73.54(b) (cybersecurity plan NRC approval), §73.54(c) (cybersecurity controls), §73.54(d) (defense-in-depth), §73.54(e) (annual assessment), §73.77 (incident reporting — 1-hour/8-hour/30-day); RG 5.71 §4.3.3 (Level 4 isolation requirements)
 **Confidence:** DETERMINISTIC-dominant (Level 4 isolation, wireless prohibition, media control, incident reporting deadlines, annual assessment, plan approval); PARAMETERIZED (CDA identification methodology, security control adequacy)
 **Last parsed:** 2026-05-21
+**Applies to:** Commercial nuclear power reactor licensees holding operating licenses under 10 CFR Part 50 or combined licenses under 10 CFR Part 52; rule applies to all digital computer and communication systems and networks associated with safety, security, emergency preparedness, and support systems (Critical Digital Assets — CDAs)
+**Trigger:** NRC license to operate a commercial nuclear power reactor in the United States; rule effective March 27, 2009; implementation schedules negotiated per licensee; ongoing compliance verified through NRC inspection procedure IP 71130.10
+**Jurisdiction:** United States; enforced by the U.S. Nuclear Regulatory Commission (NRC) through routine inspections and enforcement actions
+**Not applicable to:** Research and test reactors (different regulatory framework); nuclear fuel cycle facilities (10 CFR Part 74); nuclear materials licensees (Agreement State regulation in many cases); decommissioned reactors (modified applicability); non-power reactor licensees
 
 ---
 

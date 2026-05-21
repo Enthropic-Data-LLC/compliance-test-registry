@@ -3,6 +3,10 @@
 **Spec file:** `principles-lawful-basis.md`
 **Registry version:** 2026.05
 **Last updated:** 2026-05-21
+**Applies to:** Any organization — regardless of location — that processes personal data of EU/EEA data subjects by offering goods or services to them or monitoring their behavior within the EU/EEA
+**Trigger:** Offering goods or services to EU/EEA persons (Art. 3(2)(a)); monitoring behavior of EU/EEA persons within the EU/EEA (Art. 3(2)(b)); establishment in the EU/EEA (Art. 3(1))
+**Jurisdiction:** European Union / EEA; strong extraterritorial reach — applies to non-EU organizations targeting EU persons; enforced by national Data Protection Authorities and the EDPB
+**Not applicable to:** Purely personal or household use (Art. 2(2)(c)); national security and law enforcement activities (Directive 2016/680 instead); anonymous data (not 'personal data' within GDPR meaning); deceased persons (in most member states)
 **Parent index:** [`_index.md`](./_index.md)
 **Regulatory basis:** Regulation (EU) 2016/679 (GDPR) — Articles 5, 6, 9
 **Authority:** EU/EEA national supervisory authorities; lead authority per main establishment

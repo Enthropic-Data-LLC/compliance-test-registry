@@ -4,6 +4,10 @@
 **Functions:** GOVERN (1.1–6.2), MAP (1.1–5.2)
 **Confidence:** PARAMETERIZED-dominant with CONTESTED sub-categories; one DETERMINISTIC gate (regulatory register)
 **Last parsed:** 2026-05-21
+**Applies to:** Any organization developing, deploying, procuring, or using AI systems; federal agencies and their contractors per US Executive Order 14110 (2023); organizations seeking to align with EU AI Act risk management requirements
+**Trigger:** Voluntary adoption; US EO 14110 requires federal agencies to apply AI RMF for high-impact AI; EU AI Act Annex IV references NIST AI RMF as an aligned standard; organizational AI governance decision
+**Jurisdiction:** US origin; internationally aligned — NIST coordinated AI RMF with ISO/IEC 42001 (AI Management System) and EU AI Act technical standards
+**Not applicable to:** Mandatory compliance in isolation — AI RMF 1.0 is voluntary guidance; no direct penalty for non-adoption except under EO 14110 for federal agencies; does not replace sector-specific AI regulations (EU AI Act, FDA AI/ML guidance, etc.)
 
 ---
 

@@ -6,6 +6,11 @@
 **Prerequisite:** Level 2 (all 110 NIST 800-171 r2 practices) must be met before Level 3 delta applies
 **DoD applicability:** Programs designated by DoD for Level 3 based on criticality and CUI sensitivity
 
+**Applies to:** Defense contractors and subcontractors handling Controlled Unclassified Information (CUI) or Federal Contract Information (FCI) under Department of Defense (DoD) contracts and subcontracts
+**Trigger:** DoD contract or subcontract containing DFARS clause 252.204-7012 (CUI) or 252.204-7021 (CMMC); prime contractors must flow down CMMC requirements to all subcontractors handling CUI; CMMC Level determined by CUI type and sensitivity
+**Jurisdiction:** United States Department of Defense supply chain; applies to US companies and foreign companies holding DoD contracts
+**Not applicable to:** Commercial-only companies with no DoD contracts or subcontracts; DoD contracts not involving CUI or FCI (though basic contractor ethics and safeguarding under FAR 52.204-21 still apply); non-defense government contractors (civilian agencies use FISMA/800-171 directly without CMMC framework)
+
 ---
 
 ## RDF extraction

@@ -4,6 +4,11 @@
 **Scope:** Six Functions — GV (Govern), ID (Identify), PR (Protect), DE (Detect), RS (Respond), RC (Recover)
 **Note:** CSF 2.0 is outcomes-based and voluntary. Tests assert Current Profile ≥ Target Profile for each subcategory. DETERMINISTIC tests apply where binary presence or measurable thresholds exist; most subcategories are PARAMETERIZED or CONTESTED.
 
+**Applies to:** Any organization seeking a voluntary, risk-based cybersecurity framework — originally US critical infrastructure, now broadly adopted across all sectors and internationally
+**Trigger:** Voluntary adoption; referenced in US executive orders (EO 13636, EO 14028) for critical infrastructure and federal contractors; cited in FFIEC examination guidance, TSA directives, and CISA advisories; international government adoption (UK NCSC, Australian ACSC)
+**Jurisdiction:** US origin; internationally adopted — referenced by ENISA (EU), NCSC (UK), ACSC (Australia), and others as equivalent or mapping framework
+**Not applicable to:** Mandatory compliance in isolation — CSF 2.0 is voluntary guidance; serves as a mapping language to mandatory frameworks (NIST 800-53, ISO 27001, PCI DSS, etc.) rather than as an independent regulatory requirement
+
 ---
 
 ## RDF extraction

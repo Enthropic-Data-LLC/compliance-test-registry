@@ -4,6 +4,10 @@
 **Clauses:** 4.2, 5.3–5.6, 6.2, 7.2.1, 7.2.2, 7.3.1–7.3.9, 7.4, 7.5.1, 7.5.5–7.5.9, 7.6, 8.2.1–8.2.4, 8.2.6, 8.3, 8.5.2–8.5.3
 **Confidence:** DETERMINISTIC-dominant (documentation system + design control + CAPA records)
 **Last parsed:** 2026-05-21
+**Applies to:** Medical device manufacturers, component suppliers, distributors, and service providers involved in the design, development, production, storage, distribution, installation, or servicing of medical devices
+**Trigger:** Regulatory requirement in many major markets — EU MDR/IVDR references ISO 13485; FDA QMSR (21 CFR 820) aligns to ISO 13485:2016; Health Canada, TGA (Australia), PMDA (Japan) recognize ISO 13485 certification; customer requirement in device supply chains
+**Jurisdiction:** Global — ISO standard; certification recognized by regulatory bodies in EU, Canada, Australia, Japan, and many other markets; FDA accepts ISO 13485 certification for QMSR compliance determination
+**Not applicable to:** Non-medical-device manufacturers; software products not meeting the medical device definition under MDR/IVDR or FDA; purely research/investigational devices not entering commercial distribution
 
 ---
 

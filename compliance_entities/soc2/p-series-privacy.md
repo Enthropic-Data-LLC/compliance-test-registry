@@ -23,6 +23,11 @@
 #   ASSUME-SOC2-P7-001   P7 — Data accuracy; correction and update mechanism
 #   ASSUME-SOC2-P8-001   P8 — Privacy program monitoring; incident handling; annual review
 
+#
+# Applies to: Service organizations (SaaS, cloud providers, data centers, managed-service providers) whose services are relevant to user-entity controls
+# Trigger: Customer contract requirement; investor due-diligence; voluntary for competitive positioning; required when customers request a SOC 2 Type I or Type II report from their auditor
+# Jurisdiction: United States (AICPA Trust Services Criteria); widely accepted internationally as equivalent to ISO 27001 attestation
+# Not applicable to: Internal IT departments; organizations that do not provide services to other companies; product companies without a service component
 import pytest
 from datetime import date
 from dateutil.relativedelta import relativedelta

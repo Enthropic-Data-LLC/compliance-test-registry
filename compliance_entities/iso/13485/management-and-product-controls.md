@@ -4,6 +4,10 @@
 **Clauses:** 4.1, 5.1–5.2, 5.4–5.5, 6.1, 6.3–6.4, 7.1, 7.2.3, 7.5.2–7.5.4, 7.5.10–7.5.11, 8.1, 8.2.5, 8.4
 **Confidence:** PARAMETERIZED-dominant (management commitment, operational support clauses)
 **Last parsed:** 2026-05-21
+**Applies to:** Medical device manufacturers, component suppliers, distributors, and service providers involved in the design, development, production, storage, distribution, installation, or servicing of medical devices
+**Trigger:** Regulatory requirement in many major markets — EU MDR/IVDR references ISO 13485; FDA QMSR (21 CFR 820) aligns to ISO 13485:2016; Health Canada, TGA (Australia), PMDA (Japan) recognize ISO 13485 certification; customer requirement in device supply chains
+**Jurisdiction:** Global — ISO standard; certification recognized by regulatory bodies in EU, Canada, Australia, Japan, and many other markets; FDA accepts ISO 13485 certification for QMSR compliance determination
+**Not applicable to:** Non-medical-device manufacturers; software products not meeting the medical device definition under MDR/IVDR or FDA; purely research/investigational devices not entering commercial distribution
 
 ---
 

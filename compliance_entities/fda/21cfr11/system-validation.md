@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/FDA/21CFR11/SystemValidation/`
 **Regulation:** 21 CFR Part 11 (FDA, 1997); 2003 Guidance (risk-based enforcement)
 **Last parsed:** 2026-05-20
+**Applies to:** Any FDA-regulated organization (pharmaceutical, biotechnology, medical device, food, cosmetics, tobacco) that uses electronic records and/or electronic signatures in operations where FDA predicate rules require records or signatures
+**Trigger:** Use of electronic records in lieu of paper records required by FDA predicate regulations (21 CFR 211 for pharma, 21 CFR 820/QMSR for devices, 21 CFR 123 for seafood HACCP, etc.); use of electronic signatures on records subject to FDA requirements
+**Jurisdiction:** United States; extraterritorial — applies to foreign manufacturers producing products for US distribution where electronic systems support FDA-regulated records
+**Not applicable to:** Electronic systems used purely internally with no FDA-required record function; non-FDA-regulated industries; paper-based systems (Part 11 does not apply); purely research data not submitted to FDA and not required by predicate rule
 **Overall confidence:** MEDIUM — validation scope is PARAMETERIZED; methodology adequacy is CONTESTED; existence of validation documentation is DETERMINISTIC
 **Covers:** §11.10(a) [system validation], §11.10(f)+(h)+(i)+(j) [operational/device/training/policy], §11.30 [open system controls]
 

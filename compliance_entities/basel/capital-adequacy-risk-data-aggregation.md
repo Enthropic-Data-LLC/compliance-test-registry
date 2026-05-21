@@ -4,6 +4,10 @@
 **Clauses:** Basel III Pillar 1 (minimum capital ratios CET1/Tier1/Total/Leverage); Pillar 2 (ICAAP); Pillar 3 (disclosure — quarterly 45-day deadline); LCR Disclosure Standards (monthly 15-business-day); BCBS 239 Principles 1–14 (P5/P10 DETERMINISTIC; remainder PARAMETERIZED); NSFR (100% minimum)
 **Confidence:** DETERMINISTIC (capital ratio thresholds; LCR/NSFR minimums; Pillar 3 publication deadlines; BCBS 239 P5 timeliness; BCBS 239 P10 board reporting quarterly); PARAMETERIZED-dominant (ICAAP, model validation, BCBS 239 data architecture adequacy, stress testing)
 **Last parsed:** 2026-05-21
+**Applies to:** Internationally active banks subject to Basel III capital requirements under national implementation rules; G-SIBs (globally systemically important banks on the FSB annual list) for mandatory BCBS 239 compliance; D-SIBs by national regulator direction
+**Trigger:** National regulator designation as 'internationally active bank' triggering Basel III final rule; FSB annual G-SIB list (published each November) for BCBS 239 mandatory compliance; implemented via Fed/OCC/FDIC final rules (US), CRR/CRD (EU), PRA rules (UK)
+**Jurisdiction:** Global — enforced through national banking regulators; US: Federal Reserve/OCC/FDIC; EU: ECB/EBA/national competent authorities; UK: PRA; Switzerland: FINMA
+**Not applicable to:** Community banks and smaller non-internationally-active institutions (national regulators apply simplified capital frameworks, e.g., US Community Bank Leverage Ratio); non-bank financial institutions; insurance companies (Solvency II for EU insurers); broker-dealers (net capital rule instead of Basel III)
 
 ---
 

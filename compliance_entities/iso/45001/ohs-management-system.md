@@ -4,6 +4,10 @@
 **Clauses:** §5.2 (OH&S policy), §6.1.2 (hazard identification and risk assessment), §6.1.3 (legal requirements), §6.2 (OH&S objectives), §7.2 (competence), §8.1.3 (management of change), §9.1.2 (compliance evaluation), §9.2 (internal audit), §9.3 (management review), §10.2 (incident investigation + CAPA)
 **Confidence:** DETERMINISTIC-dominant (policy, legal register, objectives, incident records, audit program, management review, CAPA); PARAMETERIZED (hazard identification methodology, hierarchy of controls adequacy)
 **Last parsed:** 2026-05-21
+**Applies to:** Any organization seeking to implement or certify an Occupational Health and Safety Management System (OHSMS); required in some supply chains (construction, mining, manufacturing, oil and gas) as a contractor qualification criterion
+**Trigger:** Voluntary certification; contractual requirement in construction, oil and gas, and manufacturing supply chains; government procurement requirement in some countries; organizational OHS risk management decision; replaces OHSAS 18001 (retired 2021)
+**Jurisdiction:** Global — ISO international standard; recognized in all major markets
+**Not applicable to:** ISO 45001 does not replace mandatory OHS regulations — OSHA standards (29 CFR 1910, 1926) in the US and equivalent national regulations impose binding requirements independent of ISO 45001 certification; ISO 45001 is the management system framework, not the regulatory floor
 
 ---
 

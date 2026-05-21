@@ -5,6 +5,10 @@
 **Assessment Levels:** AL1 (self), AL2 (remote audit), AL3 (on-site)
 **Confidence:** MEDIUM overall — maturity level scoring + some DETERMINISTIC gates
 **Last parsed:** 2026-05-21
+**Applies to:** Automotive supply chain companies that exchange sensitive information with participating automotive OEMs (VW Group, BMW, Mercedes-Benz, Porsche, etc.) — including suppliers handling vehicle data, prototype/pre-series vehicle information, personal data in automotive context, or classified OEM intellectual property
+**Trigger:** OEM contractual requirement specifying TISAX assessment with a defined Assessment Level (AL1, AL2, or AL3 based on data sensitivity); TISAX is required for suppliers exchanging information above the sensitivity threshold defined in the VDA ISA questionnaire
+**Jurisdiction:** Global — ENX Association manages the TISAX program; primarily European OEMs require it but assessment results shared across all ENX participants worldwide
+**Not applicable to:** Non-automotive companies; automotive suppliers that do not exchange sensitive data above the TISAX trigger threshold with OEM TISAX participants; pure service companies with no intellectual property or vehicle data handling
 
 ---
 

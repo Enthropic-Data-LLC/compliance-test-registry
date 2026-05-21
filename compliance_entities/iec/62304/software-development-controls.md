@@ -4,6 +4,10 @@
 **Clauses:** 4 (General), 5 (Software Development), 8 (Configuration Management)
 **Confidence:** DETERMINISTIC-dominant; class-gated (A/B/C determines required activities)
 **Last parsed:** 2026-05-21
+**Applies to:** Medical device manufacturers that incorporate software as part of a medical device (embedded, standalone Software as a Medical Device (SaMD), or software controlling a device); IVD manufacturers with software components
+**Trigger:** Required by EU MDR/IVDR for software-containing devices; FDA's software-related guidance documents reference IEC 62304 as the recognized standard; ISO 13485 design controls (Clause 7.3) require a software development process for devices with software
+**Jurisdiction:** Global — harmonized with EU MDR/IVDR, referenced by FDA, Health Canada, TGA, PMDA, and most major medical device regulatory frameworks
+**Not applicable to:** Software with no medical purpose (wellness apps, administrative hospital software); off-the-shelf general-purpose software used in healthcare settings but not classified as a device; pure hardware medical devices with no software component
 
 ---
 

@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/GDPR/Articles/`
 **Regulation:** EU General Data Protection Regulation 2016/679
 **Last parsed:** 2026-05-20
+**Applies to:** Any organization — regardless of location — that processes personal data of EU/EEA data subjects by offering goods or services to them or monitoring their behavior within the EU/EEA
+**Trigger:** Offering goods or services to EU/EEA persons (Art. 3(2)(a)); monitoring behavior of EU/EEA persons within the EU/EEA (Art. 3(2)(b)); establishment in the EU/EEA (Art. 3(1))
+**Jurisdiction:** European Union / EEA; strong extraterritorial reach — applies to non-EU organizations targeting EU persons; enforced by national Data Protection Authorities and the EDPB
+**Not applicable to:** Purely personal or household use (Art. 2(2)(c)); national security and law enforcement activities (Directive 2016/680 instead); anonymous data (not 'personal data' within GDPR meaning); deceased persons (in most member states)
 **Overall confidence:** MEDIUM — Art. 33 (72-hour breach notification) is HIGH/DETERMINISTIC; Art. 28/30 (DPA, ROPA) are MEDIUM/PARAMETERIZED; Art. 32 (security) is CONTESTED; Art. 12 (DSR timelines) is HIGH/DETERMINISTIC
 **Covers:** Art. 12, 13/14, 28, 30, 33/34, 35, 37, Chapter V (Art. 44–49), plus Art. 32 framing
 

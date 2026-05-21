@@ -6,6 +6,11 @@
   PARAMETERIZED test can assert an enforcing value. ODPs default to 800-53B recommended values
   where available; all ODP values used below are documented in `odp_values` fixture.
 
+**Applies to:** US federal agencies and their information systems (mandatory under FISMA); federal contractors and cloud service providers seeking FedRAMP authorization; state and local governments and critical infrastructure (by voluntary adoption or contract)
+**Trigger:** Federal Information Security Modernization Act (FISMA) — mandatory for all federal agencies; FedRAMP authorization process; federal contract or grant requirement citing NIST 800-53; OMB Circular A-130
+**Jurisdiction:** United States federal government (mandatory); widely adopted internationally as a comprehensive control framework
+**Not applicable to:** Private sector organizations not under federal contract (unless voluntarily adopted); non-federal systems outside FISMA scope; CMMC Level 1/2 contractors (use NIST 800-171, which is derived from 800-53 but has 110 requirements vs. 1000+)
+
 ---
 
 ```python

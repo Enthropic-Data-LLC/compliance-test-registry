@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/SOC2/A1/`
 **Version:** AICPA TSC 2017 (2022 points of focus updates)
 **Last parsed:** 2026-05-20
+**Applies to:** Service organizations (SaaS, cloud providers, data centers, managed-service providers) whose services are relevant to user-entity controls
+**Trigger:** Customer contract requirement; investor due-diligence; voluntary for competitive positioning; required when customers request a SOC 2 Type I or Type II report from their auditor
+**Jurisdiction:** United States (AICPA Trust Services Criteria); widely accepted internationally as equivalent to ISO 27001 attestation
+**Not applicable to:** Internal IT departments; organizations that do not provide services to other companies; product companies without a service component
 **Overall confidence:** MEDIUM — backup frequency and restore test cadence have DETERMINISTIC thresholds with assumptions; capacity management thresholds are PARAMETERIZED (org-defined)
 **3 criteria: A1.1–A1.3**
 **Optional trust service category — only in scope when service organization commits to availability SLAs**

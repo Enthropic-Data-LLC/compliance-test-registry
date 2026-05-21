@@ -3,6 +3,10 @@
 **Spec file:** `fitness-for-duty.md`
 **Registry version:** 2026.05
 **Last updated:** 2026-05-21
+**Applies to:** Nuclear power plant licensees and their contractors and vendors whose employees perform safety-sensitive duties at nuclear power facilities — reactor operators, maintenance personnel, security personnel, and other individuals subject to fitness-for-duty (FFD) programs
+**Trigger:** NRC license to operate a nuclear power plant; applies to all individuals who are granted or who seek unescorted access to a protected area or who perform safety-sensitive duties at a licensed facility; contractors and vendors must comply via licensee FFD programs
+**Jurisdiction:** United States; enforced by the U.S. Nuclear Regulatory Commission
+**Not applicable to:** Individuals working only in administrative or business areas without unescorted access to protected areas; non-nuclear industrial workplaces; research reactors (limited applicability); fuel cycle facilities (different NRC rules apply)
 **Parent index:** [`_index.md`](./_index.md)
 **Regulatory basis:** 10 CFR Part 26 (Subparts B, C, E, H); 10 CFR §26.31, §26.61, §26.65, §26.163, §26.189, §26.205, §26.207
 **Authority:** U.S. Nuclear Regulatory Commission

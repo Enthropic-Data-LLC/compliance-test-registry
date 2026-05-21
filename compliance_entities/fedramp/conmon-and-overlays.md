@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/FedRAMP/ConMon-Overlays/`
 **Regulation:** Federal Risk and Authorization Management Program (FedRAMP Rev 5)
 **Last parsed:** 2026-05-20
+**Applies to:** Cloud service providers (CSPs) offering cloud services to US federal agencies; SaaS, PaaS, and IaaS providers seeking FedRAMP Authorization to Operate (ATO)
+**Trigger:** US federal agency contract or procurement requiring FedRAMP-authorized cloud services; FISMA requires federal agencies to use FedRAMP-authorized cloud offerings; federal CIO Council memo
+**Jurisdiction:** United States federal government; CSPs may be located anywhere globally but must meet US federal requirements
+**Not applicable to:** On-premises federal IT systems (governed by FISMA/NIST 800-53 directly without FedRAMP process); commercial-only cloud products with no federal customers; cloud services offered exclusively to state/local government (StateRAMP is the counterpart)
 **Overall confidence:** HIGH for DETERMINISTIC overlays (ConMon cadences, US-CERT reporting, FIPS validation, PIV, CONUS); MEDIUM for PARAMETERIZED (ConMon plan, SCRM plan); CONTESTED for supply chain sufficiency
 **Covers:** ConMon requirements (RA-5, CA-7, POA&M/CA-5, significant change CM-3), IR-6 (US-CERT), SC-13 (FIPS), IA-2(12) (PIV), PE data location, CA-2+CA-8 (3PAO + pentest)
 

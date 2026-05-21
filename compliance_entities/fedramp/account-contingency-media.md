@@ -6,6 +6,11 @@
   for the underlying control coverage. FedRAMP tightens or supplements — it does not replace.
 **Baseline tags:** `[L]` Low, `[M]` Moderate, `[H]` High — tests gated by `impact_level` fixture.
 
+**Applies to:** Cloud service providers (CSPs) offering cloud services to US federal agencies; SaaS, PaaS, and IaaS providers seeking FedRAMP Authorization to Operate (ATO)
+**Trigger:** US federal agency contract or procurement requiring FedRAMP-authorized cloud services; FISMA requires federal agencies to use FedRAMP-authorized cloud offerings; federal CIO Council memo
+**Jurisdiction:** United States federal government; CSPs may be located anywhere globally but must meet US federal requirements
+**Not applicable to:** On-premises federal IT systems (governed by FISMA/NIST 800-53 directly without FedRAMP process); commercial-only cloud products with no federal customers; cloud services offered exclusively to state/local government (StateRAMP is the counterpart)
+
 ---
 
 ```python

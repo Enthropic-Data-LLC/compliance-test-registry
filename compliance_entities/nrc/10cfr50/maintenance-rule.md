@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/NRC/10CFR50/MaintenanceRule/`
 **Regulation:** 10 CFR §50.65 — Requirements for Monitoring the Effectiveness of Maintenance at Nuclear Power Plants
 **Last parsed:** 2026-05-21
+**Applies to:** Commercial nuclear power plant licensees holding operating licenses (OL) or combined licenses (COL) under 10 CFR Part 50 or Part 52; construction permit holders; nuclear power plant applicants during the licensing process
+**Trigger:** NRC license to operate or construct a commercial nuclear power plant in the United States; Appendix B (QA) applies from earliest design phases; event reporting, maintenance rule, fire protection, and ISI/IST requirements apply throughout the operating license period
+**Jurisdiction:** United States; enforced by the U.S. Nuclear Regulatory Commission through routine inspections, resident inspectors, and enforcement actions including Notices of Violation, Confirmatory Action Letters, and civil penalties
+**Not applicable to:** Research and test reactors (10 CFR Part 50 applies partially but with different technical requirements); non-power utilization facilities; fuel cycle facilities (10 CFR Part 70); nuclear materials licensees; decommissioned reactors (10 CFR Part 50 Subpart E DECON/SAFSTOR requirements differ)
 **Overall confidence:** MEDIUM — program existence and annual review cadence are DETERMINISTIC; (a)(1)/(a)(2) categorization and performance criteria adequacy are PARAMETERIZED and require system engineer/expert panel judgment; §50.65(a)(4) pre-maintenance risk assessment existence is DETERMINISTIC but adequacy is PARAMETERIZED
 **Covers:** §50.65(a)(1) goals and monitoring; §50.65(a)(2) performance criteria; §50.65(a)(3) annual performance review; §50.65(a)(4) risk assessment before maintenance; industry implementation per NUMARC 93-01 (now NEI 93-01) and INPO AP-913
 **Enforcement note:** §50.65 carries very high enforcement activity history — NRC Generic Communication DC/NL-2012-03 lists this as one of the top-cited violations; common findings include (a)(1) placement delay, inadequate performance criteria, and missing (a)(4) assessments

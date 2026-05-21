@@ -5,6 +5,11 @@
 **Effective:** September 2020 (general); August 2021 (penalty provisions)
 **Scope:** Processing of personal data of individuals located in Brazil
 
+**Applies to:** Any natural or legal person (public or private sector) that processes personal data: (1) in Brazil; (2) where the purpose of processing is to offer or provide goods/services to individuals in Brazil; or (3) where personal data from Brazil is processed
+**Trigger:** Any of the three territorial nexus points above — broad extraterritorial scope similar to GDPR; applies to foreign organizations targeting Brazilian persons
+**Jurisdiction:** Brazil; extraterritorial reach via Art. 3 for organizations outside Brazil that process data of Brazilian residents
+**Not applicable to:** Personal or family use with no commercial purpose; journalistic, artistic, academic, or security research with legal safeguards; government processing for national security or criminal investigation purposes
+
 ---
 
 ## RDF extraction

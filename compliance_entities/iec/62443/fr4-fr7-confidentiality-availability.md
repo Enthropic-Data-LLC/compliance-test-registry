@@ -5,6 +5,10 @@
 **System Requirements:** SR 4.1–4.3, SR 5.1–5.4, SR 6.1–6.2, SR 7.1–7.8
 **Confidence:** DETERMINISTIC-dominant (zone architecture, backup, config baseline, inventory, patch policy)
 **Last parsed:** 2026-05-21
+**Applies to:** Three roles across the industrial automation and control system (IACS) lifecycle: asset owners (operators of OT/ICS systems), product suppliers (manufacturers of IACS components), and system integrators (designing/deploying IACS solutions) across all industrial sectors
+**Trigger:** Customer/procurement contractual requirement (increasingly standard in oil and gas, energy, water, manufacturing supply chains); regulatory reference (NIS2 Directive in EU, NERC CIP, NRC guidance); voluntary adoption for OT security program maturity
+**Jurisdiction:** Global — IEC international standard; widely referenced by EU NIS2 Directive implementing acts, US CISA advisories, and sector-specific regulators
+**Not applicable to:** Pure IT environments (ISO 27001 is the counterpart); consumer IoT outside industrial automation context (ETSI EN 303 645 applies instead); IEC 62443 does not replace sector-specific regulations (NERC CIP for BES, NRC for nuclear, TSA for pipelines)
 
 ---
 

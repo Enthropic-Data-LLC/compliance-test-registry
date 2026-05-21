@@ -4,6 +4,10 @@
 **Clauses:** §5.2 (environmental policy), §6.1.1 (environmental aspects), §6.1.2 (compliance obligations), §6.2 (environmental objectives), §7.2 (competence), §8.2 (emergency preparedness), §9.1.2 (compliance evaluation), §9.2 (internal audit), §9.3 (management review), §10.2 (nonconformity and corrective action)
 **Confidence:** DETERMINISTIC-dominant (policy, compliance register, objectives, competence, audit, management review, CAPA, compliance evaluation); PARAMETERIZED/CONTESTED (environmental aspects significance determination)
 **Last parsed:** 2026-05-21
+**Applies to:** Any organization seeking to implement or certify an Environmental Management System (EMS); required in some government procurement processes and supply chains with environmental performance criteria
+**Trigger:** Voluntary certification; EU/UK government procurement criteria; customer requirement in automotive (IATF 16949 references), aerospace, and chemical supply chains; organizational environmental risk management decision
+**Jurisdiction:** Global — ISO international standard
+**Not applicable to:** ISO 14001 does not replace mandatory environmental regulations — EPA regulations (Clean Air Act, RCRA, Clean Water Act) and equivalent national laws impose binding requirements independent of ISO 14001 certification; ISO 14001 is a management system framework, not regulatory compliance
 
 ---
 

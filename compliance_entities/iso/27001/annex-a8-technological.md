@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/ISO-27001/Annex-A8/`
 **Version:** ISO/IEC 27001:2022
 **Last parsed:** 2026-05-20
+**Applies to:** Any organization seeking ISO/IEC 27001 certification for its Information Security Management System (ISMS); scope is organization-defined (can be a department, product line, or whole entity)
+**Trigger:** Voluntary certification; customer or procurement requirement (especially in EU, UK, financial services); NIS2 Directive in EU references ISO 27001 as an acceptable framework; organizational risk management decision
+**Jurisdiction:** Global — ISO/IEC international standard recognized worldwide; certifying bodies accredited per ISO/IEC 17021-1
+**Not applicable to:** Mandatory compliance in isolation — ISO 27001 is a voluntary standard with no direct regulatory enforcement; certification applies only to the defined ISMS scope; does not replace sector-specific mandatory frameworks (HIPAA, PCI DSS, GLBA, etc.)
 **Overall confidence:** MEDIUM overall — HIGH for A.8.5 (authentication), A.8.7 (malware), A.8.13 (backup), A.8.15 (logging), A.8.17 (NTP); PARAMETERIZED for most others
 **34 controls: A.8.1–A.8.34**
 

@@ -5,6 +5,10 @@
 **Parent:** ISO 9001:2015 (fully incorporated — all ISO 9001 requirements apply simultaneously)
 **Confidence:** DETERMINISTIC-dominant (design record completeness, CST calibration, contingency plan, API Monogram marking, service agreement review before execution)
 **Last parsed:** 2026-05-21
+**Applies to:** Manufacturers of oil and gas equipment and service companies seeking the API Monogram license or Q1 certification; suppliers to oil and gas operators requiring API Q1 as a supply chain qualification
+**Trigger:** API Monogram license requirement — organizations must hold Q1 certification to use the API Monogram on qualifying products; customer contract requirement from oil and gas operators; required for API-licensed products (wellheads, valves, drilling equipment, etc.)
+**Jurisdiction:** Global — API (American Petroleum Institute) standard; internationally recognized in oil and gas industry globally
+**Not applicable to:** Upstream oil and gas operators (they impose the requirement on suppliers but do not self-certify); non-oil-and-gas manufacturers; service companies not supplying equipment or processes to the oil and gas sector
 
 ---
 

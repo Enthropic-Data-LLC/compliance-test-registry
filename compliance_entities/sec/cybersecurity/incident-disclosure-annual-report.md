@@ -5,6 +5,11 @@
 **Authority:** U.S. Securities and Exchange Commission
 **Scope:** All SEC-registered public companies; foreign private issuers with FPI modifications
 
+**Applies to:** SEC-registered public companies — domestic issuers required to file on Forms 10-K and 8-K; foreign private issuers required to file equivalent disclosures on Form 20-F and Form 6-K
+**Trigger:** SEC registration under the Securities Exchange Act of 1934; material cybersecurity incident triggers 8-K/6-K disclosure within 4 business days of materiality determination; annual 10-K/20-F requires cybersecurity risk management, strategy, and governance disclosures
+**Jurisdiction:** United States; SEC enforcement; foreign private issuers have modified disclosure obligations (6-K instead of 8-K, 20-F instead of 10-K) but are subject to equivalent cybersecurity disclosure requirements
+**Not applicable to:** Private companies (no SEC reporting obligation); smaller reporting companies below SEC thresholds (received extended compliance timelines); government-sponsored enterprises; non-profit organizations
+
 ---
 
 ## RDF extraction

@@ -4,6 +4,10 @@
 **Clauses:** §5.2 (energy policy), §5.3 (EnMR designation), §6.2 (energy review — 6 required outputs), §6.3 (energy baseline), §6.4 (EnPIs), §6.5 (energy objectives and targets), §6.6 (action plans), §9.1.2 (compliance evaluation), §9.2 (internal audit), §9.3 (management review), §10.1 (CAPA)
 **Confidence:** DETERMINISTIC-dominant (policy, EnMR, all §6 planning artifacts, audit program, management review, CAPA); PARAMETERIZED (SEU criteria, EnPI selection adequacy)
 **Last parsed:** 2026-05-21
+**Applies to:** Any organization seeking to implement an Energy Management System (EnMS); large enterprises in the EU that may use ISO 50001 certification as an alternative to mandatory energy audits under the EU Energy Efficiency Directive (EED)
+**Trigger:** Voluntary certification; EU Energy Efficiency Directive Article 8 — large enterprises (> 250 employees or > €50M turnover and > €43M balance sheet) can use ISO 50001 certified EnMS in lieu of mandatory quadrennial energy audit; customer/government procurement requirement in some jurisdictions
+**Jurisdiction:** Global — ISO international standard; particularly relevant in EU where EED creates regulatory driver
+**Not applicable to:** Small and medium enterprises below EU EED large-enterprise thresholds (SMEs are not subject to mandatory energy audit obligations, so ISO 50001 has no regulatory driver for them unless voluntarily adopted); organizations where energy costs are immaterial to operations
 
 ---
 

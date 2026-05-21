@@ -5,6 +5,10 @@
 **Objective:** Restrict Internet Access + Segregate Critical Systems
 **Confidence:** HIGH (1.1, 1.2, 2.1, 2.3A, 2.7A) / MEDIUM (1.3, 2.2, 2.5A)
 **Last parsed:** 2026-05-21
+**Applies to:** All SWIFT member institutions with a direct connection to the SWIFT network — banks, broker-dealers, fund managers, custodians, and other financial institutions using SWIFT for financial messaging; service bureaus providing SWIFT connectivity on behalf of member institutions
+**Trigger:** SWIFT network connectivity (live connection) — all connected institutions must self-attest annually against the Customer Security Controls Framework (CSCF) mandatory controls; self-attestation is required in the KYC Registry; non-attestation results in escalation to counterparties and supervisors
+**Jurisdiction:** Global — SWIFT is an international cooperative headquartered in Belgium; CSCF applies to all member institutions worldwide regardless of jurisdiction
+**Not applicable to:** Correspondent banking relationships where a non-SWIFT institution accesses SWIFT only through a SWIFT-connected correspondent (the downstream institution must comply, not the non-SWIFT upstream); entities that have disconnected from SWIFT
 
 ---
 

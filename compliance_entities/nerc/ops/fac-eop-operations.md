@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/NERC-OPS/FAC-EOP-NUC/`
 **Standards:** FAC-003-4 (vegetation management), FAC-008-3 (facility ratings), EOP-004-4 (event reporting), NUC-001-4 (nuclear interface)
 **Last parsed:** 2026-05-21
+**Applies to:** Bulk Electric System registered entities whose functional registration makes them subject to specific operational reliability standards — Transmission Operators, Balancing Authorities, Generator Operators, Reliability Coordinators, and others per NERC functional model
+**Trigger:** NERC registration as one or more functional entities per the NERC Functional Model; specific standards apply based on functional registration (e.g., COM-001 applies to Transmission Operators and Balancing Authorities but not Generator Owners)
+**Jurisdiction:** Same as NERC CIP — North America BES; enforced by NERC Regional Entities and FERC
+**Not applicable to:** Same as NERC CIP — distribution-only utilities, behind-the-meter generation, unregistered entities; specific standards have applicability sections listing which functional entities are subject
 **Overall confidence:** HIGH for FAC-003 vegetation patrol cadence and EOP-004 reporting timelines; MEDIUM for FAC-008 ratings methodology; PARAMETERIZED for NUC-001 interface agreement adequacy
 **Applicable entities:** FAC-003: Transmission Owners (lines ≥200kV + select lower voltage); FAC-008: TO/GO; EOP-004: RC/TOP/BA/GO/GOP/TO/DP (per Table 1); NUC-001: TO/TOP/BA/RC and nuclear plant GO/GOP
 

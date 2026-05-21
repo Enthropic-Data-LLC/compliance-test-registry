@@ -5,6 +5,10 @@
 **Parent:** ISO 13485 (QMS), ISO 14971 (risk management), IEC 62304 (software)
 **Confidence:** DETERMINISTIC-dominant (GSPR checklist, tech doc elements, DoC 19 elements, UDI registration, AR requirement for non-EU manufacturers)
 **Last parsed:** 2026-05-21
+**Applies to:** Legal manufacturers placing medical devices on the EU market; authorized representatives (for non-EU manufacturers); importers and distributors involved in the EU supply chain for medical devices classified under EU MDR Regulation 2017/745
+**Trigger:** Placing a medical device (as defined in MDR Art. 2) on the EU market or putting it into service in the EU; applies regardless of manufacturer location — non-EU manufacturers must appoint an EU authorized representative
+**Jurisdiction:** European Union; extraterritorial for non-EU manufacturers exporting to EU market; enforcement by national Competent Authorities and Notified Bodies
+**Not applicable to:** In vitro diagnostic medical devices (Regulation 2017/746 IVDR applies instead); custom-made devices (Article 52 modified pathway); devices in clinical investigation only (Article 62 clinical investigation rules); devices for export outside EU with no EU market placement
 
 ---
 

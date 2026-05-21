@@ -4,6 +4,10 @@
 **Clauses:** RoHS Art. 4 (substance restrictions), Art. 7 (CE marking), Art. 8 (technical documentation), Annex II (substance thresholds); REACH Art. 6/7 (registration), Art. 31/33 (SVHC communication), Art. 56 (authorization), Annex XIV (authorized substances)
 **Confidence:** DETERMINISTIC throughout — substance thresholds are bright-line; documentation requirements are enumerable; sunset dates are calendar-based
 **Last parsed:** 2026-05-21
+**Applies to:** RoHS: manufacturers, importers, and distributors placing electrical and electronic equipment (EEE) on the EU market. REACH: any company that manufactures, imports, or uses chemical substances in the EU above threshold quantities, or places articles containing SVHCs on the EU market
+**Trigger:** RoHS: placing EEE on the EU market — applies to virtually all consumer and industrial electronics sold in the EU. REACH: manufacturing/importing ≥ 1 tonne/year of a substance in the EU; supplying articles containing SVHCs > 0.1% by weight
+**Jurisdiction:** European Union; extraterritorial for non-EU manufacturers — products must comply before entering EU market; enforced by national market surveillance authorities
+**Not applicable to:** RoHS: military/defense equipment (Art. 2(3)(b)); large fixed industrial installations; implantable active medical devices; space equipment; some specific product categories in Annex II. REACH: substances used solely in national defense; radioactive substances (Euratom); certain polymers (registration exemption); waste (regulated separately under WFD)
 
 ---
 

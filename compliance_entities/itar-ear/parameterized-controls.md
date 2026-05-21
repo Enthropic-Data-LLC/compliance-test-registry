@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/ITAR-EAR/Parameterized-Controls/`
 **Regulations:** ITAR (22 CFR 120–130), EAR (15 CFR 730–774)
 **Last parsed:** 2026-05-20
+**Applies to:** Any person or entity — US or foreign — that manufactures, exports, re-exports, transfers, or brokers: ITAR — defense articles and services on the US Munitions List (USML); EAR — dual-use items on the Commerce Control List (CCL). Includes 'deemed exports' (sharing controlled technology with foreign nationals in the US)
+**Trigger:** Manufacturing, exporting, re-exporting, transferring, or brokering items on USML or CCL; employing or hosting foreign nationals with access to USML/CCL technology ('deemed export'); receiving technical data from a US person subject to ITAR/EAR
+**Jurisdiction:** United States extraterritorial — applies globally to US-origin items, technology, and software; enforced by DDTC (State, ITAR) and BIS (Commerce, EAR)
+**Not applicable to:** Purely domestic transfers with no export or foreign-national access; EAR99 items with no applicable export control classification number; publicly available information (EAR §734.3(b)(3)); fundamental research (EAR §734.8); news media activities
 **Overall confidence:** MEDIUM (PARAMETERIZED); classification inputs are CONTESTED and must be human-attested before downstream tests are meaningful
 **Covers:** License requirement matrix (EAR §742, ITAR §123), deemed export (EAR §734, ITAR §125.2), technology control plan (TCP), export control training records
 

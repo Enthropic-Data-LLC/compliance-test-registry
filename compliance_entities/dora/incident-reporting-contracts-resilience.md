@@ -3,6 +3,11 @@
 
 **Scope:** EU/EEA financial entities (banks, investment firms, insurance, payment institutions, CASPs, CCPs) and critical ICT third-party service providers (CTPPs)
 
+**Applies to:** Financial entities in the EU: credit institutions, payment institutions, e-money institutions, investment firms, insurance/reinsurance undertakings, crypto-asset service providers, central counterparties, and others listed in DORA Art. 2(1); and their critical ICT third-party service providers (CTPPs)
+**Trigger:** EU financial sector license or authorization; providing ICT services to EU financial entities above the materiality threshold for critical/important functions; applicable from January 17, 2025
+**Jurisdiction:** European Union; enforced by national competent authorities (ECB/EBA for banks, ESMA for investment firms, EIOPA for insurance); ESAs oversee CTPP oversight framework
+**Not applicable to:** Microenterprises (< 10 employees, < €2M balance sheet/turnover) — simplified DORA regime; non-financial EU entities (unless providing ICT services to financial entities as a CTPP); non-EU financial entities with no EU nexus; ICT intragroup arrangements (partially modified treatment)
+
 ---
 
 ## RDF extraction

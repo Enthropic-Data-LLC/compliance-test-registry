@@ -3,6 +3,11 @@
 
 **Design note:** UK GDPR is substantially identical to EU GDPR. This spec file covers **only the UK-specific departures** from EU GDPR. For all obligations with identical treatment (lawful basis, consent, privacy notices Art. 13/14, DSRs Art. 15–22, DPIA Art. 35, DPA Art. 28, breach notification timelines Art. 33/34), refer to the EU GDPR spec files in `compliance_entities/gdpr/`. Run UK GDPR tests in addition to — not instead of — EU GDPR tests when an organization processes both EU and UK personal data.
 
+**Applies to:** Organizations established in the UK that process personal data; organizations outside the UK that process personal data of UK residents in connection with offering goods/services to them or monitoring their behavior in the UK
+**Trigger:** UK establishment (any office, branch, or other stable arrangement in the UK); offering goods or services to UK persons; monitoring behavior of UK persons within the UK; applies post-Brexit under the retained EU GDPR (UK GDPR) + Data Protection Act 2018
+**Jurisdiction:** United Kingdom (England, Scotland, Wales, Northern Ireland); extraterritorial reach — applies to non-UK organizations targeting UK persons; enforced by the Information Commissioner's Office (ICO)
+**Not applicable to:** Processing exclusively for national security or defense purposes (separate legislation); law enforcement processing (Part 3 of the Data Protection Act 2018 instead); intelligence services; purely personal or household use; deceased persons (generally)
+
 ---
 
 ## RDF extraction

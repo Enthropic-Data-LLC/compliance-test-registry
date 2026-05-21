@@ -15,6 +15,11 @@
 #   ASSUME-CCPA-SP-001      §1798.140 — Service provider contract 7-element completeness
 #   ASSUME-CCPA-SEC-001     §1798.150 — "Reasonable security" — CIS Controls alignment
 
+#
+# Applies to: For-profit businesses doing business in California that collect personal information from California consumers and meet at least one threshold: (1) annual gross revenue > $25M; (2) buy/sell/receive/share PI of ≥ 100,000 consumers or households per year; (3) derive ≥ 50% of annual revenue from selling or sharing consumer PI
+# Trigger: Any of the three thresholds above combined with doing business in California or with California consumers; extraterritorial reach — applies to businesses anywhere if they have California consumer relationships
+# Jurisdiction: California, USA; applies wherever the business is located if California consumers are involved
+# Not applicable to: Non-profit organizations; government agencies; small businesses below all three thresholds; purely B2B data (partially exempt under CPRA through 2026); employee personal information collected in an employment context (limited exemption, under review)
 import pytest
 from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta

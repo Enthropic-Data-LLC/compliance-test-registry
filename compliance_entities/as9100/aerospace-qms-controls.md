@@ -5,6 +5,10 @@
 **Parent:** ISO 9001:2015 (all ISO 9001 requirements apply simultaneously — see iso/9001/)
 **Confidence:** DETERMINISTIC-dominant (FAI completeness, counterfeit prevention, FOD program, KC controls, configuration management)
 **Last parsed:** 2026-05-21
+**Applies to:** Aviation, space, and defense (AS&D) manufacturers and their supply chains — Tier 1 and Tier 2 suppliers to aerospace OEMs providing parts, assemblies, or services for aircraft, spacecraft, or defense systems
+**Trigger:** Customer requirement from aerospace OEMs (Boeing, Airbus, Lockheed Martin, Raytheon, Northrop Grumman, etc.) or prime contractors mandating AS9100 Rev D certification; required for NADCAP special process accreditation; FAR/DFARS supply chain flow-down
+**Jurisdiction:** Global — IAQG (International Aerospace Quality Group) standard with regional bodies: AAQG (Americas), EAQG (Europe), JIAQG (Asia-Pacific)
+**Not applicable to:** Non-aerospace manufacturers; MRO organizations (AS9110 applies instead); design-only organizations (AS9100 scope applies differently); companies providing services to aerospace without making parts (may use AS9100 or AS9120 for distributors)
 
 ---
 

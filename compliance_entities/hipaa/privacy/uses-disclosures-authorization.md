@@ -15,6 +15,11 @@
 #   ASSUME-HIPAA-PRIV-AUTH-001   §164.508 — Authorization form validation; conditioned treatment rules
 #   ASSUME-HIPAA-PRIV-DEID-001   §164.514 — Expert determination methodology and certification
 
+#
+# Applies to: Covered entities (healthcare providers who transmit health information electronically, health plans, healthcare clearinghouses) and their business associates who create, receive, maintain, or transmit PHI on behalf of a covered entity
+# Trigger: Creation, receipt, maintenance, or transmission of Protected Health Information (PHI) in connection with a covered function; business associate agreements (BAAs) flow down requirements to subcontractors
+# Jurisdiction: United States; extraterritorial reach for foreign entities handling PHI of US patients or providing services to US covered entities
+# Not applicable to: Life insurers outside healthcare coverage; employers' employment records; education records covered by FERPA; de-identified data meeting Safe Harbor or Expert Determination standard; purely personal health records with no commercial healthcare function
 import pytest
 from datetime import date
 from dateutil.relativedelta import relativedelta

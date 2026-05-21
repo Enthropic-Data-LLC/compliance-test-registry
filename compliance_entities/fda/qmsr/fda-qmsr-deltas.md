@@ -5,6 +5,10 @@
 **Parent:** ISO 13485:2016 (fully incorporated by reference — all ISO 13485 requirements apply simultaneously)
 **Confidence:** DETERMINISTIC-dominant (DHR/DMR/DHF completeness, MDR 30-day deadline, CAPA 7-step, record retention, FDA inspection access, software validation)
 **Last parsed:** 2026-05-21
+**Applies to:** Manufacturers of medical devices for the US market — Class I, II, and III device manufacturers and specification developers; component manufacturers whose components become part of a finished medical device
+**Trigger:** Manufacturing or specification development for medical devices requiring FDA establishment registration under 21 CFR 807; QMSR (21 CFR 820) applies to finished device manufacturers; effective date February 2026 (aligning to ISO 13485:2016)
+**Jurisdiction:** United States; extraterritorial — applies to foreign device manufacturers with devices distributed in the US
+**Not applicable to:** Devices for export only (21 CFR 801.58); HCT/Ps regulated under 21 CFR 1271; combination products (additional requirements under 21 CFR 3 and 4); investigational devices in IDE studies (modified requirements)
 
 ---
 

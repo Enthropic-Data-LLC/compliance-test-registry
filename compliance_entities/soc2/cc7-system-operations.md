@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/SOC2/CC7/`
 **Version:** AICPA TSC 2017 (2022 points of focus updates)
 **Last parsed:** 2026-05-20
+**Applies to:** Service organizations (SaaS, cloud providers, data centers, managed-service providers) whose services are relevant to user-entity controls
+**Trigger:** Customer contract requirement; investor due-diligence; voluntary for competitive positioning; required when customers request a SOC 2 Type I or Type II report from their auditor
+**Jurisdiction:** United States (AICPA Trust Services Criteria); widely accepted internationally as equivalent to ISO 27001 attestation
+**Not applicable to:** Internal IT departments; organizations that do not provide services to other companies; product companies without a service component
 **Overall confidence:** HIGH for CC7.1 (vulnerability management scan cadence); MEDIUM for CC7.2–CC7.4 (monitoring, incident response, and recovery completeness are PARAMETERIZED)
 **5 criteria: CC7.1–CC7.5**
 

@@ -4,6 +4,10 @@
 **Clauses:** PIPEDA Schedule 1 Principles 1–10 (Fair Information Principles), §10.1 (breach of security safeguards); Quebec Law 25 §§3.2, 12, 25, 63.3, 63.5–63.6 (PIA, privacy by default, breach, portability, de-indexing)
 **Confidence:** DETERMINISTIC-dominant (privacy officer designation, breach records, access response deadlines, Law 25 PIA obligation, breach notification timelines); PARAMETERIZED (consent adequacy, safeguards appropriateness); CONTESTED (RROSH determination)
 **Last parsed:** 2026-05-21
+**Applies to:** Private-sector organizations that collect, use, or disclose personal information in the course of commercial activities in Canada; foreign organizations collecting personal information from Canadian residents; Quebec Law 25 additionally covers organizations doing business in Quebec
+**Trigger:** Commercial activity in Canada involving personal information of individuals; collecting data from Canadian residents; Quebec Law 25 triggers: any private-sector organization 'doing business' in Quebec — includes foreign organizations with Quebec customers
+**Jurisdiction:** Canada federal (PIPEDA); Quebec (Law 25 / Act 25 amending the Act respecting the protection of personal information in the private sector, phased implementation 2022–2023); Alberta and BC have substantially similar provincial laws
+**Not applicable to:** Federal government institutions (Privacy Act 1985 applies instead); employee personal information in non-federally-regulated workplaces in provinces with substantially similar legislation (BC, AB, QC); purely personal/family use; non-commercial activities of non-profit organizations in some contexts
 
 ---
 

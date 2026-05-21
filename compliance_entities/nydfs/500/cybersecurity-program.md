@@ -3,6 +3,10 @@
 **Spec file:** `cybersecurity-program.md`
 **Registry version:** 2026.05
 **Last updated:** 2026-05-21
+**Applies to:** Any entity operating under a license, registration, charter, certificate, permit, or similar authorization under New York Banking Law, Insurance Law, or Financial Services Law — including state-chartered banks, insurance companies, licensed lenders, mortgage servicers, money transmitters, virtual currency businesses, and others regulated by NYDFS
+**Trigger:** DFS license, registration, or authorization in New York; foreign banking organizations with a New York branch or agency; any entity required to obtain a DFS license to conduct financial services business in New York State
+**Jurisdiction:** New York State, USA; NYDFS enforces §23 NYCRR Part 500; one of the most prescriptive US state cybersecurity regulations — frequently used as a model by other states
+**Not applicable to:** Entities with fewer than 10 employees, less than $5M in gross revenue, and less than $10M in year-end total assets (limited exemption under §500.19); federal credit unions (federally chartered, not DFS licensed); entities exclusively regulated by federal banking agencies without DFS licensing
 **Parent index:** [`_index.md`](./_index.md)
 **Regulatory basis:** 23 NYCRR Part 500 (as amended November 1, 2023 — Second Amendment)
 **Authority:** New York State Department of Financial Services (NY DFS)

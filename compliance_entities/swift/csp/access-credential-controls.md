@@ -5,6 +5,10 @@
 **Objective:** Prevent Compromise of Credentials + Manage Identities and Segregate Privileges
 **Confidence:** HIGH (3.1, 3.2, 4.1, 4.4, 5.1, 5.2) / MEDIUM (3.3, 4.2, 4.3A, 5.3A)
 **Last parsed:** 2026-05-21
+**Applies to:** All SWIFT member institutions with a direct connection to the SWIFT network — banks, broker-dealers, fund managers, custodians, and other financial institutions using SWIFT for financial messaging; service bureaus providing SWIFT connectivity on behalf of member institutions
+**Trigger:** SWIFT network connectivity (live connection) — all connected institutions must self-attest annually against the Customer Security Controls Framework (CSCF) mandatory controls; self-attestation is required in the KYC Registry; non-attestation results in escalation to counterparties and supervisors
+**Jurisdiction:** Global — SWIFT is an international cooperative headquartered in Belgium; CSCF applies to all member institutions worldwide regardless of jurisdiction
+**Not applicable to:** Correspondent banking relationships where a non-SWIFT institution accesses SWIFT only through a SWIFT-connected correspondent (the downstream institution must comply, not the non-SWIFT upstream); entities that have disconnected from SWIFT
 
 ---
 

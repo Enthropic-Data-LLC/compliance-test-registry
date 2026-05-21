@@ -4,6 +4,10 @@
 **Clauses:** SD-02D Goal 1 (identify and detect), Goal 2 (protect), Goal 3 (respond and recover), Goal 4 (cybersecurity governance); SD-01C (24-hour incident reporting to CISA + TSA)
 **Confidence:** DETERMINISTIC-dominant (Cybersecurity Coordinator 24/7, CIP submitted + TSA-approved, OT/IT network segmentation enforced, MFA for remote OT access, annual plan testing, 24-hour incident reporting, annual assessment); PARAMETERIZED (architecture design adequacy, access control model, vulnerability remediation timelines)
 **Last parsed:** 2026-05-21
+**Applies to:** Owners and operators of hazardous liquid pipelines, natural gas transmission pipelines, and liquefied natural gas (LNG) facilities that TSA has specifically designated in writing as critical infrastructure
+**Trigger:** TSA written designation letter — TSA applies risk-based criteria (throughput volume, geographic significance, strategic interconnectedness) to designate specific pipeline operators; designation is company-specific and confidential; not all pipeline operators receive designation
+**Jurisdiction:** United States; enforced by TSA under 49 U.S.C. §114(l)(2); CISA coordinates cyber incident notification receipt
+**Not applicable to:** Non-designated pipeline operators (TSA has not issued a designation letter); highway and motor carrier operations (separate TSA cybersecurity directives SD-02-2021 and SD-01-2021); water and wastewater utilities (EPA AWIA instead); electric utilities (NERC CIP instead); natural gas distribution (local distribution companies at distribution level)
 
 ---
 

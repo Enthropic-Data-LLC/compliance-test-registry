@@ -4,6 +4,10 @@
 **Clauses:** Rule 3110(a)–(d) (WSPs, annual review, OSJ, principal supervision); Rule 4511 (WORM storage); SEA Rule 17a-3/17a-4 (records retention); SEA Rule 15c3-3 (reserve formula); Rule 3310 (AML program)
 **Confidence:** DETERMINISTIC-dominant (retention periods, WSP existence, annual supervisory review, reserve formula weekly, Form U4/U5 30-day deadline, WORM format); PARAMETERIZED (WSP adequacy, supervisory system design, off-channel monitoring sufficiency); CONTESTED (reasonableness of supervisory system — examiner judgment)
 **Last parsed:** 2026-05-21
+**Applies to:** FINRA-member broker-dealers registered with the SEC under Section 15 of the Securities Exchange Act of 1934; their associated persons (registered representatives, principals, and other individuals subject to FINRA jurisdiction)
+**Trigger:** SEC registration as a broker-dealer requires FINRA membership (mandatory for US broker-dealers); FINRA membership agreement subjects firms and their registered persons to FINRA rules
+**Jurisdiction:** United States; enforced by FINRA Department of Enforcement; SEC has oversight authority over FINRA as an SRO
+**Not applicable to:** Investment advisers registered with the SEC or states (RIA-only, not broker-dealers); commodities futures brokers (CFTC/NFA regulated instead); securities exchanges; banks not also registered as broker-dealers; foreign broker-dealers operating only outside the US
 
 ---
 

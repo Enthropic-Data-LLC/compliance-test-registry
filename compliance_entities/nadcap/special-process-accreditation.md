@@ -4,6 +4,10 @@
 **Commodities:** Heat Treatment (AC7102), NDT (AC7004+), Welding (AC7110 series), Chemical Processing (AC7108/AC7115), Electronics (AC7120 series)
 **Confidence:** DETERMINISTIC-dominant (specification compliance, operator qualification currency, calibration currency, job traveler completeness, NCR closure)
 **Last parsed:** 2026-05-21
+**Applies to:** Suppliers performing special processes for aerospace and defense prime contractors — heat treatment, non-destructive testing (NDT), welding, chemical processing, coatings, electronics manufacturing, composites, and other NADCAP commodity categories
+**Trigger:** Customer requirement from aerospace prime contractors (Boeing, Airbus, Lockheed Martin, Northrop Grumman, Raytheon, etc.) mandating NADCAP accreditation for specific commodity categories; AS9100 quality management system is a prerequisite; accreditation managed by PRI (Performance Review Institute)
+**Jurisdiction:** Global — PRI (Performance Review Institute) manages NADCAP; accepted by all major aerospace primes worldwide through NADCAP subscriber agreements
+**Not applicable to:** Non-special-process manufacturing; general machining or fabrication not in a NADCAP commodity category; suppliers not in aerospace/defense supply chains; design-only engineering firms without manufacturing operations
 
 ---
 

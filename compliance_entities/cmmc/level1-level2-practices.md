@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/CMMC/Practices/`
 **Version:** CMMC 2.0 (32 CFR Part 170, effective Dec 2024)
 **Last parsed:** 2026-05-20
+**Applies to:** Defense contractors and subcontractors handling Controlled Unclassified Information (CUI) or Federal Contract Information (FCI) under Department of Defense (DoD) contracts and subcontracts
+**Trigger:** DoD contract or subcontract containing DFARS clause 252.204-7012 (CUI) or 252.204-7021 (CMMC); prime contractors must flow down CMMC requirements to all subcontractors handling CUI; CMMC Level determined by CUI type and sensitivity
+**Jurisdiction:** United States Department of Defense supply chain; applies to US companies and foreign companies holding DoD contracts
+**Not applicable to:** Commercial-only companies with no DoD contracts or subcontracts; DoD contracts not involving CUI or FCI (though basic contractor ethics and safeguarding under FAR 52.204-21 still apply); non-defense government contractors (civilian agencies use FISMA/800-171 directly without CMMC framework)
 **Overall confidence:** HIGH for Level 1 (17 binary safeguarding practices); MEDIUM for Level 2 mapping (inherits confidence from 800-171 family files); CONTESTED for SPRS scoring and POA&M adequacy
 **Level 1: 17 practices | Level 2: 110 practices (= NIST SP 800-171 r2) | Level 3: +24 practices from NIST 800-172**
 

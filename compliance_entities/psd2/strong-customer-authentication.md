@@ -4,6 +4,10 @@
 **Clauses:** Art. 4 RTS (SCA minimum factors); Art. 5 RTS (authentication code dynamic linking to amount and payee); Art. 9 RTS (independence of factors); Art. 10–18 RTS (SCA exemptions — low-value contactless, low-value remote, TRA fraud rate gates); Art. 32 RTS (ASPSP dedicated API / 99.5% uptime); Art. 96 PSD2 (incident reporting — 72-hour intermediate report)
 **Confidence:** DETERMINISTIC-dominant (SCA 2-factor minimum, dynamic linking requirement, low-value thresholds, TRA fraud rate gates, API 99.5% uptime, 72-hour intermediate report); PARAMETERIZED (factor independence implementation, exemption eligibility logic, consent duration, major incident classification)
 **Last parsed:** 2026-05-21
+**Applies to:** Payment service providers (PSPs) licensed in the EU/EEA: credit institutions, e-money institutions, payment institutions, account information service providers (AISPs), payment initiation service providers (PISPs); account-servicing payment service providers (ASPSPs) additionally subject to open banking API requirements
+**Trigger:** EU/EEA PSP license from a national competent authority; offering payment services to EU/EEA residents; non-EU PSPs targeting EU customers must obtain authorization in an EU/EEA member state
+**Jurisdiction:** European Union / EEA; national competent authorities (NCAs) enforce PSD2; EBA provides technical standards and guidelines; PSD3 / PSR proposed package (2023) pending adoption as of 2026
+**Not applicable to:** Purely intra-group payment transactions between affiliated entities; limited network instruments (e.g., single-retailer gift cards, limited-use prepaid instruments); technical service providers that do not at any time enter into possession of funds; purely commercial agent arrangements where agent acts exclusively for payer or payee
 
 ---
 

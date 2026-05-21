@@ -4,6 +4,10 @@
 **Clauses:** 6.2, 7.1.5.2, 7.2, 7.5, 8.2.3, 8.2.4, 8.5.6, 8.6, 8.7, 9.2, 9.3, 10.2
 **Confidence:** DETERMINISTIC-dominant (record existence and operational gates)
 **Last parsed:** 2026-05-21
+**Applies to:** Any organization in any sector seeking ISO 9001 certification for its Quality Management System; required in many supply chains as a baseline QMS qualification
+**Trigger:** Customer or procurement contract requirement; voluntary certification for competitive positioning; foundation standard upon which sector-specific QMS standards are built (AS9100, IATF 16949, ISO 13485 all incorporate ISO 9001)
+**Jurisdiction:** Global — ISO international standard; certification bodies accredited per ISO/IEC 17021-1
+**Not applicable to:** No mandatory requirement in any major jurisdiction — ISO 9001 is a voluntary standard; sector-specific QMS standards (AS9100, IATF 16949, ISO 13485) supersede ISO 9001 certification scope in their respective sectors
 
 ---
 

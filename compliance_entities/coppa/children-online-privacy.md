@@ -4,6 +4,10 @@
 **Clauses:** §312.4 (privacy notice), §312.5 (verifiable parental consent), §312.6 (parental rights), §312.7 (confidentiality and disclosure), §312.8 (data security), §312.10 (retention and deletion), §312.11 (safe harbor programs)
 **Confidence:** DETERMINISTIC-dominant (notice elements, consent requirements, parental rights, retention, security obligations); PARAMETERIZED/CONTESTED ("directed to children" scope determination, mixed-audience classification)
 **Last parsed:** 2026-05-21
+**Applies to:** Operators of commercial websites, online services, and mobile apps (1) directed to children under 13, OR (2) with actual knowledge they are collecting personal information from children under 13
+**Trigger:** Site or service 'directed to children' (determined by content, advertising, music, animated characters, celebrities appealing to children, etc.); OR actual knowledge of under-13 users through age gate failures, user self-disclosure, or parent notifications
+**Jurisdiction:** United States; extraterritorial reach — applies to foreign operators targeting US children; enforced by FTC under 16 CFR Part 312
+**Not applicable to:** Non-commercial websites and services; general audience services with no child-directed content and no actual knowledge of under-13 users; educational institutions using the school-authority exception; services exclusively for persons 13 and older with credible age verification
 
 ---
 

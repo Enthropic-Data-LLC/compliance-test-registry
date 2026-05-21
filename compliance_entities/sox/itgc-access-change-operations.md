@@ -3,6 +3,10 @@
 **Spec file:** `itgc-access-change-operations.md`
 **Registry version:** 2026.05
 **Last updated:** 2026-05-21
+**Applies to:** SEC-registered publicly traded companies — US domestic issuers and foreign private issuers (FPIs) listed on US stock exchanges; external auditors registered with the PCAOB; public accounting firms auditing SEC registrants
+**Trigger:** SEC registration under the Securities Exchange Act of 1934 (ongoing reporting) or Securities Act of 1933 (initial registration/IPO triggers SOX); listing on NYSE, NASDAQ, or other US national securities exchange; PCAOB registration required for auditors of SEC registrants
+**Jurisdiction:** United States; extraterritorial — FPIs listed on US exchanges must comply (though with some modified SOX requirements, e.g., management assessment only, no auditor attestation for smaller FPIs); PCAOB registered audit firms worldwide
+**Not applicable to:** Private companies (no SEC registration); non-profit and government organizations; foreign companies not listed on US exchanges and not registered with the SEC; de-listed companies (SOX Section 404 compliance obligation ends); SEC registrants that are non-accelerated filers (limited Section 404(b) exemptions)
 **Parent index:** [`_index.md`](./_index.md)
 **Regulatory basis:** Sarbanes-Oxley Act §302, §404; PCAOB AS 2201; COSO 2013 Internal Control Framework
 **Authority:** SEC; PCAOB; external auditors

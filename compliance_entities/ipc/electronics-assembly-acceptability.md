@@ -4,6 +4,10 @@
 **Clauses:** IPC-A-610 §10–15 (class-based acceptability by category); J-STD-001 §4–6 (solder process requirements)
 **Confidence:** DETERMINISTIC-dominant (inspector certification currency, class-based pass/fail criteria, solder bridging defects, barrel fill percentages, operator certification)
 **Last parsed:** 2026-05-21
+**Applies to:** Electronics assembly manufacturers, contract electronics manufacturers (CEMs), and their inspection personnel for acceptability of electronic assemblies; customers specifying acceptance criteria for PCB assemblies
+**Trigger:** Customer contract requirement — widely used as the default reference standard for electronics assembly quality; military and defense contracts citing IPC-A-610 as the acceptance standard; IPC Certified IPC Specialist (CIS) and CIS-I programs for inspection personnel
+**Jurisdiction:** Global — IPC (Association Connecting Electronics Industries) standard; universally recognized in electronics manufacturing across North America, Europe, and Asia
+**Not applicable to:** Bare PCB fabrication (IPC-6012 or IPC-A-600 applies instead); component-level manufacturing; non-electronic assembly manufacturing; RF/microwave assemblies (IPC-7711/7721 for rework)
 
 ---
 

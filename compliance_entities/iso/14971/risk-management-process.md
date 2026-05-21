@@ -4,6 +4,10 @@
 **Clauses:** 4–10 (all normative clauses)
 **Confidence:** DETERMINISTIC gates (plan, report, post-production plan) + PARAMETERIZED (file completeness) + CONTESTED (acceptability, benefit-risk)
 **Last parsed:** 2026-05-21
+**Applies to:** Medical device manufacturers responsible for risk management throughout the device lifecycle — design, development, production, post-market surveillance
+**Trigger:** Required by EU MDR Annex I General Safety and Performance Requirements (GSPRs); FDA guidance on device risk management references ISO 14971; ISO 13485 Clause 7.1 requires a risk management process; harmonized standard in EU, Canada, Australia, Japan
+**Jurisdiction:** Global — harmonized with EU MDR Essential Requirements, referenced by FDA, Health Canada, TGA, PMDA, and most major medical device regulatory frameworks worldwide
+**Not applicable to:** Non-medical-device products (ISO 31000 is the general enterprise risk management standard); IVD devices (IEC 62366 usability + ISO 14971 risk management both apply); food/drug products not classified as devices
 
 ---
 

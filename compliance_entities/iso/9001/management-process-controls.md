@@ -4,6 +4,10 @@
 **Clauses:** 4.1, 4.2, 4.3, 4.4, 5.1, 5.2, 5.3, 6.1, 6.3, 7.1, 7.3, 7.4, 8.1–8.5, 9.1, 10.1, 10.3
 **Confidence:** PARAMETERIZED-dominant (management system + process approach clauses)
 **Last parsed:** 2026-05-21
+**Applies to:** Any organization in any sector seeking ISO 9001 certification for its Quality Management System; required in many supply chains as a baseline QMS qualification
+**Trigger:** Customer or procurement contract requirement; voluntary certification for competitive positioning; foundation standard upon which sector-specific QMS standards are built (AS9100, IATF 16949, ISO 13485 all incorporate ISO 9001)
+**Jurisdiction:** Global — ISO international standard; certification bodies accredited per ISO/IEC 17021-1
+**Not applicable to:** No mandatory requirement in any major jurisdiction — ISO 9001 is a voluntary standard; sector-specific QMS standards (AS9100, IATF 16949, ISO 13485) supersede ISO 9001 certification scope in their respective sectors
 
 ---
 

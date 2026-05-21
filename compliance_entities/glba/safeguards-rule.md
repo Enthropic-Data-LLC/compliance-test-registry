@@ -3,6 +3,10 @@
 **Spec file:** `safeguards-rule.md`
 **Registry version:** 2026.05
 **Last updated:** 2026-05-21
+**Applies to:** Financial institutions subject to FTC or federal banking regulator jurisdiction that engage in 'financial activities' and collect nonpublic personal information (NPI) from consumers — including banks, insurance companies, securities firms, mortgage brokers, tax preparers, auto dealers with financing, and non-bank financial services
+**Trigger:** Being a 'financial institution' under GLBA §6809(3) engaged in financial activities as defined in the Bank Holding Company Act §4(k); scope is broad and includes many non-traditional financial service providers; FTC Safeguards Rule enforcement for non-bank financial institutions
+**Jurisdiction:** United States; FTC enforces for non-bank financial institutions; federal banking regulators (OCC, FDIC, Federal Reserve) enforce for banks; SEC and CFTC for broker-dealers and investment advisers in their respective jurisdictions
+**Not applicable to:** Non-financial businesses with no offering of financial products or services; consumers acting in personal capacity; financial institutions solely in the business of providing financial services to businesses (not retail consumers); government agencies
 **Parent index:** [`_index.md`](./_index.md)
 **Regulatory basis:** Gramm-Leach-Bliley Act (GLBA) § 501(b); 16 CFR Part 314 (FTC Safeguards Rule, revised effective June 9, 2023)
 **Authority:** Federal Trade Commission (FTC) for non-bank financial institutions; parallel enforcement by OCC/FDIC/Federal Reserve/NCUA for banks and credit unions

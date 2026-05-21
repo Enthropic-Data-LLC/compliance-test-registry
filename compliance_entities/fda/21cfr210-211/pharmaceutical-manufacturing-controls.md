@@ -5,6 +5,10 @@
 **Authority:** U.S. FDA / CDER / CBER
 **Confidence:** DETERMINISTIC-dominant (batch record completeness, OOS investigation, yield calculation, stability program, QC unit authority)
 **Last parsed:** 2026-05-21
+**Applies to:** Manufacturers of finished pharmaceutical drug products (human and veterinary) distributed in US interstate commerce; contract manufacturing organizations (CMOs) producing drugs for US-market distribution; API manufacturers to the extent their processes become part of finished dosage forms
+**Trigger:** Manufacturing finished drug products for introduction into US interstate commerce; FDA establishment registration under 21 CFR 207 triggers cGMP applicability; applies to domestic and foreign drug manufacturers exporting to the US
+**Jurisdiction:** United States; strong extraterritorial reach — FDA inspects and can refuse admission of drug products from non-compliant foreign facilities
+**Not applicable to:** Investigational drugs in Phase 1 clinical trials (modified cGMP under 21 CFR 312); bulk API (covered under 21 CFR 211 Subpart B primarily for in-process controls); veterinary biologics (USDA); blood products (21 CFR 606); tissue/cellular products (21 CFR 1271)
 
 ---
 

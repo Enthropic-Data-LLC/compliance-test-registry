@@ -3,6 +3,10 @@
 **Registry path:** `/regulation-registry/NRC/10CFR50/AppendixB/`
 **Regulation:** 10 CFR Part 50 Appendix B — Quality Assurance Criteria for Nuclear Power Plants and Fuel Reprocessing Plants
 **Last parsed:** 2026-05-21
+**Applies to:** Commercial nuclear power plant licensees holding operating licenses (OL) or combined licenses (COL) under 10 CFR Part 50 or Part 52; construction permit holders; nuclear power plant applicants during the licensing process
+**Trigger:** NRC license to operate or construct a commercial nuclear power plant in the United States; Appendix B (QA) applies from earliest design phases; event reporting, maintenance rule, fire protection, and ISI/IST requirements apply throughout the operating license period
+**Jurisdiction:** United States; enforced by the U.S. Nuclear Regulatory Commission through routine inspections, resident inspectors, and enforcement actions including Notices of Violation, Confirmatory Action Letters, and civil penalties
+**Not applicable to:** Research and test reactors (10 CFR Part 50 applies partially but with different technical requirements); non-power utilization facilities; fuel cycle facilities (10 CFR Part 70); nuclear materials licensees; decommissioned reactors (10 CFR Part 50 Subpart E DECON/SAFSTOR requirements differ)
 **Overall confidence:** MEDIUM — three criteria have DETERMINISTIC thresholds (XII calibration, XVII retention, XVIII audit cadence); remaining 15 criteria are PARAMETERIZED (adequacy determinations require QA expert evaluation)
 **Covers:** All 18 QA Criteria; primary automation targets are Criteria XII (M&TE calibration), XVII (records retention), and XVIII (audit cadence)
 
