@@ -18,11 +18,11 @@
 | OPC enforcement | Investigations + recommendations (no direct fining power under PIPEDA — courts only) |
 | Law 25 maximum fine | CAD $25M or 4% global turnover |
 | PIPEDA breach notification trigger | Real risk of significant harm (RROSH) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (canadian-privacy-obligations.md — PIPEDA principles 1/2/3/5/9, §10.1 breaches; Quebec Law 25 PIA/privacy-by-default/72h breach/officer name) |
 | Fully automated (DETERMINISTIC) | Moderate — breach notification; consent elements; record retention |
 | Partial automation (PARAMETERIZED) | Dominant — consent adequacy; safeguards appropriateness |
 | Human-determination required (CONTESTED) | Moderate — "real risk of significant harm" determination |
-| Open assumptions | 0 |
+| Open assumptions | 2 |
 
 ---
 

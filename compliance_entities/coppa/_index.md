@@ -17,11 +17,11 @@
 | Core operator obligations | 6 |
 | Privacy notice required elements | 8 |
 | Verifiable parental consent methods | 6+ (FTC-approved methods) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (children-online-privacy.md — scope determination, notice, VPC, parental rights, security, retention, safe harbor) |
 | Fully automated (DETERMINISTIC) | High — operator obligations, consent elements, notice elements are checklists |
 | Partial automation (PARAMETERIZED) | Moderate — "directed to children" determination |
 | Human-determination required (CONTESTED) | Moderate — mixed-audience site classification |
-| Open assumptions | 0 |
+| Open assumptions | 1 |
 
 ---
 

@@ -216,10 +216,10 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 | CCPA / CPRA | `ccpa-cpra/` | CalAG / CPPA | California consumer privacy — 3 thresholds, GPC signal | FULL | consumer-rights-obligations.md |
 | HIPAA Security Rule | `hipaa/` | HHS / OCR | ePHI technical/admin/physical safeguards | FULL | 164.308-administrative-safeguards.md, 164.310-physical-safeguards.md, 164.312-technical-safeguards.md, 164.314-organizational-requirements.md, 164.316-policies-documentation.md |
 | HIPAA Privacy Rule | `hipaa/privacy/` | HHS / OCR | PHI in all forms — 9-element auth checklist, Safe Harbor 18 identifiers | FULL | uses-disclosures-authorization.md, individual-rights-breach.md |
-| COPPA | `coppa/` | FTC | Children's online privacy — under 13, verifiable parental consent | INDEX | — |
-| PIPEDA / Law 25 | `pipeda/` | OPC (Canada) | Canadian private-sector privacy — 10 Fair Information Principles | INDEX | — |
+| COPPA | `coppa/` | FTC | Children's online privacy — under 13, verifiable parental consent | FULL | 1 file / 1 assumption |
+| PIPEDA / Law 25 | `pipeda/` | OPC (Canada) | Canadian private-sector privacy — 10 Fair Information Principles | FULL | 1 file / 2 assumptions |
 | LGPD | `lgpd/` | ANPD (Brazil) | Brazilian personal data protection — 10 legal bases, 15-day DSR | FULL | lgpd-obligations.md |
-| APPI (2022 amendment) | `appi/` | PPC (Japan) | Japanese personal data protection — 2-week DSR, 3-5 day breach report | INDEX | — |
+| APPI (2022 amendment) | `appi/` | PPC (Japan) | Japanese personal data protection — 2-week DSR, 3-5 day breach report | FULL | 1 file / 1 assumption |
 
 ---
 

@@ -16,11 +16,11 @@
 | Personal information categories | 3 (General PI / Sensitive PI / Pseudonymized PI) |
 | PPC fine (criminal) | JPY 1M per violation (criminal); administrative: PPC order + publication of non-compliance |
 | Data subject rights | 5 core |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (japanese-personal-data-protection.md — purpose spec, sensitive PI consent, security measures, third-party provision/records, breach notification, DSR deadlines) |
 | Fully automated (DETERMINISTIC) | Moderate — breach notification deadline; sensitive data consent; third-party transfer notice |
 | Partial automation (PARAMETERIZED) | Dominant — security management measures; purpose limitation |
 | Human-determination required (CONTESTED) | Low-Moderate — "leakage likely to harm individual rights" threshold |
-| Open assumptions | 0 |
+| Open assumptions | 1 |
 
 ---
 

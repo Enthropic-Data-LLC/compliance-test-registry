@@ -5,4 +5,10 @@
 
 See [`_index.md`](./_index.md) for the full registry index, confidence map, and open assumptions.
 
-**Parse status:** Index only — specification files pending
+**Parse status:** FULL
+
+## Specification files
+
+| File | Clauses covered | Confidence |
+|---|---|---|
+| [`children-online-privacy.md`](./children-online-privacy.md) | §312.2 (scope/"directed to children"), §312.4 (8-element privacy notice + direct notice), §312.5 (VPC — 6 approved methods), §312.6 (parental rights: review/delete/opt-out), §312.7 (no excess collection), §312.8 (written security procedures), §312.10 (retention + deletion), §312.11 (safe harbor program) | DETERMINISTIC-dominant; 1 PARAMETERIZED assumption |
