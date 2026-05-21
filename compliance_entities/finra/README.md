@@ -5,4 +5,8 @@
 
 See [`_index.md`](./_index.md) for the full registry index, confidence map, and open assumptions.
 
-**Parse status:** Index only — specification files pending
+**Parse status:** FULL
+
+| File | Description | Assumptions |
+|---|---|---|
+| [`broker-dealer-supervision-records.md`](./broker-dealer-supervision-records.md) | Written supervisory procedures (Rule 3110), off-channel communications (prohibit or capture), books and records retention (3/6-year tiers, WORM format), customer protection reserve (weekly Rule 15c3-3), Form U4/U5 30-day deadlines, AML/BSA program (Rule 3310) | 0 |

@@ -5,4 +5,8 @@
 
 See [`_index.md`](./_index.md) for the full registry index, confidence map, and open assumptions.
 
-**Parse status:** Index only — specification files pending
+**Parse status:** FULL
+
+| File | Description | Assumptions |
+|---|---|---|
+| [`capital-adequacy-risk-data-aggregation.md`](./capital-adequacy-risk-data-aggregation.md) | Basel III capital ratios (CET1 ≥ 4.5%, Tier 1 ≥ 6%, Total ≥ 8%, conservation buffer), LCR/NSFR ≥ 100%, leverage ratio ≥ 3%, Pillar 3 quarterly disclosure within 45 days, LCR monthly within 15 business days, BCBS 239 data timeliness (P5/P10), ICAAP annual submission | 2 (ASSUME-BCBS239-ARCH-001, ASSUME-BASELI-ICAAP-001) |

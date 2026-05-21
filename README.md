@@ -232,10 +232,10 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 | GLBA Safeguards Rule | `glba/` | FTC / OCC | Financial institution customer data — 9 safeguard elements | FULL | safeguards-rule.md |
 | NYDFS Part 500 | `nydfs/500/` | NYDFS | NY-licensed financial entity cybersecurity — 6yr log retention | FULL | cybersecurity-program.md |
 | DORA | `dora/` | EU / ESAs | EU financial entity digital operational resilience — 5 pillars | FULL | incident-reporting-contracts-resilience.md |
-| FFIEC | `ffiec/` | FFIEC | US bank examination benchmarks — 12 handbooks | INDEX | — |
-| Basel III / BCBS 239 | `basel/` | BCBS | Capital adequacy ratios + risk data aggregation | INDEX | — |
-| PSD2 / SCA | `psd2/` | EBA (EU) | Payment services strong customer authentication | INDEX | — |
-| FINRA Rules | `finra/` | FINRA | Broker-dealer supervision, records, customer protection | INDEX | — |
+| FFIEC | `ffiec/` | FFIEC | US bank examination benchmarks — 12 handbooks | FULL | 1 file / 0 assumptions |
+| Basel III / BCBS 239 | `basel/` | BCBS | Capital adequacy ratios + risk data aggregation | FULL | 1 file / 2 assumptions |
+| PSD2 / SCA | `psd2/` | EBA (EU) | Payment services strong customer authentication | FULL | 1 file / 0 assumptions |
+| FINRA Rules | `finra/` | FINRA | Broker-dealer supervision, records, customer protection | FULL | 1 file / 0 assumptions |
 
 ---
 

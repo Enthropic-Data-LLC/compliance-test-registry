@@ -15,7 +15,7 @@
 |---|---|
 | Primary rule series | 5 (3000-series: supervision; 4000-series: financial; 4500-series: records; 2000-series: conduct; 1000-series: membership) |
 | Books and records retention categories | Multiple (3/6/7 year retention tiers) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (broker-dealer-supervision-records.md — WSPs, off-channel comms, books and records retention, WORM, customer protection reserve, registration filings, AML) |
 | Fully automated (DETERMINISTIC) | Moderate — retention timelines; registration requirements; notice filing deadlines |
 | Partial automation (PARAMETERIZED) | Dominant — supervisory system adequacy; suitability determinations |
 | Human-determination required (CONTESTED) | High — supervisory reasonableness; best interest determinations |

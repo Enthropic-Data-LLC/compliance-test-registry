@@ -5,4 +5,8 @@
 
 See [`_index.md`](./_index.md) for the full registry index, confidence map, and open assumptions.
 
-**Parse status:** Index only — specification files pending
+**Parse status:** FULL
+
+| File | Description | Assumptions |
+|---|---|---|
+| [`strong-customer-authentication.md`](./strong-customer-authentication.md) | SCA 2-factor minimum + factor independence, dynamic linking to amount and payee, low-value contactless/remote exemption thresholds (€50/€150, €30/€100), TRA fraud rate gates (0.13%/0.06%/0.01%), ASPSP API 99.5% uptime, 72-hour intermediate incident report | 0 |

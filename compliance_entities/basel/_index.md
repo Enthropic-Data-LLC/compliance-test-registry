@@ -16,11 +16,11 @@
 | Basel III pillars | 3 (Minimum Capital / Supervisory Review / Market Discipline) |
 | BCBS 239 principles | 14 |
 | BCBS 239 target population | G-SIBs (mandatory); D-SIBs (comply or explain) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (capital-adequacy-risk-data-aggregation.md — CET1/Tier1/Total capital ratios, LCR/NSFR, leverage ratio, Pillar 3 disclosure deadlines, BCBS 239 P5/P10, ICAAP) |
 | Fully automated (DETERMINISTIC) | Low-Moderate — ratio thresholds; disclosure deadlines |
 | Partial automation (PARAMETERIZED) | Dominant — ICAAP, model validation, stress testing |
 | Human-determination required (CONTESTED) | High — internal model approval; materiality determination |
-| Open assumptions | 0 |
+| Open assumptions | 2 |
 
 ---
 

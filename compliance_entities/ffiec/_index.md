@@ -15,11 +15,12 @@
 |---|---|
 | Active handbooks | 12 |
 | Examination domains | 6 core (Information Security, Management, Development and Acquisition, Operations, Business Continuity, Audit) + specialized (Retail Payments, Wholesale Payments, E-Banking, etc.) |
-| Controls parsed (individual files) | 0 (index only; individual control files pending) |
+| Controls parsed (individual files) | 1 (information-security-examination.md — IS governance, risk assessment, access controls, patch management, vuln scanning, pentest, logging, IRP, TSP management, BCP) |
 | Fully automated (DETERMINISTIC) | Moderate — patch cadence, log retention, MFA presence, BCP test frequency |
 | Partial automation (PARAMETERIZED) | Dominant — "adequate," "appropriate," "commensurate with risk" appear throughout |
 | Human-determination required (CONTESTED) | Significant — examiner judgment is central to the framework |
 | Open assumptions | 0 |
+
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 

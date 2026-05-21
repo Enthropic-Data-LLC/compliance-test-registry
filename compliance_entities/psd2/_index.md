@@ -16,7 +16,7 @@
 | Core titles in PSD2 | 4 |
 | RTS on SCA — key Articles | ~49 |
 | SCA exemptions | 10 categories |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (strong-customer-authentication.md — SCA factors, dynamic linking, low-value exemptions, TRA fraud rate gates, ASPSP API 99.5% uptime, incident reporting) |
 | Fully automated (DETERMINISTIC) | High — SCA element requirements; authentication code binding; transaction monitoring thresholds |
 | Partial automation (PARAMETERIZED) | Moderate — exemption application logic |
 | Human-determination required (CONTESTED) | Low — authentication approach design |
