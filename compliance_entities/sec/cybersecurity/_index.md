@@ -14,11 +14,11 @@
 | Metric | Count |
 |---|---|
 | Rules | 2 (Form 8-K Item 1.05 + Regulation S-K Item 106) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 |
 | Fully automated (DETERMINISTIC) | Moderate — 4-business-day filing deadline, disclosure content checklist |
 | Partial automation (PARAMETERIZED) | Moderate — "material" determination |
 | Human-determination required (CONTESTED) | Significant — materiality is a legal/business judgment |
-| Open assumptions | 0 |
+| Open assumptions | 5 |
 
 ---
 
@@ -138,10 +138,20 @@ FPIs use Form 20-F (annual) and Form 6-K (current reports). Key differences:
 
 ---
 
-## Roadmap — parse priority
+## Spec file status
 
-1. Form 8-K Item 1.05(a) disclosure checklist — DETERMINISTIC content + 4-day clock
-2. S-K Item 106(b) risk management disclosure elements — DETERMINISTIC binary disclosures
-3. S-K Item 106(c) governance disclosure elements — PARAMETERIZED
-4. Materiality determination process — CONTESTED; Pattern 3 gate
-5. Multi-framework notification coordination — DETERMINISTIC cross-framework deadline tracker
+| File | Coverage | Status |
+|---|---|---|
+| [`incident-disclosure-annual-report.md`](./incident-disclosure-annual-report.md) | Form 8-K Item 1.05 (4-business-day clock, DOJ delay, 8-K/A amendment), S-K Item 106(b) (risk management disclosures), S-K Item 106(c) (governance disclosures), multi-framework notification coordination, FPI modifications (Form 6-K / 20-F) | ✅ |
+
+## Open assumption registry
+
+| ID | Assumption | Pattern | Approved | Review |
+|---|---|---|---|---|
+| ASSUME-SEC-DISC-001 | "Business days" = Mon–Fri excluding US federal holidays, consistent with SEC conventions | 1 | Pending | 2027-05 |
+| ASSUME-SEC-MAT-001 | 4-business-day clock starts at formal materiality determination date; discovery alone does not start the clock | 3 | Pending | 2027-05 |
+| ASSUME-SEC-DOJ-001 | DOJ delay requires DOJ (not registrant) to notify SEC; registrant must document the DOJ notification | 1 | Pending | 2027-05 |
+| ASSUME-SEC-AMD-001 | 8-K/A amendment timing is "as soon as practicable" — Pattern 2; no bright-line days | 2 | Pending | 2027-05 |
+| ASSUME-SEC-106-001 | S-K Item 106 element presence is DETERMINISTIC; substantive adequacy is Pattern 2 requiring Disclosure Committee approval | 2 | Pending | 2027-05 |
+
+## Parse status: Complete — Form 8-K Item 1.05, S-K Item 106(b)/(c) parsed; 5 assumptions recorded
