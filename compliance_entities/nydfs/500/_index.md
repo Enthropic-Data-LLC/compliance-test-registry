@@ -14,11 +14,11 @@
 | Metric | Count |
 |---|---|
 | Sections | 23 (§500.00–§500.22) |
-| Requirements parsed (individual files) | 0 (index only; individual section files pending) |
+| Requirements parsed (individual files) | 1 (`cybersecurity-program.md` — §§500.04, 500.05, 500.06, 500.07, 500.12, 500.14, 500.15, 500.17, Class A) |
 | Fully automated (DETERMINISTIC) | High — NY DFS is among the most technically prescriptive financial cybersecurity regulations |
 | Partial automation (PARAMETERIZED) | Moderate |
 | Human-determination required (CONTESTED) | Low–Moderate |
-| Open assumptions | 0 |
+| Open assumptions | 8 (ASSUME-NYDFS500-CISO-001, PENTEST-001, AUDIT-001, MFA-001, ENC-001, NOTIF-001, CLASSA-001, TRAIN-001) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -126,7 +126,16 @@ All covered entities must file an annual certification with DFS by April 15 (or 
 
 ## Open assumption registry
 
-*(No assumptions recorded — individual section files not yet written)*
+| ID | Domain | Description | Review date |
+|---|---|---|---|
+| ASSUME-NYDFS500-CISO-001 | CISO / §500.04 | Annual board report cadence is 12-month rolling; must include program status, material risks, events | 2026-11-01 |
+| ASSUME-NYDFS500-PENTEST-001 | Penetration Testing / §500.05 | Annual pentest must cover all in-scope systems; Class A bi-annual VA is additive | 2026-11-01 |
+| ASSUME-NYDFS500-AUDIT-001 | Audit Trail / §500.06 | Protection from alteration = WORM or crypto chain or separated log-storage admin | 2026-11-01 |
+| ASSUME-NYDFS500-MFA-001 | MFA / §500.12 | Second Amendment tightened MFA; CISO exceptions now require annual review + compensating controls | 2026-11-01 |
+| ASSUME-NYDFS500-ENC-001 | Encryption / §500.15 | "Not feasible" for at-rest is narrow; performance alone insufficient; key separation required | 2026-11-01 |
+| ASSUME-NYDFS500-NOTIF-001 | Notification / §500.17 | 72-hour clock starts at determination; unauthorized privileged access and ransomware are per-se reportable | 2026-11-01 |
+| ASSUME-NYDFS500-CLASSA-001 | Class A / §500.02(g) | Consolidated basis; global headcount including contractors; re-evaluated annually | 2026-11-01 |
+| ASSUME-NYDFS500-TRAIN-001 | Training / §500.14 | All covered individuals including contractors; 100% completion expected; generic content insufficient | 2026-11-01 |
 
 ---
 
