@@ -18,11 +18,11 @@
 | UK-specific departures from EU GDPR | ~15 (DPA 2018 modifications) |
 | ICO maximum fine (standard) | £17.5M or 4% global annual turnover (higher of) |
 | ICO maximum fine (lower tier) | £8.75M or 2% global annual turnover |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (UK-specific deltas; EU GDPR base tests apply in full) |
 | Fully automated (DETERMINISTIC) | Same as EU GDPR — 72h breach, DSR deadlines, consent elements |
 | Partial automation (PARAMETERIZED) | Same as EU GDPR dominant |
 | Human-determination required (CONTESTED) | Same as EU GDPR — legitimate interests, adequacy |
-| Open assumptions | 0 |
+| Open assumptions | 4 |
 
 ---
 
@@ -90,6 +90,25 @@ Most UK data controllers must register with the ICO and pay a registration fee (
 | Age of consent (information society services) | 13 years | DPA 2018 §9 |
 | ICO registration fee | £40–£2,900/year | DPA 2018 / ICO Fee Regulations |
 | UK IDTA / UK Addendum required | Before transfer to non-adequate country | Art. 46 UK GDPR |
+
+---
+
+## Spec file status
+
+| File | Coverage | Status |
+|---|---|---|
+| [`uk-specific-deltas.md`](./uk-specific-deltas.md) | ICO registration (existence, tier, renewal), age of consent = 13 (DPA 2018 §9), 72-hour breach to ICO, dual-regulator breach notification (UK + EU), UK IDTA / UK Addendum transfer mechanisms, ROPA UK/EU separation | ✅ |
+
+## Open assumption registry
+
+| ID | Assumption | Pattern | Approved | Review |
+|---|---|---|---|---|
+| ASSUME-UK-GDPR-REG-001 | ICO tier classification self-assessed; DPO must review annually or on material change to headcount/turnover | 2 | Pending | 2027-05 |
+| ASSUME-UK-GDPR-TRANSFER-001 | UK IDTA (B1.0) is the standard mechanism; EU SCCs alone insufficient; UK adequacy list is distinct from EC adequacy | 1 | Pending | 2027-05 |
+| ASSUME-UK-GDPR-AGE-001 | DPA 2018 §9 sets UK age of consent at 13; when serving both UK and EU users, member state minimums (13–16) may differ | 1 | Pending | 2027-05 |
+| ASSUME-UK-GDPR-ROPA-001 | Combined ROPA may cover UK and EU if it distinguishes the two; undifferentiated ROPA is acceptable for UK-only processors | 2 | Pending | 2027-05 |
+
+## Parse status: Complete — UK-specific deltas parsed; run in conjunction with EU GDPR spec files for full coverage; 4 assumptions recorded
 
 ---
 
