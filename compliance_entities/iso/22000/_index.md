@@ -16,7 +16,7 @@
 |---|---|
 | Clauses | 7 (Clauses 4–10) |
 | Core FSMS elements | 4 (PRPs / Hazard Analysis / HACCP / FSMS) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (fsms-haccp-traceability.md — food safety policy, competence records, PRP documentation, 1-step traceability, Hazard Control Plan 7-element checklist, HACCP verification, internal audit program, management review inputs, NC/CAPA records) |
 | Fully automated (DETERMINISTIC) | Low-Moderate — HACCP documentation elements; CCP monitoring records |
 | Partial automation (PARAMETERIZED) | Dominant — hazard analysis, CCP identification, critical limits |
 | Human-determination required (CONTESTED) | High — hazard characterization, risk-based decisions |

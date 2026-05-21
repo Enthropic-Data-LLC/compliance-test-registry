@@ -16,7 +16,7 @@
 | FSMA implementing rules | 7 major rules |
 | HARPC required elements | 8 (vs. HACCP traditional 7) |
 | Enhanced Traceability foods (FTL) | ~16 food categories |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (harpc-traceability-fsvp.md — Food Safety Plan 8-element checklist, 6-category hazard analysis, allergen controls, monitoring/verification, 2-year record retention, FTL 24-hour traceability retrieval, FSVP) |
 | Fully automated (DETERMINISTIC) | Moderate — HARPC documentation elements; record retention timelines; traceability retrieval deadline |
 | Partial automation (PARAMETERIZED) | Dominant — hazard characterization, supply chain controls |
 | Human-determination required (CONTESTED) | High — "reasonably foreseeable" hazard scope |

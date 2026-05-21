@@ -246,7 +246,7 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 | FDA 21 CFR Part 11 | `fda/21cfr11/` | FDA | Electronic records and signatures | FULL | electronic-records-esig.md, system-validation.md |
 | FDA 21 CFR 210/211 cGMP | `fda/21cfr210-211/` | FDA | Pharmaceutical manufacturing good practices | FULL | pharmaceutical-manufacturing-controls.md |
 | FDA QMSR | `fda/qmsr/` | FDA | Medical device quality management — ISO 13485 + 15 FDA deltas | FULL | fda-qmsr-deltas.md |
-| FDA FSMA | `fda/fsma/` | FDA | Food safety modernization — HARPC, FSVP, FTL traceability | INDEX | — |
+| FDA FSMA | `fda/fsma/` | FDA | Food safety modernization — HARPC, FSVP, FTL traceability | FULL | 1 file / 3 assumptions |
 | ISO 13485:2016 | `iso/13485/` | ISO | Medical device QMS — ~80 sub-clauses | FULL | records-and-design-controls.md, management-and-product-controls.md |
 | EU MDR 2017/745 / IVDR | `eu-mdr/` | EC / notified bodies | EU medical device regulation — 4 device classes | FULL | gspr-technical-documentation.md, pms-vigilance-conformity.md |
 | ISO 14971:2019 | `iso/14971/` | ISO | Medical device risk management — 6-step process | FULL | risk-management-process.md |
@@ -292,8 +292,8 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| ISO 22000:2018 / FSSC 22000 | `iso/22000/` | ISO / FSSC | Food safety management — HACCP + Annex SL | INDEX | — |
-| FDA FSMA | `fda/fsma/` | FDA | *(Also listed under Healthcare — HARPC, FTL 24-hour traceability)* | INDEX | — |
+| ISO 22000:2018 / FSSC 22000 | `iso/22000/` | ISO / FSSC | Food safety management — HACCP + Annex SL | FULL | 1 file / 2 assumptions |
+| FDA FSMA | `fda/fsma/` | FDA | *(Also listed under Healthcare — HARPC, FTL 24-hour traceability)* | FULL | 1 file / 3 assumptions |
 
 ---
 
