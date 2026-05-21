@@ -14,12 +14,12 @@
 |---|---|
 | Families | 17 |
 | Total requirements | ~117 (r3 expanded from 110 in r2) |
-| Requirements parsed (individual files) | 4 (AC, IA, AU+CM+SI, SC+IR+PE+MA+MP+PS+CA — ~101 of ~117 requirements covered) |
+| Requirements parsed (individual files) | 5 (AC, IA, AU+CM+SI, SC+IR+PE+MA+MP+PS+CA, AT+RA+SR+PL+PM — all 17 families; ~117 requirements) |
 | Fully automated (DETERMINISTIC) | HIGH — AC (lockout, session lock, remote access), IA (MFA, password policy, hash algorithm), AU (log retention, NTP), CM (baseline, change control), SI (AV, vuln scan) |
 | Partial automation (PARAMETERIZED) | Moderate — role/need-to-know adequacy, configuration completeness, SLA window adequacy |
 | Human-determination required (CONTESTED) | RA (risk methodology), SR (supply chain), PM (program sufficiency) |
 | Unresolvable | Minimal |
-| Open assumptions | 26 (ASSUME-800171-AC-001–009, IA-001–007, AU-001–003, CM-001–002, SI-001–003, SC-001–003, IR-001, PE-001–002, PS-001, CA-001) |
+| Open assumptions | 31 (ASSUME-800171-AC-001–009, IA-001–007, AU-001–003, CM-001–002, SI-001–003, SC-001–003, IR-001, PE-001–002, PS-001, CA-001, AT-001, RA-001–002, SR-001, PL-001) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -97,6 +97,11 @@ All 800-171 requirements apply only to systems that process, store, or transmit 
 | ASSUME-800171-PE-002 | PE 3.10.3 | Visitor control: visitors escorted at all times in CUI areas; visitor log retained ≥36 months | 2026-05-21 |
 | ASSUME-800171-PS-001 | PS 3.9.2 | Termination: CUI access revoked same day; accounts disabled within 1 business day; supervisor-triggered process | 2026-05-21 |
 | ASSUME-800171-CA-001 | CA 3.12.1/2 | Assessments: triennial (≤36 months); POA&M critical findings remediated ≤30 days, high ≤90 days; SSP reviewed annually | 2026-05-21 |
+| ASSUME-800171-AT-001 | AT 3.2.2 | Role-based training annually for 6 required roles; training content adequacy is PARAMETERIZED | 2026-05-21 |
+| ASSUME-800171-RA-001 | RA 3.11.1 | Risk assessment triennial or after significant change; methodology adequacy is CONTESTED | 2026-05-21 |
+| ASSUME-800171-RA-002 | RA 3.11.2 | Vuln scans: quarterly all systems; monthly internet-facing; critical ≤30d, high ≤90d; authenticated | 2026-05-21 |
+| ASSUME-800171-SR-001 | SR 3.17.2 | Component authenticity: authorized distributors; receipt inspection; adequacy PARAMETERIZED | 2026-05-21 |
+| ASSUME-800171-PL-001 | PL 3.18.1 | SSP annual review; 7 required sections; completeness is CONTESTED (assessor-evaluated) | 2026-05-21 |
 
 ---
 
@@ -107,6 +112,8 @@ All 800-171 requirements apply only to systems that process, store, or transmit 
 | Risk assessment methodology | RA 3.11.1–3.11.2 | Risk methodology and scope adequacy are assessment-officer-evaluated | ISSO documents methodology; DoD CO/assessor review |
 | Supply chain risk adequacy | SR 3.17.1–3.17.4 | Vendor assessment depth and ICT supply chain control sufficiency are judgment calls | ISSO documents supplier risk methodology; CMMC assessor review |
 | Program management sufficiency | PM (r3 additions) | Program maturity and resource sufficiency are auditor-evaluated | Management review + CMMC assessment |
+| Risk assessment methodology | RA 3.11.1 | Methodology adequacy is assessed by DoD CO or CMMC assessor; no objective bright-line | ISSO documents methodology; assessor concurrence required |
+| SSP completeness | PL 3.18.1 | Level of implementation detail required is assessor-evaluated | ISSO attestation + CMMC assessor review |
 
 ---
 
@@ -118,7 +125,7 @@ All 800-171 requirements apply only to systems that process, store, or transmit 
 | `ia-identification-authentication.md` | IA family — 12 requirements (3.5.1–3.5.12): MFA, password policy, adaptive hash storage, replay resistance | ASSUME-800171-IA-001–007 | HIGH | ✅ Parsed |
 | `au-cm-si-core-technical.md` | AU (9 reqs), CM (9 reqs), SI (7 reqs): log retention, NTP, config baselines, AV, vuln scans | ASSUME-800171-AU-001–003, CM-001–002, SI-001–003 | HIGH | ✅ Parsed |
 | `sc-ir-pe-remaining.md` | SC (3.13.1–3.13.16, 11 reqs parsed), IR (3.6.1–3.6.3), PE (3.10.1–3.10.6), MA (3.7.5), MP (3.8.1/3/7), PS (3.9.1–3.9.2), CA (3.12.1–3.12.4): network segmentation, TLS 1.2+, FIPS crypto, session termination, IR plan, physical access, remote maintenance, media sanitization, personnel, security assessments | ASSUME-800171-SC-001–003, IR-001, PE-001–002, PS-001, CA-001 | MEDIUM–HIGH | ✅ Parsed |
-| *(RA, SR, AT, PL, PM)* | Remaining 5 families (~16 requirements): risk assessment, supply chain, training, planning, program management | TBD | MEDIUM–CONTESTED | 🔲 Pending |
+| `at-ra-sr-pl-pm-remaining.md` | AT (3.2.1–3.2.3): annual awareness training + insider threat; RA (3.11.1–3.11.3): quarterly vuln scans, CVSS SLAs, risk methodology; SR (3.17.1–3.17.4): SCRM plan, component authenticity, counterfeit prevention, SC incident notification; PL (3.18.1): SSP 7 required sections, annual review; PM (r3): senior official designation, program plan | ASSUME-800171-AT-001, RA-001–002, SR-001, PL-001 | MEDIUM (AT, RA) / CONTESTED (SR, PL completeness, PM) | ✅ Parsed |
 
 ---
 
@@ -153,7 +160,7 @@ Standard three-tier gate (see NERC CIP registry). Additional constraint unique t
 | ~~2~~ | ~~IR~~ | ~~3~~ | ✅ Complete — `sc-ir-pe-remaining.md` |
 | ~~3~~ | ~~PE~~ | ~~6~~ | ✅ Complete — `sc-ir-pe-remaining.md` |
 | ~~4a~~ | ~~MA, MP, PS, CA~~ | ~~varies~~ | ✅ Complete — `sc-ir-pe-remaining.md` |
-| 5 | RA, SR, AT, PL, PM | varies | CONTESTED/PARAMETERIZED; risk methodology, supply chain, program management all require human judgment |
+| ~~5~~ | ~~RA, SR, AT, PL, PM~~ | ~~varies~~ | ✅ Complete — `at-ra-sr-pl-pm-remaining.md` |
 
 ---
 

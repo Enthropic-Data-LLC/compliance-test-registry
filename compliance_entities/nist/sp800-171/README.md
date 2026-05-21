@@ -12,5 +12,6 @@
 | [`ia-identification-authentication.md`](./ia-identification-authentication.md) | IA family — 11 requirements (MFA, password complexity, authenticator management) | ✅ |
 | [`au-cm-si-core-technical.md`](./au-cm-si-core-technical.md) | AU (audit), CM (configuration), SI (system and information integrity) core requirements | ✅ |
 | [`sc-ir-pe-remaining.md`](./sc-ir-pe-remaining.md) | SC (network segmentation, TLS 1.2+, FIPS crypto, session termination 30 min, CUI at rest), IR (IRP annual review + test), PE (physical access semi-annual, visitor log 36 months), MA (remote maintenance MFA), MP (NIST 800-88 sanitization), PS (same-day termination), CA (triennial assessment, POA&M SLAs) | ✅ |
+| [`at-ra-sr-pl-pm-remaining.md`](./at-ra-sr-pl-pm-remaining.md) | AT (annual awareness training + insider threat), RA (quarterly vuln scans, CVSS SLAs, risk assessment triennial), SR (SCRM plan, component authenticity, counterfeit prevention), PL (SSP 7 required sections, annual review), PM (senior official, program plan) | ✅ |
 
-## Parse status: Substantial — AC, IA, AU/CM/SI, SC/IR/PE/MA/MP/PS/CA parsed (~101 of ~117 requirements); RA, SR, AT, PL, PM pending
+## Parse status: Complete — all 17 families parsed; ~117 requirements covered; 31 assumptions recorded
