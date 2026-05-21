@@ -17,11 +17,11 @@
 | Protected asset categories | 4 (Safety / Security / Emergency preparedness / Support) |
 | Critical Digital Assets (CDAs) identified by licensee | Site-specific |
 | Cybersecurity controls source | NIST SP 800-53 r4 (referenced by RG 5.71) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (nuclear-cybersecurity-program.md — CDA identification, NRC-approved plan, Level 4 isolation, portable media, incident reporting, annual assessment, personnel training) |
 | Fully automated (DETERMINISTIC) | Moderate — isolation requirements; reporting deadlines; plan elements |
 | Partial automation (PARAMETERIZED) | Dominant — CDA identification methodology; security control selection |
 | Human-determination required (CONTESTED) | Moderate — CDA boundary determination; defense-in-depth adequacy |
-| Open assumptions | 0 |
+| Open assumptions | 1 |
 
 ---
 

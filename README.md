@@ -192,7 +192,7 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 | NIST SP 800-53 r5 | `nist/sp800-53/` | NIST | Federal IS security controls (~1,007 controls) | FULL | core-technical-controls.md, contingency-incident-assessment.md, maintenance-media-physical-personnel.md, planning-program-training-privacy.md, risk-acquisition-supply-chain.md |
 | NIST SP 800-171 r3 | `nist/sp800-171/` | NIST | CUI protection — 17 families, 110 requirements | FULL | ac-access-control.md, ia-identification-authentication.md, au-cm-si-core-technical.md, sc-ir-pe-remaining.md, at-ra-sr-pl-pm-remaining.md |
 | NIST CSF 2.0 | `nist/csf2/` | NIST | Voluntary cybersecurity framework — 6 functions, 106 subcategories | FULL | function-profiles-subcategories.md |
-| NIST SP 800-82 r3 | `nist/sp800-82/` | NIST | OT/ICS security guide — SP 800-53 tailoring for OT | INDEX | — |
+| NIST SP 800-82 r3 | `nist/sp800-82/` | NIST | OT/ICS security guide — SP 800-53 tailoring for OT | FULL | 1 file / 2 assumptions |
 | NIST AI RMF 1.0 | `nist/ai-rmf/` | NIST | AI risk management — GOVERN/MAP/MEASURE/MANAGE | FULL | govern-map.md, measure-manage.md |
 | CMMC 2.0 | `cmmc/` | DoD / OUSD(A&S) | Defense contractor cybersecurity — 3 levels | FULL | level1-level2-practices.md, level3-800-172-delta.md |
 | ISO/IEC 27001:2022 | `iso/27001/` | ISO/IEC | ISMS — 93 Annex A controls, 4 themes | FULL | clauses-4-10-isms-mandatory.md, annex-a5-organizational.md, annex-a6-people.md, annex-a7-physical.md, annex-a8-technological.md |
@@ -202,8 +202,8 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 | TISAX / VDA ISA 6.0 | `tisax/` | ENX / VDA | Automotive supply chain information security | FULL | isms-hr-physical-controls.md, it-supplier-controls.md |
 | SEC Cybersecurity Rules 2023 | `sec/cybersecurity/` | SEC | 8-K 4-business-day disclosure + annual risk governance | FULL | incident-disclosure-annual-report.md |
 | SWIFT CSP / CSCF v2025 | `swift/csp/` | SWIFT | Financial institution SWIFT infrastructure — 25 mandatory controls | FULL | secure-environment-controls.md, access-credential-controls.md, detect-respond-controls.md |
-| TSA Pipeline Directives SD-02D | `tsa/pipeline/` | TSA / DHS | Critical pipeline OT/IT cybersecurity | INDEX | — |
-| NRC 10 CFR 73.54 | `nrc/10cfr73/` | NRC | Nuclear power reactor cybersecurity | INDEX | — |
+| TSA Pipeline Directives SD-02D | `tsa/pipeline/` | TSA / DHS | Critical pipeline OT/IT cybersecurity | FULL | 1 file / 0 assumptions |
+| NRC 10 CFR 73.54 | `nrc/10cfr73/` | NRC | Nuclear power reactor cybersecurity | FULL | 1 file / 1 assumption |
 
 ---
 

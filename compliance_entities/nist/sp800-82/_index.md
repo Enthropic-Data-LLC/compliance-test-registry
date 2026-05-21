@@ -16,11 +16,11 @@
 | OT system types covered | 6 (ICS/SCADA/DCS/PLC/RTU/Safety Instrumented Systems) |
 | Control tailoring categories | 3 (Applies directly / Tailored / Not applicable to OT) |
 | SP 800-53 families with OT tailoring | 20 |
-| Sections parsed (individual files) | 0 (index only) |
-| Fully automated (DETERMINISTIC) | Low — SP 800-82 is guidance, not bright-line requirements |
+| Sections parsed (individual files) | 1 (ot-ics-security-program.md — program elements, zone architecture, remote access, change management, vulnerability management, OT IRP) |
+| Fully automated (DETERMINISTIC) | Low — SP 800-82 is guidance, not bright-line requirements; DETERMINISTIC subset: asset inventory existence, architecture documentation, remote access MFA, IRP existence |
 | Partial automation (PARAMETERIZED) | Dominant |
 | Human-determination required (CONTESTED) | High — OT-specific risk acceptance decisions |
-| Open assumptions | 0 |
+| Open assumptions | 2 |
 
 ---
 

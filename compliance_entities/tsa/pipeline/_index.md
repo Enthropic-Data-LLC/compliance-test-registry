@@ -16,7 +16,7 @@
 | Key cybersecurity performance goals | 4 |
 | SD-01C reporting categories | 2 (immediate + 24-hour) |
 | Core required plans | 3 (Cybersecurity Implementation Plan / Incident Response Plan / Recovery Plan) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (pipeline-cybersecurity-directives.md — Coordinator, CIP, segmentation, remote MFA, IRP/recovery plans, incident reporting, annual assessment) |
 | Fully automated (DETERMINISTIC) | Moderate — reporting timelines, plan currency, testing frequency |
 | Partial automation (PARAMETERIZED) | Dominant — architecture, segmentation design, access control model |
 | Human-determination required (CONTESTED) | Low-Moderate — "significant" incident determination |
