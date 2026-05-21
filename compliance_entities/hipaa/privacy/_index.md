@@ -15,11 +15,11 @@
 |---|---|
 | Core sections | ~15 |
 | Individual rights | 6 |
-| Sections parsed (individual files) | 0 (index only) |
-| Fully automated (DETERMINISTIC) | Moderate — notice deadlines, access response timelines, authorization elements |
-| Partial automation (PARAMETERIZED) | Dominant — minimum necessary determination, TPO scope |
+| Sections parsed (individual files) | 2 (uses-disclosures-authorization.md — §§164.502, 164.508, 164.512, 164.514; individual-rights-breach.md — §§164.404–414, 164.520, 164.522, 164.524, 164.526, 164.528) |
+| Fully automated (DETERMINISTIC) | Moderate — notice deadlines, access response timelines, authorization elements, breach notification |
+| Partial automation (PARAMETERIZED) | Dominant — minimum necessary determination, TPO scope, NPP acknowledgment |
 | Human-determination required (CONTESTED) | Moderate — minimum necessary, public interest exceptions |
-| Open assumptions | 0 |
+| Open assumptions | 9 (ASSUME-HIPAA-PRIV-BA-001, MINNEC-001, AUTH-001, DEID-001, NPP-001, ACCESS-001, AMEND-001, ACCT-001, BREACH-001) |
 
 ---
 
@@ -147,3 +147,30 @@ Names, geographic subdivisions smaller than state (except first 3 digits of ZIP 
 | Business associate agreements | HIPAA Privacy Rule + Security Rule §164.314, GDPR Art. 28 DPA | BAA required for PHI; DPA required for EU personal data; combined template feasible |
 | De-identification | HIPAA §164.514, GDPR Art. 4(5) pseudonymization, CCPA personal information definition | Safe Harbor de-identification removes data from HIPAA scope; may not remove it from GDPR/CCPA scope |
 | Notice of Privacy Practices | HIPAA §164.520, GDPR Art. 13 privacy notice, CCPA §1798.100 privacy policy | All require privacy notices; different required elements; layered notice approach can address all |
+
+---
+
+## Open assumption registry
+
+| ID | Section | Summary | Review date |
+|---|---|---|---|
+| ASSUME-HIPAA-PRIV-BA-001 | §164.504(e)(2) | Privacy Rule BAA must include 8 elements: permitted uses, prohibition on non-permitted use, appropriate safeguards, breach reporting obligation (60 days/30 recommended), subcontractor compliance, individual rights pass-through, PHI availability for individual rights, return/destroy at termination | 2026-11-01 |
+| ASSUME-HIPAA-PRIV-MINNEC-001 | §164.502(b) | Minimum necessary: role-based access profiles define minimum PHI per job function; reviewed annually by Privacy Officer; routine requests have standard protocols; non-routine reviewed individually; exceptions: treatment by treating providers, individual's own requests, authorizations, HHS oversight | 2026-11-01 |
+| ASSUME-HIPAA-PRIV-AUTH-001 | §164.508 | Authorization form: all 9 elements on single form; psychotherapy notes on separate form (§164.508(a)(2)); marketing authorizations disclose financial remuneration; expiration event must be specific; reviewed and approved by Privacy Officer | 2026-11-01 |
+| ASSUME-HIPAA-PRIV-DEID-001 | §164.514(b)(1) | Expert determination: certified by qualified statistician (MS+ in statistics/biostatistics); written certification attached to dataset; certification expires after 24 months or on dataset augmentation; re-identification risk < 9% per NIST SP 800-188 guidance | 2026-11-01 |
+| ASSUME-HIPAA-PRIV-NPP-001 | §164.520 | NPP: 7 required elements including verbatim header; good-faith acknowledgment effort required; patient refusal must be documented; direct treatment providers provide at first service; health plans at enrollment and every 3 years | 2026-11-01 |
+| ASSUME-HIPAA-PRIV-ACCESS-001 | §164.524 | Access fees: cost-based only (labor + supplies + postage); no search/retrieval fees; ePHI in electronic format requested by individual must be provided electronically; reviewable denials require second review by uninvolved licensed professional | 2026-11-01 |
+| ASSUME-HIPAA-PRIV-AMEND-001 | §164.526 | Amendment: accepted amendments propagated to identified recipients within 30 days; disclosure accounting (§164.528) used to identify recipients; statement of disagreement included in future disclosures of affected PHI | 2026-11-01 |
+| ASSUME-HIPAA-PRIV-ACCT-001 | §164.528 | Accounting log fields: date, recipient name/address, PHI description, purpose or copy of request; accountable disclosures exclude TPO/authorization/incidental/limited dataset/national security/correctional/workforce; repeated disclosures of same type: first entry + frequency description is sufficient | 2026-11-01 |
+| ASSUME-HIPAA-PRIV-BREACH-001 | §164.404 | Unsecured PHI: PHI not encrypted per NIST SP 800-111 or destroyed; 4-factor low-probability assessment required for every potential breach; if low probability cannot be established, incident is a breach; Privacy Officer reviews all assessments | 2026-11-01 |
+
+---
+
+## Specification file status
+
+| File | Coverage | Assumptions | Status |
+|---|---|---|---|
+| `uses-disclosures-authorization.md` | §164.502 (BAA required, minimum necessary, disclosure basis), §164.508 (9-element authorization, conditioned treatment prohibition, revocation), §164.512 (public interest categories), §164.514 (Safe Harbor 18 identifiers, ZIP code compliance, expert determination, limited dataset DUA) | ASSUME-HIPAA-PRIV-BA-001, MINNEC-001, AUTH-001, DEID-001 | ✅ Parsed |
+| `individual-rights-breach.md` | §164.520 (NPP elements, verbatim header, acknowledgment, 60-day update), §164.522 (OOP restriction mandatory, agreed restrictions honored), §164.524 (30-day access, ePHI electronic format, reviewable denials), §164.526 (60-day amendment, written denials, propagation), §164.528 (60-day accounting, 6-year lookback, log fields), §164.404–414 (individual/media/HHS notification deadlines, annual HHS log, 4-factor harm assessment) | ASSUME-HIPAA-PRIV-NPP-001, ACCESS-001, AMEND-001, ACCT-001, BREACH-001 | ✅ Parsed |
+
+## Parse status: Complete — §§164.502, 164.508, 164.512, 164.514, 164.520, 164.522, 164.524, 164.526, 164.528, 164.404–414 parsed; 9 assumptions recorded
