@@ -7,5 +7,6 @@
 
 | Directory | Regulation | Scope | Parse depth |
 |---|---|---|---|
-| [`10cfr50/`](./10cfr50/) | 10 CFR Part 50 | Domestic licensing of nuclear power reactors; operational/safety/QA/event reporting requirements | Deep — 3 spec files (event reporting, Appendix B QA, Maintenance Rule) |
+| [`10cfr26/`](./10cfr26/) | 10 CFR Part 26 | Fitness for Duty — drug/alcohol testing (random ≥50%, cutoffs), work hour controls (16h/10h/26h-48h/72h-7d), for-cause testing | Deep — 1 spec file |
+| [`10cfr50/`](./10cfr50/) | 10 CFR Part 50 | Domestic licensing; §50.72/50.73 event reporting, App. B QA, §50.65 Maintenance Rule, §50.55a ISI/IST, §50.48 fire protection, §50.59 changes/tests | Deep — 6 spec files |
 | [`10cfr73/`](./10cfr73/) | 10 CFR Part 73 | Physical protection and cybersecurity of nuclear facilities | Index only |
