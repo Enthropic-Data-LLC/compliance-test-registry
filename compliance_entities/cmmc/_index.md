@@ -18,8 +18,8 @@
 | Level 1 practices | 17 (= FAR 52.204-21 basic safeguarding requirements) |
 | Level 2 practices | 110 (= NIST SP 800-171 r2) |
 | Level 3 practices | 134 (= 800-171 r2 + 24 selected from NIST 800-172 r1) |
-| Practices parsed (individual files) | 1 (Level 1 + Level 2 mapping; practice-level tests in 800-171 family files) |
-| Open assumptions | 2 (ASSUME-CMMC-001–002: SPRS scoring, annual affirmation) |
+| Practices parsed (individual files) | 2 (Level 1 + Level 2 mapping; Level 3 delta 24 practices) |
+| Open assumptions | 8 (ASSUME-CMMC-001–002 + 6 Level 3 delta assumptions) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -97,8 +97,10 @@ All Level 2 self-assessors must calculate and submit a SPRS (Supplier Performanc
 
 | File | Contents | Confidence | Status |
 |---|---|---|---|
-| `level1-level2-practices.md` | Level 1 (17 FAR 52.204-21 practices); Level 2 domain-to-800-171 mapping; SPRS scoring; annual affirmation | HIGH | ✅ Parsed |
-| *(Level 3 — 800-172 delta)* | 24 additional practices from NIST 800-172 r1 | MEDIUM | 🔲 Pending |
+| [`level1-level2-practices.md`](./level1-level2-practices.md) | Level 1 (17 FAR 52.204-21 practices); Level 2 domain-to-800-171 mapping; SPRS scoring; annual affirmation | HIGH | ✅ |
+| [`level3-800-172-delta.md`](./level3-800-172-delta.md) | 24 Level 3 delta practices from NIST 800-172 r1: AC (dynamic access control, mobile CUI), AT (insider threat training), CM (deny-by-exception + allowlisting), IA (replay-resistant auth), IR (SOC 24x7, incident tracking), RM (threat-informed RA, threat hunting, SCRM), CA (continuous monitoring, adversarial pentest), SA (threat intel feeds, threat models), SC (FIPS crypto, managed interfaces), SI (IOC integration, EDR/APT), SR (SCRM plan, component vulnerability assessment) | MEDIUM | ✅ |
+
+## Parse status: Complete — All three levels parsed; Level 1 (17), Level 2 (110), Level 3 delta (24) = 134 practices total; 8 assumptions recorded
 
 ---
 

@@ -18,4 +18,6 @@
 | [`_index.md`](./_index.md) | Registry index — Level 1/2/3 practice mapping, open assumptions | ✅ |
 | [`level1-level2-practices.md`](./level1-level2-practices.md) | Level 1 (17 practices) and Level 2 (110 practices) with DETERMINISTIC/PARAMETERIZED classification | ✅ |
 
-## Parse status: Partial — Level 1 and Level 2 parsed; Level 3 delta (24 NIST 800-172 practices) pending
+| [`level3-800-172-delta.md`](./level3-800-172-delta.md) | 24 Level 3 delta practices: AC (dynamic AC, mobile CUI), AT (insider threat training), CM (deny-by-exception, allowlisting), IA (replay-resistant auth), IR (SOC 24x7, incident tracking), RM (threat-informed RA, threat hunting, SCRM), CA (continuous monitoring, adversarial pentest with MITRE ATT&CK), SA (threat intel feeds weekly, threat models), SC (FIPS-validated crypto, managed interfaces), SI (IOC integration, EDR/APT behavioral), SR (SCRM plan, component vulnerability assessment) | ✅ |
+
+## Parse status: Complete — Level 1 (17), Level 2 (110), Level 3 delta (24) = 134 total practices; 8 assumptions recorded
