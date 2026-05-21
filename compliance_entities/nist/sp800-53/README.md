@@ -11,6 +11,7 @@ See [`_index.md`](./_index.md) for the full registry index, confidence map, ODP 
 |---|---|---|
 | [`_index.md`](./_index.md) | Registry index — 20-family confidence map, ODP framework, baseline scoping, assumption registry | ✅ |
 | [`core-technical-controls.md`](./core-technical-controls.md) | AU (record content, retention 90d/3yr, review cadence), AC (account management, lockout ≤3/30min, session lock ≤15min, remote/wireless protocols), IA (MFA at Moderate/High, password policy ODPs, prohibited hash algorithms), CM (baseline configuration, hardening benchmarks, least functionality, CCB), SC (TLS 1.2+ in transit, FIPS validated crypto, AES-128+ at rest, key management lifecycle), SI (patch SLAs KEV=14d/Critical=30d/High=90d, AV real-time, system monitoring, integrity verification) | ✅ |
+| [`contingency-incident-assessment.md`](./contingency-incident-assessment.md) | CP (contingency plan 8 elements, annual review/training/test, High functional test, alternate storage geographic separation, daily backups, RTO/RPO documented), IR (training/test cadence, 6-phase incident handling, tracking system, reporting ≤1h ODP, IRP annual review), CA (triennial assessment, POA&M quarterly + critical ≤30d SLA, monthly ConMon scans, annual pentest at High) | ✅ |
 
 ## Key DETERMINISTIC thresholds
 
@@ -30,4 +31,4 @@ See [`_index.md`](./_index.md) for the full registry index, confidence map, ODP 
 | SI-2: Critical patches | ≤30 days (CVSS ≥9.0) | L/M/H |
 | SI-3: AV definitions | Updated within 24 hours; real-time scanning enabled | L/M/H |
 
-## Parse status: Partial — AU, AC, IA, CM, SC, SI (6 of 20 families) parsed; CP, IR, CA, MA, MP, PE, PS, RA, SA, SR, PL, PM, AT, PT remaining
+## Parse status: Partial — AU, AC, IA, CM, SC, SI, CP, IR, CA (9 of 20 families) parsed; MA, MP, PE, PS, RA, SA, SR, PL, PM, AT, PT remaining

@@ -17,12 +17,12 @@
 | Low baseline | ~156 controls |
 | Moderate baseline | ~323 controls |
 | High baseline | ~421 controls |
-| Controls parsed (individual files) | 1 (AU, AC, IA, CM, SC, SI — 6 families, ~65 of ~156 Low baseline controls covered) |
-| Fully automated (DETERMINISTIC) | HIGH — AU-3 (record fields), SC-8/13/28 (crypto protocols), SI-3 (AV), IA-2 (MFA presence), AC-17/18 (remote/wireless protocols) |
-| Partial automation (PARAMETERIZED) | Moderate — AU-11 (retention ODP), AC-7/11 (lockout/session ODPs), IA-5(1) (password ODPs), SI-2 (patch SLA ODPs), CM-6 (deviation tracking) |
-| Human-determination required (CONTESTED) | ODP manifest completeness; CM-6 deviation adequacy; IA-2 MFA method exception justification |
+| Controls parsed (individual files) | 2 (AU, AC, IA, CM, SC, SI, CP, IR, CA — 9 families, ~105 of ~156 Low baseline controls covered) |
+| Fully automated (DETERMINISTIC) | HIGH — AU-3 (record fields), SC-8/13/28 (crypto), SI-3 (AV), IA-2 (MFA), AC-17/18 (protocols), CP-4 (High functional test), IR-4 (process phases), IR-8 (IRP review), CA-5 (POA&M quarterly), CA-7 (monthly scans) |
+| Partial automation (PARAMETERIZED) | Moderate — AU-11 (retention ODP), AC-7/11 (lockout/session), IA-5(1) (password), SI-2 (patch SLAs), CP-2/3/4/9 (plan/training/test/backup ODPs), IR-2/3/6 (training/test/reporting ODPs), CA-2/5/7/8 (assessment/POA&M/ConMon/pentest ODPs) |
+| Human-determination required (CONTESTED) | ODP manifest; CM-6 deviation adequacy; CP-7 alternate site equivalency; CA-3 info exchange agreements |
 | Unresolvable | Minimal |
-| Open assumptions | 7 (ASSUME-800053-AU-001–002, AC-001–002, IA-001, CM-001, SI-001) |
+| Open assumptions | 18 (ASSUME-800053-AU-001–002, AC-001–002, IA-001, CM-001, SI-001, CP-001–004, IR-001–003, CA-001–004) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -72,7 +72,8 @@ The impact baseline determines which controls are required. Before any test can 
 | File | Contents | Assumptions | Confidence | Status |
 |---|---|---|---|---|
 | `core-technical-controls.md` | AU (record content, retention, review), AC (account management, lockout, session lock, remote/wireless), IA (MFA, password policy, hash storage), CM (baseline, hardening, least functionality, change control), SC (TLS, FIPS, at-rest encryption, key management), SI (patch SLAs, AV, monitoring, integrity verification) | ASSUME-800053-AU-001–002, AC-001–002, IA-001, CM-001, SI-001 | HIGH–MEDIUM | ✅ Parsed |
-| *(CP, IR, CA, MA, MP, PE, PS, RA, SA, SR, PL, PM, AT, PT)* | Remaining 14 families | TBD | MEDIUM–CONTESTED | 🔲 Pending |
+| `contingency-incident-assessment.md` | CP (plan 8 elements, annual review, training, High functional test, alternate storage/processing, daily backups, RTO/RPO), IR (training/test cadence, 6-phase handling, tracking, reporting ≤1h ODP, IRP annual review), CA (triennial assessment, POA&M quarterly + SLAs, monthly ConMon scans, annual pentest) | ASSUME-800053-CP-001–004, IR-001–003, CA-001–004 | HIGH–MEDIUM | ✅ Parsed |
+| *(MA, MP, PE, PS, PL, RA, SA, SR, AT, PM, PT)* | Remaining 11 families | TBD | MEDIUM–CONTESTED | 🔲 Pending |
 
 ---
 
@@ -87,6 +88,17 @@ The impact baseline determines which controls are required. Before any test can 
 | ASSUME-800053-IA-001 | IA-5(1) | Password length ≥8 (complexity) or ≥15 (no complexity); history 24; max 60d lifetime; no expiry if breach-monitoring active | 2026-05-21 |
 | ASSUME-800053-CM-001 | CM-6 | DISA STIGs or CIS Benchmarks satisfy configuration settings requirement; deviations require ISSO-approved exception | 2026-05-21 |
 | ASSUME-800053-SI-001 | SI-2 | Patch SLAs: KEV=14d, Critical=30d, High=90d, Medium=180d, Low=365d per 800-53B and CISA BOD 22-01 | 2026-05-21 |
+| ASSUME-800053-CP-001 | CP-2 | Contingency plan review ODP: annual (12 months) per 800-53B Moderate default | 2026-05-21 |
+| ASSUME-800053-CP-002 | CP-3 | Training frequency ODP: annual at Moderate; semi-annual at High | 2026-05-21 |
+| ASSUME-800053-CP-003 | CP-4 | Test frequency ODP: annual; High requires functional or full-interruption test | 2026-05-21 |
+| ASSUME-800053-CP-004 | CP-9 | Backup frequency ODPs: daily user-level, weekly system-level; annual restoration test; offsite copies | 2026-05-21 |
+| ASSUME-800053-IR-001 | IR-2 | IR training ODP: annual at Moderate; semi-annual at High; role-based for IR personnel | 2026-05-21 |
+| ASSUME-800053-IR-002 | IR-3 | IR test ODP: annual at Moderate; semi-annual at High; tabletop or functional acceptable | 2026-05-21 |
+| ASSUME-800053-IR-003 | IR-6 | Reporting ODP: within 1 hour of confirmed incident; reporting authority documented in SSP | 2026-05-21 |
+| ASSUME-800053-CA-001 | CA-2 | Assessment frequency ODP: triennial (36 months) for Moderate/High; annual recommended for High | 2026-05-21 |
+| ASSUME-800053-CA-002 | CA-5 | POA&M SLAs: critical ≤30d, high ≤90d; quarterly update; no overdue without approved exception | 2026-05-21 |
+| ASSUME-800053-CA-003 | CA-7 | ConMon ODP: monthly OS/infra scans; ConMon strategy documented and reviewed annually | 2026-05-21 |
+| ASSUME-800053-CA-004 | CA-8 | Pentest ODP: annual at High; org-defined at Moderate; network + application + OS layers | 2026-05-21 |
 
 ---
 
@@ -131,11 +143,12 @@ Recommended parse order based on DETERMINISTIC density and cross-framework reuse
 | ~~4~~ | ~~CM~~ | ✅ Complete — `core-technical-controls.md` |
 | ~~5~~ | ~~SC~~ | ✅ Complete — `core-technical-controls.md` |
 | ~~6~~ | ~~SI~~ | ✅ Complete — `core-technical-controls.md` |
-| 7 | CP | Contingency and backup — MEDIUM confidence; DETERMINISTIC for recovery time objectives if ODP-set |
-| 8 | IR | Incident response — aligns with CMMC and FedRAMP IR requirements |
-| 9 | CA | Continuous monitoring — FedRAMP overlap justifies early parse |
-| 10 | SR | CONTESTED family; critical for supply chain programs |
-| 11 | remaining | Parse after core baseline established |
+| ~~7~~ | ~~CP~~ | ✅ Complete — `contingency-incident-assessment.md` |
+| ~~8~~ | ~~IR~~ | ✅ Complete — `contingency-incident-assessment.md` |
+| ~~9~~ | ~~CA~~ | ✅ Complete — `contingency-incident-assessment.md` |
+| 10 | MA, MP, PE, PS | MEDIUM confidence; physical/personnel/maintenance controls |
+| 11 | RA, SA, SR | CONTESTED families; risk methodology, supply chain, developer security |
+| 12 | PL, PM, AT, PT | PARAMETERIZED/CONTESTED; SSP, privacy, program management |
 
 ---
 
