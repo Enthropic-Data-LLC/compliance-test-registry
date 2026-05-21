@@ -16,11 +16,11 @@
 | Legal bases for processing | 10 |
 | Data subject rights | 9 |
 | Special categories (sensitive data) | 8 types |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 |
 | Fully automated (DETERMINISTIC) | Moderate — legal basis documentation; consent requirements; DPO designation |
 | Partial automation (PARAMETERIZED) | Dominant — data mapping; proportionality; security measures |
 | Human-determination required (CONTESTED) | Moderate — legitimate interest balancing test |
-| Open assumptions | 0 |
+| Open assumptions | 4 |
 
 ---
 
@@ -129,6 +129,25 @@ def in_lgpd_scope(processing_activity) -> bool:
 | DPO designation | Mandatory for all controllers | Art. 41 |
 | Consent withdrawal right | Must be as easy as consent was given | Art. 8 |
 | Children's data — parental consent | Required | Art. 14 |
+
+---
+
+## Spec file status
+
+| File | Coverage | Status |
+|---|---|---|
+| [`lgpd-obligations.md`](./lgpd-obligations.md) | Legal basis documentation (10 bases), consent requirements (Art. 8), legitimate interest LIA (Pattern 3), 15-day access deadline (Art. 19), consent withdrawal + deletion, sensitive data (Art. 11), children's data parental consent (Art. 14), DPO mandatory (Art. 41), 3-business-day ANPD breach notification, data subject notification (harm assessment), ANPD-approved international transfer mechanisms | ✅ |
+
+## Open assumption registry
+
+| ID | Assumption | Pattern | Approved | Review |
+|---|---|---|---|---|
+| ASSUME-LGPD-ACCESS-001 | 15-day access deadline runs from receipt; no extension in LGPD; partial response with reason required if full response is impossible within the window | 1 | Pending | 2027-05 |
+| ASSUME-LGPD-BREACH-001 | 3 business days per ANPD Resolution No. 15/2023 = Brazilian Mon–Fri excluding national holidays; compliance team must maintain holiday calendar | 1 | Pending | 2027-05 |
+| ASSUME-LGPD-LI-001 | Legitimate interest requires written LIA (purpose + necessity + balancing test) signed by DPO; reviewed annually; Pattern 3 | 3 | Pending | 2027-05 |
+| ASSUME-LGPD-TRANSFER-001 | ANPD adequacy list is independent of EC/ICO adequacy; ANPD model clauses are the standard mechanism; EU SCCs not directly usable without ANPD adoption | 1 | Pending | 2027-05 |
+
+## Parse status: Complete — Art. 7–8, 11, 14, 19, 33, 41, 48 parsed; 4 assumptions recorded
 
 ---
 
