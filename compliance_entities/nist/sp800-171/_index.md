@@ -14,12 +14,12 @@
 |---|---|
 | Families | 17 |
 | Total requirements | ~117 (r3 expanded from 110 in r2) |
-| Requirements parsed (individual files) | 3 (AC, IA, AU+CM+SI — 58 of ~117 requirements covered) |
+| Requirements parsed (individual files) | 4 (AC, IA, AU+CM+SI, SC+IR+PE+MA+MP+PS+CA — ~101 of ~117 requirements covered) |
 | Fully automated (DETERMINISTIC) | HIGH — AC (lockout, session lock, remote access), IA (MFA, password policy, hash algorithm), AU (log retention, NTP), CM (baseline, change control), SI (AV, vuln scan) |
 | Partial automation (PARAMETERIZED) | Moderate — role/need-to-know adequacy, configuration completeness, SLA window adequacy |
 | Human-determination required (CONTESTED) | RA (risk methodology), SR (supply chain), PM (program sufficiency) |
 | Unresolvable | Minimal |
-| Open assumptions | 18 (ASSUME-800171-AC-001–009, IA-001–007, AU-001–003, CM-001–002, SI-001–003) |
+| Open assumptions | 26 (ASSUME-800171-AC-001–009, IA-001–007, AU-001–003, CM-001–002, SI-001–003, SC-001–003, IR-001, PE-001–002, PS-001, CA-001) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -89,6 +89,14 @@ All 800-171 requirements apply only to systems that process, store, or transmit 
 | ASSUME-800171-SI-001 | SI 3.14.1 | AV: all general-purpose OS; 24h definitions; real-time scanning; users cannot disable | 2026-05-20 |
 | ASSUME-800171-SI-002 | SI 3.14.5 | Scanning: real-time on-access; weekly full scans; external media scanned; exclusions minimized | 2026-05-20 |
 | ASSUME-800171-SI-003 | SI 3.14.6 | Vuln mgmt: quarterly scans; critical CVSS≥7.0 ≤30 days; non-critical ≤90 days; internet-facing monthly | 2026-05-20 |
+| ASSUME-800171-SC-001 | SC 3.13.8/11 | CUI in transit: TLS 1.2+ minimum; TLS 1.0/1.1/SSL prohibited; FIPS-validated crypto modules required for federal contractors | 2026-05-21 |
+| ASSUME-800171-SC-002 | SC 3.13.16 | CUI at rest: AES-128 minimum (AES-256 preferred); unencrypted CUI on portable media prohibited | 2026-05-21 |
+| ASSUME-800171-SC-003 | SC 3.13.14 | Session termination: ≤30 min inactivity; applies to all CUI-bearing sessions including web, RDP, and SSH | 2026-05-21 |
+| ASSUME-800171-IR-001 | IR 3.6.1/3 | IRP: documented incident response plan; annual tabletop or functional test; external reporting contacts documented | 2026-05-21 |
+| ASSUME-800171-PE-001 | PE 3.10.1/2 | Physical access list: reviewed semi-annually; removed on role change or separation; documented with dates | 2026-05-21 |
+| ASSUME-800171-PE-002 | PE 3.10.3 | Visitor control: visitors escorted at all times in CUI areas; visitor log retained ≥36 months | 2026-05-21 |
+| ASSUME-800171-PS-001 | PS 3.9.2 | Termination: CUI access revoked same day; accounts disabled within 1 business day; supervisor-triggered process | 2026-05-21 |
+| ASSUME-800171-CA-001 | CA 3.12.1/2 | Assessments: triennial (≤36 months); POA&M critical findings remediated ≤30 days, high ≤90 days; SSP reviewed annually | 2026-05-21 |
 
 ---
 
@@ -109,7 +117,8 @@ All 800-171 requirements apply only to systems that process, store, or transmit 
 | `ac-access-control.md` | AC family — 22 requirements (3.1.1–3.1.22): user/device access, least privilege, remote access, wireless, mobile | ASSUME-800171-AC-001–009 | MEDIUM–HIGH | ✅ Parsed |
 | `ia-identification-authentication.md` | IA family — 12 requirements (3.5.1–3.5.12): MFA, password policy, adaptive hash storage, replay resistance | ASSUME-800171-IA-001–007 | HIGH | ✅ Parsed |
 | `au-cm-si-core-technical.md` | AU (9 reqs), CM (9 reqs), SI (7 reqs): log retention, NTP, config baselines, AV, vuln scans | ASSUME-800171-AU-001–003, CM-001–002, SI-001–003 | HIGH | ✅ Parsed |
-| *(SC, IR, PE, MA, MP, PS, RA, CA, SR, PL)* | Remaining 9 families (~60 requirements) | TBD | MEDIUM | 🔲 Pending |
+| `sc-ir-pe-remaining.md` | SC (3.13.1–3.13.16, 11 reqs parsed), IR (3.6.1–3.6.3), PE (3.10.1–3.10.6), MA (3.7.5), MP (3.8.1/3/7), PS (3.9.1–3.9.2), CA (3.12.1–3.12.4): network segmentation, TLS 1.2+, FIPS crypto, session termination, IR plan, physical access, remote maintenance, media sanitization, personnel, security assessments | ASSUME-800171-SC-001–003, IR-001, PE-001–002, PS-001, CA-001 | MEDIUM–HIGH | ✅ Parsed |
+| *(RA, SR, AT, PL, PM)* | Remaining 5 families (~16 requirements): risk assessment, supply chain, training, planning, program management | TBD | MEDIUM–CONTESTED | 🔲 Pending |
 
 ---
 
@@ -140,10 +149,11 @@ Standard three-tier gate (see NERC CIP registry). Additional constraint unique t
 
 | Priority | Family | Req count | Rationale |
 |---|---|---|---|
-| 1 | SC | 16 | CUI-in-transit encryption requirements are DETERMINISTIC; high CMMC overlap |
-| 2 | IR | 3 | Small family; medium confidence; CMMC overlap justifies early parse |
-| 3 | PE | 6 | HIGH confidence; physical controls are DETERMINISTIC |
-| 4 | RA, SR, MA, MP, PS, CA, PL | varies | CONTESTED/PARAMETERIZED; parse after high-confidence block complete |
+| ~~1~~ | ~~SC~~ | ~~16~~ | ✅ Complete — `sc-ir-pe-remaining.md` |
+| ~~2~~ | ~~IR~~ | ~~3~~ | ✅ Complete — `sc-ir-pe-remaining.md` |
+| ~~3~~ | ~~PE~~ | ~~6~~ | ✅ Complete — `sc-ir-pe-remaining.md` |
+| ~~4a~~ | ~~MA, MP, PS, CA~~ | ~~varies~~ | ✅ Complete — `sc-ir-pe-remaining.md` |
+| 5 | RA, SR, AT, PL, PM | varies | CONTESTED/PARAMETERIZED; risk methodology, supply chain, program management all require human judgment |
 
 ---
 
