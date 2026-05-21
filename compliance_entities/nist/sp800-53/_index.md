@@ -17,12 +17,12 @@
 | Low baseline | ~156 controls |
 | Moderate baseline | ~323 controls |
 | High baseline | ~421 controls |
-| Controls parsed (individual files) | 2 (AU, AC, IA, CM, SC, SI, CP, IR, CA — 9 families, ~105 of ~156 Low baseline controls covered) |
-| Fully automated (DETERMINISTIC) | HIGH — AU-3 (record fields), SC-8/13/28 (crypto), SI-3 (AV), IA-2 (MFA), AC-17/18 (protocols), CP-4 (High functional test), IR-4 (process phases), IR-8 (IRP review), CA-5 (POA&M quarterly), CA-7 (monthly scans) |
-| Partial automation (PARAMETERIZED) | Moderate — AU-11 (retention ODP), AC-7/11 (lockout/session), IA-5(1) (password), SI-2 (patch SLAs), CP-2/3/4/9 (plan/training/test/backup ODPs), IR-2/3/6 (training/test/reporting ODPs), CA-2/5/7/8 (assessment/POA&M/ConMon/pentest ODPs) |
-| Human-determination required (CONTESTED) | ODP manifest; CM-6 deviation adequacy; CP-7 alternate site equivalency; CA-3 info exchange agreements |
+| Controls parsed (individual files) | 5 (all 20 families — AU, AC, IA, CM, SC, SI, CP, IR, CA, MA, MP, PE, PS, RA, SA, SR, PL, PM, AT, PT) |
+| Fully automated (DETERMINISTIC) | HIGH — AU-3, SC-8/13/28, SI-3, IA-2, AC-17/18, CP-4 (High), IR-4/8, CA-5/7, MA-4, MP-6 (method), PE-3/13/14/15, PS-4/6, RA-5 (scan cadence), PM-10 (ATO validity), AT-2 (new employee), PT-5 (notice at collection) |
+| Partial automation (PARAMETERIZED) | Moderate — all ODP-bounded tests (retention, cadence, lockout, session, patch SLAs, training, testing, backup, pentest, review intervals), PL-8 architecture, AT-3 role training, PT-7 sensitive PII protections |
+| Human-determination required (CONTESTED) | RA-3 (risk methodology), SA-8/11 (engineering/testing adequacy), SR-2 (SCRM plan content), CP-7 (alternate site equivalency), PL-2 (SSP completeness), PM-9 (risk strategy), PT-2 (legal authority sufficiency) |
 | Unresolvable | Minimal |
-| Open assumptions | 18 (ASSUME-800053-AU-001–002, AC-001–002, IA-001, CM-001, SI-001, CP-001–004, IR-001–003, CA-001–004) |
+| Open assumptions | 29 (ASSUME-800053-AU-001–002, AC-001–002, IA-001, CM-001, SI-001, CP-001–004, IR-001–003, CA-001–004, MP-001, PE-001–002, PS-001–002, RA-001–002, SA-001–002, SR-001, PL-001–002, AT-001–003, PT-001) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -73,7 +73,9 @@ The impact baseline determines which controls are required. Before any test can 
 |---|---|---|---|---|
 | `core-technical-controls.md` | AU (record content, retention, review), AC (account management, lockout, session lock, remote/wireless), IA (MFA, password policy, hash storage), CM (baseline, hardening, least functionality, change control), SC (TLS, FIPS, at-rest encryption, key management), SI (patch SLAs, AV, monitoring, integrity verification) | ASSUME-800053-AU-001–002, AC-001–002, IA-001, CM-001, SI-001 | HIGH–MEDIUM | ✅ Parsed |
 | `contingency-incident-assessment.md` | CP (plan 8 elements, annual review, training, High functional test, alternate storage/processing, daily backups, RTO/RPO), IR (training/test cadence, 6-phase handling, tracking, reporting ≤1h ODP, IRP annual review), CA (triennial assessment, POA&M quarterly + SLAs, monthly ConMon scans, annual pentest) | ASSUME-800053-CP-001–004, IR-001–003, CA-001–004 | HIGH–MEDIUM | ✅ Parsed |
-| *(MA, MP, PE, PS, PL, RA, SA, SR, AT, PM, PT)* | Remaining 11 families | TBD | MEDIUM–CONTESTED | 🔲 Pending |
+| `maintenance-media-physical-personnel.md` | MA (controlled maintenance records, remote maintenance FIPS+MFA+logging, uncleared personnel escorted), MP (media marking, transport encryption, NIST 800-88 sanitization, removable media restriction), PE (access list annual/semi-annual review, entry/exit logging, monitoring systems, visitor log 2yr, fire/HVAC/water), PS (position risk designation, screening before access, termination ≤8h, transfer ≤5d, access agreements annual, 3rd-party monitoring, sanctions) | ASSUME-800053-MP-001, PE-001–002, PS-001–002 | HIGH–MEDIUM | ✅ Parsed |
+| `risk-acquisition-supply-chain.md` | RA (FIPS 199 categorization, risk assessment triennial + 5 required elements, monthly authenticated vuln scans, critical ≤30d SLA), SA (security requirements in contracts, engineering principles, external services inventory annual review, developer SCM, developer security testing), SR (SCRM plan annual review, critical suppliers identified, component authenticity, component disposal) | ASSUME-800053-RA-001–002, SA-001–002, SR-001 | MEDIUM (cadence) / CONTESTED (methodology/adequacy) | ✅ Parsed |
+| `planning-program-training-privacy.md` | PL (SSP 8 sections, annual review, security architecture M/H), PM (CISO designated, risk management strategy, valid ATO ≤3yr), AT (annual awareness training all personnel, new employee ≤30 days, 6 required topics, semi-annual role training at High, 3yr record retention), PT (legal authority for PII, purpose documented, privacy notice required content, sensitive PII heightened protections) | ASSUME-800053-PL-001–002, AT-001–003, PT-001 | MEDIUM (AT cadence) / CONTESTED (PL-2/PM-9/PT-2) | ✅ Parsed |
 
 ---
 
@@ -99,6 +101,22 @@ The impact baseline determines which controls are required. Before any test can 
 | ASSUME-800053-CA-002 | CA-5 | POA&M SLAs: critical ≤30d, high ≤90d; quarterly update; no overdue without approved exception | 2026-05-21 |
 | ASSUME-800053-CA-003 | CA-7 | ConMon ODP: monthly OS/infra scans; ConMon strategy documented and reviewed annually | 2026-05-21 |
 | ASSUME-800053-CA-004 | CA-8 | Pentest ODP: annual at High; org-defined at Moderate; network + application + OS layers | 2026-05-21 |
+| ASSUME-800053-MP-001 | MP-6 | NIST 800-88 required; disposal logs ≥3 years; degauss alone insufficient for flash/SSD | 2026-05-21 |
+| ASSUME-800053-PE-001 | PE-2 | Access list review ODP: annual at Moderate; semi-annual at High; immediate removal on role change | 2026-05-21 |
+| ASSUME-800053-PE-002 | PE-8 | Visitor log retention ODP: 2 years per 800-53B Moderate default | 2026-05-21 |
+| ASSUME-800053-PS-001 | PS-3 | Screening criteria commensurate with risk; documented by position risk level; adequacy PARAMETERIZED | 2026-05-21 |
+| ASSUME-800053-PS-002 | PS-4 | Termination ODP: account disable ≤8 hours; concurrent credential revocation; same-day for privileged | 2026-05-21 |
+| ASSUME-800053-RA-001 | RA-3 | Risk assessment frequency ODP: triennial (36 months); must document 5 required elements; methodology adequacy CONTESTED | 2026-05-21 |
+| ASSUME-800053-RA-002 | RA-5 | Scan frequency ODP: monthly at Moderate/High; quarterly at Low; authenticated scans required at M/H | 2026-05-21 |
+| ASSUME-800053-SA-001 | SA-8 | Security engineering principles ODP: documented selection from NIST 800-160 or equivalent; application adequacy PARAMETERIZED | 2026-05-21 |
+| ASSUME-800053-SA-002 | SA-11 | Developer security testing ODP: plan documented; test results reviewed; coverage adequacy CONTESTED | 2026-05-21 |
+| ASSUME-800053-SR-001 | SR-3 | Supplier controls ODP: vetting criteria documented in SCRM plan; control sufficiency PARAMETERIZED | 2026-05-21 |
+| ASSUME-800053-PL-001 | PL-2 | SSP review ODP: annual; 8 required sections; completeness of implementation descriptions CONTESTED | 2026-05-21 |
+| ASSUME-800053-PL-002 | PL-8 | Security architecture ODP: documented and reviewed annually at Moderate/High; alignment adequacy PARAMETERIZED | 2026-05-21 |
+| ASSUME-800053-AT-001 | AT-2 | Training frequency ODP: annual; new personnel ≤30 days; 6 required topic areas | 2026-05-21 |
+| ASSUME-800053-AT-002 | AT-3 | Role-based training ODP: annual at Moderate; semi-annual at High; 7 designated roles | 2026-05-21 |
+| ASSUME-800053-AT-003 | AT-4 | Training record retention ODP: 3 years per 800-53B default | 2026-05-21 |
+| ASSUME-800053-PT-001 | PT-7 | Sensitive PII heightened protections: 8 sensitive categories; encryption + access controls + minimization; adequacy PARAMETERIZED | 2026-05-21 |
 
 ---
 
@@ -146,9 +164,9 @@ Recommended parse order based on DETERMINISTIC density and cross-framework reuse
 | ~~7~~ | ~~CP~~ | ✅ Complete — `contingency-incident-assessment.md` |
 | ~~8~~ | ~~IR~~ | ✅ Complete — `contingency-incident-assessment.md` |
 | ~~9~~ | ~~CA~~ | ✅ Complete — `contingency-incident-assessment.md` |
-| 10 | MA, MP, PE, PS | MEDIUM confidence; physical/personnel/maintenance controls |
-| 11 | RA, SA, SR | CONTESTED families; risk methodology, supply chain, developer security |
-| 12 | PL, PM, AT, PT | PARAMETERIZED/CONTESTED; SSP, privacy, program management |
+| ~~10~~ | ~~MA, MP, PE, PS~~ | ✅ Complete — `maintenance-media-physical-personnel.md` |
+| ~~11~~ | ~~RA, SA, SR~~ | ✅ Complete — `risk-acquisition-supply-chain.md` |
+| ~~12~~ | ~~PL, PM, AT, PT~~ | ✅ Complete — `planning-program-training-privacy.md` |
 
 ---
 
