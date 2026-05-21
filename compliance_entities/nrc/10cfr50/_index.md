@@ -15,11 +15,11 @@
 | Metric | Count |
 |---|---|
 | Key operational/safety sections | ~30 (§50.9, 50.48, 50.54, 50.55a, 50.59, 50.65, 50.72, 50.73, 50.75, and Appendices A/B/J/R/S) |
-| Sections parsed (individual files) | 4 (event-reporting.md — §50.72/50.73; appendix-b-qa.md — Appendix B 18 criteria; maintenance-rule.md — §50.65; 50.55a-isi-ist.md — §50.55a ISI/IST) |
+| Sections parsed (individual files) | 5 (event-reporting.md — §50.72/50.73; appendix-b-qa.md — Appendix B 18 criteria; maintenance-rule.md — §50.65; 50.55a-isi-ist.md — §50.55a ISI/IST; fire-protection.md — §50.48) |
 | Fully automated (DETERMINISTIC) | Moderate — event reporting timelines (50.72/50.73); maintenance rule metrics (50.65); fire protection equipment testing intervals |
 | Partial automation (PARAMETERIZED) | Dominant — QA criterion adequacy (Appendix B), maintenance effectiveness (50.65(a)(1)/(a)(2) categorization), 50.59 screening |
 | Human-determination required (CONTESTED) | Significant — "unreviewed safety question" determination (50.59), QA criterion adequacy, corrective action adequacy |
-| Open assumptions | 22 (ASSUME-NRC50-EVTRPT-001–004, ASSUME-NRC50-QA-001–005, ASSUME-NRC50-MR-001–005, ASSUME-NRC50-ISI-001–008) |
+| Open assumptions | 29 (ASSUME-NRC50-EVTRPT-001–004, ASSUME-NRC50-QA-001–005, ASSUME-NRC50-MR-001–005, ASSUME-NRC50-ISI-001–008, ASSUME-NRC50-FP-001–007) |
 
 ---
 
@@ -139,6 +139,20 @@ ASME Boiler and Pressure Vessel Code and ASME Code for Operation and Maintenance
 | Safety/relief valve as-left setpoint tolerance | ±1% of nominal setpoint | ASME OM ISTC-3600 |
 | Valve stroke time Required Action level | ±100% deviation from reference | ASME OM ISTC-5221-1 |
 | SG primary-to-secondary leakage limit | ≤150 gallons/day per steam generator | 10 CFR 50 App. A GDC 14 |
+| Wet pipe sprinkler quarterly gauge inspection | Every 3 months | NFPA 25 §5.2.4 |
+| Wet pipe sprinkler annual main drain test | Annually | NFPA 25 §5.2.5 |
+| Sprinkler head visual inspection | Annually | NFPA 25 §5.4.1.1 |
+| Sprinkler head 50-year sample test (standard response) | 50 years from installation | NFPA 25 §5.4.1.2 |
+| Standpipe hydraulic flow test | Every 5 years (60 months) | NFPA 25 §6.3 |
+| Fire detection device annual test (smoke, heat, pull stations) | Annually | NFPA 72 |
+| Fire door annual functional test | Annually | Appendix R §III.G / IP 71111.05T |
+| Fire door semi-annual visual inspection | Every 6 months | Plant fire protection program |
+| Penetration seal annual inspection | Annually | Appendix R §III.G |
+| Post-hot-work fire watch (standard) | Minimum 60 minutes | NFPA 51B §5.6.3 |
+| Post-hot-work fire watch (adjacent combustibles) | Minimum 4 hours | NFPA 51B §5.6.3.1 |
+| Fire brigade minimum on-site staffing | 5 members at all times | Appendix R §III.D |
+| Fire brigade quarterly drills | Every 3 months per team | Appendix R §III.D |
+| Fire brigade annual unannounced drill | At least 1 per year per team | Appendix R §III.D / NEI 00-01 |
 | Fitness for duty testing | Random + cause-based; random rate ≥50% per year for covered workers | 10 CFR Part 26 (cross-reference) |
 
 ---
@@ -169,6 +183,13 @@ ASME Boiler and Pressure Vessel Code and ASME Code for Operation and Maintenance
 | ASSUME-NRC50-ISI-006 | §50.55a IST valves | Category A/B/C classification per IST program; cold-shutdown deferred max 5 years; PRD as-left ±1% | 2026-05-21 |
 | ASSUME-NRC50-ISI-007 | §50.55a(z) alternatives | NRC written approval required BEFORE any code departure; hardship (z)(1) or equivalent safety (z)(2) basis | 2026-05-21 |
 | ASSUME-NRC50-ISI-008 | §50.55a SG tubes | SG tube repair limit 10% TWA (uniform); mechanism-specific limits from ERAs; leakage ≤150 gpd per SG | 2026-05-21 |
+| ASSUME-NRC50-FP-001 | §50.48 program | Appendix R is default; NFPA 805 requires §50.48(c) NRC license amendment before transition | 2026-05-21 |
+| ASSUME-NRC50-FP-002 | §50.48 suppression | NFPA 25: quarterly gauges, annual main drain/head inspection, 50/20-year head samples, 5-year standpipe flow test | 2026-05-21 |
+| ASSUME-NRC50-FP-003 | §50.48 detection | NFPA 72: annual all initiating devices, annual FACP functional test, quarterly battery visual, annual battery load test | 2026-05-21 |
+| ASSUME-NRC50-FP-004 | §50.48 barriers | Fire door annual functional + semi-annual visual; penetration seal annual inspection; seal material adequacy is PARAMETERIZED | 2026-05-21 |
+| ASSUME-NRC50-FP-005 | §50.48 hot work | Post-hot-work fire watch: 60-min minimum; 4 hours if adjacent combustibles; continuous during work | 2026-05-21 |
+| ASSUME-NRC50-FP-006 | §50.48 fire brigade | Appendix R §III.D: 5 members minimum on-site; quarterly drills; 1 unannounced/year; annual training + SCBA qualification | 2026-05-21 |
+| ASSUME-NRC50-FP-007 | §50.48 safe shutdown | SSA required all fire areas; operator action walk-down validation; FICFA for cable routing zones | 2026-05-21 |
 
 ---
 
@@ -214,7 +235,7 @@ ASME Boiler and Pressure Vessel Code and ASME Code for Operation and Maintenance
 | *(§50.59 changes, tests, experiments)* | 10-criterion evaluation; screening vs. full evaluation; amendment trigger | TBD | CONTESTED | 🔲 Pending |
 | `maintenance-rule.md` | §50.65(a)(1) goals/corrective action; (a)(2) performance criteria; (a)(3) annual review; (a)(4) pre-maintenance risk assessment; expert panel | ASSUME-NRC50-MR-001–005 | MEDIUM | ✅ Parsed |
 | `50.55a-isi-ist.md` | ISI program document; 10-year interval/period distribution; Class 1–3 exam categories; IST pump Group A/B intervals and acceptance criteria; IST valve intervals; §50.55a(z) alternatives; SG tube integrity | ASSUME-NRC50-ISI-001–008 | MEDIUM | ✅ Parsed |
-| *(§50.48 fire protection)* | Fire protection program; barrier testing; Appendix R vs. NFPA 805 | TBD | MEDIUM | 🔲 Pending |
+| `fire-protection.md` | §50.48 fire protection program (Appendix R / NFPA 805); NFPA 25 suppression system testing; NFPA 72 detection testing; fire barrier/penetration seal inspections; hot work program; fire brigade; safe shutdown analysis | ASSUME-NRC50-FP-001–007 | MEDIUM | ✅ Parsed |
 
 ---
 
@@ -224,6 +245,6 @@ ASME Boiler and Pressure Vessel Code and ASME Code for Operation and Maintenance
 |---|---|---|
 | 1 | ~~§50.65 (Maintenance Rule)~~ | ✅ Parsed — `maintenance-rule.md` |
 | 2 | ~~§50.55a (ISI/IST)~~ | ✅ Parsed — `50.55a-isi-ist.md` |
-| 3 | §50.48 (Fire protection) | High enforcement history; Appendix R vs. NFPA 805 decision point important |
+| 3 | ~~§50.48 (Fire protection)~~ | ✅ Parsed — `fire-protection.md` |
 | 4 | §50.59 (Changes, tests, experiments) | CONTESTED; most important section for plant modifications; Pattern 3 dominant |
 | 5 | 10 CFR Part 26 (Fitness for Duty) | Random testing rate ≥50% is DETERMINISTIC; cross-reference to security |

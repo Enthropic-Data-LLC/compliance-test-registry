@@ -13,6 +13,7 @@
 | [`appendix-b-qa.md`](./appendix-b-qa.md) | All 18 QA Criteria: Criterion XII (M&TE calibration + NIST traceability), Criterion XV (nonconformances + CAP), Criterion XVI (corrective action + SCAQ RCA), Criterion XVII (lifetime records retention), Criterion XVIII (annual QA audit + 2-year supplier cycle) | ✅ |
 | [`maintenance-rule.md`](./maintenance-rule.md) | §50.65(a)(1) goals/corrective action, (a)(2) performance criteria, (a)(3) annual review (24-month max), (a)(4) pre-maintenance risk assessment, expert panel | ✅ |
 | [`50.55a-isi-ist.md`](./50.55a-isi-ist.md) | ISI: 10-year interval + 40/20/40% period distribution, Class 1–3 exam categories (B-A through B-Q), augmented programs; IST: Group A pump quarterly/2-year, Group B 10-year max, valve Category A/B quarterly, PRD 5-year, SG tube ≤150 gpd, §50.55a(z) alternative requests | ✅ |
+| [`fire-protection.md`](./fire-protection.md) | §50.48 fire protection program (Appendix R / NFPA 805 method); NFPA 25 suppression testing (quarterly gauges, annual drains/heads, 5-year standpipe); NFPA 72 detection testing; fire barriers + penetration seals; hot work 60-min/4-hr fire watch; fire brigade (5 members, quarterly drills); safe shutdown analysis; FICFA | ✅ |
 
 ## Key DETERMINISTIC thresholds
 
@@ -41,5 +42,14 @@
 | Category A/B valve cold-shutdown maximum | 60 months | ASME OM ISTC-3510 |
 | Safety/relief valve setpoint test | 60 months | ASME OM ISTC-3600 |
 | SG primary-to-secondary leakage limit | ≤150 gpd per steam generator | GDC 14 |
+| Wet pipe sprinkler quarterly gauge inspection | Every 3 months | NFPA 25 §5.2.4 |
+| Wet pipe sprinkler annual main drain test | Annually | NFPA 25 §5.2.5 |
+| Sprinkler head 50-year sample test (standard response) | 50 years from install | NFPA 25 §5.4.1.2 |
+| Standpipe 5-year hydraulic flow test | Every 5 years | NFPA 25 §6.3 |
+| Fire detection device annual functional test | Annually | NFPA 72 |
+| Penetration seal annual inspection | Annually | Appendix R §III.G |
+| Post-hot-work fire watch | 60 min (standard) / 4 hours (adjacent combustibles) | NFPA 51B §5.6.3 |
+| Fire brigade minimum on-site staffing | 5 members at all times | Appendix R §III.D |
+| Fire brigade quarterly drills | Every 3 months per team | Appendix R §III.D |
 
-## Parse status: Deep — event reporting, Appendix B QA, Maintenance Rule, and §50.55a ISI/IST parsed; §50.59 (contested), §50.48 (fire protection) pending
+## Parse status: Deep — event reporting, Appendix B QA, Maintenance Rule, §50.55a ISI/IST, and §50.48 fire protection parsed; §50.59 (contested) pending
