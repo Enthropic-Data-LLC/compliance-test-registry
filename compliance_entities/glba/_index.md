@@ -15,11 +15,11 @@
 |---|---|
 | Rules covered | 2 (Privacy Rule + Safeguards Rule) |
 | Safeguards Rule sections | ~20 substantive requirements |
-| Requirements parsed (individual files) | 0 (index only; individual section files pending) |
+| Requirements parsed (individual files) | 1 (`safeguards-rule.md` — §§314.3, 314.4(a)(c)(g)(h)(i)(k), 314.15) |
 | Fully automated (DETERMINISTIC) | Moderate — MFA, encryption, penetration testing cadence, board reporting |
 | Partial automation (PARAMETERIZED) | Dominant — risk assessment methodology, safeguard adequacy |
 | Human-determination required (CONTESTED) | Moderate — "qualified individual" determination, program adequacy |
-| Open assumptions | 0 |
+| Open assumptions | 6 (ASSUME-GLBA-QI-001, ENC-001, MFA-001, PENTEST-001, AUDIT-001, NOTIF-001) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -146,7 +146,14 @@ All covered entities must implement a comprehensive WISP that is appropriate to 
 
 ## Open assumption registry
 
-*(No assumptions recorded — individual section files not yet written)*
+| ID | Domain | Description | Review date |
+|---|---|---|---|
+| ASSUME-GLBA-QI-001 | Qualified Individual / §314.4(a) | Annual board/senior-officer report; required content: program status, risk results, management decisions, service providers, testing, events, recommendations | 2026-11-01 |
+| ASSUME-GLBA-ENC-001 | Encryption / §314.4(c)(3) | At-rest encryption mandatory — 2023 revision removed feasibility exception; covers backups and test datasets; key separation required | 2026-11-01 |
+| ASSUME-GLBA-MFA-001 | MFA / §314.4(c)(5) | All employees accessing customer information (not just remote/privileged); QI exception requires written approval + equivalent control description | 2026-11-01 |
+| ASSUME-GLBA-PENTEST-001 | Pentest / §314.4(g) | 5,000-record threshold; bi-annual VA independent of annual pentest; post-material-change VA required | 2026-11-01 |
+| ASSUME-GLBA-AUDIT-001 | Audit Logs / §314.4(h) | No specified retention period — WISP-defined; cross-framework (NY DFS 6yr, SOX 7yr) prevails if dual-subject | 2026-11-01 |
+| ASSUME-GLBA-NOTIF-001 | Breach Notification / §314.15 | 30-day FTC notification from discovery (≥500 customers); encrypted-data breaches exempt if keys not compromised | 2026-11-01 |
 
 ---
 
