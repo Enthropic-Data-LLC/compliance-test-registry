@@ -1,7 +1,7 @@
 # SOC 2 — Trust Services Criteria (AICPA TSC 2017)
 
 **Registry version:** 2026.05
-**Last updated:** 2026-05-20
+**Last updated:** 2026-05-21
 **Scope:** Common Criteria (CC1–CC9) + additional criteria for Availability (A1), Confidentiality (C1), Processing Integrity (PI1), Privacy (P1–P8)
 **Authority:** American Institute of Certified Public Accountants (AICPA)
 **Enforcing context:** Service organization audits (Type I: point-in-time; Type II: 6–12 month period); contractual B2B requirements; vendor risk management programs
@@ -16,12 +16,12 @@
 | Trust service categories | 5 (Security + 4 additional) |
 | Common Criteria (CC) series | 9 series (CC1–CC9), ~50+ individual criteria |
 | Additional criteria | A1 (3), C1 (2), PI1 (5), P1–P8 (~20 across privacy) |
-| Criteria parsed (individual files) | 5 (CC6, CC7, A1, CC8+CC5, CC9+C1+PI1; Privacy P series pending) |
+| Criteria parsed (individual files) | 6 (CC6, CC7, A1, CC8+CC5, CC9+C1+PI1, P1–P8 Privacy) |
 | Fully automated (DETERMINISTIC) | Moderate — CC6 (access controls, TLS, AV) and CC7.1 (vuln scan cadence) are HIGH; A1.2–A1.3 are MEDIUM-HIGH |
 | Partial automation (PARAMETERIZED) | Dominant across CC1–CC5, CC8, CC9, A1.1 |
 | Human-determination required (CONTESTED) | CC1.1 (board oversight), CC3.2–CC3.3 (risk methodology, fraud), CC9.2 (vendor adequacy) |
 | Unresolvable | Minimal |
-| Open assumptions | 17 (ASSUME-SOC2-CC6-001–007, CC7-001–004, A1-001–003, CC8-001, CC5-001, CC4-001, CC9-001–002, C1-001–002, PI1-001) |
+| Open assumptions | 25 (ASSUME-SOC2-CC6-001–007, CC7-001–004, A1-001–003, CC8-001, CC5-001, CC4-001, CC9-001–002, C1-001–002, PI1-001; P1-001, P2-001, P3-001, P4-001, P5-001, P6-001, P7-001, P8-001) |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -209,6 +209,14 @@ All tests are gated by: `component_in_system_boundary()` — a fixture requiring
 | ASSUME-SOC2-C1-001 | C1.1 | Confidential classification: policy defines criteria; data inventory with labels; training covers handling obligations | 2026-05-20 |
 | ASSUME-SOC2-C1-002 | C1.2 | Confidential disposal: crypto shredding/overwrite (digital); NIST SP 800-88 (media); cross-cut shred (paper); disposal certs issued | 2026-05-20 |
 | ASSUME-SOC2-PI1-001 | PI1.1–PI1.5 | Processing integrity: input validation; error monitoring; reconciliation controls; output delivery logs; corrections require authorization | 2026-05-20 |
+| ASSUME-SOC2-P1-001 | P1.2–P1.4 | Privacy notice: 8 required elements; updated within 30 days of material change; third-party privacy commitments communicated via contract before disclosure | 2026-11-01 |
+| ASSUME-SOC2-P2-001 | P2.1–P2.2 | Consent: opt-out acceptable for non-sensitive data; opt-in required for sensitive; withdrawal processed within 30 days; annual Privacy Officer attestation of mechanism adequacy | 2026-11-01 |
+| ASSUME-SOC2-P3-001 | P3.2 | Sensitive data collection: explicit opt-in required unless legal obligation/vital interests/public task/documented legitimate interests applies | 2026-11-01 |
+| ASSUME-SOC2-P4-001 | P4.2–P4.3 | Retention: schedule per category reviewed annually; automated deletion/archival triggers configured; disposal documented (date, category, method, approver); crypto shredding or NIST 800-88 | 2026-11-01 |
+| ASSUME-SOC2-P5-001 | P5.1–P5.2 | Access response: 30 days (extendable to 60 with notice); correction acknowledged 10 days; resolved 30 days; denial includes reason + appeal mechanism | 2026-11-01 |
+| ASSUME-SOC2-P6-001 | P6.2–P6.7 | Third-party contracts: 5 required terms including use limitation, security, incident notification (72h), no onward transfer, return/destroy; breach notification timeline: 72h for high-risk, 30 days standard | 2026-11-01 |
+| ASSUME-SOC2-P7-001 | P7.1 | Data quality: self-service update available; annual quality review; source system refresh cascades to downstream copies; higher-stakes data reviewed more frequently | 2026-11-01 |
+| ASSUME-SOC2-P8-001 | P8.1 | Privacy monitoring: annual Privacy Officer review covering 6 areas; complaints responded within 30 days; incident log maintained; material issues escalated to senior management | 2026-11-01 |
 
 ---
 
@@ -257,4 +265,4 @@ Standard three-tier gate (see NERC CIP registry). SOC 2-specific constraints:
 | `cc8-cc5-change-control-activities.md` | CC8.1 change management; CC5.1–CC5.3 control activities and policy deployment | ASSUME-SOC2-CC8-001, CC5-001 | MEDIUM | ✅ Parsed |
 | `cc9-c1-pi1-additional-criteria.md` | CC9.1–CC9.2 risk mitigation and vendor risk; C1.1–C1.2 confidentiality; PI1.1–PI1.5 processing integrity | ASSUME-SOC2-CC9-001–002, C1-001–002, PI1-001 | MEDIUM | ✅ Parsed |
 | `cc1-cc2-cc3-cc4-governance-risk.md` | CC1.1–CC1.5 control environment; CC2.1–CC2.3 communication; CC3.1–CC3.4 risk assessment; CC4.1–CC4.2 monitoring | ASSUME-SOC2-CC1-001–002, CC2-001, CC4-001 | LOW–MEDIUM | ✅ Parsed |
-| *(P series — privacy)* | P1–P8 privacy criteria (~20) | TBD | PARAMETERIZED/CONTESTED | 🔲 Pending |
+| `p-series-privacy.md` | P1 (notice — elements, delivery, update), P2 (consent mechanisms, withdrawal), P3 (collection limitation, sensitive data opt-in), P4 (use limitation, retention schedules, disposal), P5 (access response deadline, correction), P6 (disclosure basis, third-party contracts, breach notification), P7 (data quality review), P8 (privacy program monitoring, complaints, incident log, annual attestation) | ASSUME-SOC2-P1-001–P8-001 | MEDIUM (P1, P4, P5) / LOW-MEDIUM (P2, P3, P6, P7, P8) | ✅ Parsed |
