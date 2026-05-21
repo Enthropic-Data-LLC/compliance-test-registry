@@ -16,11 +16,11 @@
 | Mandatory controls | 25 |
 | Advisory controls | 6 |
 | Control families | 3 (Secure your Environment / Know and Limit Access / Detect and Respond) |
-| Sections parsed (individual files) | 0 (index only) |
-| Fully automated (DETERMINISTIC) | Moderate — patching cadence, MFA enforcement, alert retention |
-| Partial automation (PARAMETERIZED) | Dominant — segmentation architecture, jump server topology |
+| Sections parsed (individual files) | 3 (secure-environment-controls.md + access-credential-controls.md + detect-respond-controls.md) |
+| Fully automated (DETERMINISTIC) | HIGH — 1.1, 1.2, 2.1, 2.3A, 2.7A, 3.1, 3.2, 4.1, 4.4, 5.1, 5.2, 6.2, 6.3, 6.4, 7.1, 7.3A, attestation gate |
+| Partial automation (PARAMETERIZED) | MEDIUM — 1.3, 2.2, 2.5A, 3.3, 4.2, 4.3A, 5.3A, 6.1 |
 | Human-determination required (CONTESTED) | Low |
-| Open assumptions | 0 |
+| Open assumptions | 10 (ASSUME-SWIFT-1_3-001, 2_2-001, 2_5A-001, 3_3-001, 4_2-001, 4_3A-001, 5_3A-001, 6_1-001, plus 2 pending attestation) |
 
 ---
 
