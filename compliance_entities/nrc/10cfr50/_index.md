@@ -15,11 +15,11 @@
 | Metric | Count |
 |---|---|
 | Key operational/safety sections | ~30 (§50.9, 50.48, 50.54, 50.55a, 50.59, 50.65, 50.72, 50.73, 50.75, and Appendices A/B/J/R/S) |
-| Sections parsed (individual files) | 3 (event-reporting.md — §50.72/50.73; appendix-b-qa.md — Appendix B 18 criteria; maintenance-rule.md — §50.65) |
+| Sections parsed (individual files) | 4 (event-reporting.md — §50.72/50.73; appendix-b-qa.md — Appendix B 18 criteria; maintenance-rule.md — §50.65; 50.55a-isi-ist.md — §50.55a ISI/IST) |
 | Fully automated (DETERMINISTIC) | Moderate — event reporting timelines (50.72/50.73); maintenance rule metrics (50.65); fire protection equipment testing intervals |
 | Partial automation (PARAMETERIZED) | Dominant — QA criterion adequacy (Appendix B), maintenance effectiveness (50.65(a)(1)/(a)(2) categorization), 50.59 screening |
 | Human-determination required (CONTESTED) | Significant — "unreviewed safety question" determination (50.59), QA criterion adequacy, corrective action adequacy |
-| Open assumptions | 14 (ASSUME-NRC50-EVTRPT-001–004, ASSUME-NRC50-QA-001–005, ASSUME-NRC50-MR-001–005) |
+| Open assumptions | 22 (ASSUME-NRC50-EVTRPT-001–004, ASSUME-NRC50-QA-001–005, ASSUME-NRC50-MR-001–005, ASSUME-NRC50-ISI-001–008) |
 
 ---
 
@@ -124,6 +124,21 @@ ASME Boiler and Pressure Vessel Code and ASME Code for Operation and Maintenance
 | Online risk monitor (PRA model) currency | ≤18 months since last update for valid (a)(4) assessments | §50.65(a)(4) |
 | Internal QA audit | Annually | App. B, Criterion XVIII |
 | ISI interval — Class 1 pressure-retaining components | 10-year inspection interval | §50.55a(g) |
+| ISI interval extension (no NRC approval) | ≤12 additional months beyond 10 years | §50.55a / ASME XI IWA-2430(d) |
+| Class 1 Period 1 inspection target | ~40% of required examinations | ASME XI IWB-2412 |
+| Class 1 Period 2 inspection target | ~20% of required examinations | ASME XI IWB-2412 |
+| Class 1 Period 3 inspection target | ~40% of required examinations | ASME XI IWB-2412 |
+| Group A pump quarterly test interval | 3 months | ASME OM ISTB-3400 |
+| Group A pump comprehensive test interval | 24 months | ASME OM ISTB-3400 |
+| Group B pump maximum test interval | 120 months (10 years) at cold shutdown | ASME OM ISTB-3400 |
+| Pump differential pressure Required Action level | ≥10% decrease from reference | ASME OM Table ISTB-5121-1 |
+| Pump vibration Required Action level | ≥6× reference value | ASME OM Table ISTB-5121-1 |
+| Category A/B valve quarterly exercise | 3 months (if can test during normal ops) | ASME OM ISTC-3300 |
+| Category A/B valve cold-shutdown maximum | 60 months (5 years) | ASME OM ISTC-3510 |
+| Safety/relief valve setpoint test interval | 60 months (5 years) | ASME OM ISTC-3600 |
+| Safety/relief valve as-left setpoint tolerance | ±1% of nominal setpoint | ASME OM ISTC-3600 |
+| Valve stroke time Required Action level | ±100% deviation from reference | ASME OM ISTC-5221-1 |
+| SG primary-to-secondary leakage limit | ≤150 gallons/day per steam generator | 10 CFR 50 App. A GDC 14 |
 | Fitness for duty testing | Random + cause-based; random rate ≥50% per year for covered workers | 10 CFR Part 26 (cross-reference) |
 
 ---
@@ -146,6 +161,14 @@ ASME Boiler and Pressure Vessel Code and ASME Code for Operation and Maintenance
 | ASSUME-NRC50-MR-003 | §50.65(a)(3) | Annual review: 24-month maximum, all SSCs covered, functional failure summary, (a)(2) criteria adequacy evaluated, management approval | 2026-05-21 |
 | ASSUME-NRC50-MR-004 | §50.65(a)(4) | Pre-maintenance risk assessment: before OOS, graded approach acceptable, risk monitor ≤18 months current, Yellow/Red requires management approval | 2026-05-21 |
 | ASSUME-NRC50-MR-005 | §50.65 (expert panel) | Expert panel: charter with composition requirements, independence from work group, SRO representation, documented basis for all decisions | 2026-05-21 |
+| ASSUME-NRC50-ISI-001 | §50.55a ISI | ISI program document requirements, code edition applicability (6 months before interval start), ANII approval | 2026-05-21 |
+| ASSUME-NRC50-ISI-002 | §50.55a ISI interval | 10-year interval start at commercial operation; 40%/20%/40% period distribution; 12-month extension without NRC approval | 2026-05-21 |
+| ASSUME-NRC50-ISI-003 | §50.55a ISI scope | Risk-informed §50.69 alternative to schedule-based examination selection allowed with NRC approval | 2026-05-21 |
+| ASSUME-NRC50-ISI-004 | §50.55a IST pumps | Group A (quarterly/2-year) and Group B (cold shutdown max 10 years) classification per plant IST program | 2026-05-21 |
+| ASSUME-NRC50-ISI-005 | §50.55a IST pumps | Pump Alert and Required Action levels per ASME OM Table ISTB-5121-1/5221-1; Required Action = inoperable declaration | 2026-05-21 |
+| ASSUME-NRC50-ISI-006 | §50.55a IST valves | Category A/B/C classification per IST program; cold-shutdown deferred max 5 years; PRD as-left ±1% | 2026-05-21 |
+| ASSUME-NRC50-ISI-007 | §50.55a(z) alternatives | NRC written approval required BEFORE any code departure; hardship (z)(1) or equivalent safety (z)(2) basis | 2026-05-21 |
+| ASSUME-NRC50-ISI-008 | §50.55a SG tubes | SG tube repair limit 10% TWA (uniform); mechanism-specific limits from ERAs; leakage ≤150 gpd per SG | 2026-05-21 |
 
 ---
 
@@ -190,8 +213,8 @@ ASME Boiler and Pressure Vessel Code and ASME Code for Operation and Maintenance
 | `appendix-b-qa.md` | All 18 QA criteria (Appendix B); calibration intervals (Crit. XII); audit cadence (Crit. XVIII); CAP (Crit. XV+XVI); records retention (Crit. XVII) | ASSUME-NRC50-QA-001–005 | MEDIUM | ✅ Parsed |
 | *(§50.59 changes, tests, experiments)* | 10-criterion evaluation; screening vs. full evaluation; amendment trigger | TBD | CONTESTED | 🔲 Pending |
 | `maintenance-rule.md` | §50.65(a)(1) goals/corrective action; (a)(2) performance criteria; (a)(3) annual review; (a)(4) pre-maintenance risk assessment; expert panel | ASSUME-NRC50-MR-001–005 | MEDIUM | ✅ Parsed |
+| `50.55a-isi-ist.md` | ISI program document; 10-year interval/period distribution; Class 1–3 exam categories; IST pump Group A/B intervals and acceptance criteria; IST valve intervals; §50.55a(z) alternatives; SG tube integrity | ASSUME-NRC50-ISI-001–008 | MEDIUM | ✅ Parsed |
 | *(§50.48 fire protection)* | Fire protection program; barrier testing; Appendix R vs. NFPA 805 | TBD | MEDIUM | 🔲 Pending |
-| *(§50.55a ISI/IST)* | ASME code compliance; 10-year inspection intervals; OM Code testing | TBD | MEDIUM | 🔲 Pending |
 
 ---
 
@@ -200,7 +223,7 @@ ASME Boiler and Pressure Vessel Code and ASME Code for Operation and Maintenance
 | Priority | Section | Rationale |
 |---|---|---|
 | 1 | ~~§50.65 (Maintenance Rule)~~ | ✅ Parsed — `maintenance-rule.md` |
-| 2 | §50.55a (ISI/IST) | 10-year ASME inspection intervals are DETERMINISTIC; widely applicable |
+| 2 | ~~§50.55a (ISI/IST)~~ | ✅ Parsed — `50.55a-isi-ist.md` |
 | 3 | §50.48 (Fire protection) | High enforcement history; Appendix R vs. NFPA 805 decision point important |
 | 4 | §50.59 (Changes, tests, experiments) | CONTESTED; most important section for plant modifications; Pattern 3 dominant |
 | 5 | 10 CFR Part 26 (Fitness for Duty) | Random testing rate ≥50% is DETERMINISTIC; cross-reference to security |
