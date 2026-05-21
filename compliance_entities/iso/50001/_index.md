@@ -15,11 +15,11 @@
 |---|---|
 | Clauses | 7 (Clauses 4–10) |
 | ISO 50001-unique concepts | 4 (Energy baseline / EnPI / SEU / Energy review) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (energy-management-system.md — policy, EnMR, energy review, EnB, EnPIs, objectives, action plans, audit, review, CAPA) |
 | Fully automated (DETERMINISTIC) | Low — EnMS is process-based; performance metrics are org-defined |
 | Partial automation (PARAMETERIZED) | Dominant |
 | Human-determination required (CONTESTED) | Moderate — energy significance criteria, EnPI selection |
-| Open assumptions | 0 |
+| Open assumptions | 1 |
 
 ---
 

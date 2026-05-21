@@ -15,11 +15,11 @@
 |---|---|
 | Clauses | 7 (Clauses 4–10) |
 | Sub-clauses with discrete requirements | ~50 |
-| Sub-clauses parsed (individual files) | 0 (index only) |
+| Sub-clauses parsed (individual files) | 1 (ohs-management-system.md — policy, HIRA, legal register, objectives, change mgmt, audit, review, CAPA) |
 | Fully automated (DETERMINISTIC) | Low — OH&S management system standard; process-level obligations |
 | Partial automation (PARAMETERIZED) | Dominant |
 | Human-determination required (CONTESTED) | Moderate — hazard identification methodology, risk acceptability |
-| Open assumptions | 0 |
+| Open assumptions | 1 |
 
 ---
 

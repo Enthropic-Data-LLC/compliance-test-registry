@@ -273,10 +273,10 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 |---|---|---|---|---|---|
 | OSHA 29 CFR 1910 | `osha/1910/` | U.S. DOL / OSHA | General industry safety — 10 most-cited standards | **FULL** | 10 standard files |
 | OSHA 29 CFR 1926 | `osha/1926/` | U.S. DOL / OSHA | Construction safety — 3 most-cited standards | **FULL** | 3 standard files |
-| ISO 45001:2018 | `iso/45001/` | ISO | OH&S management system — replaces OHSAS 18001 | INDEX | — |
-| ISO 14001:2015 | `iso/14001/` | ISO | Environmental management system | INDEX | — |
-| ISO 50001:2018 | `iso/50001/` | ISO | Energy management system — EnPI, SEU, energy review | INDEX | — |
-| RoHS 3 / REACH | `rohs-reach/` | EC / ECHA | EU chemical restrictions — 10 RoHS substances, SVHC 0.1% | INDEX | — |
+| ISO 45001:2018 | `iso/45001/` | ISO | OH&S management system — replaces OHSAS 18001 | FULL | 1 file / 1 assumption |
+| ISO 14001:2015 | `iso/14001/` | ISO | Environmental management system | FULL | 1 file / 1 assumption |
+| ISO 50001:2018 | `iso/50001/` | ISO | Energy management system — EnPI, SEU, energy review | FULL | 1 file / 1 assumption |
+| RoHS 3 / REACH | `rohs-reach/` | EC / ECHA | EU chemical restrictions — 10 RoHS substances, SVHC 0.1% | FULL | 1 file / 0 assumptions |
 
 ---
 

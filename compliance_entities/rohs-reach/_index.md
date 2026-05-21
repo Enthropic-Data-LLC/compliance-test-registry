@@ -17,7 +17,7 @@
 | REACH SVHC (candidate list substances) | 240+ (updated biannually) |
 | REACH threshold for SVHC notification | 0.1% w/w in articles |
 | REACH registration threshold | ≥ 1 tonne/year manufactured/imported |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (chemical-restriction-compliance.md — RoHS substances/MCVs, exemptions, DoC/CE, REACH SVHC disclosure/ECHA notification, registration, sunset dates, supply chain declarations) |
 | Fully automated (DETERMINISTIC) | High — substance threshold comparisons; documentation checklist |
 | Partial automation (PARAMETERIZED) | Moderate — supply chain data collection |
 | Human-determination required (CONTESTED) | Low — thresholds are bright-line |

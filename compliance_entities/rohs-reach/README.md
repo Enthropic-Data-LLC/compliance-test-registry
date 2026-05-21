@@ -5,4 +5,10 @@
 
 See [`_index.md`](./_index.md) for the full registry index, confidence map, and open assumptions.
 
-**Parse status:** Index only — specification files pending
+**Parse status:** FULL
+
+## Specification files
+
+| File | Clauses covered | Confidence |
+|---|---|---|
+| [`chemical-restriction-compliance.md`](./chemical-restriction-compliance.md) | RoHS Art. 4 (10 substances + MCVs), Art. 5 (exemption management), Art. 7/13 (DoC + CE marking + authorised rep); REACH Art. 6 (substance registration), Art. 7(2) (SVHC ECHA notification), Art. 33 (SVHC customer disclosure), Art. 56 (authorization sunset dates); supply chain material declarations | DETERMINISTIC throughout |

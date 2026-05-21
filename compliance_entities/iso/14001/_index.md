@@ -16,11 +16,11 @@
 |---|---|
 | Clauses | 7 (Clauses 4–10) |
 | Sub-clauses with discrete requirements | ~45 |
-| Sub-clauses parsed (individual files) | 0 (index only) |
+| Sub-clauses parsed (individual files) | 1 (environmental-management-system.md — policy, aspects, compliance register, objectives, emergency prep, audit, review, CAPA) |
 | Fully automated (DETERMINISTIC) | Low — EMS is outcomes-based; obligations are process-level |
 | Partial automation (PARAMETERIZED) | Dominant |
 | Human-determination required (CONTESTED) | Moderate — significance determination, legal compliance evaluation |
-| Open assumptions | 0 |
+| Open assumptions | 1 |
 
 ---
 
