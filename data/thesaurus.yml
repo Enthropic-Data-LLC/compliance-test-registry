@@ -1,0 +1,498 @@
+# Cross-Framework Control Equivalence Thesaurus
+#
+# Version: 2026.05
+# Last updated: 2026-05-21
+#
+# canonical_framework: nist-800-53-r5
+#   NIST SP 800-53 r5 is the root catalog. Both NIST 800-171 and FedRAMP derive
+#   from it, making it the natural canonical key for all federal/cybersecurity mappings.
+#   Additional canonical anchors (ISO 9001 for quality, OSHA for safety) will be added
+#   as those framework clusters are populated.
+#
+# Relationship semantics (describes alias relative to canonical):
+#   subset   — alias ⊂ canonical  (alias is weaker; satisfying canonical satisfies alias)
+#   superset — alias ⊃ canonical  (alias is stricter; satisfying alias satisfies canonical)
+#   exact    — alias ≡ canonical  (satisfying either satisfies the other)
+#   overlap  — partial overlap    (neither direction is guaranteed)
+#
+# How to read a single entry:
+#   If relationship: subset  → satisfy canonical → alias is covered ✓
+#   If relationship: superset → satisfy alias → canonical is covered ✓
+#   If relationship: exact   → satisfy either → both are covered ✓
+#
+# Impact levels are per-alias: a mapping may hold at Moderate but not at High
+# (e.g., FedRAMP SC-28 requires AES-256 at High where 800-53 allows AES-128).
+#
+# This file covers the three parsed frameworks: NIST SP 800-53 r5, NIST SP 800-171 r2,
+# and FedRAMP Rev 5. Extend as additional frameworks are fully parsed.
+
+version: "2026.05"
+canonical_framework: nist-800-53-r5
+
+entries:
+
+  # ── AC family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: AC-2
+    canonical_title: Account Management
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.1.1"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.1.1 requires limiting system access to authorized users; 800-53 AC-2
+          adds account management lifecycle obligations (review cadences, inactive account
+          disable within 35 days, departure audit). Satisfying AC-2 satisfies 3.1.1.
+      - framework: fedramp-rev5
+        control_id: AC-2
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP AC-2 overlay requires privileged account review every 6 months and
+          departed-user access audit within 30 days — stricter than base 800-53 AC-2.
+          Satisfying FedRAMP AC-2 satisfies base 800-53 AC-2.
+
+  - canonical_id: AC-7
+    canonical_title: Unsuccessful Logon Attempts
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.1.8"
+        relationship: subset
+        baselines: [low, moderate, high]
+        notes: >
+          800-171 3.1.8 requires lockout after repeated failed logons but does not
+          specify attempt count or lockout duration. 800-53 AC-7 specifies ≤3 attempts
+          and ≥30-min lockout (800-53B default ODPs). Satisfying AC-7 with documented
+          ODPs satisfies 800-171 3.1.8.
+
+  - canonical_id: AC-11
+    canonical_title: Device Lock
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.1.10"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.1.10 requires session lock after inactivity. 800-53 AC-11 specifies
+          ≤15-min inactivity threshold with content hiding. Satisfying AC-11 satisfies 3.1.10.
+
+  - canonical_id: AC-12
+    canonical_title: Session Termination
+    aliases:
+      - framework: fedramp-rev5
+        control_id: AC-12
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP AC-12 overlay requires session termination (not just lock) within
+          30 minutes for network sessions at Moderate/High. Base 800-53 AC-12 termination
+          is ODP-bounded. Satisfying FedRAMP AC-12 satisfies base 800-53 AC-12.
+
+  - canonical_id: AC-17
+    canonical_title: Remote Access
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.1.12"
+        relationship: subset
+        baselines: [low, moderate, high]
+        notes: >
+          800-171 3.1.12 requires controlled remote access with monitoring. 800-53 AC-17
+          specifies TLS 1.2+, IPsec IKEv2, SSH v2 only; prohibits HTTP/Telnet/FTP/
+          SSLv3/TLS 1.0–1.1. Satisfying AC-17 satisfies 3.1.12.
+      - framework: fedramp-rev5
+        control_id: AC-17
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP AC-17 overlay requires FIPS-validated encryption for all remote access —
+          stricter than base 800-53 which permits any approved protocol. Satisfying
+          FedRAMP AC-17 satisfies base 800-53 AC-17.
+
+  # ── AU family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: AU-3
+    canonical_title: Content of Audit Records
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.3.1"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.3.1 requires audit logging including sufficient detail to establish
+          what events occurred. 800-53 AU-3 enumerates 6 required fields (event type,
+          timestamp, outcome, subject, object, source). FedRAMP requires 8 fields.
+          Satisfying AU-3 satisfies 3.3.1; satisfying FedRAMP AU overlay satisfies both.
+      - framework: fedramp-rev5
+        control_id: AU-3
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP requires 8 log fields (800-53 requires 6): adds source_ip and session_id.
+          A system with all 8 FedRAMP fields satisfies both 800-53 AU-3 and 800-171 3.3.1.
+          A system with only the base 6 fields does NOT satisfy the FedRAMP overlay.
+
+  - canonical_id: AU-9
+    canonical_title: Protection of Audit Information
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.3.2"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.3.2 requires protecting audit information from unauthorized access,
+          modification, and deletion. 800-53 AU-9 covers the same obligation with
+          additional enhancements for backup and separation of duties.
+
+  - canonical_id: AU-11
+    canonical_title: Audit Record Retention
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.3.1"
+        relationship: overlap
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.3.1 does not specify retention duration; 800-53 AU-11 specifies
+          90-day online / 3-year archive. Overlap: AU-11 satisfies the intent but
+          800-171 has no duration threshold to check against.
+
+  # ── IA family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: IA-2
+    canonical_title: Identification and Authentication (Organizational Users)
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.5.3"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.5.3 requires MFA for local and network access to privileged accounts.
+          800-53 IA-2 additionally covers non-privileged users at High and includes
+          enhancements (network access, local access, remote access sub-controls).
+          Satisfying 800-53 IA-2 at the applicable baseline satisfies 3.5.3.
+      - framework: fedramp-rev5
+        control_id: IA-2
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP IA-2(12) requires PIV credential support at Moderate/High; IA-5 overlay
+          requires FIPS-validated hardware authenticators at High. These are stricter than
+          base 800-53 IA-2. Satisfying FedRAMP IA-2 satisfies base 800-53 IA-2.
+
+  - canonical_id: IA-5
+    canonical_title: Authenticator Management
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.5.7"
+        relationship: subset
+        baselines: [low, moderate, high]
+        notes: >
+          800-171 3.5.7 requires password complexity and change requirements. 800-53 IA-5
+          adds length minimums (8-char with complexity / 15-char without), prohibited hash
+          algorithms, and 24-password history. Satisfying IA-5 satisfies 3.5.7.
+      - framework: fedramp-rev5
+        control_id: IA-5
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP requires FIPS-validated authenticators; external IdP must be FedRAMP
+          Authorized. Satisfying FedRAMP IA-5 overlay satisfies base 800-53 IA-5.
+
+  # ── SC family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: SC-8
+    canonical_title: Transmission Confidentiality and Integrity
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.13.8"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.13.8 requires CUI protected in transit using FIPS-validated cryptography.
+          800-53 SC-8 specifies TLS 1.2+ with FIPS-validated modules and prohibits cleartext.
+          Satisfying SC-8 satisfies 3.13.8.
+
+  - canonical_id: SC-13
+    canonical_title: Cryptographic Protection
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.13.10"
+        relationship: subset
+        baselines: [low, moderate, high]
+        notes: >
+          800-171 3.13.10 requires FIPS-validated or NSA-approved cryptography for CUI.
+          800-53 SC-13 requires FIPS 140-2/3 validated modules for all federal information.
+          Satisfying SC-13 satisfies 3.13.10.
+      - framework: fedramp-rev5
+        control_id: SC-13
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP adds an explicit prohibited cipher list (RC4, DES, 3DES bulk,
+          export-grade, null, MD5-MAC) and enumerates 5 approved TLS cipher suites
+          beyond base 800-53. Satisfying FedRAMP SC-13 overlay satisfies base 800-53 SC-13.
+          At High, FedRAMP also requires AES-256; base 800-53 permits AES-128.
+
+  - canonical_id: SC-28
+    canonical_title: Protection of Information at Rest
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.13.16"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.13.16 requires protecting CUI at rest. 800-53 SC-28 specifies
+          AES-128+ minimum and prohibits DES/3DES/RC4/plaintext. Satisfying SC-28
+          satisfies 3.13.16.
+      - framework: fedramp-rev5
+        control_id: SC-28
+        relationship: superset
+        baselines: [moderate]
+        notes: >
+          FedRAMP SC-28 at Moderate is equivalent to base 800-53 SC-28 (AES-128+ required).
+          Satisfying FedRAMP SC-28 at Moderate satisfies base 800-53 SC-28.
+      - framework: fedramp-rev5
+        control_id: SC-28
+        relationship: superset
+        baselines: [high]
+        notes: >
+          FedRAMP requires AES-256 (not just AES-128) at High baseline. A system using
+          AES-128 satisfies base 800-53 SC-28 but NOT FedRAMP SC-28 at High. The
+          Moderate and High mappings are intentionally split to make this explicit.
+
+  # ── SI family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: SI-2
+    canonical_title: Flaw Remediation
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.14.1"
+        relationship: subset
+        baselines: [low, moderate, high]
+        notes: >
+          800-171 3.14.1 requires identifying and correcting information system flaws.
+          800-53 SI-2 specifies patch SLAs: CISA KEV=14 days, Critical=30 days,
+          High=90 days, Medium=180 days, Low=365 days. Satisfying SI-2 with documented
+          SLAs satisfies 3.14.1.
+
+  - canonical_id: SI-3
+    canonical_title: Malicious Code Protection
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.14.2"
+        relationship: subset
+        baselines: [low, moderate, high]
+        notes: >
+          800-171 3.14.2 requires malicious code protection at entry/exit points.
+          800-53 SI-3 specifies definition updates within 24 hours and real-time scanning.
+          Satisfying SI-3 satisfies 3.14.2.
+
+  # ── RA family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: RA-5
+    canonical_title: Vulnerability Monitoring and Scanning
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.11.2"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.11.2 requires periodic scanning; does not specify cadence.
+          800-53 RA-5 specifies monthly authenticated scans (ODP-bounded; 800-53B default).
+          Satisfying RA-5 with a monthly ODP satisfies 3.11.2.
+      - framework: fedramp-rev5
+        control_id: RA-5
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP mandates monthly OS/infrastructure scans as a fixed requirement
+          (not ODP-bounded). Base 800-53 RA-5 frequency is an ODP. Satisfying FedRAMP
+          RA-5 (monthly, authenticated) satisfies base 800-53 RA-5 at any ODP value.
+
+  # ── CA family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: CA-5
+    canonical_title: Plan of Action and Milestones
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.12.2"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.12.2 requires a POA&M. 800-53 CA-5 specifies quarterly updates
+          and a ≤30-day remediation SLA for critical findings (CVSS ≥9.0).
+          Satisfying CA-5 satisfies 3.12.2.
+      - framework: fedramp-rev5
+        control_id: CA-5
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP requires monthly POA&M submission using the FedRAMP template, with
+          all open findings tracked and monthly updates. Stricter than base 800-53 CA-5
+          (quarterly). Satisfying FedRAMP CA-5 satisfies base 800-53 CA-5 and 800-171 3.12.2.
+
+  - canonical_id: CA-7
+    canonical_title: Continuous Monitoring
+    aliases:
+      - framework: fedramp-rev5
+        control_id: CA-7
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP formalizes ConMon as a documented plan with defined monitoring activities,
+          frequencies, roles, POA&M trigger criteria, and annual review. Stricter than
+          base 800-53 CA-7. Satisfying FedRAMP CA-7 satisfies base 800-53 CA-7.
+
+  # ── IR family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: IR-6
+    canonical_title: Incident Reporting
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.6.2"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.6.2 requires tracking, documenting, and reporting incidents.
+          800-53 IR-6 specifies ODP-bounded reporting time (800-53B default = 1 hour).
+          Satisfying IR-6 with the 1-hour ODP satisfies 3.6.2.
+      - framework: fedramp-rev5
+        control_id: IR-6
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP fixes IR-6 reporting to ≤1 hour to US-CERT (not ODP-bounded); also
+          requires notification to FedRAMP PMO and agency AO. Satisfying FedRAMP IR-6
+          satisfies base 800-53 IR-6 at any ODP value.
+
+  # ── PL family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: PL-2
+    canonical_title: System Security and Privacy Plans
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.12.4"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.12.4 requires a system security plan with 7 required sections.
+          800-53 PL-2 specifies 8 required sections and annual review. Satisfying PL-2
+          satisfies 3.12.4.
+      - framework: fedramp-rev5
+        control_id: PL-2
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP requires the full FedRAMP SSP template (more fields and sections than
+          800-53 PL-2). A FedRAMP SSP satisfies both 800-53 PL-2 and 800-171 3.12.4,
+          but a base 800-53 SSP does NOT satisfy FedRAMP requirements.
+
+  # ── PS family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: PS-4
+    canonical_title: Personnel Termination
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.9.1"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.9.1 requires termination and transfer procedures. 800-53 PS-4
+          specifies account disable within 8 hours of termination. Satisfying PS-4
+          satisfies 3.9.1.
+      - framework: fedramp-rev5
+        control_id: PS-4
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP requires account disable within 4 hours (vs 8h in base 800-53) and
+          credential revocation within 4 hours. Satisfying FedRAMP PS-4 satisfies
+          base 800-53 PS-4 and 800-171 3.9.1.
+
+  - canonical_id: PS-5
+    canonical_title: Personnel Transfer
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.9.2"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.9.2 requires transfer procedures. 800-53 PS-5 specifies access
+          review within 5 business days and revocation of excess prior-role access.
+      - framework: fedramp-rev5
+        control_id: PS-5
+        relationship: exact
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP PS-5 overlay matches 800-53 PS-5 at Moderate/High: access
+          re-evaluated within 5 business days; excess prior-role access revoked.
+
+  # ── MA family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: MA-4
+    canonical_title: Nonlocal Maintenance
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.7.5"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.7.5 requires MFA and session recording for nonlocal maintenance.
+          800-53 MA-4 specifies approved protocols (SSH v2, TLS 1.2+, IPsec IKEv2),
+          FIPS-validated crypto, and MFA. Satisfying MA-4 satisfies 3.7.5.
+
+  # ── MP family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: MP-6
+    canonical_title: Media Sanitization
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.8.3"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.8.3 requires sanitizing or destroying media before disposal.
+          800-53 MP-6 requires NIST 800-88 methods. Satisfying MP-6 satisfies 3.8.3.
+      - framework: fedramp-rev5
+        control_id: MP-6
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP requires FIPS-validated sanitization tools at Moderate/High, disposal
+          records retained ≥3 years, and physical destruction at High when purge is
+          infeasible. Stricter than base 800-53. Satisfying FedRAMP MP-6 satisfies
+          base 800-53 MP-6 and 800-171 3.8.3.
+
+  # ── CP family ─────────────────────────────────────────────────────────────
+
+  - canonical_id: CP-9
+    canonical_title: System Backup
+    aliases:
+      - framework: nist-800-171-r2
+        control_id: "3.8.9"
+        relationship: subset
+        baselines: [moderate, high]
+        notes: >
+          800-171 3.8.9 requires protecting backup copies of CUI. 800-53 CP-9 adds
+          frequency (daily user-data backups), testing (annual restoration), and
+          offsite storage requirements. Satisfying CP-9 satisfies 3.8.9.
+      - framework: fedramp-rev5
+        control_id: CP-9
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP requires daily user-data backups, weekly system-level backups, offsite
+          storage, FIPS-validated encryption of backups, and annual restoration test.
+          Satisfying FedRAMP CP-9 satisfies base 800-53 CP-9 and 800-171 3.8.9.
+
+  - canonical_id: CP-6
+    canonical_title: Alternate Storage Site
+    aliases:
+      - framework: fedramp-rev5
+        control_id: CP-6
+        relationship: superset
+        baselines: [moderate, high]
+        notes: >
+          FedRAMP requires ≥25-mile geographic separation and both primary and alternate
+          sites within CONUS. Base 800-53 CP-6 geographic separation is ODP-bounded.
+          Satisfying FedRAMP CP-6 satisfies base 800-53 CP-6.
