@@ -15,11 +15,11 @@
 | Metric | Count |
 |---|---|
 | Key operational/safety sections | ~30 (§50.9, 50.48, 50.54, 50.55a, 50.59, 50.65, 50.72, 50.73, 50.75, and Appendices A/B/J/R/S) |
-| Sections parsed (individual files) | 5 (event-reporting.md — §50.72/50.73; appendix-b-qa.md — Appendix B 18 criteria; maintenance-rule.md — §50.65; 50.55a-isi-ist.md — §50.55a ISI/IST; fire-protection.md — §50.48) |
+| Sections parsed (individual files) | 6 (event-reporting.md — §50.72/50.73; appendix-b-qa.md — Appendix B 18 criteria; maintenance-rule.md — §50.65; 50.55a-isi-ist.md — §50.55a ISI/IST; fire-protection.md — §50.48; 50.59-changes-tests-experiments.md — §50.59) |
 | Fully automated (DETERMINISTIC) | Moderate — event reporting timelines (50.72/50.73); maintenance rule metrics (50.65); fire protection equipment testing intervals |
 | Partial automation (PARAMETERIZED) | Dominant — QA criterion adequacy (Appendix B), maintenance effectiveness (50.65(a)(1)/(a)(2) categorization), 50.59 screening |
 | Human-determination required (CONTESTED) | Significant — "unreviewed safety question" determination (50.59), QA criterion adequacy, corrective action adequacy |
-| Open assumptions | 29 (ASSUME-NRC50-EVTRPT-001–004, ASSUME-NRC50-QA-001–005, ASSUME-NRC50-MR-001–005, ASSUME-NRC50-ISI-001–008, ASSUME-NRC50-FP-001–007) |
+| Open assumptions | 34 (ASSUME-NRC50-EVTRPT-001–004, ASSUME-NRC50-QA-001–005, ASSUME-NRC50-MR-001–005, ASSUME-NRC50-ISI-001–008, ASSUME-NRC50-FP-001–007, ASSUME-NRC50-5059-001–005) |
 
 ---
 
@@ -190,6 +190,11 @@ ASME Boiler and Pressure Vessel Code and ASME Code for Operation and Maintenance
 | ASSUME-NRC50-FP-005 | §50.48 hot work | Post-hot-work fire watch: 60-min minimum; 4 hours if adjacent combustibles; continuous during work | 2026-05-21 |
 | ASSUME-NRC50-FP-006 | §50.48 fire brigade | Appendix R §III.D: 5 members minimum on-site; quarterly drills; 1 unannounced/year; annual training + SCBA qualification | 2026-05-21 |
 | ASSUME-NRC50-FP-007 | §50.48 safe shutdown | SSA required all fire areas; operator action walk-down validation; FICFA for cable routing zones | 2026-05-21 |
+| ASSUME-NRC50-5059-001 | §50.59 screening | Applies to all FSAR-described changes; negative screening acceptable with documented basis; broader than safety-related | 2026-05-21 |
+| ASSUME-NRC50-5059-002 | Criteria 3 & 4 | Dose consequences "more than minimal" — no bright-line; industry practice >10% increase toward regulatory limit warrants full evaluation | 2026-05-21 |
+| ASSUME-NRC50-5059-003 | Criterion 7 | Fission product barrier limits from FSAR Ch. 6/15; any limit exceedance or alteration = "Yes" = license amendment | 2026-05-21 |
+| ASSUME-NRC50-5059-004 | §50.59 process | Evaluation before implementation; FSAR update within 24 months (50.71(e)); change summary to NRC with FSAR update | 2026-05-21 |
+| ASSUME-NRC50-5059-005 | §50.59 T&E | T&E not in FSAR requires screening; temporary mods for tests are separate §50.59 changes; all temp mods restored after test | 2026-05-21 |
 
 ---
 
@@ -232,7 +237,7 @@ ASME Boiler and Pressure Vessel Code and ASME Code for Operation and Maintenance
 |---|---|---|---|---|
 | `event-reporting.md` | §50.72 (1h/4h/8h/24h notifications), §50.73 (LER 60-day), emergency class declarations | ASSUME-NRC50-EVTRPT-001–004 | HIGH | ✅ Parsed |
 | `appendix-b-qa.md` | All 18 QA criteria (Appendix B); calibration intervals (Crit. XII); audit cadence (Crit. XVIII); CAP (Crit. XV+XVI); records retention (Crit. XVII) | ASSUME-NRC50-QA-001–005 | MEDIUM | ✅ Parsed |
-| *(§50.59 changes, tests, experiments)* | 10-criterion evaluation; screening vs. full evaluation; amendment trigger | TBD | CONTESTED | 🔲 Pending |
+| `50.59-changes-tests-experiments.md` | Screening process (all FSAR-described changes); 10-criterion evaluation (all criteria); FSAR update 24-month cycle; T&E not described in FSAR; license amendment trigger for any "Yes" criterion | ASSUME-NRC50-5059-001–005 | CONTESTED | ✅ Parsed |
 | `maintenance-rule.md` | §50.65(a)(1) goals/corrective action; (a)(2) performance criteria; (a)(3) annual review; (a)(4) pre-maintenance risk assessment; expert panel | ASSUME-NRC50-MR-001–005 | MEDIUM | ✅ Parsed |
 | `50.55a-isi-ist.md` | ISI program document; 10-year interval/period distribution; Class 1–3 exam categories; IST pump Group A/B intervals and acceptance criteria; IST valve intervals; §50.55a(z) alternatives; SG tube integrity | ASSUME-NRC50-ISI-001–008 | MEDIUM | ✅ Parsed |
 | `fire-protection.md` | §50.48 fire protection program (Appendix R / NFPA 805); NFPA 25 suppression system testing; NFPA 72 detection testing; fire barrier/penetration seal inspections; hot work program; fire brigade; safe shutdown analysis | ASSUME-NRC50-FP-001–007 | MEDIUM | ✅ Parsed |
@@ -246,5 +251,5 @@ ASME Boiler and Pressure Vessel Code and ASME Code for Operation and Maintenance
 | 1 | ~~§50.65 (Maintenance Rule)~~ | ✅ Parsed — `maintenance-rule.md` |
 | 2 | ~~§50.55a (ISI/IST)~~ | ✅ Parsed — `50.55a-isi-ist.md` |
 | 3 | ~~§50.48 (Fire protection)~~ | ✅ Parsed — `fire-protection.md` |
-| 4 | §50.59 (Changes, tests, experiments) | CONTESTED; most important section for plant modifications; Pattern 3 dominant |
+| 4 | ~~§50.59 (Changes, tests, experiments)~~ | ✅ Parsed — `50.59-changes-tests-experiments.md` |
 | 5 | 10 CFR Part 26 (Fitness for Duty) | Random testing rate ≥50% is DETERMINISTIC; cross-reference to security |

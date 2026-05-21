@@ -14,6 +14,7 @@
 | [`maintenance-rule.md`](./maintenance-rule.md) | §50.65(a)(1) goals/corrective action, (a)(2) performance criteria, (a)(3) annual review (24-month max), (a)(4) pre-maintenance risk assessment, expert panel | ✅ |
 | [`50.55a-isi-ist.md`](./50.55a-isi-ist.md) | ISI: 10-year interval + 40/20/40% period distribution, Class 1–3 exam categories (B-A through B-Q), augmented programs; IST: Group A pump quarterly/2-year, Group B 10-year max, valve Category A/B quarterly, PRD 5-year, SG tube ≤150 gpd, §50.55a(z) alternative requests | ✅ |
 | [`fire-protection.md`](./fire-protection.md) | §50.48 fire protection program (Appendix R / NFPA 805 method); NFPA 25 suppression testing (quarterly gauges, annual drains/heads, 5-year standpipe); NFPA 72 detection testing; fire barriers + penetration seals; hot work 60-min/4-hr fire watch; fire brigade (5 members, quarterly drills); safe shutdown analysis; FICFA | ✅ |
+| [`50.59-changes-tests-experiments.md`](./50.59-changes-tests-experiments.md) | §50.59 two-step process (screening → evaluation); all 10 criteria with Pattern 1 (TS/license conflicts), Pattern 2 (consequence calculations), and Pattern 3 (frequency/different-type/method-departure); FSAR update 24-month cycle; T&E screening; license amendment trigger | ✅ |
 
 ## Key DETERMINISTIC thresholds
 
@@ -52,4 +53,9 @@
 | Fire brigade minimum on-site staffing | 5 members at all times | Appendix R §III.D |
 | Fire brigade quarterly drills | Every 3 months per team | Appendix R §III.D |
 
-## Parse status: Deep — event reporting, Appendix B QA, Maintenance Rule, §50.55a ISI/IST, and §50.48 fire protection parsed; §50.59 (contested) pending
+| §50.59 screening — before implementation | BEFORE any implementation; no retroactive | §50.59(d)(1) |
+| FSAR/UFSAR update incorporating §50.59 changes | Within 24 months | 10 CFR 50.71(e) |
+| Any "Yes" criterion → NRC license amendment | Required BEFORE implementation | §50.59(c)(2) |
+| §50.59 Criterion 9 (TS conflict) | Direct TS comparison — DETERMINISTIC | §50.59(c)(2)(ix) |
+
+## Parse status: Complete — all 6 priority sections parsed (§50.72/50.73, App. B QA, §50.65, §50.55a, §50.48, §50.59); 10 CFR Part 26 (Fitness for Duty) is next optional extension
