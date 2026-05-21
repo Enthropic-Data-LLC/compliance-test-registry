@@ -16,11 +16,11 @@
 | Pillars | 5 |
 | Total articles | 64 |
 | Technically testable article clusters | ~30 |
-| Articles parsed (individual files) | 0 (index only; individual article files pending) |
+| Articles parsed (individual files) | 1 (Art. 5–16, 17–23, 24–27, 28–30) |
 | Fully automated (DETERMINISTIC) | Moderate — incident reporting timelines are DETERMINISTIC; RTO/RPO once documented |
 | Partial automation (PARAMETERIZED) | Dominant |
 | Human-determination required (CONTESTED) | Significant — "major incident" determination, TLPT scope |
-| Open assumptions | 0 |
+| Open assumptions | 6 |
 | Stale reviews | 0 |
 | Pending external escalations | 0 |
 
@@ -131,9 +131,24 @@ All contracts with ICT service providers supporting critical or important functi
 
 ---
 
+## Spec file status
+
+| File | Coverage | Status |
+|---|---|---|
+| [`incident-reporting-contracts-resilience.md`](./incident-reporting-contracts-resilience.md) | Art. 5–6 (ICT risk framework + board approval), Art. 7–8 (asset register + criticality), Art. 11 (BCP/DRP), Art. 12 (backup geographic separation + annual restore test), Art. 17–18 (incident classification Pattern 3), Art. 19 (initial 4h/24h, intermediate 72h, final 1 month — DETERMINISTIC), Art. 25 (basic testing annual), Art. 26 (TLPT 3-year significant entities), Art. 28–29 (TPSP register + pre-contractual assessment), Art. 30(2) (12-element contract checklist DETERMINISTIC) | ✅ |
+
 ## Open assumption registry
 
-*(No assumptions recorded — individual article files not yet written)*
+| ID | Assumption | Pattern | Approved | Review |
+|---|---|---|---|---|
+| ASSUME-DORA-INC-001 | Art. 19: both 4h clock (from classification) and 24h clock (from awareness) run independently; the earlier deadline governs | 1 | Pending | 2027-01 |
+| ASSUME-DORA-INC-002 | Classification_datetime is a separate documented decision from awareness_datetime; delaying classification does not extend the 24h awareness clock | 1 | Pending | 2027-01 |
+| ASSUME-DORA-CTPP-001 | Critical/important function designation (Art. 3(22)) is a management determination; adequacy is Pattern 3 requiring CRO sign-off | 3 | Pending | 2027-01 |
+| ASSUME-DORA-TLPT-001 | TLPT 3-year cycle resets from completion date; TIBER-EU governs methodology; competent authority notification required Art. 26(7) | 1 | Pending | 2027-01 |
+| ASSUME-DORA-TEST-001 | "At least annually" = within 12 calendar months; all four required testing components must be completed | 1 | Pending | 2027-01 |
+| ASSUME-DORA-BACKUP-001 | RTO/RPO achievability demonstrated by annual restore test; actual recovery time recorded; failure to meet RTO is a DETERMINISTIC violation | 1 | Pending | 2027-01 |
+
+## Parse status: Complete — Art. 5–30 parsed (all 5 pillars); 6 assumptions recorded
 
 ---
 
@@ -171,17 +186,4 @@ Standard three-tier gate (see NERC CIP registry). DORA-specific constraints:
 
 ---
 
-## Roadmap — individual article file parse priority
-
-| Priority | Article(s) | Notes |
-|---|---|---|
-| 1 | Art. 19 (incident reporting timelines) | Highest DETERMINISTIC density; 4h/72h/1mo thresholds are immediately automatable |
-| 2 | Art. 30(2) (contract mandatory elements) | DETERMINISTIC 12-element checklist |
-| 3 | Art. 12 (backup and recovery) | RTO/RPO achievability — DETERMINISTIC once objectives documented |
-| 4 | Art. 17–18 (incident classification) | PARAMETERIZED; classification criteria per entity-specific RTS |
-| 5 | Art. 28–29 (TPSP due diligence) | PARAMETERIZED; pre-assessment process |
-| 6 | Art. 25 (basic resilience testing) | Annual testing cadence — DETERMINISTIC |
-| 7 | Art. 26 (TLPT) | 3-year cadence — DETERMINISTIC for significant entities |
-| 8 | Art. 7–8 (asset inventory + protection) | PARAMETERIZED |
-| 9 | Art. 5–6 (ICT risk framework governance) | PARAMETERIZED; Pattern 3 for board approval gate |
-| 10 | Art. 11 (BCP/DRP) | PARAMETERIZED; existence is DETERMINISTIC |
+## Roadmap — complete
