@@ -313,8 +313,8 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| EU AI Act 2024/1689 | `eu-ai-act/` | EC | AI system risk classification — 4 tiers, prohibited practices | INDEX | — |
-| WCAG 2.2 / Section 508 | `wcag/` | W3C / US Access Board | Digital accessibility — POUR principles, 87 success criteria | INDEX | — |
+| EU AI Act 2024/1689 | `eu-ai-act/` | EC | AI system risk classification — 4 tiers, prohibited practices | FULL | 1 file / 2 assumptions |
+| WCAG 2.2 / Section 508 | `wcag/` | W3C / US Access Board | Digital accessibility — POUR principles, 87 success criteria | FULL | 1 file / 1 assumption |
 
 ---
 
