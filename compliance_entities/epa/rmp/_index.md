@@ -17,7 +17,7 @@
 | Regulated substances (toxic) | 77 |
 | Regulated substances (flammable) | 63 |
 | RMP Program tiers | 3 |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (see README for coverage) |
 | Fully automated (DETERMINISTIC) | Moderate — TQ thresholds, submission deadlines, 5-year resubmission, incident reporting |
 | Partial automation (PARAMETERIZED) | Dominant — consequence analysis methodology, PHA methodology |
 | Human-determination required (CONTESTED) | Moderate — worst-case scenario parameters, safeguard crediting |

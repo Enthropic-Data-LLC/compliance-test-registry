@@ -16,7 +16,7 @@
 | NPDES permit types | 3 (individual / general / stormwater multi-sector) |
 | SPCC applicability thresholds | 2 (aboveground capacity / underground capacity) |
 | Effluent limit types | 2 (technology-based / water quality-based) |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (see README for coverage) |
 | Fully automated (DETERMINISTIC) | Moderate — permit effluent limits; SPCC quantity thresholds; reporting deadlines |
 | Partial automation (PARAMETERIZED) | Dominant — permit conditions are facility-specific |
 | Human-determination required (CONTESTED) | Low — thresholds are bright-line |

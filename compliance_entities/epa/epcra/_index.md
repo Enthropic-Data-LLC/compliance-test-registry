@@ -16,7 +16,7 @@
 | EPCRA sections | 4 major reporting sections (301–304, 311–312, 313) |
 | Extremely Hazardous Substances (EHS) list | ~355 chemicals with TPQs |
 | TRI-listed chemicals | ~800+ chemicals and chemical categories |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (see README for coverage) |
 | Fully automated (DETERMINISTIC) | High — quantity thresholds, filing deadlines, notification timelines |
 | Partial automation (PARAMETERIZED) | Low — threshold determination |
 | Human-determination required (CONTESTED) | Low |

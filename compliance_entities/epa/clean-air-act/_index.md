@@ -15,7 +15,7 @@
 | NAAQS criteria pollutants | 6 (PM2.5, PM10, O3, NO2, SO2, CO, Pb) |
 | Title V major source thresholds | 2 (100 tpy general; 10–50 tpy for HAPs) |
 | CAP 40 CFR Part 60 subparts | 100+ source categories |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (see README for coverage) |
 | Fully automated (DETERMINISTIC) | Moderate — permit condition compliance; emission limits; reporting deadlines |
 | Partial automation (PARAMETERIZED) | Dominant — source-specific emission limits from permit |
 | Human-determination required (CONTESTED) | Moderate — emissions calculation methodology |

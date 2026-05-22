@@ -301,11 +301,11 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| RCRA (40 CFR Parts 260–272) | `epa/rcra/` | EPA | Hazardous waste generation, storage, disposal — LQG/SQG/VSQG tiers | INDEX | — |
-| EPCRA / SARA Title III | `epa/epcra/` | EPA / LEPCs | Emergency planning, community right-to-know, TRI Form R | INDEX | — |
-| Clean Air Act (Title V / NSPS / NESHAP) | `epa/clean-air-act/` | EPA / state agencies | Air emissions — permits, NSPS, MACT, CAM, GHG reporting | INDEX | — |
-| Clean Water Act / NPDES / SPCC | `epa/npdes/` | EPA / Army Corps | Water discharge permits, oil spill prevention, stormwater | INDEX | — |
-| EPA RMP (40 CFR Part 68) | `epa/rmp/` | EPA | Risk Management Program — accidental release prevention; Program 1/2/3 | INDEX | — |
+| RCRA (40 CFR Parts 260–272) | `epa/rcra/` | EPA | Hazardous waste generation, storage, disposal — LQG/SQG/VSQG tiers | FULL | 1 file / 0 assumptions |
+| EPCRA / SARA Title III | `epa/epcra/` | EPA / LEPCs | Emergency planning, community right-to-know, TRI Form R | FULL | 1 file / 0 assumptions |
+| Clean Air Act (Title V / NSPS / NESHAP) | `epa/clean-air-act/` | EPA / state agencies | Air emissions — permits, NSPS, MACT, CAM, GHG reporting | FULL | 1 file / 0 assumptions |
+| Clean Water Act / NPDES / SPCC | `epa/npdes/` | EPA / Army Corps | Water discharge permits, oil spill prevention, stormwater | FULL | 1 file / 0 assumptions |
+| EPA RMP (40 CFR Part 68) | `epa/rmp/` | EPA | Risk Management Program — accidental release prevention; Program 1/2/3 | FULL | 1 file / 0 assumptions |
 
 ---
 

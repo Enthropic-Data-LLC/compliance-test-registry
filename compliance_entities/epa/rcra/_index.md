@@ -15,7 +15,7 @@
 |---|---|
 | Generator categories | 3 (LQG / SQG / VSQG) |
 | Primary DETERMINISTIC thresholds | Monthly generation quantity + on-site accumulation limits |
-| Sections parsed (individual files) | 0 (index only) |
+| Sections parsed (individual files) | 1 (see README for coverage) |
 | Fully automated (DETERMINISTIC) | High — generator category thresholds; storage time limits; manifest elements |
 | Partial automation (PARAMETERIZED) | Moderate — waste characterization methodology |
 | Human-determination required (CONTESTED) | Moderate — TCLP/characteristic determinations; listed waste applicability |
