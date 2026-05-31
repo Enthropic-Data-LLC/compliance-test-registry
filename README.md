@@ -14,7 +14,7 @@
 >
 > **No warranty of compliance:** Use of this registry does not guarantee, imply, or establish compliance with any regulation. Passing a test case in this registry does not constitute evidence of regulatory compliance. Compliance determinations require assessment by qualified personnel against the specific facts, systems, and circumstances of your organization.
 >
-> **AI-assisted content:** Portions of this registry were developed with the assistance of large language model (LLM) AI tools, including Claude (Anthropic), for initial element extraction, ambiguity classification drafts, and test code scaffolding. All AI-generated content was reviewed against primary regulatory source text before inclusion. However, AI tools can and do produce errors, misclassifications, and outdated interpretations. Do not use any content in this registry for compliance purposes without independent human review by a qualified professional.
+> **AI-generated content:** This registry was built using large language model (LLM) AI tools, including Claude (Anthropic). The AI performed the element extractions, ambiguity classifications, YAML specifications, and test code for all frameworks in this registry. This content has **not** been independently verified against primary regulatory source text by a qualified human reviewer. AI tools produce errors, outdated interpretations, and misclassifications — sometimes confidently. Every entry in this registry should be treated as an AI-generated first draft. Do not use any content here in a real compliance program without independent review by a qualified professional against the authoritative primary source.
 >
 > **Jurisdiction and applicability:** Regulatory requirements vary by jurisdiction, organization type, system scope, contract terms, and applicable law. A requirement classified as DETERMINISTIC in this registry may be PARAMETERIZED or CONTESTED in your specific context. The maintainers assume no liability for compliance failures, regulatory penalties, audit findings, or any other harm arising from use of this registry.
 >
@@ -505,49 +505,32 @@ No specific ORM or database is required. The tests are pure assertions against P
 
 ---
 
-## Thought Process: How This Registry Was Built
+## How This Registry Was Built
 
-This section documents the creation methodology for transparency and reproducibility.
+This registry was generated using Claude (Anthropic) with the Regulatory Decomposition Framework (RDF) as the prompting methodology. The following describes the process the AI was instructed to apply — not a manually executed human review.
 
-### Step 1: Source text acquisition
+### The RDF prompt methodology
 
-Regulations were sourced from their authoritative primary sources:
-- NERC CIP: NERC.com official standards PDFs
-- OSHA: eCFR (ecfr.gov) Title 29
-- NIST: NIST CSRC publications (csrc.nist.gov)
-- All others: respective issuing authority official publications
+Each framework was processed by providing Claude with the framework name and scope, then instructing it to:
 
-No secondary summaries, compliance vendor interpretations, or training materials were used as the primary source. Where interpretive guidance exists (OSHA Letters of Interpretation, NERC enforcement memos), it was used to inform ambiguity classification — but the requirement text itself is always quoted from the primary source.
+1. **Identify requirements** — locate the enumerable, testable obligations within the framework
+2. **Extract four elements per requirement** — Subject, Condition, Obligation, Evidence — quoting source language where possible
+3. **Classify ambiguity** — apply DETERMINISTIC / PARAMETERIZED / CONTESTED / UNRESOLVABLE to each element based on whether the regulatory text provides a specific, testable threshold
+4. **Write a YAML specification** before generating any test code
+5. **Generate test code** using the pattern (1/2/3) that corresponds to the lowest-confidence element in that requirement
 
-### Step 2: 4-element extraction
+### What this means in practice
 
-For each requirement (or sub-requirement), the four elements were extracted verbatim from the regulation text. If any element could not be extracted without interpretation, the regulation was flagged as ambiguous before classification began.
+The AI was instructed to quote regulatory language verbatim and to classify based on what the regulation *says*, not on common industry interpretation. The patterns it was prompted to apply are sound — PARAMETERIZED is supposed to surface "reasonable" and "adequate" rather than rationalize them into DETERMINISTIC; CONTESTED is supposed to surface genuine interpretive disagreement rather than pick a side.
 
-The extraction is the most important step. Sloppy extraction — paraphrasing the obligation, abstracting the subject — is how ambiguity gets hidden. Every element table quotes the specific regulatory language it was derived from.
+Whether the AI actually executed that faithfully on any given requirement is something only a human reviewer with domain expertise can verify. For well-known, clearly-structured frameworks like NERC CIP and OSHA 1910, the output is plausible and internally consistent. For complex or interpretively contested frameworks, errors are likely.
 
-### Step 3: Ambiguity classification
+### What has and hasn't been reviewed
 
-Each element was independently classified against the four-tier system. The key discipline: classification was made based on what the regulation *says*, not what the industry does. If a word like "reasonable," "adequate," "as necessary," or "technically feasible" appears in an obligation element, it is PARAMETERIZED at minimum, not rationalized into DETERMINISTIC because everyone knows what it means.
+- **Reviewed by a human:** The RDF methodology itself; the NERC CIP section (author has relevant industry background); the overall structure and confidence model
+- **Not reviewed by a human:** The element extractions, ambiguity classifications, YAML specs, and test code for the majority of frameworks in this registry
 
-Words that consistently trigger PARAMETERIZED classification in these frameworks: *reasonable*, *adequate*, *feasible*, *necessary*, *sufficient*, *appropriate*, *substantially*, *timely*.
-
-Words that consistently trigger CONTESTED classification: *commensurate*, *equivalent*, *acceptable*, and any obligation where OSHA enforcement history shows Regional Entity variation.
-
-### Step 4: YAML specification before code
-
-No test code was written until the YAML specification was complete. This discipline prevents the most common failure mode in compliance automation: writing the test to pass the data you have rather than to check the regulation you're subject to.
-
-The YAML spec is the authoritative source of truth. If the test code and the YAML spec disagree, the YAML spec wins.
-
-### Step 5: Test code generation
-
-Test code was written in three distinct patterns corresponding to the confidence level. The patterns are not stylistic choices — they have different epistemological claims:
-
-- Pattern 1 claims: "This system is compliant with [requirement] as of this test run."
-- Pattern 2 claims: "This system is compliant with [requirement] given assumption [ASSUME-XXX-YYY], which was approved on [date]."
-- Pattern 3 claims: "A qualified human has determined compliance with [requirement] as of [date], and that determination is current."
-
-These are different claims. Conflating them is how compliance programs fail audits they thought they were passing.
+The intent is for this registry to be a starting point — a structured, AI-generated scaffold that domain experts and compliance practitioners can correct, extend, and validate. It is not a finished, verified product.
 
 ---
 
