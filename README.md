@@ -52,6 +52,100 @@ The specific problem that prompted this work was preparing compliance posture do
 
 ---
 
+## Start Here: A NERC CIP Example End-to-End
+
+NERC CIP is the most mature part of this registry — 14 standard files, fully DETERMINISTIC across all requirements, and the framework most likely to be familiar to readers from the energy sector. Walking through one requirement end-to-end shows exactly what the registry produces.
+
+**Requirement:** CIP-002-5.1a R2 — every Responsible Entity must review its BES Cyber System categorization and obtain CIP Senior Manager approval at least once every 15 calendar months.
+
+### Step 1: Source text
+
+> *"The Responsible Entity shall: (R2.1) Review the identifications in Requirement R1 and its parts at least once every 15 calendar months, even if it has no identified items in Requirement R1; and (R2.2) Have its CIP Senior Manager or delegate approve the identifications required by Requirement R1 at least once every 15 calendar months."*
+
+### Step 2: Four-element extraction
+
+| Element | Extracted value | Classification |
+|---|---|---|
+| Subject | Responsible Entity's R1 categorization record | DETERMINISTIC |
+| Condition | Elapsed time since last review/approval | DETERMINISTIC |
+| Obligation | `days_since_last_review ≤ 457` AND approved by CIP Senior Manager or delegate | DETERMINISTIC |
+| Evidence | `categorization_review.last_reviewed_at`, `.approved_by_role`, `.signature_hash` | DETERMINISTIC |
+
+Every element resolves to a bright-line value. No "reasonable," no "adequate," no "as necessary." This makes CIP-002 R2 a textbook Pattern 1 test.
+
+### Step 3: YAML specification
+
+```yaml
+regulation_id: CIP-002-R2
+revision: 5.1a
+source_text: >
+  Review the identifications in R1 at least once every 15 calendar months,
+  and have the CIP Senior Manager or delegate approve them at the same cadence.
+extracted_elements:
+  subject: "R1 categorization record"
+  condition: "days_since_last_review > 457 OR approval missing"
+  obligation: "days_since_last_review <= 457 AND approved_by_cip_senior_manager == true"
+  evidence: "categorization_review.last_reviewed_at, .approved_by_role, .signature_hash"
+ambiguity_classification:
+  subject: DETERMINISTIC
+  condition: DETERMINISTIC
+  obligation: DETERMINISTIC
+  evidence: DETERMINISTIC
+overall_classification: DETERMINISTIC
+human_review_required: false
+legal_assumption_log: []
+test_confidence: HIGH
+generated_test: "tests/CIP-002/test_R2.py"
+```
+
+### Step 4: Generated test (Pattern 1 — Direct Assertion)
+
+```python
+"""
+CIP-002-5.1a R2 — Annual Review and Approval
+Confidence: HIGH | Human Review: NOT REQUIRED
+"""
+from datetime import datetime, timedelta
+
+REVIEW_WINDOW_DAYS = 457  # 15 calendar months (15 × 30.44 ≈ 457)
+
+
+def test_CIP002_R2_1_review_cadence(categorization_review):
+    """R2.1: R1 identifications reviewed within 15 calendar months."""
+    age = datetime.utcnow() - categorization_review.last_reviewed_at
+    assert age <= timedelta(days=REVIEW_WINDOW_DAYS), (
+        f"VIOLATION: Categorization review is {age.days} days old. "
+        f"Threshold: {REVIEW_WINDOW_DAYS} days. "
+        f"Last reviewed: {categorization_review.last_reviewed_at.isoformat()}"
+    )
+
+
+def test_CIP002_R2_2_senior_manager_approval(categorization_review):
+    """R2.2: Approval by CIP Senior Manager or named delegate."""
+    assert categorization_review.approved_by_role in (
+        "CIP Senior Manager",
+        "CIP Senior Manager Delegate",
+    ), (
+        f"VIOLATION: Approved by '{categorization_review.approved_by_role}' — "
+        f"not an authorized role."
+    )
+    assert categorization_review.signature_hash, (
+        "INTEGRITY FAILURE: Approval lacks signature hash."
+    )
+    age = datetime.utcnow() - categorization_review.approved_at
+    assert age <= timedelta(days=REVIEW_WINDOW_DAYS), (
+        f"VIOLATION: Approval is {age.days} days old (threshold {REVIEW_WINDOW_DAYS})."
+    )
+```
+
+### What a SCAFFOLDED entry looks like by comparison
+
+A SCAFFOLDED entry (e.g., TSA Pipeline SD-02D) covers an entire framework in one file. It has the same structure — source text, element extraction, YAML, test code — but as a single document rather than one file per standard. It's a valid starting point; it captures all the DETERMINISTIC content. It is not the same as 14 files where every requirement has been individually extracted, classified, and tested.
+
+The DECOMPOSED label means each standard in the framework has its own file. The SCAFFOLDED label means the whole framework is in one file. Both are useful. Neither is a placeholder.
+
+---
+
 ## Repository Structure
 
 ```
@@ -171,16 +265,14 @@ compliance_test_cases/
 
 | Metric | Count |
 |---|---|
-| Total frameworks indexed | 64 |
-| Frameworks with full decomposition (index + individual standard files) | 3 |
-| Frameworks with index + parsed section files | 3 |
-| Frameworks with index only (manifest, confidence map, roadmap) | 58 |
-| Individual standard files (beyond `_index.md`) | 48 |
+| Total frameworks indexed | 67 |
+| Frameworks with multi-file decomposition (DECOMPOSED) | 26 |
+| Frameworks with single comprehensive file (SCAFFOLDED) | 41 |
+| Individual standard files (beyond `_index.md`) | 151 |
 | Guiding documents | 5 |
-| Total files in registry | 120 |
-| Sectors covered | 10 |
+| Sectors covered | 11 |
 
-Status key: **FULL** = index + all individual standard files decomposed; **INDEX+SECTIONS** = index + some individual section files; **INDEX** = `_index.md` with full confidence map and roadmap, individual files not yet written
+Status key: **DECOMPOSED** = index + multiple standard files with control-by-control treatment; **SCAFFOLDED** = index + one comprehensive standard file covering the full framework; **INDEX** = `_index.md` only — individual standard files not yet written
 
 ---
 
@@ -188,22 +280,23 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| NERC CIP (CIP-002–CIP-015) | `nerc/cip/` | NERC / FERC | Electric grid BES cybersecurity | **FULL** | 14 standard files |
-| NIST SP 800-53 r5 | `nist/sp800-53/` | NIST | Federal IS security controls (~1,007 controls) | FULL | core-technical-controls.md, contingency-incident-assessment.md, maintenance-media-physical-personnel.md, planning-program-training-privacy.md, risk-acquisition-supply-chain.md |
-| NIST SP 800-171 r3 | `nist/sp800-171/` | NIST | CUI protection — 17 families, 110 requirements | FULL | ac-access-control.md, ia-identification-authentication.md, au-cm-si-core-technical.md, sc-ir-pe-remaining.md, at-ra-sr-pl-pm-remaining.md |
-| NIST CSF 2.0 | `nist/csf2/` | NIST | Voluntary cybersecurity framework — 6 functions, 106 subcategories | FULL | function-profiles-subcategories.md |
-| NIST SP 800-82 r3 | `nist/sp800-82/` | NIST | OT/ICS security guide — SP 800-53 tailoring for OT | FULL | 1 file / 2 assumptions |
-| NIST AI RMF 1.0 | `nist/ai-rmf/` | NIST | AI risk management — GOVERN/MAP/MEASURE/MANAGE | FULL | govern-map.md, measure-manage.md |
-| CMMC 2.0 | `cmmc/` | DoD / OUSD(A&S) | Defense contractor cybersecurity — 3 levels | FULL | level1-level2-practices.md, level3-800-172-delta.md |
-| ISO/IEC 27001:2022 | `iso/27001/` | ISO/IEC | ISMS — 93 Annex A controls, 4 themes | FULL | clauses-4-10-isms-mandatory.md, annex-a5-organizational.md, annex-a6-people.md, annex-a7-physical.md, annex-a8-technological.md |
-| FedRAMP | `fedramp/` | OMB / GSA | Cloud service authorization — 800-53 + overlays | FULL | account-contingency-media.md, technical-overlays-high-enhancements.md, conmon-and-overlays.md |
-| SOC 2 | `soc2/` | AICPA | Service org trust criteria — CC1–CC9 + 4 additional | FULL | cc1-cc2-cc3-cc4-governance-risk.md, cc6-logical-physical-access.md, cc7-system-operations.md, cc8-cc5-change-control-activities.md, cc9-c1-pi1-additional-criteria.md, a1-availability.md, p-series-privacy.md |
-| IEC 62443 | `iec/62443/` | IEC | OT/ICS security — 7 FRs, 4 Security Levels, zone/conduit | FULL | fr1-fr3-iam-use-integrity.md, fr4-fr7-confidentiality-availability.md |
-| TISAX / VDA ISA 6.0 | `tisax/` | ENX / VDA | Automotive supply chain information security | FULL | isms-hr-physical-controls.md, it-supplier-controls.md |
-| SEC Cybersecurity Rules 2023 | `sec/cybersecurity/` | SEC | 8-K 4-business-day disclosure + annual risk governance | FULL | incident-disclosure-annual-report.md |
-| SWIFT CSP / CSCF v2025 | `swift/csp/` | SWIFT | Financial institution SWIFT infrastructure — 25 mandatory controls | FULL | secure-environment-controls.md, access-credential-controls.md, detect-respond-controls.md |
-| TSA Pipeline Directives SD-02D | `tsa/pipeline/` | TSA / DHS | Critical pipeline OT/IT cybersecurity | FULL | 1 file / 0 assumptions |
-| NRC 10 CFR 73.54 | `nrc/10cfr73/` | NRC | Nuclear power reactor cybersecurity | FULL | 1 file / 1 assumption |
+| NERC CIP (CIP-002–CIP-015) | `nerc/cip/` | NERC / FERC | Electric grid BES cybersecurity | **DECOMPOSED** | 14 standard files |
+| NERC Reliability Standards (non-CIP) | `nerc/ops/` | NERC / FERC | BES operations, planning, protection, vegetation mgmt | **DECOMPOSED** | com-top-operations.md, fac-eop-operations.md, int-iro-var-coordination.md, mod-tpl-eop-planning.md, per-bal-personnel.md, prc-protection-control.md |
+| NIST SP 800-53 r5 | `nist/sp800-53/` | NIST | Federal IS security controls (~1,007 controls) | **DECOMPOSED** | core-technical-controls.md, contingency-incident-assessment.md, maintenance-media-physical-personnel.md, planning-program-training-privacy.md, risk-acquisition-supply-chain.md |
+| NIST SP 800-171 r3 | `nist/sp800-171/` | NIST | CUI protection — 17 families, 110 requirements | **DECOMPOSED** | ac-access-control.md, ia-identification-authentication.md, au-cm-si-core-technical.md, sc-ir-pe-remaining.md, at-ra-sr-pl-pm-remaining.md |
+| NIST CSF 2.0 | `nist/csf2/` | NIST | Voluntary cybersecurity framework — 6 functions, 106 subcategories | SCAFFOLDED | function-profiles-subcategories.md |
+| NIST SP 800-82 r3 | `nist/sp800-82/` | NIST | OT/ICS security guide — SP 800-53 tailoring for OT | SCAFFOLDED | ot-ics-security-program.md |
+| NIST AI RMF 1.0 | `nist/ai-rmf/` | NIST | AI risk management — GOVERN/MAP/MEASURE/MANAGE | **DECOMPOSED** | govern-map.md, measure-manage.md |
+| CMMC 2.0 | `cmmc/` | DoD / OUSD(A&S) | Defense contractor cybersecurity — 3 levels | **DECOMPOSED** | level1-level2-practices.md, level3-800-172-delta.md |
+| ISO/IEC 27001:2022 | `iso/27001/` | ISO/IEC | ISMS — 93 Annex A controls, 4 themes | **DECOMPOSED** | clauses-4-10-isms-mandatory.md, annex-a5-organizational.md, annex-a6-people.md, annex-a7-physical.md, annex-a8-technological.md |
+| FedRAMP | `fedramp/` | OMB / GSA | Cloud service authorization — 800-53 + overlays | **DECOMPOSED** | account-contingency-media.md, technical-overlays-high-enhancements.md, conmon-and-overlays.md |
+| SOC 2 | `soc2/` | AICPA | Service org trust criteria — CC1–CC9 + 4 additional | **DECOMPOSED** | cc1-cc2-cc3-cc4-governance-risk.md, cc6-logical-physical-access.md, cc7-system-operations.md, cc8-cc5-change-control-activities.md, cc9-c1-pi1-additional-criteria.md, a1-availability.md, p-series-privacy.md |
+| IEC 62443 | `iec/62443/` | IEC | OT/ICS security — 7 FRs, 4 Security Levels, zone/conduit | **DECOMPOSED** | fr1-fr3-iam-use-integrity.md, fr4-fr7-confidentiality-availability.md |
+| TISAX / VDA ISA 6.0 | `tisax/` | ENX / VDA | Automotive supply chain information security | **DECOMPOSED** | isms-hr-physical-controls.md, it-supplier-controls.md |
+| SEC Cybersecurity Rules 2023 | `sec/cybersecurity/` | SEC | 8-K 4-business-day disclosure + annual risk governance | SCAFFOLDED | incident-disclosure-annual-report.md |
+| SWIFT CSP / CSCF v2025 | `swift/csp/` | SWIFT | Financial institution SWIFT infrastructure — 25 mandatory controls | **DECOMPOSED** | secure-environment-controls.md, access-credential-controls.md, detect-respond-controls.md |
+| TSA Pipeline Directives SD-02D | `tsa/pipeline/` | TSA / DHS | Critical pipeline OT/IT cybersecurity | SCAFFOLDED | pipeline-cybersecurity-directives.md |
+| NRC 10 CFR 73.54 | `nrc/10cfr73/` | NRC | Nuclear power reactor cybersecurity | SCAFFOLDED | nuclear-cybersecurity-program.md |
 
 ---
 
@@ -211,15 +304,15 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| GDPR | `gdpr/` | EU / DPAs | EU personal data protection — 99 articles | FULL | principles-lawful-basis.md, core-articles.md, data-subject-rights-design.md |
-| UK GDPR + DPA 2018 | `uk-gdpr/` | ICO (UK) | Post-Brexit UK data protection — UK GDPR delta table | FULL | uk-specific-deltas.md |
-| CCPA / CPRA | `ccpa-cpra/` | CalAG / CPPA | California consumer privacy — 3 thresholds, GPC signal | FULL | consumer-rights-obligations.md |
-| HIPAA Security Rule | `hipaa/` | HHS / OCR | ePHI technical/admin/physical safeguards | FULL | 164.308-administrative-safeguards.md, 164.310-physical-safeguards.md, 164.312-technical-safeguards.md, 164.314-organizational-requirements.md, 164.316-policies-documentation.md |
-| HIPAA Privacy Rule | `hipaa/privacy/` | HHS / OCR | PHI in all forms — 9-element auth checklist, Safe Harbor 18 identifiers | FULL | uses-disclosures-authorization.md, individual-rights-breach.md |
-| COPPA | `coppa/` | FTC | Children's online privacy — under 13, verifiable parental consent | FULL | 1 file / 1 assumption |
-| PIPEDA / Law 25 | `pipeda/` | OPC (Canada) | Canadian private-sector privacy — 10 Fair Information Principles | FULL | 1 file / 2 assumptions |
-| LGPD | `lgpd/` | ANPD (Brazil) | Brazilian personal data protection — 10 legal bases, 15-day DSR | FULL | lgpd-obligations.md |
-| APPI (2022 amendment) | `appi/` | PPC (Japan) | Japanese personal data protection — 2-week DSR, 3-5 day breach report | FULL | 1 file / 1 assumption |
+| GDPR | `gdpr/` | EU / DPAs | EU personal data protection — 99 articles | **DECOMPOSED** | principles-lawful-basis.md, core-articles.md, data-subject-rights-design.md |
+| UK GDPR + DPA 2018 | `uk-gdpr/` | ICO (UK) | Post-Brexit UK data protection — UK GDPR delta table | SCAFFOLDED | uk-specific-deltas.md |
+| CCPA / CPRA | `ccpa-cpra/` | CalAG / CPPA | California consumer privacy — 3 thresholds, GPC signal | SCAFFOLDED | consumer-rights-obligations.md |
+| HIPAA Security Rule | `hipaa/` | HHS / OCR | ePHI technical/admin/physical safeguards | **DECOMPOSED** | 164.308-administrative-safeguards.md, 164.310-physical-safeguards.md, 164.312-technical-safeguards.md, 164.314-organizational-requirements.md, 164.316-policies-documentation.md |
+| HIPAA Privacy Rule | `hipaa/privacy/` | HHS / OCR | PHI in all forms — 9-element auth checklist, Safe Harbor 18 identifiers | **DECOMPOSED** | uses-disclosures-authorization.md, individual-rights-breach.md |
+| COPPA | `coppa/` | FTC | Children's online privacy — under 13, verifiable parental consent | SCAFFOLDED | children-online-privacy.md / 1 assumption |
+| PIPEDA / Law 25 | `pipeda/` | OPC (Canada) | Canadian private-sector privacy — 10 Fair Information Principles | SCAFFOLDED | canadian-privacy-obligations.md / 2 assumptions |
+| LGPD | `lgpd/` | ANPD (Brazil) | Brazilian personal data protection — 10 legal bases, 15-day DSR | SCAFFOLDED | lgpd-obligations.md |
+| APPI (2022 amendment) | `appi/` | PPC (Japan) | Japanese personal data protection — 2-week DSR, 3-5 day breach report | SCAFFOLDED | japanese-personal-data-protection.md / 1 assumption |
 
 ---
 
@@ -227,15 +320,15 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| PCI DSS v4.0 | `pci-dss/` | PCI SSC | Payment card data security — 12 requirements | FULL | req-01 through req-12 (12 files) |
-| SOX ITGC | `sox/` | SEC / PCAOB | Public company financial controls — 4 ITGC domains | FULL | itgc-access-change-operations.md |
-| GLBA Safeguards Rule | `glba/` | FTC / OCC | Financial institution customer data — 9 safeguard elements | FULL | safeguards-rule.md |
-| NYDFS Part 500 | `nydfs/500/` | NYDFS | NY-licensed financial entity cybersecurity — 6yr log retention | FULL | cybersecurity-program.md |
-| DORA | `dora/` | EU / ESAs | EU financial entity digital operational resilience — 5 pillars | FULL | incident-reporting-contracts-resilience.md |
-| FFIEC | `ffiec/` | FFIEC | US bank examination benchmarks — 12 handbooks | FULL | 1 file / 0 assumptions |
-| Basel III / BCBS 239 | `basel/` | BCBS | Capital adequacy ratios + risk data aggregation | FULL | 1 file / 2 assumptions |
-| PSD2 / SCA | `psd2/` | EBA (EU) | Payment services strong customer authentication | FULL | 1 file / 0 assumptions |
-| FINRA Rules | `finra/` | FINRA | Broker-dealer supervision, records, customer protection | FULL | 1 file / 0 assumptions |
+| PCI DSS v4.0 | `pci-dss/` | PCI SSC | Payment card data security — 12 requirements | **DECOMPOSED** | req-01 through req-12 (12 files) |
+| SOX ITGC | `sox/` | SEC / PCAOB | Public company financial controls — 4 ITGC domains | SCAFFOLDED | itgc-access-change-operations.md |
+| GLBA Safeguards Rule | `glba/` | FTC / OCC | Financial institution customer data — 9 safeguard elements | SCAFFOLDED | safeguards-rule.md |
+| NYDFS Part 500 | `nydfs/500/` | NYDFS | NY-licensed financial entity cybersecurity — 6yr log retention | SCAFFOLDED | cybersecurity-program.md |
+| DORA | `dora/` | EU / ESAs | EU financial entity digital operational resilience — 5 pillars | SCAFFOLDED | incident-reporting-contracts-resilience.md |
+| FFIEC | `ffiec/` | FFIEC | US bank examination benchmarks — 12 handbooks | SCAFFOLDED | information-security-examination.md |
+| Basel III / BCBS 239 | `basel/` | BCBS | Capital adequacy ratios + risk data aggregation | SCAFFOLDED | capital-adequacy-risk-data-aggregation.md / 2 assumptions |
+| PSD2 / SCA | `psd2/` | EBA (EU) | Payment services strong customer authentication | SCAFFOLDED | strong-customer-authentication.md |
+| FINRA Rules | `finra/` | FINRA | Broker-dealer supervision, records, customer protection | SCAFFOLDED | broker-dealer-supervision-records.md |
 
 ---
 
@@ -243,14 +336,14 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| FDA 21 CFR Part 11 | `fda/21cfr11/` | FDA | Electronic records and signatures | FULL | electronic-records-esig.md, system-validation.md |
-| FDA 21 CFR 210/211 cGMP | `fda/21cfr210-211/` | FDA | Pharmaceutical manufacturing good practices | FULL | pharmaceutical-manufacturing-controls.md |
-| FDA QMSR | `fda/qmsr/` | FDA | Medical device quality management — ISO 13485 + 15 FDA deltas | FULL | fda-qmsr-deltas.md |
-| FDA FSMA | `fda/fsma/` | FDA | Food safety modernization — HARPC, FSVP, FTL traceability | FULL | 1 file / 3 assumptions |
-| ISO 13485:2016 | `iso/13485/` | ISO | Medical device QMS — ~80 sub-clauses | FULL | records-and-design-controls.md, management-and-product-controls.md |
-| EU MDR 2017/745 / IVDR | `eu-mdr/` | EC / notified bodies | EU medical device regulation — 4 device classes | FULL | gspr-technical-documentation.md, pms-vigilance-conformity.md |
-| ISO 14971:2019 | `iso/14971/` | ISO | Medical device risk management — 6-step process | FULL | risk-management-process.md |
-| IEC 62304:2006+AMD1 | `iec/62304/` | IEC | Medical device software lifecycle — 3 safety classes | FULL | software-development-controls.md, maintenance-risk-problem-resolution.md |
+| FDA 21 CFR Part 11 | `fda/21cfr11/` | FDA | Electronic records and signatures | **DECOMPOSED** | electronic-records-esig.md, system-validation.md |
+| FDA 21 CFR 210/211 cGMP | `fda/21cfr210-211/` | FDA | Pharmaceutical manufacturing good practices | SCAFFOLDED | pharmaceutical-manufacturing-controls.md |
+| FDA QMSR | `fda/qmsr/` | FDA | Medical device quality management — ISO 13485 + 15 FDA deltas | SCAFFOLDED | fda-qmsr-deltas.md |
+| FDA FSMA | `fda/fsma/` | FDA | Food safety modernization — HARPC, FSVP, FTL traceability | SCAFFOLDED | harpc-traceability-fsvp.md / 3 assumptions |
+| ISO 13485:2016 | `iso/13485/` | ISO | Medical device QMS — ~80 sub-clauses | **DECOMPOSED** | records-and-design-controls.md, management-and-product-controls.md |
+| EU MDR 2017/745 / IVDR | `eu-mdr/` | EC / notified bodies | EU medical device regulation — 4 device classes | **DECOMPOSED** | gspr-technical-documentation.md, pms-vigilance-conformity.md |
+| ISO 14971:2019 | `iso/14971/` | ISO | Medical device risk management — 6-step process | SCAFFOLDED | risk-management-process.md |
+| IEC 62304:2006+AMD1 | `iec/62304/` | IEC | Medical device software lifecycle — 3 safety classes | **DECOMPOSED** | software-development-controls.md, maintenance-risk-problem-resolution.md |
 
 ---
 
@@ -258,12 +351,12 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| ISO 9001:2015 | `iso/9001/` | ISO | General-purpose QMS — foundation for all sector-specific standards | FULL | records-and-operational-controls.md, management-process-controls.md |
-| IATF 16949:2016 | `iatf/16949/` | IATF | Automotive QMS — APQP/PPAP/FMEA/MSA/SPC | FULL | ppap-and-product-controls.md, supplier-and-problem-solving.md |
-| AS9100 Rev D | `as9100/` | SAE / IAQG | Aerospace QMS — FAI, FOD, counterfeit part controls | FULL | aerospace-qms-controls.md |
-| NADCAP | `nadcap/` | PRI | Aerospace special process accreditation — ~20 commodities | FULL | 1 file / 0 assumptions |
-| API Q1/Q2 (9th/1st Ed) | `api/q1/` | API | Oil and gas equipment/service QMS + API Monogram | FULL | 1 file / 1 assumption |
-| IPC-A-610 / J-STD-001 Rev H | `ipc/` | IPC | Electronics assembly acceptability — 3 product classes | FULL | 1 file / 0 assumptions |
+| ISO 9001:2015 | `iso/9001/` | ISO | General-purpose QMS — foundation for all sector-specific standards | **DECOMPOSED** | records-and-operational-controls.md, management-process-controls.md |
+| IATF 16949:2016 | `iatf/16949/` | IATF | Automotive QMS — APQP/PPAP/FMEA/MSA/SPC | **DECOMPOSED** | ppap-and-product-controls.md, supplier-and-problem-solving.md |
+| AS9100 Rev D | `as9100/` | SAE / IAQG | Aerospace QMS — FAI, FOD, counterfeit part controls | SCAFFOLDED | aerospace-qms-controls.md |
+| NADCAP | `nadcap/` | PRI | Aerospace special process accreditation — ~20 commodities | SCAFFOLDED | special-process-accreditation.md |
+| API Q1/Q2 (9th/1st Ed) | `api/q1/` | API | Oil and gas equipment/service QMS + API Monogram | SCAFFOLDED | oilgas-qms-controls.md / 1 assumption |
+| IPC-A-610 / J-STD-001 Rev H | `ipc/` | IPC | Electronics assembly acceptability — 3 product classes | SCAFFOLDED | electronics-assembly-acceptability.md |
 
 ---
 
@@ -271,12 +364,12 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| OSHA 29 CFR 1910 | `osha/1910/` | U.S. DOL / OSHA | General industry safety — 10 most-cited standards | **FULL** | 10 standard files |
-| OSHA 29 CFR 1926 | `osha/1926/` | U.S. DOL / OSHA | Construction safety — 3 most-cited standards | **FULL** | 3 standard files |
-| ISO 45001:2018 | `iso/45001/` | ISO | OH&S management system — replaces OHSAS 18001 | FULL | 1 file / 1 assumption |
-| ISO 14001:2015 | `iso/14001/` | ISO | Environmental management system | FULL | 1 file / 1 assumption |
-| ISO 50001:2018 | `iso/50001/` | ISO | Energy management system — EnPI, SEU, energy review | FULL | 1 file / 1 assumption |
-| RoHS 3 / REACH | `rohs-reach/` | EC / ECHA | EU chemical restrictions — 10 RoHS substances, SVHC 0.1% | FULL | 1 file / 0 assumptions |
+| OSHA 29 CFR 1910 | `osha/1910/` | U.S. DOL / OSHA | General industry safety — 10 most-cited standards | **DECOMPOSED** | 10 standard files |
+| OSHA 29 CFR 1926 | `osha/1926/` | U.S. DOL / OSHA | Construction safety — 3 most-cited standards | **DECOMPOSED** | 1926.451-scaffolds.md, 1926.501-fall-protection.md, 1926.651-excavations.md |
+| ISO 45001:2018 | `iso/45001/` | ISO | OH&S management system — replaces OHSAS 18001 | SCAFFOLDED | ohs-management-system.md / 1 assumption |
+| ISO 14001:2015 | `iso/14001/` | ISO | Environmental management system | SCAFFOLDED | environmental-management-system.md / 1 assumption |
+| ISO 50001:2018 | `iso/50001/` | ISO | Energy management system — EnPI, SEU, energy review | SCAFFOLDED | energy-management-system.md / 1 assumption |
+| RoHS 3 / REACH | `rohs-reach/` | EC / ECHA | EU chemical restrictions — 10 RoHS substances, SVHC 0.1% | SCAFFOLDED | chemical-restriction-compliance.md |
 
 ---
 
@@ -284,7 +377,7 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| ITAR / EAR | `itar-ear/` | State Dept / Commerce | U.S. export controls — USML / CCL | FULL | deterministic-controls.md, parameterized-controls.md |
+| ITAR / EAR | `itar-ear/` | State Dept / Commerce | U.S. export controls — USML / CCL | **DECOMPOSED** | deterministic-controls.md, parameterized-controls.md |
 
 ---
 
@@ -292,8 +385,8 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| ISO 22000:2018 / FSSC 22000 | `iso/22000/` | ISO / FSSC | Food safety management — HACCP + Annex SL | FULL | 1 file / 2 assumptions |
-| FDA FSMA | `fda/fsma/` | FDA | *(Also listed under Healthcare — HARPC, FTL 24-hour traceability)* | FULL | 1 file / 3 assumptions |
+| ISO 22000:2018 / FSSC 22000 | `iso/22000/` | ISO / FSSC | Food safety management — HACCP + Annex SL | SCAFFOLDED | fsms-haccp-traceability.md / 2 assumptions |
+| FDA FSMA | `fda/fsma/` | FDA | *(Also listed under Healthcare — HARPC, FTL 24-hour traceability)* | SCAFFOLDED | harpc-traceability-fsvp.md / 3 assumptions |
 
 ---
 
@@ -301,11 +394,20 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| RCRA (40 CFR Parts 260–272) | `epa/rcra/` | EPA | Hazardous waste generation, storage, disposal — LQG/SQG/VSQG tiers | FULL | 1 file / 0 assumptions |
-| EPCRA / SARA Title III | `epa/epcra/` | EPA / LEPCs | Emergency planning, community right-to-know, TRI Form R | FULL | 1 file / 0 assumptions |
-| Clean Air Act (Title V / NSPS / NESHAP) | `epa/clean-air-act/` | EPA / state agencies | Air emissions — permits, NSPS, MACT, CAM, GHG reporting | FULL | 1 file / 0 assumptions |
-| Clean Water Act / NPDES / SPCC | `epa/npdes/` | EPA / Army Corps | Water discharge permits, oil spill prevention, stormwater | FULL | 1 file / 0 assumptions |
-| EPA RMP (40 CFR Part 68) | `epa/rmp/` | EPA | Risk Management Program — accidental release prevention; Program 1/2/3 | FULL | 1 file / 0 assumptions |
+| RCRA (40 CFR Parts 260–272) | `epa/rcra/` | EPA | Hazardous waste generation, storage, disposal — LQG/SQG/VSQG tiers | SCAFFOLDED | hazardous-waste-generator.md |
+| EPCRA / SARA Title III | `epa/epcra/` | EPA / LEPCs | Emergency planning, community right-to-know, TRI Form R | SCAFFOLDED | emergency-planning-tri-reporting.md |
+| Clean Air Act (Title V / NSPS / NESHAP) | `epa/clean-air-act/` | EPA / state agencies | Air emissions — permits, NSPS, MACT, CAM, GHG reporting | SCAFFOLDED | title-v-nsps-neshap.md |
+| Clean Water Act / NPDES / SPCC | `epa/npdes/` | EPA / Army Corps | Water discharge permits, oil spill prevention, stormwater | SCAFFOLDED | permit-compliance-spcc-stormwater.md |
+| EPA RMP (40 CFR Part 68) | `epa/rmp/` | EPA | Risk Management Program — accidental release prevention; Program 1/2/3 | SCAFFOLDED | risk-management-program.md |
+
+---
+
+### Nuclear Safety & Quality
+
+| Framework | Path | Authority | Scope | Status | Individual files |
+|---|---|---|---|---|---|
+| NRC 10 CFR Part 50 | `nrc/10cfr50/` | NRC | Nuclear power reactor safety, QA, operations, and event reporting | **DECOMPOSED** | appendix-b-qa.md, event-reporting.md, fire-protection.md, maintenance-rule.md, 50.55a-isi-ist.md, 50.59-changes-tests-experiments.md |
+| NRC 10 CFR Part 26 | `nrc/10cfr26/` | NRC | Fitness for duty — drug/alcohol testing, work hour controls, behavioral observation | SCAFFOLDED | fitness-for-duty.md |
 
 ---
 
@@ -313,8 +415,8 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 
 | Framework | Path | Authority | Scope | Status | Individual files |
 |---|---|---|---|---|---|
-| EU AI Act 2024/1689 | `eu-ai-act/` | EC | AI system risk classification — 4 tiers, prohibited practices | FULL | 1 file / 2 assumptions |
-| WCAG 2.2 / Section 508 | `wcag/` | W3C / US Access Board | Digital accessibility — POUR principles, 87 success criteria | FULL | 1 file / 1 assumption |
+| EU AI Act 2024/1689 | `eu-ai-act/` | EC | AI system risk classification — 4 tiers, prohibited practices | SCAFFOLDED | prohibited-highrisk-gpai.md / 2 assumptions |
+| WCAG 2.2 / Section 508 | `wcag/` | W3C / US Access Board | Digital accessibility — POUR principles, 87 success criteria | SCAFFOLDED | wcag22-section508-accessibility.md / 1 assumption |
 
 ---
 
@@ -326,13 +428,13 @@ Status key: **FULL** = index + all individual standard files decomposed; **INDEX
 | Assumption Registry Template | `guiding_docs/assumption-registry-template.md` | YAML schema, field definitions, approval workflow, and staleness enforcement rules for all PARAMETERIZED assumptions |
 | Cross-Framework Dependency Map | `guiding_docs/cross-framework-dependency-map.md` | 10 shared evidence artifact clusters (IRP, log retention, MFA, pentest, etc.) showing how one implementation satisfies multiple frameworks |
 | CI/CD Gate Configuration Reference | `guiding_docs/ci-cd-gate-config-reference.md` | Pattern 1/2/3 pytest implementation, failure routing matrix, GitHub Actions pipeline YAML, staleness check tool |
-| Scoping Fixture Catalog | `guiding_docs/scoping-fixture-catalog.md` | All `is_in_scope()` pre-condition functions for all 64 frameworks; scoping matrix by organization type |
+| Scoping Fixture Catalog | `guiding_docs/scoping-fixture-catalog.md` | All `is_in_scope()` pre-condition functions for all 67 frameworks; scoping matrix by organization type |
 
 ---
 
 ### Parse roadmap — next priority targets
 
-The following frameworks have the highest DETERMINISTIC density and are best candidates for individual standard file decomposition (converting INDEX → FULL):
+The following frameworks have the highest DETERMINISTIC density and are best candidates for expanding SCAFFOLDED entries into full DECOMPOSED treatment:
 
 | Priority | Framework | Reason |
 |---|---|---|
@@ -453,12 +555,14 @@ These are different claims. Conflating them is how compliance programs fail audi
 
 Contributions are welcome under the terms of the [CC BY 4.0 license](#license).
 
+**Before you start:** Read [`guiding_docs/regulatory-decomposition-framework.md`](guiding_docs/regulatory-decomposition-framework.md) — it defines the 4-element extraction process, ambiguity classification rules, and the three test patterns. Without it, it's difficult to produce a conformant PR. The [`guiding_docs/assumption-registry-template.md`](guiding_docs/assumption-registry-template.md) covers the PARAMETERIZED assumption schema you'll need for any non-DETERMINISTIC elements.
+
 **To add a new standard:**
 
 1. Fork the repository.
 2. Locate or create the appropriate `compliance_entities/<framework>/` directory.
 3. Create a `_index.md` if it does not exist, following the existing manifests as a template.
-4. Create the standard file using the RDF format: source text excerpt, 4-element extraction table, ambiguity classification, YAML spec, Python test code.
+4. Create the standard file using the RDF format: source text excerpt, 4-element extraction table, ambiguity classification, YAML spec, Python test code. See the [NERC CIP example above](#start-here-a-nerc-cip-example-end-to-end) for the expected level of detail.
 5. Update the `_index.md` manifest to include the new standard in the confidence summary, assumption registry, and per-standard confidence map.
 6. Submit a pull request with a description of the regulation decomposed and a note on any CONTESTED or UNRESOLVABLE classifications you identified.
 

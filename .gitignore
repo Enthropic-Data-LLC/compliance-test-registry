@@ -1,8 +1,3 @@
-# ── Internal working documents ─────────────────────────────────────────────────
-# These files contain methodology notes, design decisions, and internal process
-# documentation that are not part of the public-facing registry.
-guiding_docs/
-
 # ── Python ────────────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]

@@ -199,7 +199,8 @@ The §50.65(a)(4) assessment is distinct from the (a)(1)/(a)(2) monitoring frame
 spec_id: NRC-50-MR-001
 framework: NRC 10 CFR Part 50
 section: §50.65 (a)(1), (a)(2), (a)(3), (a)(4)
-confidence: MIXED
+confidence:
+  overall: MIXED
   program_existence: HIGH (DETERMINISTIC)
   annual_review_cadence: HIGH (DETERMINISTIC)
   a1_trigger_detection: MEDIUM (PARAMETERIZED)

@@ -244,7 +244,8 @@ sections:
   - Appendix B Criterion XVII (QA records retention)
   - Appendix B Criterion XVIII (audit cadence)
   - Appendix B Criterion XV (nonconformance CAP entry)
-confidence: MIXED
+confidence:
+  overall: MIXED
   criterion_xii: HIGH
   criterion_xvii: HIGH
   criterion_xviii: HIGH
