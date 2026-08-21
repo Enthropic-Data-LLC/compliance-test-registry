@@ -48,7 +48,7 @@ The specific problem that prompted this work was preparing compliance posture do
 
 **The test suite is the audit trail.** When a regulator asks for evidence, the answer is a git commit hash, a test run timestamp, and the specific assertion that passed. No interpretation required.
 
-**Assumptions have owners and expiry dates.** Every PARAMETERIZED assumption has an `approved_by`, a `date`, and a `review_frequency_days`. The CI pipeline treats stale assumptions as failures. The assumption registry in each `_index.md` is the single source of truth for what human decisions are load-bearing in the test suite.
+**Assumptions have owners and expiry dates.** Every PARAMETERIZED assumption has an `approved_by`, a `date`, and a `review_frequency_days`. `tools/check_assumption_staleness.py` computes each due date and runs daily in CI; a YAML assumption block past its due date fails the pipeline. The same tool also reports the `@pytest.mark.assumption(review_date=...)` markers embedded in the test code, which are warn-only today because their `review_date` values carry mixed semantics across the registry — run it with `--strict-markers` to gate on those too. The assumption blocks in the standard files, together with the assumption registry in each `_index.md`, are the source of truth for what human decisions are load-bearing in the test suite.
 
 ---
 
@@ -578,7 +578,7 @@ Under the following terms:
   - The repository URL or name: **Compliance Test Case Registry**
   - An indication of any changes made from the original
 
-Full license text: https://creativecommons.org/licenses/by/4.0/
+Full license text: [`LICENSE`](LICENSE) in this repository, or https://creativecommons.org/licenses/by/4.0/
 
 ### Attribution example
 

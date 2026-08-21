@@ -43,12 +43,18 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Check for stale assumptions
-        # Warn at 30 days; exit 2 (stale) blocks the pipeline
+        # Warn at 30 days (exit 1); exit 2 (stale) blocks the pipeline.
+        # `set +e` is required: GitHub runs `run:` steps under `bash -e`, so an
+        # exit 1 warning would abort the step before it could be classified.
         run: |
+          set +e
           python tools/check_assumption_staleness.py --warn-days 30
           EXIT=$?
           if [ $EXIT -eq 2 ]; then
-            echo "::error::One or more assumptions are past their review_due_date. See output above."
+            echo "::error::One or more assumptions are past their review due date. See output above."
             exit 1
+          fi
+          if [ $EXIT -eq 1 ]; then
+            echo "::warning::Assumptions are approaching expiry or have marker-format problems. See output above."
           fi
           exit 0
