@@ -1,0 +1,112 @@
+{
+  "appi": {
+    "captured": "2026-08-20",
+    "sha256": "79f7e5ef96aad0db026f9eac5ee50cbe74658decc0dbe6f16de81dd5065a5470",
+    "url": "https://www.ppc.go.jp/en/legal/"
+  },
+  "basel": {
+    "captured": "2026-08-20",
+    "sha256": "353d70b84228f523bccb51c4e99d574f7b92b30125bfa61762c8a53255d098bb",
+    "url": "https://www.bis.org/basel_framework/"
+  },
+  "ccpa-cpra": {
+    "captured": "2026-08-20",
+    "sha256": "b37ce1d38f968df2f5aa6c49f058b7184dfe5df6dee29ee97997a7bc6a181379",
+    "url": "https://cppa.ca.gov/regulations/"
+  },
+  "dora": {
+    "captured": "2026-08-20",
+    "sha256": "91184564cc118c7cae88533b98dc5259fc6dd7c6e24d93d02069528c751ea078",
+    "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj"
+  },
+  "eu-ai-act": {
+    "captured": "2026-08-20",
+    "sha256": "35cc5ab46a01fda865199095bd6b9d0164d22426893d50f09b6bfb2932f3b250",
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+  },
+  "eu-mdr": {
+    "captured": "2026-08-20",
+    "sha256": "0772b1e782dc4349edbd11dd0de57f1a46328867ac3f27d9f0680ad06e77912a",
+    "url": "https://eur-lex.europa.eu/eli/reg/2017/745/oj"
+  },
+  "fedramp": {
+    "captured": "2026-08-20",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "url": "https://www.fedramp.gov/rev5/documents-templates/"
+  },
+  "ffiec": {
+    "captured": "2026-08-20",
+    "sha256": "6ce8475dba9aafb78b88f47e93dcf1d9e44c8bac2a6bfa2f106379ac6d596324",
+    "url": "https://ithandbook.ffiec.gov/"
+  },
+  "finra": {
+    "captured": "2026-08-20",
+    "sha256": "1cef98596219e9a2cd071f5842a743ee897600c3e49ccdc4a06b4677106ea458",
+    "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules"
+  },
+  "gdpr": {
+    "captured": "2026-08-20",
+    "sha256": "fdb659124247be524f7cd2e1e62a1e4b0e5b2dcc7b94593e8c9114fe4e118c9b",
+    "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  },
+  "iec/62304": {
+    "captured": "2026-08-20",
+    "sha256": "1ab5dd024c8f3f2113636555f799eaa0b639cf2d8f230f27db8ae42adcc08e20",
+    "url": "https://webstore.iec.ch/publication/22794"
+  },
+  "iec/62443": {
+    "captured": "2026-08-20",
+    "sha256": "2558ea321518275694e83fe8f9b615ea29a5e551aa989a170095c60ca0158eb8",
+    "url": "https://webstore.iec.ch/searchform&q=62443"
+  },
+  "lgpd": {
+    "captured": "2026-08-20",
+    "sha256": "61d684507321da5b347ae273a0afb1437e22b689cf3409b9881821bce2c673ed",
+    "url": "https://www.gov.br/anpd/pt-br/assuntos/noticias"
+  },
+  "nerc/cip": {
+    "captured": "2026-08-20",
+    "sha256": "1848799a3b47f88ec6322552336bbb8aef32354e582a5def24a3420baf23bc49",
+    "url": "https://www.nerc.com/pa/Stand/Pages/ReliabilityStandardsUnitedStates.aspx"
+  },
+  "nerc/ops": {
+    "captured": "2026-08-20",
+    "sha256": "1848799a3b47f88ec6322552336bbb8aef32354e582a5def24a3420baf23bc49",
+    "url": "https://www.nerc.com/pa/Stand/Pages/ReliabilityStandardsUnitedStates.aspx"
+  },
+  "nydfs/500": {
+    "captured": "2026-08-20",
+    "sha256": "ab6c6deaac2447b25a88319f92e63b5a7c06797c4d1926944b9d065cbdf04bcd",
+    "url": "https://www.dfs.ny.gov/industry_guidance/cybersecurity"
+  },
+  "pipeda": {
+    "captured": "2026-08-20",
+    "sha256": "a88431fd90c7a054cef5a5cbf5d9e4e675485bf67ebd0768454060b7834c07dd",
+    "url": "https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/"
+  },
+  "psd2": {
+    "captured": "2026-08-20",
+    "sha256": "2a99c6b00b93f7a850a22f0ce733619f8a8c497f0c97b9b79f2abea2b5d77cff",
+    "url": "https://eur-lex.europa.eu/eli/dir/2015/2366/oj"
+  },
+  "soc2": {
+    "captured": "2026-08-20",
+    "sha256": "2ce656616d2879f401d5d0ca5f5d25cdb029a1a3f2b194a32ecb094f610568da",
+    "url": "https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022"
+  },
+  "tisax": {
+    "captured": "2026-08-20",
+    "sha256": "e81b895967e5e3e923f814f5ccc87746914dabe898b4a81973acda06a08c5eee",
+    "url": "https://portal.enx.com/en-US/TISAX/downloads/"
+  },
+  "tsa/pipeline": {
+    "captured": "2026-08-20",
+    "sha256": "5e023c735c8919e3eb250ec08ddbdde97c0cc08c2f38682feba209e37b94a01c",
+    "url": "https://www.tsa.gov/sd-and-ea"
+  },
+  "uk-gdpr": {
+    "captured": "2026-08-20",
+    "sha256": "a9bb746e965b08adfa6646dcfcd3c49b73fd39def0f7889974c9e4402077d87b",
+    "url": "https://www.legislation.gov.uk/ukpga/2018/12/contents"
+  }
+}

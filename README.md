@@ -432,6 +432,32 @@ Status key: **DECOMPOSED** = index + multiple standard files with control-by-con
 
 ---
 
+### Maintenance Tooling
+
+| Tool | Purpose |
+|---|---|
+| `tools/validate_registry.py` | Parses every Python and YAML block in the registry. Runs on every push and pull request. |
+| `tools/check_assumption_staleness.py` | Computes the review due date of every documented assumption and fails the pipeline on an overdue YAML assumption block. Runs daily. |
+| `tools/check_source_currency.py` | Compares the version each framework asserts against the version its issuing authority currently publishes. Runs weekly. |
+| `data/sources.yml` | The authoritative source for each framework: what version we claim to cover, where to verify it, and how. |
+
+#### Currency checking
+
+A registry of regulatory content is wrong the moment a regulation moves, and the failure is silent — nothing in the repository changes. `tools/check_source_currency.py` closes that gap by checking each framework against its issuing authority every week:
+
+- **`ecfr`** — queries the eCFR versioner API for the latest amendment date across the relevant CFR parts. Authoritative and precise; drift means a part was amended after our last review date.
+- **`regex`** — extracts a published version string from the authority's page (NIST CSRC, W3C, ISO catalogue, PCI SSC) and compares it to what we assert.
+- **`hash`** — for sources with no stable version marker, hashes the page's visible text against a committed baseline in `data/source-baselines.json`. Noisy by design: a flag means *go look*, not *the regulation changed*.
+- **`manual`** — paywalled standards (NADCAP, IPC, API Q1/Q2, AS9100, IATF 16949) where no public marker exists. These never flag automatically and are listed in every report so they cannot be quietly forgotten.
+
+**The tool detects drift; it does not resolve it.** It never edits registry content and is deliberately not a merge gate — it runs on its own schedule, never on pull requests, and never fails a build. Reading the changed source and deciding what it means for a test case is human work, and on an AI-generated registry that boundary matters more than usual.
+
+Every framework directory must have an entry in `data/sources.yml`; the checker errors if one is missing, so the source list cannot fall behind the registry.
+
+After a reviewed update, re-record the hash baselines with `python tools/check_source_currency.py --update-baseline` and commit the result.
+
+---
+
 ### Parse roadmap — next priority targets
 
 The following frameworks have the highest DETERMINISTIC density and are best candidates for expanding SCAFFOLDED entries into full DECOMPOSED treatment:

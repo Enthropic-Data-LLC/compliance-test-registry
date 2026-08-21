@@ -1,0 +1,58 @@
+name: Source Currency
+
+# Reports drift between the versions this registry asserts and the versions the
+# issuing authorities currently publish. Deliberately NOT a merge gate: it runs on
+# its own schedule, never on pull requests, and never fails the build. A regulator
+# reorganising their website must not turn someone's unrelated PR red.
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'   # Mondays 07:00 UTC — weekly is polite to .gov endpoints
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  currency:
+    name: Check registry currency against published sources
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check source currency
+        id: currency
+        run: |
+          set +e
+          python tools/check_source_currency.py | tee currency-report.txt
+          echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Publish report to the job summary
+        run: |
+          {
+            echo '## Source currency report'
+            echo
+            echo '```'
+            cat currency-report.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Flag drift
+        if: steps.currency.outputs.exit_code != '0'
+        run: echo "::warning::Source drift or unreachable sources detected. See the job summary."
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: currency-report
+          path: currency-report.txt
+          retention-days: 90

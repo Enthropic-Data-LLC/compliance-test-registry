@@ -7,6 +7,11 @@ Checks:
   2. YAML code blocks in .md files are parseable
   3. Every standard file has at least one ## heading (basic structure check)
   4. No _index.md references a standard file path that doesn't exist on disk
+  5. No .md file is empty, and every framework _index.md has a title heading
+
+Check 5 exists because a batch commit once truncated compliance_entities/eu-ai-act/_index.md
+to zero bytes and the validator passed it for three months: the structure check exempts
+_index.md and README.md, so nothing looked at them at all.
 
 Exit codes:
   0 — all checks passed
@@ -44,6 +49,22 @@ def validate_yaml_syntax(path: Path, content: str) -> list[str]:
     return errors
 
 
+def validate_not_empty(path: Path, content: str) -> list[str]:
+    """No registry file should be empty, whatever its role."""
+    if not content.strip():
+        return [f"{path}: file is empty"]
+    return []
+
+
+def validate_index(path: Path, content: str) -> list[str]:
+    """Framework indexes are exempt from the structure check, so check them here."""
+    if path.name != "_index.md" or not content.strip():
+        return []
+    if not re.search(r"^#\s+\S", content, re.MULTILINE):
+        return [f"{path}: index has no top-level '# ' title heading"]
+    return []
+
+
 def validate_structure(path: Path, content: str) -> list[str]:
     """Every non-index .md file must have either a markdown heading or a Python comment block."""
     if path.name in ("_index.md", "README.md"):
@@ -67,8 +88,10 @@ def main() -> int:
 
     for path in md_files:
         content = path.read_text(encoding="utf-8")
+        errors.extend(validate_not_empty(path, content))
         errors.extend(validate_python_syntax(path, content))
         errors.extend(validate_yaml_syntax(path, content))
+        errors.extend(validate_index(path, content))
         errors.extend(validate_structure(path, content))
 
     if errors:

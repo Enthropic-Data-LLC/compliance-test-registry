@@ -1,0 +1,726 @@
+# Authoritative source registry for currency checking.
+#
+# One entry per framework directory under compliance_entities/. Each entry records
+# the version this registry ASSERTS, and where the authoritative published version
+# can be checked. `tools/check_source_currency.py` reads this file and reports drift.
+#
+# Fields
+#   id            Path under compliance_entities/ (the framework's directory)
+#   name          Human-readable framework name
+#   authority     Publishing body
+#   asserted      The version/revision string this registry claims to cover
+#   asserted_as_of  Date the registry content was last reviewed against the source
+#   method        How currency is checked:
+#                   ecfr    — eCFR versioner API; authoritative per-part amendment dates
+#                   regex   — fetch `url`, extract a version marker with `pattern`
+#                   hash    — fetch `url`, hash the extracted text; report if it changed
+#                   manual  — paywalled or no stable public marker; human review only
+#   url           Authoritative source page (informational for ecfr/manual entries)
+#   title/parts   eCFR title number and part list (method: ecfr only)
+#   pattern       Regex with one capture group yielding the version (method: regex only)
+#   notes         Why a method was chosen, or what a human must check
+#
+# Adding a framework: add an entry here. check_source_currency.py fails if any
+# framework directory lacks one, so this file cannot silently fall behind the registry.
+
+sources:
+
+  # ─── US Code of Federal Regulations (authoritative amendment dates via eCFR) ───
+
+  - id: hipaa
+    name: HIPAA Security Rule
+    authority: HHS OCR
+    asserted: 45 CFR Part 164 Subpart C
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 45
+    parts: ["160", "164"]
+    url: https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164
+
+  - id: hipaa/privacy
+    name: HIPAA Privacy Rule
+    authority: HHS OCR
+    asserted: 45 CFR Part 164 Subpart E
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 45
+    parts: ["164"]
+    url: https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-E
+
+  - id: fda/21cfr11
+    name: FDA 21 CFR Part 11 — Electronic Records and Signatures
+    authority: FDA
+    asserted: 21 CFR Part 11 Subparts A–C
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 21
+    parts: ["11"]
+    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11
+
+  - id: fda/21cfr210-211
+    name: FDA cGMP for Finished Pharmaceuticals
+    authority: FDA
+    asserted: 21 CFR Parts 210 & 211
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 21
+    parts: ["210", "211"]
+    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C
+
+  - id: fda/qmsr
+    name: FDA QMSR (21 CFR Part 820)
+    authority: FDA
+    asserted: Part 820 as amended by the QMSR final rule (effective 2026-02-02)
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 21
+    parts: ["820"]
+    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-820
+    notes: >
+      QMSR replaced the old QSR effective 2026-02-02 and incorporates ISO 13485:2016 by
+      reference. Cross-check against the iso/13485 entry when either moves.
+
+  - id: fda/fsma
+    name: FDA FSMA (Preventive Controls, Traceability, FSVP)
+    authority: FDA
+    asserted: 21 CFR Parts 117, 1 Subpart S, 1 Subpart L
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 21
+    parts: ["1", "117"]
+    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-117
+    notes: >
+      The Food Traceability Rule (Part 1 Subpart S) compliance date has been moved once
+      already — confirm the current date, not just whether the text changed.
+
+  - id: osha/1910
+    name: OSHA General Industry
+    authority: OSHA / DOL
+    asserted: 29 CFR Part 1910
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 29
+    parts: ["1910"]
+    url: https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910
+
+  - id: osha/1926
+    name: OSHA Construction
+    authority: OSHA / DOL
+    asserted: 29 CFR Part 1926
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 29
+    parts: ["1926"]
+    url: https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1926
+
+  - id: osha
+    name: OSHA Registry Manifest
+    authority: OSHA / DOL
+    asserted: 29 CFR 1910 + 29 CFR 1926
+    asserted_as_of: "2026-05-20"
+    method: manual
+    url: https://www.osha.gov/laws-regs
+    notes: Roll-up index only. Currency follows osha/1910 and osha/1926.
+
+  - id: nrc/10cfr26
+    name: NRC Fitness for Duty Programs
+    authority: US NRC
+    asserted: 10 CFR Part 26
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 10
+    parts: ["26"]
+    url: https://www.ecfr.gov/current/title-10/chapter-I/part-26
+
+  - id: nrc/10cfr50
+    name: NRC Domestic Licensing of Production and Utilization Facilities
+    authority: US NRC
+    asserted: 10 CFR Part 50
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 10
+    parts: ["50"]
+    url: https://www.ecfr.gov/current/title-10/chapter-I/part-50
+
+  - id: nrc/10cfr73
+    name: NRC Nuclear Power Reactor Cybersecurity
+    authority: US NRC
+    asserted: 10 CFR 73.54
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 10
+    parts: ["73"]
+    url: https://www.ecfr.gov/current/title-10/chapter-I/part-73/section-73.54
+
+  - id: epa/rcra
+    name: EPA RCRA Hazardous Waste
+    authority: US EPA
+    asserted: 40 CFR Parts 260–272
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 40
+    parts: ["260", "261", "262", "263", "264", "265", "268", "273"]
+    url: https://www.ecfr.gov/current/title-40/chapter-I/subchapter-I
+
+  - id: epa/epcra
+    name: EPA EPCRA / SARA Title III
+    authority: US EPA
+    asserted: 40 CFR Parts 355, 370, 372
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 40
+    parts: ["355", "370", "372"]
+    url: https://www.ecfr.gov/current/title-40/chapter-I/subchapter-J
+
+  - id: epa/clean-air-act
+    name: EPA Clean Air Act — Title V / NSPS / NESHAP / CAM
+    authority: US EPA
+    asserted: 40 CFR Parts 60, 63, 64, 70, 71
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 40
+    parts: ["60", "63", "64", "70", "71"]
+    url: https://www.ecfr.gov/current/title-40/chapter-I/subchapter-C
+    notes: >
+      Parts 60 and 63 are very large and amended frequently; expect this entry to flag
+      often. Drift here usually means a subpart irrelevant to our tests moved.
+
+  - id: epa/npdes
+    name: EPA Clean Water Act — NPDES / SPCC / Stormwater
+    authority: US EPA
+    asserted: 40 CFR Parts 112, 122, 125
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 40
+    parts: ["112", "122", "125"]
+    url: https://www.ecfr.gov/current/title-40/chapter-I/subchapter-D
+
+  - id: epa/rmp
+    name: EPA Risk Management Program
+    authority: US EPA
+    asserted: 40 CFR Part 68
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 40
+    parts: ["68"]
+    url: https://www.ecfr.gov/current/title-40/chapter-I/subchapter-C/part-68
+
+  - id: coppa
+    name: COPPA Rule
+    authority: FTC
+    asserted: 16 CFR Part 312
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 16
+    parts: ["312"]
+    url: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-312
+    notes: >
+      The FTC amended the COPPA Rule in 2025 (first substantive revision since 2013).
+      Confirm which amendments our tests reflect.
+
+  - id: glba
+    name: GLBA Privacy Rule + FTC Safeguards Rule
+    authority: FTC
+    asserted: 16 CFR Parts 313, 314 (Safeguards revised June 2023)
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 16
+    parts: ["313", "314"]
+    url: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-C/part-314
+
+  - id: sec/cybersecurity
+    name: SEC Cybersecurity Disclosure Rules
+    authority: US SEC
+    asserted: 17 CFR Parts 229, 232, 239, 240, 249
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 17
+    parts: ["229", "232", "239", "240", "249"]
+    url: https://www.ecfr.gov/current/title-17/chapter-II/part-229
+
+  - id: sox
+    name: SOX IT General Controls
+    authority: US SEC / PCAOB
+    asserted: Sections 302 & 404; 17 CFR 240.13a-15
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 17
+    parts: ["240"]
+    url: https://www.ecfr.gov/current/title-17/chapter-II/part-240
+    notes: >
+      The statute itself does not change; PCAOB auditing standards and SEC guidance do.
+      A human should also check PCAOB AS 2201 status when this flags.
+
+  - id: itar-ear
+    name: ITAR / EAR Export Controls
+    authority: US State (DDTC) / Commerce (BIS)
+    asserted: 22 CFR Parts 120–130; 15 CFR Parts 730–774
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 22
+    parts: ["120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130"]
+    url: https://www.ecfr.gov/current/title-22/chapter-I/subchapter-M
+    notes: >
+      Only the ITAR half is checked automatically. The EAR (15 CFR 730–774) and the
+      Entity List change very frequently and need a separate human review.
+
+  # ─── NIST publications (stable CSRC landing pages) ───
+
+  - id: nist/sp800-53
+    name: NIST SP 800-53
+    authority: NIST
+    asserted: Revision 5 (upd1)
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
+    pattern: 'SP 800-53 Rev\.?\s*([0-9]+)'
+
+  - id: nist/sp800-171
+    name: NIST SP 800-171
+    authority: NIST
+    asserted: Revision 3 (May 2024)
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://csrc.nist.gov/pubs/sp/800/171/r3/final
+    pattern: 'SP 800-171 Rev\.?\s*([0-9]+)'
+
+  - id: nist/sp800-82
+    name: NIST SP 800-82
+    authority: NIST
+    asserted: Revision 3
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://csrc.nist.gov/pubs/sp/800/82/r3/final
+    pattern: 'SP 800-82 Rev\.?\s*([0-9]+)'
+
+  - id: nist/csf2
+    name: NIST Cybersecurity Framework
+    authority: NIST
+    asserted: CSF 2.0
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.nist.gov/cyberframework
+    pattern: 'CSF\s*([0-9]+\.[0-9]+)'
+
+  - id: nist/ai-rmf
+    name: NIST AI Risk Management Framework
+    authority: NIST
+    asserted: AI RMF 1.0
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.nist.gov/itl/ai-risk-management-framework
+    pattern: 'AI RMF\s*([0-9]+\.[0-9]+)'
+
+  - id: fedramp
+    name: FedRAMP
+    authority: GSA / FedRAMP PMO
+    asserted: Rev 5 baselines
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.fedramp.gov/rev5/documents-templates/
+    notes: >
+      FedRAMP is mid-transition to its 20x program; baseline documents move without a
+      version string in a predictable place, so this is a change-detection check only.
+
+  - id: cmmc
+    name: CMMC
+    authority: DoD CIO
+    asserted: CMMC 2.0 (32 CFR Part 170)
+    asserted_as_of: "2026-05-20"
+    method: ecfr
+    title: 32
+    parts: ["170"]
+    url: https://www.ecfr.gov/current/title-32/subtitle-A/chapter-I/subchapter-D/part-170
+    notes: >
+      The 48 CFR acquisition rule that puts CMMC into contracts is separate from the
+      32 CFR program rule and phases in on its own schedule — check both.
+
+  # ─── EU law (EUR-Lex ELI permalinks carry consolidation dates) ───
+
+  - id: gdpr
+    name: GDPR
+    authority: EU
+    asserted: Regulation (EU) 2016/679
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://eur-lex.europa.eu/eli/reg/2016/679/oj
+    notes: >
+      The base regulation text is stable; what moves is EDPB guidance and national
+      implementing law. A flag here is unusual and worth a close look.
+
+  - id: eu-ai-act
+    name: EU AI Act
+    authority: EU
+    asserted: Regulation (EU) 2024/1689
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    notes: >
+      Highest-churn entry in the registry. Obligations phase in on separate dates
+      through 2027 and the Commission is still issuing implementing acts, codes of
+      practice and standards requests. Needs human review regardless of what the
+      hash says.
+
+  - id: dora
+    name: DORA
+    authority: EU
+    asserted: Regulation (EU) 2022/2554
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://eur-lex.europa.eu/eli/reg/2022/2554/oj
+    notes: >
+      The Level 1 text is stable; the RTS/ITS under it are not. Check the ESAs' joint
+      DORA page for new technical standards when reviewing.
+
+  - id: psd2
+    name: PSD2 / SCA
+    authority: EU
+    asserted: Directive (EU) 2015/2366 + RTS 2018/389
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://eur-lex.europa.eu/eli/dir/2015/2366/oj
+    notes: >
+      PSD3 and the PSR are in the legislative pipeline and will supersede this
+      framework. Confirm status — this entry may need a successor rather than an update.
+
+  - id: eu-mdr
+    name: EU MDR / IVDR
+    authority: EU
+    asserted: Regulation (EU) 2017/745 + 2017/746
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://eur-lex.europa.eu/eli/reg/2017/745/oj
+    notes: Transitional deadlines have been extended more than once; verify current dates.
+
+  - id: rohs-reach
+    name: RoHS / REACH
+    authority: EU / ECHA
+    asserted: Directive 2011/65/EU + Regulation (EC) 1907/2006
+    asserted_as_of: "2026-05-20"
+    method: manual
+    url: https://echa.europa.eu/candidate-list-table
+    notes: >
+      ECHA returns 403 to automated fetches, so this cannot be checked in CI. The REACH
+      SVHC candidate list is updated roughly twice a year and the substance count is
+      load-bearing for our tests — check the candidate list by hand each spring and
+      autumn. The RoHS restricted-substance list moves far more slowly.
+
+  - id: uk-gdpr
+    name: UK GDPR + Data Protection Act 2018
+    authority: UK ICO / Parliament
+    asserted: UK GDPR as retained + DPA 2018
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.legislation.gov.uk/ukpga/2018/12/contents
+    notes: >
+      The Data (Use and Access) Act amends the UK regime on a phased schedule —
+      confirm which provisions are in force.
+
+  # ─── Sector bodies and standards organisations ───
+
+  - id: nerc/cip
+    name: NERC CIP
+    authority: NERC / FERC
+    asserted: CIP-002 through CIP-015
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.nerc.com/pa/Stand/Pages/ReliabilityStandardsUnitedStates.aspx
+    notes: >
+      Watch for CIP-015-1 (internal network security monitoring) moving from
+      pre-enforcement to enforceable, and for new CIP-003 supply-chain revisions.
+
+  - id: nerc/ops
+    name: NERC Reliability Standards (non-CIP)
+    authority: NERC / FERC
+    asserted: Enforceable operating and planning standards
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.nerc.com/pa/Stand/Pages/ReliabilityStandardsUnitedStates.aspx
+
+  - id: pci-dss
+    name: PCI DSS
+    authority: PCI SSC
+    asserted: v4.0
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.pcisecuritystandards.org/document_library/
+    pattern: 'PCI DSS\s*v?([0-9]+\.[0-9]+(?:\.[0-9]+)?)'
+    notes: >
+      The registry asserts v4.0 but v4.0.1 was published in June 2024 and the future-dated
+      v4.x requirements became mandatory on 2025-03-31. This entry is expected to flag.
+
+  - id: soc2
+    name: SOC 2 Trust Services Criteria
+    authority: AICPA
+    asserted: TSC 2017 (with 2022 points of focus)
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.aicpa-cima.com/resources/download/2017-trust-services-criteria-with-revised-points-of-focus-2022
+
+  - id: swift/csp
+    name: SWIFT Customer Security Programme
+    authority: SWIFT
+    asserted: CSCF v2025
+    asserted_as_of: "2026-05-20"
+    method: manual
+    url: https://www.swift.com/myswift/customer-security-programme-csp
+    notes: >
+      swift.com does not respond to automated fetches from CI, so this needs a human.
+      CSCF is republished annually (v2025 → v2026 → …) with an attestation deadline
+      each December, so check it every year regardless of what else changes.
+
+  - id: nydfs/500
+    name: NY DFS Part 500
+    authority: NY Department of Financial Services
+    asserted: 23 NYCRR 500 as amended November 2023 (Second Amendment)
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.dfs.ny.gov/industry_guidance/cybersecurity
+    notes: >
+      Second Amendment obligations phase in through November 2025 — confirm the final
+      tranche is reflected.
+
+  - id: tsa/pipeline
+    name: TSA Pipeline Security Directives
+    authority: TSA / DHS
+    asserted: SD Pipeline-2021-02D and SD Pipeline-2021-01C
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.tsa.gov/sd-and-ea
+    notes: >
+      Directives are reissued annually with an incremented letter suffix, and TSA has a
+      permanent cybersecurity rulemaking underway that may supersede them entirely.
+
+  - id: ffiec
+    name: FFIEC IT Examination Handbooks
+    authority: FFIEC
+    asserted: IT Examination Handbook series
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://ithandbook.ffiec.gov/
+    notes: >
+      The FFIEC Cybersecurity Assessment Tool was sunset on 2025-08-31 — verify the
+      registry does not still rely on it.
+
+  - id: finra
+    name: FINRA Broker-Dealer Rules
+    authority: FINRA
+    asserted: Supervisory, recordkeeping and cybersecurity rules
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.finra.org/rules-guidance/rulebooks/finra-rules
+
+  - id: basel
+    name: Basel III / BCBS 239
+    authority: BIS / BCBS
+    asserted: Basel III framework + BCBS 239
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.bis.org/basel_framework/
+
+  - id: wcag
+    name: WCAG / Section 508
+    authority: W3C / US Access Board
+    asserted: WCAG 2.2
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.w3.org/TR/WCAG22/
+    pattern: 'Web Content Accessibility Guidelines \(WCAG\)\s*([0-9]+\.[0-9]+)'
+    notes: WCAG 3.0 remains a working draft; 2.2 is the current recommendation.
+
+  - id: iec/62443
+    name: IEC 62443 series
+    authority: IEC / ISA
+    asserted: IEC 62443 series
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://webstore.iec.ch/searchform&q=62443
+
+  - id: iec/62304
+    name: IEC 62304
+    authority: IEC
+    asserted: "IEC 62304:2006+AMD1:2015"
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://webstore.iec.ch/publication/22794
+    notes: A second edition has been in development for years — check its status.
+
+  # ─── Non-US privacy statutes ───
+
+  - id: ccpa-cpra
+    name: CCPA / CPRA
+    authority: California Privacy Protection Agency
+    asserted: CCPA as amended by CPRA
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://cppa.ca.gov/regulations/
+    notes: >
+      CPPA finalised regulations on ADMT, risk assessments and cybersecurity audits in
+      2025 — these are substantive new obligations, not editorial changes.
+
+  - id: lgpd
+    name: LGPD (Brazil)
+    authority: ANPD
+    asserted: Lei 13.709/2018
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.gov.br/anpd/pt-br/assuntos/noticias
+
+  - id: pipeda
+    name: PIPEDA / Quebec Law 25
+    authority: OPC Canada / CAI Québec
+    asserted: PIPEDA + Quebec Law 25
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/
+
+  - id: appi
+    name: APPI (Japan)
+    authority: PPC Japan
+    asserted: Act on the Protection of Personal Information
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://www.ppc.go.jp/en/legal/
+    notes: APPI is on a three-year review cycle; an amendment round was in progress.
+
+  # ─── Paywalled standards: edition metadata only ───
+
+  - id: iso/9001
+    name: "ISO 9001:2015"
+    authority: ISO
+    asserted: "ISO 9001:2015"
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.iso.org/standard/62085.html
+    pattern: 'ISO 9001:([0-9]{4})'
+    notes: >
+      Standard text is paywalled; only the catalogue edition is public. ISO 9001 has
+      been under revision with a new edition expected — a flag here means the edition
+      changed, and the new text must be bought before the registry can be updated.
+
+  - id: iso/13485
+    name: "ISO 13485:2016"
+    authority: ISO
+    asserted: "ISO 13485:2016"
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.iso.org/standard/59752.html
+    pattern: 'ISO 13485:([0-9]{4})'
+
+  - id: iso/14001
+    name: "ISO 14001:2015"
+    authority: ISO
+    asserted: "ISO 14001:2015"
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.iso.org/standard/60857.html
+    pattern: 'ISO 14001:([0-9]{4})'
+
+  - id: iso/14971
+    name: "ISO 14971:2019"
+    authority: ISO
+    asserted: "ISO 14971:2019"
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.iso.org/standard/72704.html
+    pattern: 'ISO 14971:([0-9]{4})'
+
+  - id: iso/22000
+    name: "ISO 22000:2018"
+    authority: ISO
+    asserted: "ISO 22000:2018"
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.iso.org/standard/65464.html
+    pattern: 'ISO 22000:([0-9]{4})'
+
+  - id: iso/27001
+    name: "ISO/IEC 27001:2022"
+    authority: ISO/IEC
+    asserted: "ISO/IEC 27001:2022"
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.iso.org/standard/27001
+    pattern: 'ISO/IEC 27001:([0-9]{4})'
+    notes: Amendment 1 (2024) added climate-change wording to clauses 4.1 and 4.2.
+
+  - id: iso/45001
+    name: "ISO 45001:2018"
+    authority: ISO
+    asserted: "ISO 45001:2018"
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.iso.org/standard/63787.html
+    pattern: 'ISO 45001:([0-9]{4})'
+
+  - id: iso/50001
+    name: "ISO 50001:2018"
+    authority: ISO
+    asserted: "ISO 50001:2018"
+    asserted_as_of: "2026-05-20"
+    method: regex
+    url: https://www.iso.org/standard/69426.html
+    pattern: 'ISO 50001:([0-9]{4})'
+
+  - id: iatf/16949
+    name: "IATF 16949:2016"
+    authority: IATF
+    asserted: "IATF 16949:2016"
+    asserted_as_of: "2026-05-20"
+    method: manual
+    url: https://www.iatfglobaloversight.org/
+    notes: >
+      Paywalled and distributed through national oversight offices. Sanctioned
+      Interpretations are issued between editions and change conformance in practice;
+      only a human with rulebook access can check these.
+
+  - id: as9100
+    name: AS9100 Rev D
+    authority: SAE / IAQG
+    asserted: AS9100D
+    asserted_as_of: "2026-05-20"
+    method: manual
+    url: https://www.sae.org/standards/content/as9100d/
+    notes: >
+      Rev E has been in development through the IAQG. Paywalled; requires purchase to
+      verify content changes.
+
+  - id: nadcap
+    name: NADCAP
+    authority: PRI / PRI-Network
+    asserted: NADCAP audit criteria (AC series checklists)
+    asserted_as_of: "2026-05-20"
+    method: manual
+    url: https://p-r-i.org/nadcap/
+    notes: >
+      Audit criteria checklists are behind eAuditNet login and revised continuously.
+      No public version marker exists — human review only.
+
+  - id: ipc
+    name: IPC-A-610 / J-STD-001
+    authority: IPC
+    asserted: IPC-A-610 and J-STD-001
+    asserted_as_of: "2026-05-20"
+    method: manual
+    url: https://shop.ipc.org/
+    notes: Paywalled. Revisions land roughly every 3 years; check the shop listing revision letter.
+
+  - id: api/q1
+    name: API Q1 / Q2
+    authority: American Petroleum Institute
+    asserted: API Spec Q1 and Q2
+    asserted_as_of: "2026-05-20"
+    method: manual
+    url: https://www.api.org/products-and-services/standards
+    notes: >
+      API Q1 10th edition and Q2 2nd edition changed structure substantially from
+      earlier editions. Paywalled — confirm which edition our tests encode.
+
+  - id: tisax
+    name: TISAX
+    authority: ENX Association
+    asserted: VDA ISA catalogue
+    asserted_as_of: "2026-05-20"
+    method: hash
+    url: https://portal.enx.com/en-US/TISAX/downloads/
+    notes: VDA ISA is versioned (6.0.x); the catalogue download page carries the version.
